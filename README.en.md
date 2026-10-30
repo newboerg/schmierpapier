@@ -2,6 +2,8 @@
 
 [Deutsch](README.md) · **English** · [Français](README.fr.md)
 
+**Try it now:** [Live demo in your browser](https://htmlpreview.github.io/?https://github.com/newboerg/schmierpapier/blob/main/schmierpapier.html) – no download needed. For offline use, download the HTML file as described below.
+
 **Digital maths paper for people who cannot use ordinary paper in maths lessons.**
 
 Schmierpapier provides a place to calculate, experiment and draw directly in the browser. It is intended particularly for students for whom writing or drawing on paper is impossible or difficult because of motor impairments, involuntary movements or other individual circumstances.

@@ -2,6 +2,8 @@
 
 [Deutsch](README.md) · [English](README.en.md) · **Français**
 
+**Essayer maintenant :** [Démo en ligne dans le navigateur](https://htmlpreview.github.io/?https://github.com/newboerg/schmierpapier/blob/main/schmierpapier.html) – sans téléchargement. Pour une utilisation hors connexion, télécharger le fichier HTML comme indiqué ci-dessous.
+
 **Du papier de calcul numérique pour les personnes qui ne peuvent pas utiliser de papier ordinaire en cours de mathématiques.**
 
 Schmierpapier offre un espace pour calculer, essayer et dessiner directement dans le navigateur. Il s’adresse notamment aux élèves pour qui écrire ou dessiner sur papier est impossible ou difficile en raison de limitations motrices, de mouvements involontaires ou d’autres besoins individuels.
