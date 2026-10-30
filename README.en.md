@@ -83,6 +83,10 @@ The application does not transmit calculations to a server. Changing the languag
 
 The built-in, searchable help contains the full instructions. The tutorial uses a separate practice document and restores your own document afterwards.
 
+## Development
+
+The application deliberately stays in one HTML file. HTML, CSS and JavaScript are formatted for readability, with section comments explaining document structure, coordinates, drawing tools, storage and translations. Embedded fonts remain compact Base64 data. No build step is required. Important changes are reflected in all three READMEs and the affected built-in help texts together.
+
 ## Licence
 
 The application code is licensed under the **GNU General Public License, version 3 (GPL-3.0-only)**. The full licence text is in [LICENSE](LICENSE).

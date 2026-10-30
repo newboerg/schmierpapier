@@ -83,6 +83,10 @@ Rechnungen werden von der Anwendung nicht an einen Server übertragen. Die gewä
 
 Die vollständige Beschreibung steht in der integrierten, durchsuchbaren Hilfe. Das Tutorial nutzt ein separates Übungsdokument und stellt anschließend das eigene Dokument wieder her.
 
+## Entwicklung
+
+Die Anwendung bleibt bewusst in einer einzigen HTML-Datei. HTML, CSS und JavaScript sind lesbar formatiert; Abschnittskommentare erklären Dokumentstruktur, Koordinaten, Zeichenwerkzeuge, Speicherung und Übersetzungen. Die eingebetteten Schriftdateien bleiben kompakte Base64-Daten. Es ist kein Build-Schritt erforderlich. Bei wichtigen Änderungen werden diese README, die englische und französische Fassung sowie die betroffenen Hilfetexte gemeinsam aktualisiert.
+
 ## Lizenz
 
 Der Anwendungscode steht unter der **GNU General Public License, Version 3 (GPL-3.0-only)**. Der vollständige Lizenztext steht in [LICENSE](LICENSE).
