@@ -1,5 +1,7 @@
 # Schmierpapier
 
+**Deutsch** · [English](README.en.md) · [Français](README.fr.md)
+
 **Digitales Rechenpapier für Menschen, die im Mathematikunterricht kein normales Papier benutzen können.**
 
 Schmierpapier bietet einen Platz zum Rechnen, Ausprobieren und Zeichnen direkt im Browser. Es richtet sich insbesondere an Schülerinnen und Schüler, für die das Schreiben oder Zeichnen auf Papier wegen motorischer Einschränkungen, unwillkürlicher Bewegungen oder anderer individueller Voraussetzungen nicht möglich oder schwer zugänglich ist.
