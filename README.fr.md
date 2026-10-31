@@ -2,6 +2,8 @@
 
 [Deutsch](README.md) · [English](README.en.md) · **Français**
 
+Modifications : [Journal des modifications](CHANGELOG.fr.md).
+
 **Essayer maintenant :** [Démo en ligne dans le navigateur](https://htmlpreview.github.io/?https://github.com/newboerg/schmierpapier/blob/main/schmierpapier.html) – sans téléchargement. Pour une utilisation hors connexion, télécharger le fichier HTML comme indiqué ci-dessous.
 
 **Du papier de calcul numérique pour les personnes qui ne peuvent pas utiliser de papier ordinaire en cours de mathématiques.**
@@ -10,9 +12,19 @@ Schmierpapier offre un espace pour calculer, essayer et dessiner directement dan
 
 L’application vise à favoriser le travail autonome en cours de mathématiques : le clavier et la souris permettent d’écrire les calculs dans des cases, de disposer clairement les fractions et de réaliser des constructions géométriques avec des outils numériques. De nombreuses fonctions sont accessibles par des boutons, sans devoir utiliser une combinaison de touches pour chaque action.
 
-Par **M. Neuberg de Tech-IT** · Version **0.3**
+Par **M. Neuberg de Tech-IT** · Version **0.4**
 
 Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l’en-tête de l’application l’ouvre dans un nouvel onglet.
+
+## Nouveautés de la v0.4
+
+- Racines avec une barre prolongeable exactement et menu de comparaison à côté de `=` ; Ctrl/Maj produisent des formes de double hauteur.
+- Lettres grecques par le bouton π et son menu. Maintenir 8/9 ouvre les menus de parenthèses, P les lettres grecques et Entrée les comparaisons.
+- Traits au clavier avec aperçu rouge en pointillés : Gauche+Droite pour l’horizontale, Haut+Bas pour la verticale. La case actuelle reste incluse ; les traits horizontaux commencent en bas.
+- Appuis prolongés pour stylos, exposants/indices, gomme de zone, copie, découpe, pages, affichage et PDF. Les modes actifs pulsent ; Ctrl/Maj affiche immédiatement un aperçu jaune.
+- Entrée reprend à la colonne choisie par navigation ou clic. La détection des coins suit le zoom du papier et du navigateur.
+- Tutoriel révisé avec alternatives souris/clavier et « 3 ≠ π », sans exercices de surligneur ni gomme. Il explique Ctrl+S, PDF avec E, affichage avec D et sortie avec Échap.
+- Signature « Par Benni ♥ Kirstin » en pied de page, avec `&` dans le cœur.
 
 ## Pour commencer
 
@@ -24,7 +36,7 @@ Aucune installation, aucun compte ni serveur n’est nécessaire. L’applicatio
 
 **Conseil matériel :** Un clavier de portable sans pavé numérique complet peut être plus difficile à utiliser si certaines fonctions nécessitent des combinaisons avec Fn. Un clavier complet avec pavé numérique séparé est recommandé ; un clavier externe peut être branché sur le portable.
 
-Le tutoriel présente le pavé numérique à l’écran dès le début ; son utilisation reste ensuite facultative.
+Le tutoriel présente le pavé numérique à l’écran dès le début ; son utilisation reste ensuite facultative. Appuie sur **N** pour passer son ouverture ; ce raccourci concerne uniquement le tutoriel.
 
 Un pavé numérique déplaçable est accessible dans l’en-tête. Il reste au-dessus du papier et conserve le focus dans le champ actif lors des clics ; le reste de la zone de travail reste utilisable.
 
@@ -37,10 +49,11 @@ Un pavé numérique déplaçable est accessible dans l’en-tête. Il reste au-d
 - Un caractère normal par case ; navigation avec les flèches ou la souris.
 - Saisie des chiffres avec les touches numériques du haut ou le pavé numérique, et des lettres avec le clavier.
 - Police manuscrite intégrée et quatre couleurs de stylo : noir, bleu, vert et rouge.
-- Exposants, puissances à plusieurs chiffres, indices et retenues, avec des modes d’écriture persistants.
-- Parenthèses, crochets et accolades, également en double hauteur sur deux cases.
+- Exposants, puissances à plusieurs chiffres, indices et retenues, avec des modes d’écriture persistants. Les modes actifs pulsent ; les animations réduites utilisent un contour fixe.
+- Parenthèses, crochets, accolades et chevrons par boutons principaux et menus, aussi en double hauteur sur deux cases.
+- Racines et signes de comparaison comme `=`, `≠`, `<`, `>`, `≤`, `≥` et `≈`, aussi en double hauteur.
 - Signes égal spéciaux entre deux cases superposées pour les calculs de fractions.
-- Boutons pour les intégrales, les lettres grecques, `&` et `%`.
+- Boutons pour les intégrales, les lettres grecques, `&` et `%`. Le bouton π insère Pi ; sa flèche ou un appui prolongé sur P dans une case ouvre le menu grec. Flèches et Entrée choisissent, Échap ferme ; un appui court sur P écrit toujours p. Ctrl/Maj insèrent un indice/exposant.
 - Signes de calcul utilisant `·` pour la multiplication et `:` pour la division.
 
 ### Dessiner et surligner
@@ -56,7 +69,7 @@ Un pavé numérique déplaçable est accessible dans l’en-tête. Il reste au-d
 ### Outils de géométrie
 
 - **Équerre :** transparente et à l’échelle du papier. Saisir le zéro pour la déplacer, un sommet pour la tourner, et maintenir le bouton droit pour tracer le long de ses bords. Un aperçu rouge pointillé rend le trait courant visible. En vue Double page, l’équerre peut être déplacée directement sur l’autre page.
-- **Compas :** placer le centre, choisir librement le rayon et maintenir le bouton droit pour tracer des cercles ou des arcs. Un arc réalisé en un geste continu peut être effacé en entier. Pendant le choix du rayon, l’équerre peut être affichée au centre : elle tourne avec le pointeur et disparaît lorsque le rayon est confirmé.
+- **Compas :** placer le centre, choisir librement le rayon et maintenir le bouton droit pour tracer des cercles ou des arcs. Un arc réalisé en un geste continu peut être effacé en entier. Pendant le choix du rayon, l’équerre peut être affichée au centre : le bouton de l’équerre pulse pour signaler ce guide. Celui-ci tourne avec le pointeur et disparaît lorsque le rayon est confirmé.
 - **Axes gradués et axes de coordonnées :** tracer horizontalement ou verticalement avec une flèche et des graduations. Lorsque des axes se croisent à angle droit, les graduations s’alignent sur l’origine commune. Les valeurs sont saisies à la main ; aucun nombre n’est inséré automatiquement. Après deux axes tracés, l’application revient à l’outil précédent.
 
 ### Pages et affichage
@@ -65,7 +78,7 @@ Un pavé numérique déplaçable est accessible dans l’en-tête. Il reste au-d
 - Ajouter directement des pages quadrillées ; choisir le papier millimétré avec la petite flèche voisine.
 - Le type de papier est fixé à la création de chaque page. Les deux types peuvent coexister dans un document.
 - Sur papier millimétré, les outils concernés s’alignent tous les 1 mm. Les cases d’écriture restent de 5 mm.
-- Zoom, adaptation automatique à la largeur de la fenêtre et plein écran.
+- Zoom, adaptation automatique à la largeur de la fenêtre et plein écran. Le zoom avant centre la case sélectionnée. Maintenir + ou - change le zoom de dix points de pourcentage ; les appuis courts écrivent toujours les signes.
 - Interface, infobulles, aide et tutoriel en **allemand, anglais et français**. Au premier démarrage, une langue du navigateur est choisie si elle est prise en charge ; un choix manuel est mémorisé dans le navigateur si le stockage est autorisé.
 
 ## Enregistrer et partager
@@ -90,7 +103,7 @@ La demande de consentement utilise la langue préférée prise en charge du navi
 | Saisie | Fonction |
 | --- | --- |
 | Flèches | Se déplacer d’une case |
-| Entrée | Aller au début de la ligne suivante |
+| Entrée | Ligne suivante dans la dernière colonne choisie par navigation ou clic |
 | Entrée du pavé numérique | Écrire `=` |
 | Maj + chiffre | Écrire un chiffre en exposant |
 | Ctrl + chiffre | Écrire un indice ou une retenue |
@@ -99,12 +112,41 @@ La demande de consentement utilise la langue préférée prise en charge du navi
 | Ctrl + Y | Rétablir |
 | Ctrl + S | Télécharger un fichier `.schmier` |
 | F1 | Ouvrir l’aide |
+| Maintenir + / - | Agrandir/réduire de dix points de pourcentage ; le zoom avant centre la case sélectionnée |
+| Maintenir 1–4 | Choisir le stylo : noir, bleu, vert, rouge |
+| Maintenir 8 / 9 | Menu des formes ouvrantes / fermantes |
+| Maintenir P | Menu grec, π présélectionné |
+| Maintenir Entrée | Menu des signes de comparaison |
+| Maintenir Maj seule puis relâcher | Activer/désactiver exposant |
+| Maintenir Ctrl seule puis relâcher | Activer/désactiver indice |
+| Gauche+Droite ensemble | Démarrer/confirmer un trait horizontal |
+| Haut+Bas ensemble | Démarrer/confirmer un trait vertical |
+| Maintenir R | Démarrer une zone de gomme ; maintenir à nouveau pour confirmer |
+| Maintenir C / X | Sélectionner et confirmer la source à copier/couper ; Entrée ou un nouvel appui prolongé colle à destination |
+| Maintenir Page précédente / suivante | Page précédente / suivante |
+| Maintenir Inser | Choix du papier : quadrillé par défaut, ou millimétré |
+| Maintenir Suppr | Supprimer la page après confirmation ; la dernière reste |
+| Maintenir D | Alterner page simple/double |
+| Maintenir E | Exporter toutes les pages en PDF |
+| Échap | Annuler aperçu, sélection ou menu ; quitter le tutoriel |
+
+**Maintenir** signifie environ 0,6 seconde dans une case active, sans touche de modification. Les saisies courtes de chiffres et lettres sont conservées ; Suppr court efface la case. Ctrl/Maj ne bascule le mode qu’au relâchement, sans autre touche ni clic. Ces raccourcis ne concernent pas les noms, recherches ou graduations. Pendant un trait au clavier, les flèches règlent sa longueur et son bord ; Échap annule l’aperçu.
 
 L’aide intégrée, avec recherche, contient les instructions complètes. Le tutoriel utilise un document d’exercice séparé puis restaure le document personnel.
 
+## Tutoriel
+
+Le tutoriel utilise un document d’exercice séparé et préserve ton travail. La ligne 1, colonne 1 est active au départ ; la première cible est la ligne 6, colonne 5. Il présente tôt le pavé numérique déplaçable ; son utilisation reste ensuite facultative.
+
+Il fait pratiquer `(12 + 8) · 3 = 60`, le soulignement, `2/4 = 1/2`, `2¹² = 4096`, `3 ≠ π`, copie, déplacement, affichage, enregistrement et PDF. Surligneurs et gomme restent disponibles dans l’application, mais ne font pas partie des exercices.
+
+Clique sur les cases dorées ou rejoins-les avec les flèches, Tab et Début/Fin. Le tutoriel continue automatiquement à l’arrivée, sans Entrée. Les exercices de copie/déplacement collent aussi automatiquement à la bonne destination ; hors tutoriel, la confirmation manuelle reste nécessaire. Le tutoriel présente les alternatives souris/clavier pour stylos, parenthèses, exposants, traits, copie et déplacement. Les actions incorrectes sont bloquées et expliquées.
+
+L’exercice d’enregistrement accepte Ctrl+S, ou ⌘+S sur Mac. Maintiens E pour exporter le PDF, ou D pour changer l’affichage dans l’exercice correspondant. Les téléchargements contiennent seulement les pages d’exercice. Échap termine le tutoriel et restaure ton document, même depuis l’écran final.
+
 ## Développement
 
-L’application reste volontairement dans un seul fichier HTML. HTML, CSS et JavaScript sont mis en forme pour faciliter la lecture ; des commentaires de section expliquent la structure du document, les coordonnées, les outils, le stockage et les traductions. Les polices intégrées restent des données Base64 compactes. Aucune compilation n’est nécessaire. Les changements importants sont répercutés ensemble dans les trois README et les textes d’aide concernés.
+L’application reste volontairement dans un seul fichier HTML. HTML, CSS et JavaScript sont mis en forme pour faciliter la lecture ; des commentaires de section expliquent la structure du document, les coordonnées, les outils, le stockage et les traductions. Les polices intégrées restent des données Base64 compactes. Aucune compilation n’est nécessaire. Les changements importants sont répercutés ensemble dans les trois README, les trois journaux des modifications et les textes d’aide et de tutoriel concernés.
 
 Le quadrillage à l’écran utilise une couche SVG continue afin que les lignes restent régulières aux différents niveaux de zoom dans Firefox.
 
