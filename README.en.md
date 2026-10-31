@@ -12,6 +12,8 @@ The application supports independent work in maths lessons: use the keyboard and
 
 By **Mr Neuberg from Tech-IT** · Version **0.3**
 
+Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the app header opens it in a new tab.
+
 ## Getting started
 
 1. Download [schmierpapier.html](schmierpapier.html). On GitHub, open the file and choose **“Download raw file”**.

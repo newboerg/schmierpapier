@@ -12,6 +12,8 @@ Die Anwendung soll das eigenständige Arbeiten im Mathematikunterricht unterstü
 
 Von **Hr. Neuberg aus der Tech-IT** · Version **0.3**
 
+Projektwebseite: [schmierpapier.org](https://schmierpapier.org). Das Logo im App-Header öffnet sie in einem neuen Tab.
+
 ## Starten
 
 1. [schmierpapier.html](schmierpapier.html) herunterladen. Auf GitHub die Datei öffnen und **„Download raw file“** auswählen.

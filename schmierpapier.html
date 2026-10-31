@@ -128,7 +128,15 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     .brand {
       font-weight: 750;
       font-size: 21px;
-      letter-spacing: -.7px
+      letter-spacing: -.7px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a.brand:focus-visible {
+      outline: 3px solid #66a88c;
+      outline-offset: 4px;
+      border-radius: 3px;
     }
 
     .brand span {
@@ -716,12 +724,6 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       border: 1px solid #cddacf;
       border-radius: 5px;
       padding: 2px 5px;
-      white-space: nowrap
-    }
-
-    .credit {
-      font-size: 11px;
-      color: #63776a;
       white-space: nowrap
     }
 
@@ -1796,8 +1798,29 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       z-index: 1
     }
 
+    /* Safari/macOS: native Menulist-Optik kann den linken Icon-Abstand ignorieren. */
     header .view-picker #pageView {
-      padding-left: 39px
+      -webkit-appearance: none;
+      appearance: none;
+      display: block;
+      min-width: 150px;
+      padding-left: 39px;
+      padding-right: 28px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    header .view-picker::after {
+      content: "";
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-70%) rotate(45deg);
+      pointer-events: none;
     }
 
     .view-picker .view-single {
@@ -1896,9 +1919,8 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     <header>
       <div class="top">
         <div class="brand-block">
-          <div class="brand">▦ <span>Schmier</span>papier</div>
+          <a class="brand" href="https://schmierpapier.org" target="_blank" rel="noopener noreferrer" title="schmierpapier.org">▦ <span>Schmier</span>papier</a>
           <span class="version">v 0.3</span>
-          <span class="credit">von Hr. Neuberg aus der Tech-IT</span>
         </div>
         <div class="paging">
           <button id="prev" aria-label="Vorherige Seite" title="Vorheriges Blatt">Zurück</button>
@@ -3034,7 +3056,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     const HELP_TRANSLATIONS = {
       "en": [{
         "title": "Quick start and paper",
-        "html": "<p>Schmierpapier is an offline A4 maths notebook. Squared paper has blue 5 mm cells, red margins and an empty one-cell border. Row 1, column 1 starts inside that border. Click a cell, type letters or numbers and continue with the arrow keys. One normal character belongs to each cell; typing replaces an existing character and moves right.</p><p>Both the top number row and the numeric keypad enter digits. Use the parenthesis buttons for brackets. “＋ Page” adds squared paper immediately. Its small dropdown arrow offers orange millimetre paper, with 1 mm drawing snap and the same 5 mm writing cells.</p><p>Save an editable .schmier file or export all pages as PDF. Fonts, help and tutorial are embedded; no network connection is needed.</p>",
+        "html": "<p>Schmierpapier is an offline A4 maths notebook. Squared paper has blue 5 mm cells, red margins and an empty one-cell border. Row 1, column 1 starts inside that border. Click a cell, type letters or numbers and continue with the arrow keys. One normal character belongs to each cell; typing replaces an existing character and moves right.</p><p>Both the top number row and the numeric keypad enter digits. Use the parenthesis buttons for brackets. “＋ Page” adds squared paper immediately. Its small dropdown arrow offers orange millimetre paper, with 1 mm drawing snap and the same 5 mm writing cells.</p><p>Save an editable .schmier file or export all pages as PDF. Fonts, help and tutorial are embedded; no network connection is needed.</p><p>The Schmierpapier logo in the header opens <a href=\"https://schmierpapier.org\" target=\"_blank\" rel=\"noopener noreferrer\">schmierpapier.org</a> in a new tab, keeping your calculation open.</p>",
         "keywords": ""
       }, {
         "title": "Numbers, symbols and operators",
@@ -3131,7 +3153,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       }],
       "fr": [{
         "title": "Premiers pas et papier",
-        "html": "<p>Schmierpapier est un cahier de calcul A4 utilisable hors connexion. Le papier quadrillé comporte des cases bleues de 5 mm, des marges rouges et un cadre vide d’une case. La ligne 1, colonne 1 commence à l’intérieur de ce cadre. Clique sur une case, saisis des lettres ou chiffres, puis déplace-toi avec les flèches. Chaque case contient un caractère normal ; une nouvelle saisie remplace l’ancien et avance à droite.</p><p>Les touches numériques du haut et le pavé numérique écrivent des chiffres. Utilise les boutons pour les parenthèses. « ＋ Page » ajoute directement du papier quadrillé. Sa petite flèche propose du papier millimétré orange : les outils s’alignent tous les 1 mm, mais l’écriture garde les cases de 5 mm.</p><p>Enregistre un fichier .schmier modifiable ou exporte toutes les pages en PDF. Polices, aide et tutoriel sont intégrés ; aucune connexion n’est nécessaire.</p>",
+        "html": "<p>Schmierpapier est un cahier de calcul A4 utilisable hors connexion. Le papier quadrillé comporte des cases bleues de 5 mm, des marges rouges et un cadre vide d’une case. La ligne 1, colonne 1 commence à l’intérieur de ce cadre. Clique sur une case, saisis des lettres ou chiffres, puis déplace-toi avec les flèches. Chaque case contient un caractère normal ; une nouvelle saisie remplace l’ancien et avance à droite.</p><p>Les touches numériques du haut et le pavé numérique écrivent des chiffres. Utilise les boutons pour les parenthèses. « ＋ Page » ajoute directement du papier quadrillé. Sa petite flèche propose du papier millimétré orange : les outils s’alignent tous les 1 mm, mais l’écriture garde les cases de 5 mm.</p><p>Enregistre un fichier .schmier modifiable ou exporte toutes les pages en PDF. Polices, aide et tutoriel sont intégrés ; aucune connexion n’est nécessaire.</p><p>Le logo Schmierpapier dans l’en-tête ouvre <a href=\"https://schmierpapier.org\" target=\"_blank\" rel=\"noopener noreferrer\">schmierpapier.org</a> dans un nouvel onglet, sans fermer ta page de calcul.</p>",
         "keywords": ""
       }, {
         "title": "Chiffres, symboles et opérations",
@@ -7888,7 +7910,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     const HELP_ARTICLES = [{
       "title": "Schnellstart und Papier",
       "keywords": "anfang rechnen kästchen raster cursor maus handschrift offline",
-      "html": "<p>Schmierpapier startet als kariertes DIN-A4-Rechenblatt mit 5-mm-Kästchen, roten Randlinien und einem freien Kästchenrahmen. <strong>Zeile 1, Spalte 1 liegt innerhalb des Rahmens.</strong> Die aktuelle Position steht unter dem Papier.</p><p>Der kleine Pfeil rechts im Button <strong>＋ Seite</strong> bietet oranges Millimeterpapier an; der Hauptbutton fügt direkt Karopapier hinzu. Auf Millimeterpapier rasten die Zeichenwerkzeuge bei 1 mm ein; die Schreibkästchen bleiben 5 mm groß.</p><ol><li>Kästchen mit links anklicken.</li><li>Zahlen am <strong>Nummernblock</strong> oder der oberen Zahlenreihe und Buchstaben über die normalen Buchstabentasten schreiben.</li><li>Nach einer normalen Eingabe springt die Auswahl ein Kästchen nach rechts.</li><li>Mit den Pfeiltasten oder per Klick weiterbewegen.</li><li>Als <strong>.schmier</strong> sichern oder als <strong>PDF</strong> ausgeben.</li></ol><p>Pro Kästchen steht ein normales Zeichen. Ein vorhandenes Zeichen wird beim Schreiben ersetzt. Hochzahlen, Indizes und besondere doppelhohe Zeichen sind zusätzliche Inhalte. Die Handschrift und Symbolschrift sind in der HTML-Datei eingebettet; eine Internetverbindung ist nicht erforderlich.</p>"
+      "html": "<p>Schmierpapier startet als kariertes DIN-A4-Rechenblatt mit 5-mm-Kästchen, roten Randlinien und einem freien Kästchenrahmen. <strong>Zeile 1, Spalte 1 liegt innerhalb des Rahmens.</strong> Die aktuelle Position steht unter dem Papier.</p><p>Der kleine Pfeil rechts im Button <strong>＋ Seite</strong> bietet oranges Millimeterpapier an; der Hauptbutton fügt direkt Karopapier hinzu. Auf Millimeterpapier rasten die Zeichenwerkzeuge bei 1 mm ein; die Schreibkästchen bleiben 5 mm groß.</p><ol><li>Kästchen mit links anklicken.</li><li>Zahlen am <strong>Nummernblock</strong> oder der oberen Zahlenreihe und Buchstaben über die normalen Buchstabentasten schreiben.</li><li>Nach einer normalen Eingabe springt die Auswahl ein Kästchen nach rechts.</li><li>Mit den Pfeiltasten oder per Klick weiterbewegen.</li><li>Als <strong>.schmier</strong> sichern oder als <strong>PDF</strong> ausgeben.</li></ol><p>Pro Kästchen steht ein normales Zeichen. Ein vorhandenes Zeichen wird beim Schreiben ersetzt. Hochzahlen, Indizes und besondere doppelhohe Zeichen sind zusätzliche Inhalte. Die Handschrift und Symbolschrift sind in der HTML-Datei eingebettet; eine Internetverbindung ist nicht erforderlich.</p><p>Das Schmierpapier-Logo im Kopf öffnet <a href=\"https://schmierpapier.org\" target=\"_blank\" rel=\"noopener noreferrer\">schmierpapier.org</a> in einem neuen Tab. Dein Rechenblatt bleibt dabei geöffnet.</p>"
     }, {
       "title": "Zahlen, Sonderzeichen und Rechenzeichen",
       "keywords": "tastatur keyboard numpad zahlenreihe geteilt mal klammer stern doppelpunkt punkt",

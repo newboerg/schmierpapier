@@ -12,6 +12,8 @@ L’application vise à favoriser le travail autonome en cours de mathématiques
 
 Par **M. Neuberg de Tech-IT** · Version **0.3**
 
+Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l’en-tête de l’application l’ouvre dans un nouvel onglet.
+
 ## Pour commencer
 
 1. Télécharger [schmierpapier.html](schmierpapier.html). Sur GitHub, ouvrir le fichier et choisir **« Download raw file »**.
