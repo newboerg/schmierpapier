@@ -1913,7 +1913,19 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         box-shadow: 0 0 16px #498fe538, 0 5px 28px #30453625;
       }
     }
-  </style>
+
+    /* Verschiebbarer, nicht-modaler Bildschirm-Nummernblock. */
+    .virtual-keypad { position: fixed; z-index: 60; width: 248px; max-width: calc(100vw - 16px); background: #fff; border: 1px solid #b8c6d8; border-radius: 12px; box-shadow: 0 8px 32px #162f5240; }
+    .virtual-keypad[hidden] { display: none; }
+    .keypad-heading { display: flex; align-items: center; padding: 5px; border-bottom: 1px solid #e1e7ef; }
+    .keypad-drag { flex: 1; padding: 8px; cursor: grab; touch-action: none; user-select: none; font-weight: 600; }
+    .keypad-drag:active { cursor: grabbing; }
+    #keypadClose { width: 30px; height: 30px; padding: 0; }
+    .keypad-keys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding: 10px; }
+    .keypad-keys button { height: 44px; min-width: 0; padding: 0; font-size: 19px; touch-action: manipulation; }
+    .keypad-wide { grid-column: span 2; }
+    @media print { #virtualKeypad { display: none !important; } }
+    </style>
   </head>
   <body>
     <header>
@@ -1983,7 +1995,8 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
               <span>Drucken</span>
             </button>
             <button id="storageConsentOpen" title="Browserspeicherung prüfen oder ändern" aria-label="Browserspeicherung"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"></path><path d="m8 12 3 3 5-6"></path></svg></button>
-            <button id="fullscreen" title="Vollbild einschalten" aria-label="Vollbild einschalten" aria-pressed="false">
+            <button id="keypadToggle" type="button" title="Bildschirm-Nummernblock ein-/ausblenden" aria-label="Bildschirm-Nummernblock ein-/ausblenden" aria-controls="virtualKeypad" aria-expanded="false" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="2" width="18" height="20" rx="3"/><path d="M7 7h2m2 0h2m2 0h2M7 12h2m2 0h2m2 0h2M7 17h2m2 0h2m2 0h2"/></svg></button>
+          <button id="fullscreen" title="Vollbild einschalten" aria-label="Vollbild einschalten" aria-pressed="false">
               <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                 <path data-fullscreen-icon d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"></path>
               </svg>
@@ -2205,6 +2218,14 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         <span id="position"></span>
       </div>
     </main>
+
+    <section id="virtualKeypad" class="virtual-keypad" role="region" aria-label="Bildschirm-Nummernblock" hidden>
+      <div class="keypad-heading">
+        <div id="keypadDrag" class="keypad-drag" tabindex="0" role="button" title="Nummernblock verschieben (Pfeiltasten: 10 Pixel)" aria-label="Nummernblock verschieben (Pfeiltasten: 10 Pixel)">Nummernblock</div>
+        <button id="keypadClose" type="button" title="Nummernblock schließen" aria-label="Nummernblock schließen">×</button>
+      </div>
+      <div id="keypadKeys" class="keypad-keys"></div>
+    </section>
     <dialog id="storageConsentDialog" aria-labelledby="storageConsentTitle"><h2 id="storageConsentTitle">Im Browser speichern?</h2><p>Nur mit deiner Zustimmung speichern wir Dokumente und Einstellungen (Sprache, Seitenansicht und Zoom) lokal in diesem Browser. Auch deine Zustimmung wird dort gemerkt. Es werden keine Cookies gesetzt und keine Daten von der Anwendung an einen Server gesendet.</p><p>Ohne Zustimmung bleibt alles nur bis zum Schließen der Seite im Arbeitsspeicher. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Eine Ablehnung wird nicht gespeichert; beim nächsten Start fragen wir erneut.</p><p>Du kannst weiterhin selbst .schmier- oder PDF-Dateien herunterladen. Über den Speicher-Button im Kopf lässt sich die Entscheidung jederzeit ändern.</p><div class="storage-consent-actions"><button id="storageDecline">Nicht speichern</button><button id="storageAccept" class="primary">Zustimmen</button></div></dialog>
     <dialog id="helpDialog" aria-labelledby="helpTitle">
       <div class="help-shell">
@@ -2619,9 +2640,9 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         "Clique sur (. Les parenthèses regroupent 12 + 8 pour effectuer cette addition en premier."
       ],
       "Die erste Zahl": ["The first number", "Le premier nombre"],
-      "Tippe 12 mit der oberen Zahlenreihe oder dem Nummernblock. Jede Ziffer bekommt ein eigenes Kästchen.": [
-        "Type 12 using the top number row or the numeric keypad. Each digit gets its own cell.",
-        "Tape 12 avec les chiffres du haut ou le pavé numérique. Chaque chiffre occupe une case."
+      "Tippe 12 mit der oberen Zahlenreihe, dem Nummernblock oder dem Bildschirm-Nummernblock. Jede Ziffer bekommt ein eigenes Kästchen.": [
+        "Type 12 using the top number row, the numeric keypad or the on-screen numeric keypad. Each digit gets its own cell.",
+        "Tape 12 avec les chiffres du haut, le pavé numérique ou le pavé numérique à l’écran. Chaque chiffre occupe une case."
       ],
       "Plus schreiben": ["Write plus", "Écrire plus"],
       "Drücke die Plus-Taste +. Sie steht zwischen den beiden Zahlen.": [
@@ -3052,6 +3073,21 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         "Browser storage allowed",
         "Stockage du navigateur autorisé"
       ]
+    ,
+      "Bildschirm-Nummernblock": ["On-screen numeric keypad", "Pavé numérique à l’écran"],
+      "Bildschirm-Nummernblock ein-/ausblenden": ["Show/hide on-screen numeric keypad", "Afficher/masquer le pavé numérique"],
+      "Nummernblock": ["Numeric keypad", "Pavé numérique"],
+      "Nummernblock verschieben (Pfeiltasten: 10 Pixel)": ["Move numeric keypad (arrow keys: 10 pixels)", "Déplacer le pavé numérique (flèches : 10 pixels)"],
+      "Nummernblock schließen": ["Close numeric keypad", "Fermer le pavé numérique"],
+      "Letztes Zeichen löschen": ["Backspace", "Effacer le caractère précédent"],
+      "Zeichen löschen": ["Delete character", "Supprimer le caractère"],
+      "Nach links": ["Move left", "Vers la gauche"],
+      "Nach rechts": ["Move right", "Vers la droite"],
+      "Nach oben": ["Move up", "Vers le haut"],
+      "Nach unten": ["Move down", "Vers le bas"],
+      "Dezimaltrennzeichen": ["Decimal separator", "Séparateur décimal"],
+      "Gleichzeichen / Nummernblock-Enter": ["Equals / numeric keypad Enter", "Égal / Entrée du pavé numérique"],
+      "Entf": ["Del", "Suppr"]
     };
     const HELP_TRANSLATIONS = {
       "en": [{
@@ -3694,6 +3730,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         document.getElementById('helpSearch').value = '';
         renderHelp()
       }
+      updateKeypadLanguage();
       localiseInterface();
     }
 
@@ -6175,7 +6212,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     }
     // Clicking outside ends annotation; values already entered are preserved.
     window.addEventListener('pointerdown', e => {
-      if (numberLabelSession && !e.target.closest?.('.axis-label-editor')) finishNumberLabels()
+      if (numberLabelSession && !e.target.closest?.('.axis-label-editor,#virtualKeypad,#keypadToggle')) finishNumberLabels()
     }, true);
     $('paper').addEventListener('click', e => {
       const label = e.target.closest?.('.numberline-label');
@@ -7314,7 +7351,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
           'Klicke auf (. Wir klammern zuerst die Addition 12 + 8 ein, damit klar ist, was zuerst gerechnet wird.',
           () => doc.pages[0][calc] === '('),
         typing('Die erste Zahl',
-          'Tippe 12 mit der oberen Zahlenreihe oder dem Nummernblock. Jede Ziffer bekommt ein eigenes Kästchen.',
+          'Tippe 12 mit der oberen Zahlenreihe, dem Nummernblock oder dem Bildschirm-Nummernblock. Jede Ziffer bekommt ein eigenes Kästchen.',
           '12', () => value(calc + 1, 2) === '12'),
         typing('Plus schreiben', 'Drücke die Plus-Taste +. Sie steht zwischen den beiden Zahlen.', '+', () =>
           doc.pages[0][calc + 3] === '+'),
@@ -7780,7 +7817,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
 
     function tutorialGate(e) {
       if (!tutorial) return;
-      if (e.target.closest?.('#tutorialCoach,.language-picker,#storageConsentOpen,#storageConsentDialog')) return;
+      if (e.target.closest?.('#tutorialCoach,.language-picker,#storageConsentOpen,#storageConsentDialog,#virtualKeypad,#keypadToggle')) return;
       if (e.type === 'keydown' && e.key === 'Escape') {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -8027,6 +8064,162 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     HELP_ARTICLES.push({"title": "Browserspeicherung: Zustimmung und Ablehnung", "html": "<p>Beim ersten Start fragt die Anwendung, ob sie lokal im Browser speichern darf. Sie setzt keine Cookies. Mit <strong>Zustimmen</strong> dürfen Dokument, Sprache, Seitenansicht, Zoom und die Zustimmung selbst in localStorage gespeichert werden. Diese Daten werden von der Anwendung nicht an einen Server übertragen.</p><p><strong>Nicht speichern</strong> erlaubt keine dauerhafte Browserspeicherung, auch nicht für Sprache, Ansicht oder die Ablehnung selbst. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Das offene Dokument bleibt im Arbeitsspeicher bis zum Schließen oder Neuladen der Seite. Beim nächsten Start erscheint die Frage erneut. Manuell angeforderte .schmier- und PDF-Downloads sowie Drucken bleiben möglich.</p><p>Über den <strong>Speicher-Button mit Schild im Kopf</strong> kannst du die Frage erneut öffnen und die Entscheidung ändern. Ein späteres Ablehnen löscht die gespeicherten Anwendungsdaten und stoppt weitere automatische Sicherungen, ohne das offene Dokument zu leeren. Daten anderer Anwendungen werden nicht angefasst.</p><p>Bei gesperrtem Browserspeicher funktioniert die Anwendung weiter für die aktuelle Sitzung. Eine .schmier-Datei bleibt die unabhängige Sicherungsmöglichkeit. Die Speicherabfrage ist in allen 24 EU-Amtssprachen verfügbar und richtet sich unabhängig von der Anwendungssprache nach den bevorzugten Browsersprachen. Für andere Browsersprachen wird Englisch verwendet. Der Speicher-Button folgt weiterhin der gewählten Anwendungssprache.</p>", "keywords": "cookie cookies localstorage consent zustimmung ablehnen speichern privacy stockage accord refus speichern datenschutz"});
     HELP_TRANSLATIONS.en.push({"title": "Browser storage: consent and refusal", "html": "<p>At first launch, the app asks whether it may save locally in the browser. It sets no cookies. <strong>Allow storage</strong> permits saving the document, language, page view, zoom and consent itself in localStorage. The application does not send these data to a server.</p><p><strong>Do not save</strong> disables all persistent browser storage, including language, view and the refusal itself. Existing browser data belonging to this app is deleted. The open document stays in memory until the page is closed or reloaded. The question appears again next time. Explicitly requested .schmier and PDF downloads and printing still work.</p><p>The <strong>shield-shaped storage button in the header</strong> reopens the question. Refusing later deletes stored app data and stops future autosaves without clearing the open document. Other applications’ data is untouched.</p><p>If browser storage is blocked, the app still works for the current session. A .schmier download remains an independent backup. The storage prompt supports all 24 official EU languages and follows browser language preferences independently of the app language, with English as fallback. The header button follows the selected app language.</p>", "keywords": "cookie cookies localstorage consent zustimmung ablehnen speichern privacy stockage accord refus speichern datenschutz"});
     HELP_TRANSLATIONS.fr.push({"title": "Stockage du navigateur : accord et refus", "html": "<p>Au premier démarrage, l’application demande si elle peut enregistrer localement dans le navigateur. Elle ne crée aucun cookie. <strong>Autoriser</strong> permet d’enregistrer le document, la langue, l’affichage, le zoom et l’accord lui-même dans localStorage. Ces données ne sont pas envoyées à un serveur par l’application.</p><p><strong>Ne pas enregistrer</strong> désactive tout stockage persistant, y compris la langue, l’affichage et le refus lui-même. Les anciennes données de cette application sont supprimées du navigateur. Le document ouvert reste en mémoire jusqu’à la fermeture ou au rechargement. La question revient au prochain démarrage. Les téléchargements .schmier et PDF demandés explicitement ainsi que l’impression restent possibles.</p><p>Le <strong>bouton de stockage en forme de bouclier dans l’en-tête</strong> permet de revoir la question. Refuser ensuite supprime les données enregistrées et arrête les sauvegardes automatiques, sans vider le document ouvert. Les données des autres applications restent intactes.</p><p>Si le stockage est bloqué, l’application fonctionne pour la session courante. Un téléchargement .schmier reste une sauvegarde indépendante. La demande de consentement est disponible dans les 24 langues officielles de l’UE et suit les préférences linguistiques du navigateur indépendamment de la langue de l’application, avec l’anglais par défaut. Le bouton de l’en-tête suit la langue de l’application.</p>", "keywords": "cookie cookies localstorage consent zustimmung ablehnen speichern privacy stockage accord refus speichern datenschutz"});
+
+    /* Nicht-modaler Nummernblock: Pointer-Eingaben verschieben den Fokus nicht.
+     * Die vorhandenen Tastaturhandler bleiben für Kästchen und Achsenbeschriftungen zuständig.
+     * Sichtbarkeit und Fensterposition gelten nur für diese Sitzung.
+     */
+    let keypadEditingTarget = null;
+    let keypadDrag = null;
+    const keypadKeys = [
+      ['⌫', 'Backspace', 'Backspace', 'Letztes Zeichen löschen'],
+      ['Entf', 'Delete', 'Delete', 'Zeichen löschen'],
+      ['←', 'ArrowLeft', 'ArrowLeft', 'Nach links'],
+      ['→', 'ArrowRight', 'ArrowRight', 'Nach rechts'],
+      ['7', '7', 'Numpad7'], ['8', '8', 'Numpad8'], ['9', '9', 'Numpad9'], [':', '/', 'NumpadDivide'],
+      ['4', '4', 'Numpad4'], ['5', '5', 'Numpad5'], ['6', '6', 'Numpad6'], ['·', '*', 'NumpadMultiply'],
+      ['1', '1', 'Numpad1'], ['2', '2', 'Numpad2'], ['3', '3', 'Numpad3'], ['−', '-', 'NumpadSubtract'],
+      ['0', '0', 'Numpad0'], [',', ',', 'NumpadDecimal', 'Dezimaltrennzeichen'],
+      ['=', 'Enter', 'NumpadEnter', 'Gleichzeichen / Nummernblock-Enter'], ['+', '+', 'NumpadAdd'],
+      ['↑', 'ArrowUp', 'ArrowUp', 'Nach oben'], ['↓', 'ArrowDown', 'ArrowDown', 'Nach unten']
+    ];
+
+    function keypadTarget() {
+      const usable = node => node instanceof HTMLInputElement && node.isConnected &&
+        !node.disabled && !node.readOnly && ['text', 'search', 'tel'].includes(node.type);
+      if (usable(document.activeElement)) return document.activeElement;
+      if (usable(keypadEditingTarget)) return keypadEditingTarget;
+      return $('editor');
+    }
+
+    function positionKeypad(left, top) {
+      const panel = $('virtualKeypad');
+      const bounds = panel.getBoundingClientRect();
+      panel.style.left = Math.max(8, Math.min(Math.max(8, innerWidth - bounds.width - 8), left)) + 'px';
+      panel.style.top = Math.max(8, Math.min(Math.max(8, innerHeight - bounds.height - 8), top)) + 'px';
+    }
+
+    function toggleKeypad(force) {
+      const panel = $('virtualKeypad');
+      const show = typeof force === 'boolean' ? force : panel.hidden;
+      panel.hidden = !show;
+      $('keypadToggle').setAttribute('aria-expanded', String(show));
+      $('keypadToggle').setAttribute('aria-pressed', String(show));
+      if (show) {
+        const left = panel.style.left ? parseFloat(panel.style.left) : innerWidth - panel.offsetWidth - 20;
+        const top = panel.style.top ? parseFloat(panel.style.top) : document.querySelector('header').getBoundingClientRect().bottom + 12;
+        positionKeypad(left, top);
+      }
+    }
+
+    function pressKeypadKey(code, modifiers = {}) {
+      const definition = keypadKeys.find(item => item[2] === code);
+      if (!definition) return;
+      const target = keypadTarget();
+      const key = code === 'NumpadDecimal' ? (language === 'en' ? '.' : ',') : definition[1];
+      const event = new KeyboardEvent('keydown', {
+        key, code, location: code.startsWith('Numpad') ? 3 : 0,
+        bubbles: true, cancelable: true,
+        shiftKey: !!modifiers.shiftKey, ctrlKey: !!modifiers.ctrlKey,
+        altKey: !!modifiers.altKey, metaKey: !!modifiers.metaKey
+      });
+      // Synthetic keydown does not perform the browser's native text editing default.
+      if (!target.dispatchEvent(event)) return;
+      if (target === $('editor')) {
+        if (key.length === 1 && !event.ctrlKey && !event.altKey && !event.metaKey) write(key);
+        return;
+      }
+      if (event.ctrlKey || event.altKey || event.metaKey) return;
+      const start = target.selectionStart ?? target.value.length;
+      const end = target.selectionEnd ?? start;
+      if (code.startsWith('Arrow')) {
+        const next = code === 'ArrowLeft' ? Math.max(0, start - 1) : code === 'ArrowRight'
+          ? Math.min(target.value.length, end + 1) : code === 'ArrowUp' ? 0 : target.value.length;
+        target.setSelectionRange(next, next);
+        return;
+      }
+      if (key.length !== 1 && !['Backspace', 'Delete'].includes(code)) return;
+      let from = start, to = end, text = key.length === 1 ? key : '';
+      if (from === to && code === 'Backspace') from = Math.max(0, from - 1);
+      if (from === to && code === 'Delete') to = Math.min(target.value.length, to + 1);
+      if (target.maxLength >= 0) text = text.slice(0, Math.max(0, target.maxLength - target.value.length + to - from));
+      target.setRangeText(text, from, to, 'end');
+      target.dispatchEvent(new InputEvent('input', {
+        bubbles: true, inputType: text ? 'insertText' : code === 'Backspace' ? 'deleteContentBackward' : 'deleteContentForward',
+        data: text || null
+      }));
+    }
+
+    function updateKeypadLanguage() {
+      const decimal = $('virtualKeypad').querySelector('[data-keypad-code="NumpadDecimal"]');
+      if (decimal) decimal.textContent = language === 'en' ? '.' : ',';
+    }
+
+    function initialiseKeypad() {
+      const panel = $('virtualKeypad');
+      for (const [label, key, code, title] of keypadKeys) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.keypadCode = code;
+        button.textContent = label;
+        button.title = title || label;
+        if (title) button.setAttribute('aria-label', title);
+        if (code === 'Delete') button.title = 'Zeichen löschen';
+        if (['ArrowUp', 'ArrowDown'].includes(code)) button.className = 'keypad-wide';
+        button.onclick = event => pressKeypadKey(code, event);
+        $('keypadKeys').append(button);
+      }
+      updateKeypadLanguage();
+      // Prevent pointer focus changes before the button's click handler runs.
+      for (const node of [panel, $('keypadToggle')]) {
+        node.addEventListener('pointerdown', event => {
+          if (event.target.closest('button')) event.preventDefault();
+        }, { passive: false });
+      }
+      document.addEventListener('focusin', event => {
+        if (event.target instanceof HTMLInputElement && !panel.contains(event.target)) {
+          if (['text', 'search', 'tel'].includes(event.target.type)) keypadEditingTarget = event.target;
+        }
+      });
+      $('keypadToggle').onclick = () => toggleKeypad();
+      $('keypadClose').onclick = () => toggleKeypad(false);
+      const handle = $('keypadDrag');
+      handle.addEventListener('pointerdown', event => {
+        if (event.button !== 0 || event.target.closest('button')) return;
+        event.preventDefault();
+        const bounds = panel.getBoundingClientRect();
+        keypadDrag = { id: event.pointerId, x: event.clientX - bounds.left, y: event.clientY - bounds.top };
+        handle.setPointerCapture(event.pointerId);
+      });
+      window.addEventListener('pointermove', event => {
+        if (keypadDrag?.id !== event.pointerId) return;
+        positionKeypad(event.clientX - keypadDrag.x, event.clientY - keypadDrag.y);
+      }, true);
+      const finishDrag = event => {
+        if (keypadDrag?.id !== event.pointerId) return;
+        keypadDrag = null;
+        if (handle.hasPointerCapture(event.pointerId)) handle.releasePointerCapture(event.pointerId);
+      };
+      for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) window.addEventListener(type, finishDrag, true);
+      handle.addEventListener('keydown', event => {
+        if (event.target !== handle || !['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
+        event.preventDefault();
+        const bounds = panel.getBoundingClientRect();
+        positionKeypad(bounds.left + (event.key === 'ArrowLeft' ? -10 : event.key === 'ArrowRight' ? 10 : 0),
+          bounds.top + (event.key === 'ArrowUp' ? -10 : event.key === 'ArrowDown' ? 10 : 0));
+      });
+      window.addEventListener('resize', () => {
+        if (!panel.hidden) {
+          const bounds = panel.getBoundingClientRect();
+          positionKeypad(bounds.left, bounds.top);
+        }
+      });
+      localiseInterface();
+    }
+
+    HELP_ARTICLES.push({"title": "Bildschirm-Nummernblock", "html": "<p>Der Nummernblock-Button im Kopf öffnet ein verschiebbares Fenster über der Arbeitsfläche. Ziehe die Titelleiste an eine freie Stelle; mit fokussierter Titelleiste verschieben die Pfeiltasten das Fenster um 10 Pixel. Erneuter Klick auf den Button oder × schließt es.</p><p>Beim Anklicken der Tasten bleibt der Eingabefokus im zuletzt aktiven Kästchen, Dokumentnamen oder Achsen-Beschriftungsfeld. Die restliche Arbeitsfläche bleibt bedienbar. Zahlen, Rechenzeichen, Dezimaltrennzeichen, Löschen und Pfeiltasten funktionieren wie ihre Tastaturgegenstücke. = entspricht Nummernblock-Enter: im Kästchen schreibt es ein Gleichzeichen, bei Achsenbeschriftungen geht es weiter. Strg/Shift beim Klick und die Hoch-/Tiefstellen-Modi funktionieren wie bei der Tastatur.</p><p>Das Fenster bleibt über dem Papier, wird aber weder gedruckt noch exportiert. Position und Sichtbarkeit werden nur für die aktuelle Sitzung gehalten.</p>", "keywords": "keypad numpad bildschirm nummernblock clavier pavé focus"});
+    HELP_TRANSLATIONS.en.push({"title": "On-screen numeric keypad", "html": "<p>The keypad button in the header opens a floating window above the workspace. Drag its title bar to move it; when the title bar has keyboard focus, arrow keys move it by 10 pixels. Click the button again or × to close it.</p><p>Clicking keys keeps input focus in the last active cell, document name or axis label field. The workspace remains usable. Digits, operators, decimal separator, deletion and arrows work like keyboard keys. = acts as numeric keypad Enter: it writes an equals sign in a cell and advances axis labels. Ctrl/Shift while clicking and superscript/subscript modes work as on the keyboard.</p><p>The window stays above the paper and is excluded from printing and exports. Its position and visibility last only for the current session.</p>", "keywords": "keypad numpad bildschirm nummernblock clavier pavé focus"});
+    HELP_TRANSLATIONS.fr.push({"title": "Pavé numérique à l’écran", "html": "<p>Le bouton du pavé numérique dans l’en-tête ouvre une fenêtre flottante au-dessus de la zone de travail. Déplace-la en faisant glisser sa barre de titre ; lorsque celle-ci a le focus clavier, les flèches la déplacent de 10 pixels. Clique à nouveau sur le bouton ou sur × pour fermer.</p><p>Les clics sur les touches conservent le focus dans la dernière case active, le nom du document ou le champ de graduation. Le reste de la zone de travail reste utilisable. Chiffres, opérateurs, séparateur décimal, suppression et flèches fonctionnent comme au clavier. = correspond à Entrée du pavé numérique : signe égal dans une case, graduation suivante dans un champ. Ctrl/Maj pendant le clic et les modes exposant/indice fonctionnent comme au clavier.</p><p>La fenêtre reste au-dessus du papier et ne figure ni dans les impressions ni dans les exports. Sa position et sa visibilité sont conservées uniquement pour la session courante.</p>", "keywords": "keypad numpad bildschirm nummernblock clavier pavé focus"});
 
     let helpReturnFocus = null;
     const helpPlainText = article => {
@@ -8403,6 +8596,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     }
     render();
     initialiseLanguage();
+    initialiseKeypad();
     window.addEventListener('languagechange', renderStorageConsent);
     window.addEventListener('load', renderStorageConsent);
     window.addEventListener('focus', () => {

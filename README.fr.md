@@ -22,6 +22,10 @@ Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l�
 
 Aucune installation, aucun compte ni serveur n’est nécessaire. L’application tient dans un seul fichier HTML. JavaScript, polices, traductions, aide et tutoriel sont intégrés ; tout fonctionne hors connexion.
 
+**Conseil matériel :** Un clavier de portable sans pavé numérique complet peut être plus difficile à utiliser si certaines fonctions nécessitent des combinaisons avec Fn. Un clavier complet avec pavé numérique séparé est recommandé ; un clavier externe peut être branché sur le portable.
+
+Un pavé numérique déplaçable est accessible dans l’en-tête. Il reste au-dessus du papier et conserve le focus dans le champ actif lors des clics ; le reste de la zone de travail reste utilisable.
+
 ## Les possibilités de Schmierpapier
 
 ### Calculer dans des cases

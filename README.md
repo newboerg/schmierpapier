@@ -22,6 +22,10 @@ Projektwebseite: [schmierpapier.org](https://schmierpapier.org). Das Logo im App
 
 Eine Installation, ein Benutzerkonto oder ein Server sind nicht erforderlich. Die Anwendung besteht aus einer einzigen HTML-Datei. JavaScript, Schriften, Übersetzungen, Hilfe und Tutorial sind eingebettet; die Anwendung funktioniert vollständig offline.
 
+**Tastaturhinweis:** Laptoptastaturen ohne vollwertigen Nummernblock können durch nötige Fn-Tastenkombinationen schwieriger zu bedienen sein. Empfohlen wird eine vollwertige Tastatur mit separatem Nummernblock, bei Bedarf als externe Tastatur am Laptop.
+
+Ein verschiebbarer Bildschirm-Nummernblock ist über einen Button im Kopf erreichbar. Er bleibt über dem Papier und lässt beim Anklicken den Fokus im aktiven Eingabefeld; die übrige Arbeitsfläche bleibt bedienbar.
+
 ## Was Schmierpapier kann
 
 ### Rechnen in Kästchen

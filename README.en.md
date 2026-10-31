@@ -22,6 +22,10 @@ Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the
 
 No installation, account or server is required. The application consists of a single HTML file. JavaScript, fonts, translations, help and tutorial are embedded; everything works offline.
 
+**Keyboard note:** Laptop keyboards without a full numeric keypad can be harder to use when keypad functions require Fn key combinations. A full-size keyboard with a separate numeric keypad is recommended; an external keyboard can be connected to a laptop.
+
+A movable on-screen numeric keypad is available from the header. It stays above the paper and preserves focus in the active input when clicked; the rest of the workspace remains usable.
+
 ## What Schmierpapier can do
 
 ### Calculating in cells
