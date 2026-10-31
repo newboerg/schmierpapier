@@ -1930,6 +1930,22 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     #strikeToggle[aria-pressed="true"] { background: #dceaff; border-color: #3677c9; color: #164e94; box-shadow: 0 0 0 2px #3677c945; }
     .strike-selection { position: absolute; z-index: 20; border: 2px dashed #d52d35; background: #ed334015; pointer-events: none; box-sizing: border-box; }
     @media print { .strike-selection { display: none !important; } }
+    /* Quadratische Klickflächen für Klammern und einzelne Rechenzeichen. */
+    #parenOpen, #parenClose,
+    #bracketOpen, #bracketClose,
+    #braceOpen, #braceClose,
+    #integral, #ampersand, #percent {
+      width: 36px;
+      min-width: 36px;
+      height: 36px;
+      padding: 0;
+      flex: 0 0 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
     </style>
   </head>
   <body>
