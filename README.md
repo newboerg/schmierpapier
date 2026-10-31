@@ -24,12 +24,15 @@ Eine Installation, ein Benutzerkonto oder ein Server sind nicht erforderlich. Di
 
 **Tastaturhinweis:** Laptoptastaturen ohne vollwertigen Nummernblock können durch nötige Fn-Tastenkombinationen schwieriger zu bedienen sein. Empfohlen wird eine vollwertige Tastatur mit separatem Nummernblock, bei Bedarf als externe Tastatur am Laptop.
 
+Das Tutorial stellt den Bildschirm-Nummernblock gleich zu Beginn vor; danach ist seine Nutzung optional.
+
 Ein verschiebbarer Bildschirm-Nummernblock ist über einen Button im Kopf erreichbar. Er bleibt über dem Papier und lässt beim Anklicken den Fokus im aktiven Eingabefeld; die übrige Arbeitsfläche bleibt bedienbar.
 
 ## Was Schmierpapier kann
 
 ### Rechnen in Kästchen
 
+- Faktoren durchstreichen: Bereich mit roter gestrichelter Vorschau auswählen und diagonal in der Stiftfarbe wegstreichen; Esc bricht ab.
 - Kariertes DIN-A4-Papier mit 5-mm-Kästchen und Randlinien.
 - Ein normales Zeichen pro Kästchen; Navigation mit Pfeiltasten oder Mausklick.
 - Zahlen über die obere Zahlenreihe oder den Nummernblock, Buchstaben über die Tastatur.

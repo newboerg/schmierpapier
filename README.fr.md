@@ -24,12 +24,15 @@ Aucune installation, aucun compte ni serveur n’est nécessaire. L’applicatio
 
 **Conseil matériel :** Un clavier de portable sans pavé numérique complet peut être plus difficile à utiliser si certaines fonctions nécessitent des combinaisons avec Fn. Un clavier complet avec pavé numérique séparé est recommandé ; un clavier externe peut être branché sur le portable.
 
+Le tutoriel présente le pavé numérique à l’écran dès le début ; son utilisation reste ensuite facultative.
+
 Un pavé numérique déplaçable est accessible dans l’en-tête. Il reste au-dessus du papier et conserve le focus dans le champ actif lors des clics ; le reste de la zone de travail reste utilisable.
 
 ## Les possibilités de Schmierpapier
 
 ### Calculer dans des cases
 
+- Barrer des facteurs : sélectionner une zone avec un aperçu rouge en pointillés et la barrer en diagonale dans la couleur du stylo ; Échap annule.
 - Papier quadrillé A4 avec des cases de 5 mm et des lignes de marge.
 - Un caractère normal par case ; navigation avec les flèches ou la souris.
 - Saisie des chiffres avec les touches numériques du haut ou le pavé numérique, et des lettres avec le clavier.

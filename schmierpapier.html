@@ -1925,6 +1925,11 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     .keypad-keys button { height: 44px; min-width: 0; padding: 0; font-size: 19px; touch-action: manipulation; }
     .keypad-wide { grid-column: span 2; }
     @media print { #virtualKeypad { display: none !important; } }
+
+    .paper.strike-mode, .paper.strike-mode .cell, .paper.strike-mode .editor { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%2021l2-7L17%202l5%205L10%2019z%22%20fill%3D%22%23f4c857%22%20stroke%3D%22%2326374a%22%20stroke-width%3D%221.2%22%2F%3E%3Cpath%20d%3D%22M3%2021l2-7%205%205z%22%20fill%3D%22%23e9d7b5%22%20stroke%3D%22%2326374a%22%20stroke-width%3D%221%22%2F%3E%3Cpath%20d%3D%22M3%2021l1-3%202%202z%22%20fill%3D%22%2326374a%22%2F%3E%3Cpath%20d%3D%22M15%204l5%205%22%20stroke%3D%22%2326374a%22%2F%3E%3C%2Fsvg%3E") 3 21, crosshair; }
+    #strikeToggle[aria-pressed="true"] { background: #dceaff; border-color: #3677c9; color: #164e94; box-shadow: 0 0 0 2px #3677c945; }
+    .strike-selection { position: absolute; z-index: 20; border: 2px dashed #d52d35; background: #ed334015; pointer-events: none; box-sizing: border-box; }
+    @media print { .strike-selection { display: none !important; } }
     </style>
   </head>
   <body>
@@ -2033,6 +2038,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       <div class="palette" aria-label="Schreibwerkzeuge">
         <div class="palette-group" role="group" aria-label="Bereiche bearbeiten">
           <button id="cutRegion" title="Ausschneiden und verschieben: Bereich aufziehen, dann Ziel anklicken. Esc bricht ab." aria-label="Bereich ausschneiden" aria-pressed="false">✂</button>
+
           <button id="copyRegion" title="Kopieren: Bereich aufziehen, dann Ziel anklicken. Esc bricht ab." aria-label="Bereich kopieren" aria-pressed="false">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <rect x="8" y="8" width="12" height="13" rx="1"></rect>
@@ -2105,6 +2111,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
             </svg>
           </button>
           <span class="tool-separator" aria-hidden="true"></span>
+          <button id="strikeToggle" type="button" title="Durchstreichen: Bereich aufziehen · Esc bricht ab" aria-label="Durchstreichen" aria-pressed="false"><svg width="28" height="24" viewBox="0 0 28 24" aria-hidden="true"><text x="3" y="18" font-size="18" fill="currentColor">2x</text><path d="M2 22L26 2" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></button>
           <button class="swatch" data-tool="eraser" style="--swatch:#68776e" title="Radierer – Textmarker und alle gezeichneten Linien entfernen" aria-label="Radierer" aria-pressed="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="m4 14 9-10a2 2 0 0 1 3 0l5 5a2 2 0 0 1 0 3L12 21H8l-4-4a2 2 0 0 1 0-3Z"></path>
@@ -3088,6 +3095,14 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       "Dezimaltrennzeichen": ["Decimal separator", "Séparateur décimal"],
       "Gleichzeichen / Nummernblock-Enter": ["Equals / numeric keypad Enter", "Égal / Entrée du pavé numérique"],
       "Entf": ["Del", "Suppr"]
+    ,
+      "Durchstreichen": ["Strike through", "Barrer"],
+      "Durchstreichen: Bereich aufziehen · Esc bricht ab": ["Strike through: drag a region · Esc cancels", "Barrer : sélectionner une zone · Échap annule"],
+      "Durchstreichen: Bereich mit links aufziehen · Esc bricht ab": ["Strike through: left-drag a region · Esc cancels", "Barrer : sélectionner une zone avec le bouton gauche · Échap annule"],
+      "Durchstreichen abgebrochen": ["Strike-through cancelled", "Barrage annulé"]
+    ,
+      "Der Bildschirm-Nummernblock": ["The on-screen numeric keypad", "Le pavé numérique à l’écran"],
+      "Öffne den Bildschirm-Nummernblock über den gold markierten Button. Du kannst ihn an seiner Titelleiste verschieben und mit × wieder schließen. Ab jetzt darfst du bei allen passenden Eingaben wahlweise seine Tasten oder deine Tastatur verwenden. Die Tasten +, ·, : und = entsprechen den Rechentasten; = schreibt das Gleichzeichen. Der Fokus bleibt im Kästchen.": ["Open the on-screen numeric keypad using the gold-highlighted button. Drag its title bar to move it and close it with ×. From now on, you may use its keys or your physical keyboard for each appropriate input. The +, ·, : and = keys match the arithmetic keys; = writes the equals sign. Input focus stays in the cell.", "Ouvre le pavé numérique à l’écran avec le bouton doré. Déplace-le par sa barre de titre et ferme-le avec ×. Tu peux ensuite utiliser ses touches ou ton clavier pour chaque saisie demandée. Les touches +, ·, : et = correspondent aux touches de calcul ; = écrit le signe égal. Le focus reste dans la case."]
     };
     const HELP_TRANSLATIONS = {
       "en": [{
@@ -7347,6 +7362,9 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         cell(calc, 'Hier beginnt deine Rechnung',
           'Klicke auf das gold markierte Kästchen: Zeile 6 · Spalte 5. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Das ist ein separates Übungsblatt; dein Dokument bleibt erhalten.'
           ),
+        button('#keypadToggle', 'Der Bildschirm-Nummernblock',
+          'Öffne den Bildschirm-Nummernblock über den gold markierten Button. Du kannst ihn an seiner Titelleiste verschieben und mit × wieder schließen. Ab jetzt darfst du bei allen passenden Eingaben wahlweise seine Tasten oder deine Tastatur verwenden. Die Tasten +, ·, : und = entsprechen den Rechentasten; = schreibt das Gleichzeichen. Der Fokus bleibt im Kästchen.',
+          () => !$('virtualKeypad').hidden),
         button('#parenOpen', 'Eine Klammer öffnen',
           'Klicke auf (. Wir klammern zuerst die Addition 12 + 8 ein, damit klar ist, was zuerst gerechnet wird.',
           () => doc.pages[0][calc] === '('),
@@ -7655,6 +7673,8 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     }
 
     function startTutorial() {
+      toggleKeypad(false);
+      cancelStrike();
       finishPenGesture();
       if (tutorial) return;
       cancelNumberLine(false);
@@ -7817,7 +7837,11 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
 
     function tutorialGate(e) {
       if (!tutorial) return;
-      if (e.target.closest?.('#tutorialCoach,.language-picker,#storageConsentOpen,#storageConsentDialog,#virtualKeypad,#keypadToggle')) return;
+      if (e.target.closest?.('#tutorialCoach,.language-picker,#storageConsentOpen,#storageConsentDialog,#virtualKeypad,#keypadToggle')) {
+        // Check after button handlers; generated input events still pass the exercise gate.
+        if (e.type === 'click') scheduleTutorialCheck();
+        return;
+      }
       if (e.type === 'keydown' && e.key === 'Escape') {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -8217,9 +8241,115 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       localiseInterface();
     }
 
-    HELP_ARTICLES.push({"title": "Bildschirm-Nummernblock", "html": "<p>Der Nummernblock-Button im Kopf öffnet ein verschiebbares Fenster über der Arbeitsfläche. Ziehe die Titelleiste an eine freie Stelle; mit fokussierter Titelleiste verschieben die Pfeiltasten das Fenster um 10 Pixel. Erneuter Klick auf den Button oder × schließt es.</p><p>Beim Anklicken der Tasten bleibt der Eingabefokus im zuletzt aktiven Kästchen, Dokumentnamen oder Achsen-Beschriftungsfeld. Die restliche Arbeitsfläche bleibt bedienbar. Zahlen, Rechenzeichen, Dezimaltrennzeichen, Löschen und Pfeiltasten funktionieren wie ihre Tastaturgegenstücke. = entspricht Nummernblock-Enter: im Kästchen schreibt es ein Gleichzeichen, bei Achsenbeschriftungen geht es weiter. Strg/Shift beim Klick und die Hoch-/Tiefstellen-Modi funktionieren wie bei der Tastatur.</p><p>Das Fenster bleibt über dem Papier, wird aber weder gedruckt noch exportiert. Position und Sichtbarkeit werden nur für die aktuelle Sitzung gehalten.</p>", "keywords": "keypad numpad bildschirm nummernblock clavier pavé focus"});
-    HELP_TRANSLATIONS.en.push({"title": "On-screen numeric keypad", "html": "<p>The keypad button in the header opens a floating window above the workspace. Drag its title bar to move it; when the title bar has keyboard focus, arrow keys move it by 10 pixels. Click the button again or × to close it.</p><p>Clicking keys keeps input focus in the last active cell, document name or axis label field. The workspace remains usable. Digits, operators, decimal separator, deletion and arrows work like keyboard keys. = acts as numeric keypad Enter: it writes an equals sign in a cell and advances axis labels. Ctrl/Shift while clicking and superscript/subscript modes work as on the keyboard.</p><p>The window stays above the paper and is excluded from printing and exports. Its position and visibility last only for the current session.</p>", "keywords": "keypad numpad bildschirm nummernblock clavier pavé focus"});
-    HELP_TRANSLATIONS.fr.push({"title": "Pavé numérique à l’écran", "html": "<p>Le bouton du pavé numérique dans l’en-tête ouvre une fenêtre flottante au-dessus de la zone de travail. Déplace-la en faisant glisser sa barre de titre ; lorsque celle-ci a le focus clavier, les flèches la déplacent de 10 pixels. Clique à nouveau sur le bouton ou sur × pour fermer.</p><p>Les clics sur les touches conservent le focus dans la dernière case active, le nom du document ou le champ de graduation. Le reste de la zone de travail reste utilisable. Chiffres, opérateurs, séparateur décimal, suppression et flèches fonctionnent comme au clavier. = correspond à Entrée du pavé numérique : signe égal dans une case, graduation suivante dans un champ. Ctrl/Maj pendant le clic et les modes exposant/indice fonctionnent comme au clavier.</p><p>La fenêtre reste au-dessus du papier et ne figure ni dans les impressions ni dans les exports. Sa position et sa visibilité sont conservées uniquement pour la session courante.</p>", "keywords": "keypad numpad bildschirm nummernblock clavier pavé focus"});
+    HELP_ARTICLES.push({"title": "Bildschirm-Nummernblock", "html": "<p>Der Nummernblock-Button im Kopf öffnet ein verschiebbares Fenster über der Arbeitsfläche. Ziehe die Titelleiste an eine freie Stelle; mit fokussierter Titelleiste verschieben die Pfeiltasten das Fenster um 10 Pixel. Erneuter Klick auf den Button oder × schließt es.</p><p>Beim Anklicken der Tasten bleibt der Eingabefokus im zuletzt aktiven Kästchen, Dokumentnamen oder Achsen-Beschriftungsfeld. Die restliche Arbeitsfläche bleibt bedienbar. Zahlen, Rechenzeichen, Dezimaltrennzeichen, Löschen und Pfeiltasten funktionieren wie ihre Tastaturgegenstücke. = entspricht Nummernblock-Enter: im Kästchen schreibt es ein Gleichzeichen, bei Achsenbeschriftungen geht es weiter. Strg/Shift beim Klick und die Hoch-/Tiefstellen-Modi funktionieren wie bei der Tastatur.</p><p>Das Fenster bleibt über dem Papier, wird aber weder gedruckt noch exportiert. Position und Sichtbarkeit werden nur für die aktuelle Sitzung gehalten. Das Tutorial stellt den Nummernblock direkt nach der Auswahl des Startkästchens vor. Danach ist er optional: Die jeweils verlangte Eingabe kann mit seiner passenden Taste oder der Tastatur erfolgen; falsche Eingaben werden weiterhin erklärt und abgefangen.</p>", "keywords": "keypad numpad bildschirm nummernblock clavier pavé focus"});
+    HELP_TRANSLATIONS.en.push({"title": "On-screen numeric keypad", "html": "<p>The keypad button in the header opens a floating window above the workspace. Drag its title bar to move it; when the title bar has keyboard focus, arrow keys move it by 10 pixels. Click the button again or × to close it.</p><p>Clicking keys keeps input focus in the last active cell, document name or axis label field. The workspace remains usable. Digits, operators, decimal separator, deletion and arrows work like keyboard keys. = acts as numeric keypad Enter: it writes an equals sign in a cell and advances axis labels. Ctrl/Shift while clicking and superscript/subscript modes work as on the keyboard.</p><p>The window stays above the paper and is excluded from printing and exports. Its position and visibility last only for the current session. The tutorial introduces the keypad immediately after selecting the starting cell. It is optional thereafter: use its matching key or the physical keyboard for each requested input; incorrect inputs are still explained and blocked.</p>", "keywords": "keypad numpad bildschirm nummernblock clavier pavé focus"});
+    HELP_TRANSLATIONS.fr.push({"title": "Pavé numérique à l’écran", "html": "<p>Le bouton du pavé numérique dans l’en-tête ouvre une fenêtre flottante au-dessus de la zone de travail. Déplace-la en faisant glisser sa barre de titre ; lorsque celle-ci a le focus clavier, les flèches la déplacent de 10 pixels. Clique à nouveau sur le bouton ou sur × pour fermer.</p><p>Les clics sur les touches conservent le focus dans la dernière case active, le nom du document ou le champ de graduation. Le reste de la zone de travail reste utilisable. Chiffres, opérateurs, séparateur décimal, suppression et flèches fonctionnent comme au clavier. = correspond à Entrée du pavé numérique : signe égal dans une case, graduation suivante dans un champ. Ctrl/Maj pendant le clic et les modes exposant/indice fonctionnent comme au clavier.</p><p>La fenêtre reste au-dessus du papier et ne figure ni dans les impressions ni dans les exports. Sa position et sa visibilité sont conservées uniquement pour la session courante. Le tutoriel présente le pavé juste après la sélection de la case de départ. Il devient ensuite facultatif : utilise la touche correspondante ou le clavier pour la saisie demandée ; les erreurs restent expliquées et bloquées.</p>", "keywords": "keypad numpad bildschirm nummernblock clavier pavé focus"});
+
+
+    /* Durchstreichen: erst nach der fertigen Auswahl einen farbigen Strich speichern.
+     * Das bestehende freie Strichformat unterstützt Export, Radierer und Bereichskopien.
+     */
+    const strikeTool = { active: false, selection: null, pointer: null, page: null };
+
+    function cancelStrike() {
+      strikeTool.active = false;
+      strikeTool.selection = null;
+      if (strikeTool.pointer !== null && $('paper').hasPointerCapture(strikeTool.pointer)) {
+        $('paper').releasePointerCapture(strikeTool.pointer);
+      }
+      strikeTool.pointer = null;
+      $('strikeToggle').setAttribute('aria-pressed', 'false');
+      $('paper').classList.remove('strike-mode');
+      document.querySelector('.strike-selection')?.remove();
+    }
+
+    function drawStrikeSelection() {
+      document.querySelector('.strike-selection')?.remove();
+      if (!strikeTool.selection) return;
+      const r = strikeTool.selection;
+      const box = document.createElement('div');
+      box.className = 'strike-selection';
+      Object.assign(box.style, {
+        left: (5 + r.x * 5) + 'mm', top: (5 + r.y * 5) + 'mm',
+        width: r.w * 5 + 'mm', height: r.h * 5 + 'mm'
+      });
+      $('paper').append(box);
+    }
+
+    function initialiseStrike() {
+      $('strikeToggle').onclick = () => {
+        if (strikeTool.active) { cancelStrike(); return; }
+        finishMark();
+        cancelRegion();
+        cancelNumberLine(false);
+        hideCompass();
+        geo.visible = false;
+        geo.placing = false;
+        geo.gesture = null;
+        resetCorner();
+        strikeTool.active = true;
+        strikeTool.page = page;
+        $('strikeToggle').setAttribute('aria-pressed', 'true');
+        $('paper').classList.add('strike-mode');
+        renderLines();
+        status('Durchstreichen: Bereich mit links aufziehen · Esc bricht ab');
+      };
+      // Capture before paper tools, leaving the rest of the interface accessible.
+      for (const type of ['pointerdown', 'pointermove', 'pointerup', 'pointercancel']) {
+        window.addEventListener(type, event => {
+          if (!strikeTool.active) return;
+          if (strikeTool.page !== page) { cancelStrike(); return; }
+          if (event.type === 'pointerdown') {
+            if (!event.target.closest?.('#paper')) return;
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            if (event.button !== 0) return;
+            const point = markerPoint(event);
+            if (!point) return;
+            strikeTool.start = point;
+            strikeTool.selection = regionRect(point, point);
+            strikeTool.pointer = event.pointerId;
+            $('paper').setPointerCapture(event.pointerId);
+            drawStrikeSelection();
+            return;
+          }
+          if (strikeTool.pointer !== event.pointerId) return;
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          if (event.type === 'pointercancel') { cancelStrike(); return; }
+          const point = markerPoint(event);
+          if (point) strikeTool.selection = regionRect(strikeTool.start, point);
+          drawStrikeSelection();
+          if (event.type !== 'pointerup') return;
+          const r = strikeTool.selection;
+          checkpoint();
+          doc.freehand[page].push({ color: ink, width: .35, points: [
+            [5 + r.x * 5 + .4, 5 + (r.y + r.h) * 5 - .4],
+            [5 + (r.x + r.w) * 5 - .4, 5 + r.y * 5 + .4]
+          ] });
+          cancelStrike();
+          changed();
+          select(pos);
+        }, { capture: true, passive: false });
+      }
+      window.addEventListener('keydown', event => {
+        if (!strikeTool.active || event.key !== 'Escape') return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        cancelStrike();
+        status('Durchstreichen abgebrochen');
+      }, true);
+      // Changing tools or pages discards a still unfinished selection.
+      document.querySelector('header').addEventListener('click', event => {
+        if (strikeTool.active && !event.target.closest('#strikeToggle') &&
+            event.target.closest('button,select')) cancelStrike();
+      }, true);
+      window.addEventListener('blur', () => { if (strikeTool.active) cancelStrike(); });
+    }
+
+    HELP_ARTICLES.push({"title": "Faktoren durchstreichen", "html": "<p>Aktiviere links neben dem Radierer den Button mit dem diagonal durchgestrichenen 2x. Solange das Werkzeug aktiv ist, bleibt der Button blau hervorgehoben und der Mauszeiger über dem Papier zeigt einen kleinen Stift. Ziehe mit gedrückter linker Maustaste einen rechteckigen Bereich über die gewünschten Kästchen. Eine rote gestrichelte Umrandung zeigt die Auswahl. Beim Loslassen entsteht ein durchgehender Strich von links unten nach rechts oben über den gesamten Bereich, in der gewählten Stiftfarbe. So lassen sich etwa gemeinsame Faktoren in Brüchen wegstreichen. Danach endet das Werkzeug.</p><p>Esc bricht vor dem Loslassen ohne Änderung ab. Auch ein Werkzeugwechsel verwirft eine unfertige Auswahl. Der Text bleibt erhalten. Rückgängig entfernt den Strich; der Radierer löscht ihn als Ganzes. Die Striche werden mitgespeichert, gedruckt und als PDF exportiert und lassen sich mit Bereichen kopieren oder verschieben.</p>", "keywords": "durchstreichen kürzen faktor bruch strike cross cancel factor fraction barrer simplifier"});
+    HELP_TRANSLATIONS.en.push({"title": "Crossing out factors", "html": "<p>Activate the button showing a diagonally crossed-out 2x, just left of the eraser. While active, the button stays highlighted in blue and the pointer over the paper becomes a small pencil. Hold the left mouse button and drag a rectangular region over the desired cells. A red dashed outline previews the selection. Release to draw one continuous stroke from bottom left to top right across the entire region, in the selected pen colour. Use this to cancel common factors in fractions, for example. The tool then ends.</p><p>Esc cancels before release without changing the document. Switching tools also discards an unfinished selection. Text remains intact. Undo removes the stroke; the eraser removes the entire stroke. Strokes are saved, printed, exported to PDF and included when copying or moving regions.</p>", "keywords": "durchstreichen kürzen faktor bruch strike cross cancel factor fraction barrer simplifier"});
+    HELP_TRANSLATIONS.fr.push({"title": "Barrer des facteurs", "html": "<p>Active le bouton représentant 2x barré en diagonale, à gauche de la gomme. Tant que l’outil est actif, le bouton reste surligné en bleu et le pointeur sur le papier devient un petit crayon. Maintiens le bouton gauche de la souris et sélectionne une zone rectangulaire de cases. Un contour rouge en pointillés montre la sélection. Relâche pour tracer un trait continu du bas à gauche vers le haut à droite sur toute la zone, dans la couleur du stylo choisie. Cela permet par exemple de simplifier des facteurs communs dans des fractions. L’outil se termine ensuite.</p><p>Échap annule avant de relâcher, sans modifier le document. Changer d’outil annule aussi une sélection inachevée. Le texte reste intact. Annuler retire le trait ; la gomme efface le trait entier. Les traits sont enregistrés, imprimés, exportés en PDF et inclus dans les zones copiées ou déplacées.</p>", "keywords": "durchstreichen kürzen faktor bruch strike cross cancel factor fraction barrer simplifier"});
 
     let helpReturnFocus = null;
     const helpPlainText = article => {
@@ -8597,6 +8727,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     render();
     initialiseLanguage();
     initialiseKeypad();
+    initialiseStrike();
     window.addEventListener('languagechange', renderStorageConsent);
     window.addEventListener('load', renderStorageConsent);
     window.addEventListener('focus', () => {

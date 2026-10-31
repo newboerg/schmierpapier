@@ -24,12 +24,15 @@ No installation, account or server is required. The application consists of a si
 
 **Keyboard note:** Laptop keyboards without a full numeric keypad can be harder to use when keypad functions require Fn key combinations. A full-size keyboard with a separate numeric keypad is recommended; an external keyboard can be connected to a laptop.
 
+The tutorial introduces the on-screen numeric keypad near the beginning; using it afterwards is optional.
+
 A movable on-screen numeric keypad is available from the header. It stays above the paper and preserves focus in the active input when clicked; the rest of the workspace remains usable.
 
 ## What Schmierpapier can do
 
 ### Calculating in cells
 
+- Cross out factors: select a region with a red dashed preview and strike it diagonally in the pen colour; Esc cancels.
 - A4 squared paper with 5 mm cells and margin lines.
 - One normal character per cell; navigate with arrow keys or mouse clicks.
 - Enter digits using the top number row or numeric keypad, and letters using the keyboard.
