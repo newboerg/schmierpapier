@@ -97,6 +97,8 @@ L’aide intégrée, avec recherche, contient les instructions complètes. Le tu
 
 L’application reste volontairement dans un seul fichier HTML. HTML, CSS et JavaScript sont mis en forme pour faciliter la lecture ; des commentaires de section expliquent la structure du document, les coordonnées, les outils, le stockage et les traductions. Les polices intégrées restent des données Base64 compactes. Aucune compilation n’est nécessaire. Les changements importants sont répercutés ensemble dans les trois README et les textes d’aide concernés.
 
+Le quadrillage à l’écran utilise une couche SVG continue afin que les lignes restent régulières aux différents niveaux de zoom dans Firefox.
+
 ## Licence
 
 Le code de l’application est distribué sous la **GNU General Public License, version 3 (GPL-3.0-only)**. Le texte intégral figure dans [LICENSE](LICENSE).

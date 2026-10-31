@@ -177,8 +177,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       position: relative;
       margin: 0 auto;
       background-color: #fffefa;
-      background-image: linear-gradient(to right, #96b7da80 .18mm, transparent .18mm), linear-gradient(to bottom, #96b7da80 .18mm, transparent .18mm);
-      background-size: 5mm 5mm;
+
       box-shadow: 0 5px 28px #30453625;
       flex-shrink: 0
     }
@@ -1055,7 +1054,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
 
     .paper.blank-page {
       background-color: #dce1dd;
-      background-image: linear-gradient(to right, #aab5ad40 .18mm, transparent .18mm), linear-gradient(to bottom, #aab5ad40 .18mm, transparent .18mm);
+
       box-shadow: 0 3px 16px #30453612
     }
 
@@ -1679,8 +1678,6 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
 
     .paper.millimeter {
       background-color: #fffdf8;
-      background-image: linear-gradient(to right, #dfab7c max(.2mm, 1px), transparent max(.2mm, 1px)), linear-gradient(to bottom, #dfab7c max(.2mm, 1px), transparent max(.2mm, 1px)), linear-gradient(to right, #edc29d max(.14mm, .8px), transparent max(.14mm, .8px)), linear-gradient(to bottom, #edc29d max(.14mm, .8px), transparent max(.14mm, .8px)), linear-gradient(to right, #f6dbc3 max(.09mm, .6px), transparent max(.09mm, .6px)), linear-gradient(to bottom, #f6dbc3 max(.09mm, .6px), transparent max(.09mm, .6px));
-      background-size: 10mm 10mm, 10mm 10mm, 5mm 5mm, 5mm 5mm, 1mm 1mm, 1mm 1mm
     }
 
     .paper.millimeter:before,
@@ -1864,6 +1861,28 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     #storageConsentDialog p { font-size: 14px; line-height: 1.6; }
     .storage-consent-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; margin-top: 20px; }
     @media print { #storageConsentDialog { display: none !important; } }
+    /* Ein durchgehendes SVG vermeidet Firefox-Rundungsfehler wiederholter Rasterkacheln. */
+    .paper-grid {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      fill: none;
+    }
+    .paper-grid path { vector-effect: non-scaling-stroke; }
+    .paper-grid .grid-regular { stroke-width: .65; }
+    .paper-grid .grid-fine { stroke-width: .35; }
+    .paper-grid .grid-medium { stroke-width: .55; }
+    .paper-grid .grid-major { stroke-width: .75; }
+    @media print {
+      .paper-grid path { vector-effect: none; }
+      .paper-grid .grid-regular { stroke-width: .18; }
+      .paper-grid .grid-fine { stroke-width: .09; }
+      .paper-grid .grid-medium { stroke-width: .14; }
+      .paper-grid .grid-major { stroke-width: .2; }
+    }
   </style>
   </head>
   <body>
@@ -3060,7 +3079,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         "keywords": ""
       }, {
         "title": "Zoom and fit to window",
-        "html": "<p>+ zooms in and − zooms out in steps of about ten percentage points. Manual zoom ranges from 25 to 200%. Click the percentage to return to automatic fit-to-window width; automatic scaling can go below 25% on narrow screens.</p><p>Manual zoom persists while typing and changing pages and is stored locally when possible. Scroll the workspace to see large pages. Zoom affects only the screen; PDF and print remain A4.</p>",
+        "html": "<p>+ zooms in and − zooms out in steps of about ten percentage points. Manual zoom ranges from 25 to 200%. Click the percentage to return to automatic fit-to-window width; automatic scaling can go below 25% on narrow screens.</p><p>Manual zoom persists while typing and changing pages and is stored locally when possible. Scroll the workspace to see large pages. Zoom affects only the screen; PDF and print remain A4. The screen grid is drawn as one continuous SVG layer to prevent missing grid lines when zooming in Firefox.</p>",
         "keywords": ""
       }, {
         "title": "Undo and redo",
@@ -3157,7 +3176,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         "keywords": ""
       }, {
         "title": "Zoom et adaptation à la fenêtre",
-        "html": "<p>+ agrandit et − réduit par étapes d’environ dix points de pourcentage. Le zoom manuel va de 25 à 200 %. Clique sur le pourcentage pour revenir à l’adaptation automatique à la largeur de la fenêtre ; celle-ci peut descendre sous 25 % sur un petit écran.</p><p>Le zoom manuel est conservé lors de la saisie et du changement de page, et mémorisé localement si possible. Fais défiler l’espace de travail pour voir de grandes pages. Le zoom ne touche que l’écran ; PDF et impression restent en A4.</p>",
+        "html": "<p>+ agrandit et − réduit par étapes d’environ dix points de pourcentage. Le zoom manuel va de 25 à 200 %. Clique sur le pourcentage pour revenir à l’adaptation automatique à la largeur de la fenêtre ; celle-ci peut descendre sous 25 % sur un petit écran.</p><p>Le zoom manuel est conservé lors de la saisie et du changement de page, et mémorisé localement si possible. Fais défiler l’espace de travail pour voir de grandes pages. Le zoom ne touche que l’écran ; PDF et impression restent en A4. Le quadrillage utilise une couche SVG continue pour éviter les lignes manquantes lors du zoom dans Firefox.</p>",
         "keywords": ""
       }, {
         "title": "Annuler et rétablir",
@@ -3926,9 +3945,38 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       return snapPaperPoint(point).map(value => Math.round(value * 1000 / 5) / 1000)
     }
 
+    function setPaperGrid(sheet, type) {
+      let grid = sheet.querySelector('.paper-grid');
+      if (grid?.dataset.paperType === type) return;
+      if (!grid) {
+        grid = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        grid.setAttribute('class', 'paper-grid');
+        grid.setAttribute('viewBox', '0 0 210 297');
+        grid.setAttribute('preserveAspectRatio', 'none');
+        grid.setAttribute('aria-hidden', 'true');
+        sheet.prepend(grid);
+      }
+      grid.dataset.paperType = type;
+      grid.replaceChildren();
+      const levels = type === 'millimeter'
+        ? [[1, '#f6dbc3', 'fine'], [5, '#edc29d', 'medium'], [10, '#dfab7c', 'major']]
+        : [[5, type === 'blank' ? '#aab5ad40' : '#96b7da80', 'regular']];
+      for (const [step, colour, weight] of levels) {
+        const segments = [];
+        for (let x = 0; x <= 210; x += step) segments.push(`M ${x} 0 V 297`);
+        for (let y = 0; y <= 297; y += step) segments.push(`M 0 ${y} H 210`);
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('class', 'grid-' + weight);
+        path.setAttribute('stroke', colour);
+        path.setAttribute('d', segments.join(' '));
+        grid.append(path);
+      }
+    }
+
     function applyPaperType() {
       const micro = paperTypeAt() === 'millimeter';
       $('paper').classList.toggle('millimeter', micro);
+      setPaperGrid($('paper'), paperTypeAt());
       const label = $('paperInfo');
       if (label) label.textContent = micro ? 'DIN A4 · Millimeterpapier · Zeichnen: 1 mm · Schrift: 5 mm' :
         'DIN A4 · 5 mm kariert · 1 Zeichen pro Kästchen'
@@ -5184,6 +5232,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         const sheet = $('paper').cloneNode(true);
         sheet.removeAttribute('id');
         sheet.className = 'paper' + (paperTypeAt() === 'millimeter' ? ' millimeter' : '');
+        setPaperGrid(sheet, paperTypeAt(p));
         sheet.querySelector('.editor')?.remove();
         sheet.querySelector('.geo-overlay')?.remove();
         sheet.querySelector('.compass-overlay')?.remove();
@@ -5320,6 +5369,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       if (other >= doc.pages.length) {
         const blank = document.createElement('div');
         blank.className = 'paper companion blank-page';
+        setPaperGrid(blank, 'blank');
         const button = document.createElement('button');
         button.textContent = '＋ Neues Blatt';
         button.title = 'Ein zweites Blatt hinzufügen';
@@ -5341,6 +5391,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       companion.querySelectorAll('.region-box,.paper-badge').forEach(el => el.remove());
       companion.removeAttribute('id');
       companion.className = 'paper companion' + (paperTypeAt(other) === 'millimeter' ? ' millimeter' : '');
+      setPaperGrid(companion, paperTypeAt(other));
       companion.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
       const otherBadge = document.createElement('span');
       otherBadge.className = 'paper-badge';
@@ -7881,7 +7932,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     }, {
       "title": "Zoom und Fensteranpassung",
       "keywords": "zoom rein raus plus minus prozent vergrößern verkleinern ansicht",
-      "html": "<p><strong>+</strong> zoomt hinein, <strong>−</strong> heraus. Die Schritte entsprechen ungefähr zehn Prozentpunkten; der manuelle Bereich reicht von <strong>25 bis 200 %</strong>.</p><p>Die Prozentanzeige ist ebenfalls ein Button. Ein Klick darauf aktiviert wieder die <strong>automatische Anpassung an die Fensterbreite</strong>. Bei dieser Anpassung können auf schmalen Geräten auch weniger als 25 % angezeigt werden.</p><p>Manueller Zoom bleibt beim Schreiben, Rendern und Blättern erhalten und wird nach Möglichkeit lokal gespeichert. Größere Blätter kannst du im Arbeitsbereich scrollen. Zoom verändert nur die Bildschirmansicht; PDF und Druck bleiben DIN A4.</p>"
+      "html": "<p><strong>+</strong> zoomt hinein, <strong>−</strong> heraus. Die Schritte entsprechen ungefähr zehn Prozentpunkten; der manuelle Bereich reicht von <strong>25 bis 200 %</strong>.</p><p>Die Prozentanzeige ist ebenfalls ein Button. Ein Klick darauf aktiviert wieder die <strong>automatische Anpassung an die Fensterbreite</strong>. Bei dieser Anpassung können auf schmalen Geräten auch weniger als 25 % angezeigt werden.</p><p>Manueller Zoom bleibt beim Schreiben, Rendern und Blättern erhalten und wird nach Möglichkeit lokal gespeichert. Größere Blätter kannst du im Arbeitsbereich scrollen. Zoom verändert nur die Bildschirmansicht; PDF und Druck bleiben DIN A4. Das Bildschirmraster wird als durchgehende SVG-Ebene gezeichnet, damit auch in Firefox beim Zoomen keine Rasterlinien verschwinden.</p>"
     }, {
       "title": "Rückgängig und Wiederholen",
       "keywords": "undo redo strgz strg z strgy strg y vor zurück historie",

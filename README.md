@@ -97,6 +97,8 @@ Die vollständige Beschreibung steht in der integrierten, durchsuchbaren Hilfe. 
 
 Die Anwendung bleibt bewusst in einer einzigen HTML-Datei. HTML, CSS und JavaScript sind lesbar formatiert; Abschnittskommentare erklären Dokumentstruktur, Koordinaten, Zeichenwerkzeuge, Speicherung und Übersetzungen. Die eingebetteten Schriftdateien bleiben kompakte Base64-Daten. Es ist kein Build-Schritt erforderlich. Bei wichtigen Änderungen werden diese README, die englische und französische Fassung sowie die betroffenen Hilfetexte gemeinsam aktualisiert.
 
+Das Bildschirmraster wird als durchgehende SVG-Ebene gezeichnet, damit die Linien auch bei unterschiedlichen Zoomstufen in Firefox gleichmäßig dargestellt werden.
+
 ## Lizenz
 
 Der Anwendungscode steht unter der **GNU General Public License, Version 3 (GPL-3.0-only)**. Der vollständige Lizenztext steht in [LICENSE](LICENSE).
