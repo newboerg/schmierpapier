@@ -8,6 +8,8 @@ Modifications : [Journal des modifications](CHANGELOG.fr.md).
 
 **Du papier de calcul numérique pour les personnes qui ne peuvent pas utiliser de papier ordinaire en cours de mathématiques.**
 
+**Important : Schmierpapier n’est pas une calculatrice et ne fait aucun calcul à la place des élèves.** Il ne calcule pas de résultats et ne résout pas automatiquement les exercices. Les élèves élaborent eux-mêmes leurs démarches, étapes intermédiaires et solutions ; l’application fournit du papier numérique et des outils pour écrire et dessiner.
+
 Schmierpapier offre un espace pour calculer, essayer et dessiner directement dans le navigateur. Il s’adresse notamment aux élèves pour qui écrire ou dessiner sur papier est impossible ou difficile en raison de limitations motrices, de mouvements involontaires ou d’autres besoins individuels.
 
 L’application vise à favoriser le travail autonome en cours de mathématiques : le clavier et la souris permettent d’écrire les calculs dans des cases, de disposer clairement les fractions et de réaliser des constructions géométriques avec des outils numériques. De nombreuses fonctions sont accessibles par des boutons, sans devoir utiliser une combinaison de touches pour chaque action.

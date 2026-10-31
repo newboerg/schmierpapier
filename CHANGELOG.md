@@ -27,3 +27,4 @@
 - Das Tutorial startet mit Kästchen 1,1 aktiv; die erste Übung navigiert zum bisherigen Rechnungsstart in Zeile 6, Spalte 5.
 - Zielkästchen-Schritte gehen bei Klick oder Tastaturnavigation automatisch weiter. In Tutorial-Kopier-/Verschiebeübungen bestätigt das Erreichen des Zielkästchens auch das Einfügen; außerhalb bleibt die Bestätigung unverändert.
 - Hineinzoomen richtet den sichtbaren Bereich auf das ausgewählte Kästchen aus. + / - halten zoomt um zehn Prozentpunkte hinein/heraus; kurze Tastendrücke bleiben Rechenzeichen.
+- README und Homepage stellen deutlich klar: Schmierpapier ist kein Taschenrechner und nimmt Schülerinnen und Schülern keine Rechenarbeit ab.

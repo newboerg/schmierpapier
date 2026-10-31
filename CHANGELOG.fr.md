@@ -27,3 +27,4 @@
 - Le tutoriel démarre avec la case 1,1 active ; le premier exercice rejoint le début du calcul, ligne 6, colonne 5.
 - Les étapes de case cible avancent au clic ou à l’arrivée au clavier. Les exercices de copie/déplacement collent aussi à l’arrivée ; la confirmation hors tutoriel reste inchangée.
 - Le zoom avant centre la case sélectionnée. Maintenir + / - agrandit/réduit de dix points de pourcentage ; les appuis courts restent des signes de calcul.
+- README et site précisent clairement que Schmierpapier n’est pas une calculatrice et ne fait aucun calcul à la place des élèves.

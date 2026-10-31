@@ -8,6 +8,8 @@
 
 **Digitales Rechenpapier für Menschen, die im Mathematikunterricht kein normales Papier benutzen können.**
 
+**Wichtig: Schmierpapier ist kein Taschenrechner und nimmt Schülerinnen und Schülern keine Rechenarbeit ab.** Es berechnet keine Ergebnisse und löst keine Aufgaben automatisch. Rechenwege, Zwischenschritte und Lösungen erarbeiten die Lernenden selbst – die Anwendung stellt dafür digitales Papier und Schreib- und Zeichenwerkzeuge bereit.
+
 Schmierpapier bietet einen Platz zum Rechnen, Ausprobieren und Zeichnen direkt im Browser. Es richtet sich insbesondere an Schülerinnen und Schüler, für die das Schreiben oder Zeichnen auf Papier wegen motorischer Einschränkungen, unwillkürlicher Bewegungen oder anderer individueller Voraussetzungen nicht möglich oder schwer zugänglich ist.
 
 Die Anwendung soll das eigenständige Arbeiten im Mathematikunterricht unterstützen: Rechnungen lassen sich mit Tastatur und Maus in Kästchen schreiben, Brüche übersichtlich anordnen und geometrische Konstruktionen mit digitalen Werkzeugen zeichnen. Viele Funktionen sind über Buttons erreichbar, sodass nicht für jede Eingabe eine Tastenkombination nötig ist.

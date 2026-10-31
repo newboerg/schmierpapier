@@ -8,6 +8,8 @@ Changes: [Changelog](CHANGELOG.en.md).
 
 **Digital maths paper for people who cannot use ordinary paper in maths lessons.**
 
+**Important: Schmierpapier is not a calculator and does not do any arithmetic for students.** It does not calculate answers or solve tasks automatically. Students work out their own methods, intermediate steps and solutions; the app provides digital paper and tools for writing and drawing.
+
 Schmierpapier provides a place to calculate, experiment and draw directly in the browser. It is intended particularly for students for whom writing or drawing on paper is impossible or difficult because of motor impairments, involuntary movements or other individual circumstances.
 
 The application supports independent work in maths lessons: use the keyboard and mouse to write calculations in cells, arrange fractions clearly and draw geometric constructions with digital tools. Many features are available through buttons, so a keyboard shortcut is not required for every action.

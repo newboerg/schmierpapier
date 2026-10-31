@@ -27,3 +27,4 @@
 - The tutorial starts with cell 1,1 active; its first exercise navigates to the calculation’s starting point at row 6, column 5.
 - Target-cell steps advance on clicking or keyboard arrival. Tutorial copy/move exercises also paste on reaching the destination; confirmation outside the tutorial is unchanged.
 - Zooming in centres the selected cell in view. Hold + / - to zoom in/out by ten percentage points; short presses remain arithmetic input.
+- README and homepage prominently clarify that Schmierpapier is not a calculator and does no arithmetic for students.

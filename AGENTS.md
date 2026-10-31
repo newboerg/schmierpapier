@@ -1,5 +1,7 @@
 # Project maintenance
 
+- After validating homepage updates, immediately upload the changed public website files using the connection details in `homepage/ftp.txt`, then verify the public site. This is an ongoing user authorization; do not ask again for each homepage update. Never upload or expose `ftp.txt` or its credentials.
+- Keep homepage release copy concise and focused on user benefits. Preserve clear headings; avoid detailed key bindings and operation instructions in the release overview. Maintain all six text variants (German, English and French, each standard and simple).
 - Keep `CHANGELOG.md` (German), `CHANGELOG.en.md` (English), and `CHANGELOG.fr.md` (French) aligned when recording changes. Preserve their language links and the matching links from each README.
 - Keep `README.md` (German), `README.en.md` (English), and `README.fr.md` (French) aligned. Whenever an important feature, workflow, supported language, version, setup requirement, file format, or licence changes, update all three READMEs in the same change as needed.
 - Keep the language links between the three READMEs working. The German README is the default GitHub entry point; translations should cover the same information.
