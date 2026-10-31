@@ -56,7 +56,7 @@ Un pavé numérique déplaçable est accessible dans l’en-tête. Il reste au-d
 ### Outils de géométrie
 
 - **Équerre :** transparente et à l’échelle du papier. Saisir le zéro pour la déplacer, un sommet pour la tourner, et maintenir le bouton droit pour tracer le long de ses bords. Un aperçu rouge pointillé rend le trait courant visible. En vue Double page, l’équerre peut être déplacée directement sur l’autre page.
-- **Compas :** placer le centre, choisir librement le rayon et maintenir le bouton droit pour tracer des cercles ou des arcs. Un arc réalisé en un geste continu peut être effacé en entier.
+- **Compas :** placer le centre, choisir librement le rayon et maintenir le bouton droit pour tracer des cercles ou des arcs. Un arc réalisé en un geste continu peut être effacé en entier. Pendant le choix du rayon, l’équerre peut être affichée au centre : elle tourne avec le pointeur et disparaît lorsque le rayon est confirmé.
 - **Axes gradués et axes de coordonnées :** tracer horizontalement ou verticalement avec une flèche et des graduations. Lorsque des axes se croisent à angle droit, les graduations s’alignent sur l’origine commune. Les valeurs sont saisies à la main ; aucun nombre n’est inséré automatiquement. Après deux axes tracés, l’application revient à l’outil précédent.
 
 ### Pages et affichage

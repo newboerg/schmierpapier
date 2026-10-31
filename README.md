@@ -56,7 +56,7 @@ Ein verschiebbarer Bildschirm-Nummernblock ist über einen Button im Kopf erreic
 ### Geometriewerkzeuge
 
 - **Geodreieck:** transparent und zum Papier maßstabsgetreu. Am Nullpunkt verschieben, an den Spitzen drehen und mit der rechten Maustaste entlang der Kanten zeichnen. Eine rote gestrichelte Vorschau macht den aktuellen Strich sichtbar. In der Doppelseitenansicht lässt sich das Geodreieck direkt auf die andere Seite ziehen.
-- **Zirkel:** Mittelpunkt setzen, einen freien Radius wählen und mit gedrückter rechter Maustaste Kreise oder Kreisbögen zeichnen. Ein zusammenhängend gezeichneter Bogen lässt sich als Ganzes radieren.
+- **Zirkel:** Mittelpunkt setzen, einen freien Radius wählen und mit gedrückter rechter Maustaste Kreise oder Kreisbögen zeichnen. Ein zusammenhängend gezeichneter Bogen lässt sich als Ganzes radieren. Während der Radiuswahl lässt sich optional das Geodreieck am Mittelpunkt einblenden: Es dreht sich mit und verschwindet beim Bestätigen des Radius.
 - **Zahlenstrahlen und Koordinatenachsen:** waagerecht oder senkrecht mit Pfeil und Teilstrichen zeichnen. Bei rechtwinklig gekreuzten Zahlenstrahlen richtet sich die Teilung am gemeinsamen Nullpunkt aus. Beschriftungen werden von Hand eingegeben; Zahlen werden nicht automatisch eingesetzt. Nach zwei gezeichneten Strahlen kehrt die Anwendung zum vorherigen Werkzeug zurück.
 
 ### Seiten und Ansicht

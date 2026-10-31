@@ -56,7 +56,7 @@ A movable on-screen numeric keypad is available from the header. It stays above 
 ### Geometry tools
 
 - **Set square:** transparent and drawn to scale relative to the paper. Drag its zero point to move it, drag a vertex to rotate it and hold the right mouse button to draw along its edges. A red dashed preview makes the current stroke visible. In Double page view, drag the set square directly onto the other page.
-- **Compass:** place the centre, choose a free radius and hold the right mouse button to draw circles or arcs. An arc drawn in one continuous gesture can be erased as a whole.
+- **Compass:** place the centre, choose a free radius and hold the right mouse button to draw circles or arcs. An arc drawn in one continuous gesture can be erased as a whole. While choosing the radius, optionally show the set square at the centre: it rotates with the pointer and disappears when the radius is confirmed.
 - **Number lines and coordinate axes:** draw horizontal or vertical lines with arrows and ticks. When number lines cross at right angles, their ticks align with the shared origin. Labels are entered by hand; numbers are never filled in automatically. After two number lines, the application returns to the previous tool.
 
 ### Pages and view
