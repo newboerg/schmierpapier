@@ -1883,6 +1883,13 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       .paper-grid .grid-medium { stroke-width: .14; }
       .paper-grid .grid-major { stroke-width: .2; }
     }
+    @media screen {
+      .spread[data-view="2"] > #paper {
+        outline: 2px solid #609ee580;
+        outline-offset: 1px;
+        box-shadow: 0 0 16px #498fe538, 0 5px 28px #30453625;
+      }
+    }
   </style>
   </head>
   <body>
@@ -3075,7 +3082,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         "keywords": ""
       }, {
         "title": "Pages, Single page and Double page",
-        "html": "<p><strong>＋ Page</strong> inserts a squared page after the current page and activates it. Its small dropdown arrow offers millimetre paper instead. Each page keeps its paper type. The trash-can Page button asks before deleting the current page; the last page cannot be deleted. A document supports up to 200 pages.</p><p>Previous and Next move one page; “Page … of …” shows the position. Single page shows the active page only. Double page is the default and displays consecutive pairs side by side. The icon shows one or two page outlines. Click the companion page to activate it.</p><p>A grey “＋ New page” placeholder is not an actual document page and is excluded from exports. Clicking it adds squared paper. The view preference is stored locally when possible. Adding and deleting pages can be undone; navigation does not add undo steps.</p>",
+        "html": "<p><strong>＋ Page</strong> inserts a squared page after the current page and activates it. Its small dropdown arrow offers millimetre paper instead. Each page keeps its paper type. The trash-can Page button asks before deleting the current page; the last page cannot be deleted. A document supports up to 200 pages.</p><p>Previous and Next move one page; “Page … of …” shows the position. Single page shows the active page only. Double page is the default and displays consecutive pairs side by side. A soft blue glowing outline identifies the active page. The icon shows one or two page outlines. Click the companion page to activate it.</p><p>A grey “＋ New page” placeholder is not an actual document page and is excluded from exports. Clicking it adds squared paper. The view preference is stored locally when possible. Adding and deleting pages can be undone; navigation does not add undo steps.</p>",
         "keywords": ""
       }, {
         "title": "Zoom and fit to window",
@@ -3172,7 +3179,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         "keywords": ""
       }, {
         "title": "Pages, Page simple et Double page",
-        "html": "<p><strong>＋ Page</strong> ajoute une page quadrillée après la page courante et l’active. Sa petite flèche propose du papier millimétré. Chaque page conserve son papier. Le bouton Page avec corbeille demande confirmation avant de supprimer la page courante ; la dernière page ne peut pas être supprimée. Un document accepte jusqu’à 200 pages.</p><p>Précédente et Suivante changent d’une page ; « Page … sur … » indique la position. Page simple n’affiche que la page active. Double page est le choix initial et affiche les pages consécutives par paires. Le pictogramme montre une ou deux feuilles. Un clic sur l’autre page l’active.</p><p>L’emplacement gris « ＋ Nouvelle page » n’est pas une vraie page et n’est pas exporté. Son bouton ajoute du papier quadrillé. Le choix de vue est mémorisé localement si possible. Ajouter et supprimer des pages peut être annulé ; la navigation ne crée pas d’étape d’annulation.</p>",
+        "html": "<p><strong>＋ Page</strong> ajoute une page quadrillée après la page courante et l’active. Sa petite flèche propose du papier millimétré. Chaque page conserve son papier. Le bouton Page avec corbeille demande confirmation avant de supprimer la page courante ; la dernière page ne peut pas être supprimée. Un document accepte jusqu’à 200 pages.</p><p>Précédente et Suivante changent d’une page ; « Page … sur … » indique la position. Page simple n’affiche que la page active. Double page est le choix initial et affiche les pages consécutives par paires. Un léger contour lumineux bleu indique la page active. Le pictogramme montre une ou deux feuilles. Un clic sur l’autre page l’active.</p><p>L’emplacement gris « ＋ Nouvelle page » n’est pas une vraie page et n’est pas exporté. Son bouton ajoute du papier quadrillé. Le choix de vue est mémorisé localement si possible. Ajouter et supprimer des pages peut être annulé ; la navigation ne crée pas d’étape d’annulation.</p>",
         "keywords": ""
       }, {
         "title": "Zoom et adaptation à la fenêtre",
@@ -5358,6 +5365,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     function renderSpread() {
       scaleSpread();
       const spread = $('spread');
+      spread.dataset.view = pageView;
       spread.querySelector('.companion')?.remove();
       spread.querySelectorAll('.paper-badge').forEach(el => el.remove());
       const badge = document.createElement('span');
@@ -7928,7 +7936,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     }, {
       "title": "Blätter, Einzelansicht und Doppelansicht",
       "keywords": "seite blättern vor zurück hinzufügen löschen neues blatt grau ausgegraut",
-      "html": "<p><strong>＋ Seite</strong> legt sofort hinter dem aktuellen Blatt ein neues Karoblatt an und aktiviert es. Über den kleinen Dropdown-Pfeil rechts daneben kannst du stattdessen <strong>Millimeterpapier hinzufügen</strong>. Die Papierart bleibt pro Blatt festgelegt. Der <strong>Button mit Papierkorb und „Seite“</strong> entfernt nach Rückfrage das aktuelle Blatt. Das letzte verbleibende Blatt lässt sich nicht löschen.</p><p><strong>Zurück</strong> und <strong>Vor</strong> wechseln jeweils ein Blatt. Die Anzeige „Seite … von …“ nennt die aktuelle Position.</p><p>Die Auswahl <strong>Einzelseite</strong> zeigt nur das aktive Blatt. <strong>Doppelseite</strong> ist die Standardansicht: Zwei aufeinanderfolgende Blätter stehen als Paar nebeneinander. Ein Klick auf ein Kästchen im anderen Blatt aktiviert es.</p><p>Fehlt das zweite Blatt eines Paars, erscheint ein ausgegrauter Platzhalter mit <strong>＋ Neues Blatt</strong>. Er ist noch keine Dokumentseite und wird nicht als leerer Zusatzbogen exportiert. Ein Klick auf seinen Button erzeugt das nächste Blatt.</p><p>Die Ansichtswahl wird nach Möglichkeit im Browserspeicher gemerkt. Blatt hinzufügen und löschen gehören zur Rückgängig-Historie; bloßes Blättern nicht.</p><p>Das Symbol bei der Ansicht zeigt ein einzelnes Blatt oder zwei Blattumrisse nebeneinander. Alle Buttons und Auswahlfelder der Werkzeugleiste sind gleich hoch. Ein Dokument kann bis zu 200 Blätter enthalten.</p>"
+      "html": "<p><strong>＋ Seite</strong> legt sofort hinter dem aktuellen Blatt ein neues Karoblatt an und aktiviert es. Über den kleinen Dropdown-Pfeil rechts daneben kannst du stattdessen <strong>Millimeterpapier hinzufügen</strong>. Die Papierart bleibt pro Blatt festgelegt. Der <strong>Button mit Papierkorb und „Seite“</strong> entfernt nach Rückfrage das aktuelle Blatt. Das letzte verbleibende Blatt lässt sich nicht löschen.</p><p><strong>Zurück</strong> und <strong>Vor</strong> wechseln jeweils ein Blatt. Die Anzeige „Seite … von …“ nennt die aktuelle Position.</p><p>Die Auswahl <strong>Einzelseite</strong> zeigt nur das aktive Blatt. <strong>Doppelseite</strong> ist die Standardansicht: Zwei aufeinanderfolgende Blätter stehen als Paar nebeneinander. Ein dezenter blauer Leuchtrand kennzeichnet die aktive Seite. Ein Klick auf ein Kästchen im anderen Blatt aktiviert es.</p><p>Fehlt das zweite Blatt eines Paars, erscheint ein ausgegrauter Platzhalter mit <strong>＋ Neues Blatt</strong>. Er ist noch keine Dokumentseite und wird nicht als leerer Zusatzbogen exportiert. Ein Klick auf seinen Button erzeugt das nächste Blatt.</p><p>Die Ansichtswahl wird nach Möglichkeit im Browserspeicher gemerkt. Blatt hinzufügen und löschen gehören zur Rückgängig-Historie; bloßes Blättern nicht.</p><p>Das Symbol bei der Ansicht zeigt ein einzelnes Blatt oder zwei Blattumrisse nebeneinander. Alle Buttons und Auswahlfelder der Werkzeugleiste sind gleich hoch. Ein Dokument kann bis zu 200 Blätter enthalten.</p>"
     }, {
       "title": "Zoom und Fensteranpassung",
       "keywords": "zoom rein raus plus minus prozent vergrößern verkleinern ansicht",

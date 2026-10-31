@@ -52,7 +52,7 @@ No installation, account or server is required. The application consists of a si
 
 ### Pages and view
 
-- Multiple pages in one document, displayed individually or as a double page.
+- Multiple pages in one document, displayed individually or as a double page. A soft blue glowing outline marks the active page in Double page view.
 - Add squared pages directly; use the adjacent dropdown arrow to choose millimetre paper.
 - Paper type is fixed when a page is created. Both types can appear in the same document.
 - On millimetre paper, the relevant drawing tools snap every 1 mm. Writing cells remain 5 mm wide.

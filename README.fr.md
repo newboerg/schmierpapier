@@ -52,7 +52,7 @@ Aucune installation, aucun compte ni serveur n’est nécessaire. L’applicatio
 
 ### Pages et affichage
 
-- Plusieurs pages dans un document, affichées seules ou en double page.
+- Plusieurs pages dans un document, affichées seules ou en double page. Un léger contour lumineux bleu indique la page active en vue Double page.
 - Ajouter directement des pages quadrillées ; choisir le papier millimétré avec la petite flèche voisine.
 - Le type de papier est fixé à la création de chaque page. Les deux types peuvent coexister dans un document.
 - Sur papier millimétré, les outils concernés s’alignent tous les 1 mm. Les cases d’écriture restent de 5 mm.

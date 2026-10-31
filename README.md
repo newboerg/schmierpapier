@@ -52,7 +52,7 @@ Eine Installation, ein Benutzerkonto oder ein Server sind nicht erforderlich. Di
 
 ### Seiten und Ansicht
 
-- Mehrere Seiten in einem Dokument, wahlweise einzeln oder als Doppelseite.
+- Mehrere Seiten in einem Dokument, wahlweise einzeln oder als Doppelseite. Ein dezenter blauer Leuchtrand zeigt in der Doppelseitenansicht die aktive Seite.
 - Neue Seiten direkt als Karopapier hinzufügen; über den kleinen Pfeil daneben Millimeterpapier wählen.
 - Die Papierart wird beim Erstellen einer Seite festgelegt. Beide Papierarten können im selben Dokument vorkommen.
 - Auf Millimeterpapier rasten die entsprechenden Zeichenwerkzeuge bei 1 mm ein. Die Schreibkästchen bleiben 5 mm groß.
