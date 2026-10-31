@@ -1946,6 +1946,20 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       box-sizing: border-box;
     }
 
+    /* Hinweis auf die optionale Messhilfe während der Zirkel-Radiuswahl. */
+    @keyframes compass-radius-hint {
+      0%, 100% { box-shadow: 0 0 0 0 #3677c940; }
+      50% { box-shadow: 0 0 0 5px #3677c918; }
+    }
+    #geoToggle.radius-hint {
+      border-color: #3677c9;
+      background: #e7f0ff;
+      animation: compass-radius-hint 1.5s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #geoToggle.radius-hint { animation: none; box-shadow: 0 0 0 2px #3677c940; }
+    }
+
     </style>
   </head>
   <body>
@@ -6500,6 +6514,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     function hideCompassRadiusGuide() {
       if (!compass.radiusGuide) return;
       compass.radiusGuide = false;
+      $('geoToggle').classList.toggle('radius-hint', compass.active && compass.phase === 'radius');
       geo.visible = false;
       geo.placing = false;
       geo.gesture = null;
@@ -6507,6 +6522,8 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     }
 
     function renderCompass() {
+      $('geoToggle').classList.toggle('radius-hint',
+        compass.active && compass.phase === 'radius' && !compass.radiusGuide);
       if (compass.radiusGuide) {
         if (!compass.active || compass.phase !== 'radius') hideCompassRadiusGuide();
         else {
@@ -6595,6 +6612,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       if (!compass.active) return;
       finishCompassStroke(commit, false);
       compass.active = false;
+      $('geoToggle').classList.remove('radius-hint');
       compass.move = null;
       $('paper').classList.remove('compass-mode');
       $('compassToggle').setAttribute('aria-pressed', 'false');
@@ -8398,9 +8416,9 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     HELP_TRANSLATIONS.en.push({"title": "Crossing out factors", "html": "<p>Activate the button showing a diagonally crossed-out 2x, just left of the eraser. While active, the button stays highlighted in blue and the pointer over the paper becomes a small pencil. Hold the left mouse button and drag a rectangular region over the desired cells. A red dashed outline previews the selection. Release to draw one continuous stroke from bottom left to top right across the entire region, in the selected pen colour. Use this to cancel common factors in fractions, for example. The tool then ends.</p><p>Esc cancels before release without changing the document. Switching tools also discards an unfinished selection. Text remains intact. Undo removes the stroke; the eraser removes the entire stroke. Strokes are saved, printed, exported to PDF and included when copying or moving regions.</p>", "keywords": "durchstreichen kürzen faktor bruch strike cross cancel factor fraction barrer simplifier"});
     HELP_TRANSLATIONS.fr.push({"title": "Barrer des facteurs", "html": "<p>Active le bouton représentant 2x barré en diagonale, à gauche de la gomme. Tant que l’outil est actif, le bouton reste surligné en bleu et le pointeur sur le papier devient un petit crayon. Maintiens le bouton gauche de la souris et sélectionne une zone rectangulaire de cases. Un contour rouge en pointillés montre la sélection. Relâche pour tracer un trait continu du bas à gauche vers le haut à droite sur toute la zone, dans la couleur du stylo choisie. Cela permet par exemple de simplifier des facteurs communs dans des fractions. L’outil se termine ensuite.</p><p>Échap annule avant de relâcher, sans modifier le document. Changer d’outil annule aussi une sélection inachevée. Le texte reste intact. Annuler retire le trait ; la gomme efface le trait entier. Les traits sont enregistrés, imprimés, exportés en PDF et inclus dans les zones copiées ou déplacées.</p>", "keywords": "durchstreichen kürzen faktor bruch strike cross cancel factor fraction barrer simplifier"});
 
-    HELP_ARTICLES.push({"title": "Zirkelradius mit dem Geodreieck einstellen", "html": "<p>Nach dem Setzen des Zirkelmittelpunkts kannst du während der Radiuswahl optional den Geodreieck-Button anklicken. Sein Nullpunkt liegt genau auf dem Mittelpunkt; seine lange Messkante zeigt zur Zirkelspitze und dreht sich mit der Maus mit. Lies den Radius an der Zentimeterskala ab. Es gibt keine zusätzliche Zahlenanzeige, der Radius bleibt frei wählbar. Mit dem nächsten Linksklick auf dem Papier bestätigst du den Radius und das Geodreieck verschwindet automatisch. Ein erneuter Klick auf den Geodreieck-Button blendet die Hilfe vorher aus. Das funktioniert auch beim erneuten Einstellen eines Radius über die Zirkelspitze. Die Messhilfe wird nicht gespeichert oder exportiert.</p>", "keywords": "zirkel radius geodreieck compass set square compas rayon équerre"});
-    HELP_TRANSLATIONS.en.push({"title": "Set the compass radius with the set square", "html": "<p>After placing the compass centre, optionally click the set-square button while choosing the radius. Its zero sits exactly on the centre; its long measuring edge points towards the compass tip and rotates with the mouse. Read the radius from the centimetre scale. There is no additional numerical readout and the radius stays freely adjustable. The next left-click on the paper confirms the radius and automatically hides the set square. Click the set-square button again to hide the guide sooner. This also works when adjusting the radius again via the compass tip. The guide is not saved or exported.</p>", "keywords": "zirkel radius geodreieck compass set square compas rayon équerre"});
-    HELP_TRANSLATIONS.fr.push({"title": "Régler le rayon du compas avec l’équerre", "html": "<p>Après avoir placé le centre du compas, tu peux cliquer sur le bouton de l’équerre pendant le choix du rayon. Son zéro se trouve exactement au centre ; son grand bord gradué pointe vers la mine et tourne avec la souris. Lis le rayon sur la graduation en centimètres. Aucune valeur numérique supplémentaire ne s’affiche et le rayon reste libre. Le prochain clic gauche sur le papier confirme le rayon et masque automatiquement l’équerre. Clique à nouveau sur son bouton pour la masquer plus tôt. Cela fonctionne aussi lorsque tu règles à nouveau le rayon en cliquant sur la mine. Ce guide n’est ni enregistré ni exporté.</p>", "keywords": "zirkel radius geodreieck compass set square compas rayon équerre"});
+    HELP_ARTICLES.push({"title": "Zirkelradius mit dem Geodreieck einstellen", "html": "<p>Nach dem Setzen des Zirkelmittelpunkts pulsiert der Geodreieck-Button als Hinweis auf die optionale Messhilfe. Während der Radiuswahl kannst du ihn anklicken. Sein Nullpunkt liegt genau auf dem Mittelpunkt; seine lange Messkante zeigt zur Zirkelspitze und dreht sich mit der Maus mit. Lies den Radius an der Zentimeterskala ab. Es gibt keine zusätzliche Zahlenanzeige, der Radius bleibt frei wählbar. Mit dem nächsten Linksklick auf dem Papier bestätigst du den Radius und das Geodreieck verschwindet automatisch. Ein erneuter Klick auf den Geodreieck-Button blendet die Hilfe vorher aus. Das funktioniert auch beim erneuten Einstellen eines Radius über die Zirkelspitze. Die Messhilfe wird nicht gespeichert oder exportiert.</p>", "keywords": "zirkel radius geodreieck compass set square compas rayon équerre"});
+    HELP_TRANSLATIONS.en.push({"title": "Set the compass radius with the set square", "html": "<p>After placing the compass centre, the set-square button pulses to indicate the optional measuring guide. Click it while choosing the radius. Its zero sits exactly on the centre; its long measuring edge points towards the compass tip and rotates with the mouse. Read the radius from the centimetre scale. There is no additional numerical readout and the radius stays freely adjustable. The next left-click on the paper confirms the radius and automatically hides the set square. Click the set-square button again to hide the guide sooner. This also works when adjusting the radius again via the compass tip. The guide is not saved or exported.</p>", "keywords": "zirkel radius geodreieck compass set square compas rayon équerre"});
+    HELP_TRANSLATIONS.fr.push({"title": "Régler le rayon du compas avec l’équerre", "html": "<p>Après avoir placé le centre du compas, le bouton de l’équerre clignote doucement pour signaler le guide de mesure facultatif. Clique dessus pendant le choix du rayon. Son zéro se trouve exactement au centre ; son grand bord gradué pointe vers la mine et tourne avec la souris. Lis le rayon sur la graduation en centimètres. Aucune valeur numérique supplémentaire ne s’affiche et le rayon reste libre. Le prochain clic gauche sur le papier confirme le rayon et masque automatiquement l’équerre. Clique à nouveau sur son bouton pour la masquer plus tôt. Cela fonctionne aussi lorsque tu règles à nouveau le rayon en cliquant sur la mine. Ce guide n’est ni enregistré ni exporté.</p>", "keywords": "zirkel radius geodreieck compass set square compas rayon équerre"});
 
     let helpReturnFocus = null;
     const helpPlainText = article => {
