@@ -57,16 +57,24 @@ No installation, account or server is required. The application consists of a si
 - Paper type is fixed when a page is created. Both types can appear in the same document.
 - On millimetre paper, the relevant drawing tools snap every 1 mm. Writing cells remain 5 mm wide.
 - Zoom, automatic fit to window width and fullscreen.
-- Interface, tooltips, help and tutorial in **German, English and French**. On first use, a supported browser language is selected when possible; a manual selection is remembered in the browser.
+- Interface, tooltips, help and tutorial in **German, English and French**. On first use, a supported browser language is selected when possible; a manual selection is remembered in the browser if storage is allowed.
 
 ## Saving and sharing
 
 - **Save .schmier** downloads an editable file with all pages and their contents. Reopen it later using **Load file**.
 - **Export PDF** exports all actual pages as an A4 document. PDF pages are images; their text cannot be selected as ordinary PDF text.
 - **Print** opens the browser print dialog. For drawings with accurate physical measurements, select A4 and actual size or 100%.
-- The app attempts to autosave in local browser storage. Availability when opening a local HTML file depends on the browser and its settings. Download a `.schmier` file for an independent backup.
+- After consent, the app attempts to autosave in local browser storage. Availability when opening a local HTML file depends on the browser and its settings. Download a `.schmier` file for an independent backup.
 
 The application does not transmit calculations to a server. Changing the language does not alter entered text, labels or drawings.
+
+## Browser storage and consent
+
+On first launch, the app asks whether documents and preferences (language, page view and zoom) may be stored locally in the browser. It sets no cookies. Only after consent are these data and the consent itself saved.
+
+With **“Do not save”**, everything stays only in memory until the page is closed or reloaded. Existing browser data for this app is deleted. The refusal itself is not stored, so the question appears again next time. Use the **shield-shaped storage button in the header** to change your decision at any time. Explicitly requested `.schmier` and PDF downloads and printing still work.
+
+The storage consent prompt uses the preferred supported browser language independently of the app language. It includes all **24 official EU languages**, with English as fallback. The rest of the application remains available in German, English and French.
 
 ## Useful keyboard shortcuts
 

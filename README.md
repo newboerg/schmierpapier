@@ -57,16 +57,24 @@ Eine Installation, ein Benutzerkonto oder ein Server sind nicht erforderlich. Di
 - Die Papierart wird beim Erstellen einer Seite festgelegt. Beide Papierarten können im selben Dokument vorkommen.
 - Auf Millimeterpapier rasten die entsprechenden Zeichenwerkzeuge bei 1 mm ein. Die Schreibkästchen bleiben 5 mm groß.
 - Zoom, automatische Anpassung an die Fensterbreite und Vollbild.
-- Oberfläche, Tooltips, Hilfe und Tutorial auf **Deutsch, Englisch und Französisch**. Beim ersten Start wird nach Möglichkeit die Browsersprache verwendet; eine eigene Auswahl wird im Browser gemerkt.
+- Oberfläche, Tooltips, Hilfe und Tutorial auf **Deutsch, Englisch und Französisch**. Beim ersten Start wird nach Möglichkeit die Browsersprache verwendet; eine eigene Auswahl wird bei Zustimmung zur Browserspeicherung im Browser gemerkt.
 
 ## Speichern und Weitergeben
 
 - **`.schmier speichern`** lädt eine bearbeitbare Datei mit allen Seiten und Inhalten herunter. Über **„Datei laden“** lässt sie sich später wieder öffnen.
 - **PDF exportieren** gibt alle vorhandenen Seiten als DIN-A4-Dokument aus. Die PDF-Seiten sind Bilder; der Text ist darin nicht als normaler PDF-Text auswählbar.
 - **Drucken** öffnet den Druckdialog des Browsers. Für maßstabsgetreue Zeichnungen A4 und tatsächliche Größe beziehungsweise 100 % wählen.
-- Eine automatische Sicherung im lokalen Browserspeicher wird versucht. Ob sie beim Öffnen einer lokalen HTML-Datei verfügbar ist, hängt vom Browser und seinen Einstellungen ab. Für eine unabhängige Sicherung die `.schmier`-Datei herunterladen.
+- Nach Zustimmung wird eine automatische Sicherung im lokalen Browserspeicher versucht. Ob sie beim Öffnen einer lokalen HTML-Datei verfügbar ist, hängt vom Browser und seinen Einstellungen ab. Für eine unabhängige Sicherung die `.schmier`-Datei herunterladen.
 
 Rechnungen werden von der Anwendung nicht an einen Server übertragen. Die gewählte Sprache verändert keine eingegebenen Texte, Beschriftungen oder Zeichnungen.
+
+## Browserspeicherung und Zustimmung
+
+Beim ersten Öffnen fragt die Anwendung, ob Dokument und Einstellungen (Sprache, Seitenansicht und Zoom) lokal im Browser gespeichert werden dürfen. Es werden keine Cookies gesetzt. Nur nach Zustimmung werden diese Daten und die Zustimmung selbst gespeichert.
+
+Bei **„Nicht speichern“** bleibt alles nur im Arbeitsspeicher bis zum Schließen oder Neuladen der Seite. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Auch die Ablehnung wird nicht gespeichert; deshalb erscheint die Frage beim nächsten Start erneut. Über den **Speicher-Button mit Schild im Kopf** lässt sich die Entscheidung jederzeit ändern. Manuell angeforderte `.schmier`- und PDF-Downloads sowie Drucken funktionieren weiterhin.
+
+Die Speicherabfrage wird unabhängig von der Anwendungssprache in der bevorzugten unterstützten Browsersprache angezeigt. Sie enthält alle **24 EU-Amtssprachen**; für andere Sprachen wird Englisch verwendet. Die übrige Anwendung bleibt auf Deutsch, Englisch und Französisch verfügbar.
 
 ## Erste Tastenkürzel
 

@@ -1858,7 +1858,13 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    </style>
+      #storageConsentDialog { width: min(560px, calc(100vw - 24px)); border: 1px solid #b6c9ba; border-radius: 14px; padding: 24px; color: #25342f; background: #fffefa; }
+    #storageConsentDialog::backdrop { background: #132b235c; }
+    #storageConsentDialog h2 { margin: 0 0 14px; font-size: 22px; }
+    #storageConsentDialog p { font-size: 14px; line-height: 1.6; }
+    .storage-consent-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; margin-top: 20px; }
+    @media print { #storageConsentDialog { display: none !important; } }
+  </style>
   </head>
   <body>
     <header>
@@ -1928,6 +1934,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
               </svg>
               <span>Drucken</span>
             </button>
+            <button id="storageConsentOpen" title="Browserspeicherung prüfen oder ändern" aria-label="Browserspeicherung"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"></path><path d="m8 12 3 3 5-6"></path></svg></button>
             <button id="fullscreen" title="Vollbild einschalten" aria-label="Vollbild einschalten" aria-pressed="false">
               <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                 <path data-fullscreen-icon d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"></path>
@@ -2150,6 +2157,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         <span id="position"></span>
       </div>
     </main>
+    <dialog id="storageConsentDialog" aria-labelledby="storageConsentTitle"><h2 id="storageConsentTitle">Im Browser speichern?</h2><p>Nur mit deiner Zustimmung speichern wir Dokumente und Einstellungen (Sprache, Seitenansicht und Zoom) lokal in diesem Browser. Auch deine Zustimmung wird dort gemerkt. Es werden keine Cookies gesetzt und keine Daten von der Anwendung an einen Server gesendet.</p><p>Ohne Zustimmung bleibt alles nur bis zum Schließen der Seite im Arbeitsspeicher. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Eine Ablehnung wird nicht gespeichert; beim nächsten Start fragen wir erneut.</p><p>Du kannst weiterhin selbst .schmier- oder PDF-Dateien herunterladen. Über den Speicher-Button im Kopf lässt sich die Entscheidung jederzeit ändern.</p><div class="storage-consent-actions"><button id="storageDecline">Nicht speichern</button><button id="storageAccept" class="primary">Zustimmen</button></div></dialog>
     <dialog id="helpDialog" aria-labelledby="helpTitle">
       <div class="help-shell">
         <div class="help-head">
@@ -2947,6 +2955,54 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       ],
       "Vollbild konnte nicht umgeschaltet werden.": ["Could not toggle fullscreen.",
         "Impossible de changer le mode plein écran."
+      ],
+      "Browserspeicherung": [
+        "Browser storage",
+        "Stockage du navigateur"
+      ],
+      "Browserspeicherung prüfen oder ändern": [
+        "Review or change browser storage consent",
+        "Consulter ou modifier le consentement au stockage"
+      ],
+      "Im Browser speichern?": [
+        "Save in this browser?",
+        "Enregistrer dans ce navigateur ?"
+      ],
+      "Nur mit deiner Zustimmung speichern wir Dokumente und Einstellungen (Sprache, Seitenansicht und Zoom) lokal in diesem Browser. Auch deine Zustimmung wird dort gemerkt. Es werden keine Cookies gesetzt und keine Daten von der Anwendung an einen Server gesendet.": [
+        "Only with your consent do we save documents and preferences (language, page view and zoom) locally in this browser. Your consent is also remembered there. The app sets no cookies and sends no data to a server.",
+        "Uniquement avec ton accord, nous enregistrons les documents et préférences (langue, affichage et zoom) localement dans ce navigateur. Ton accord y est aussi mémorisé. L’application ne crée aucun cookie et n’envoie aucune donnée à un serveur."
+      ],
+      "Ohne Zustimmung bleibt alles nur bis zum Schließen der Seite im Arbeitsspeicher. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Eine Ablehnung wird nicht gespeichert; beim nächsten Start fragen wir erneut.": [
+        "Without consent, everything stays only in memory until the page is closed. Existing browser data for this app is deleted. A refusal is not saved; we ask again next time.",
+        "Sans accord, tout reste seulement en mémoire jusqu’à la fermeture de la page. Les données de cette application déjà stockées dans le navigateur sont supprimées. Le refus n’est pas enregistré ; la question reviendra au prochain démarrage."
+      ],
+      "Du kannst weiterhin selbst .schmier- oder PDF-Dateien herunterladen. Über den Speicher-Button im Kopf lässt sich die Entscheidung jederzeit ändern.": [
+        "You can still download .schmier or PDF files yourself. Use the storage button in the header to change your decision at any time.",
+        "Tu peux toujours télécharger toi-même des fichiers .schmier ou PDF. Le bouton de stockage dans l’en-tête permet de changer ta décision à tout moment."
+      ],
+      "Nicht speichern": [
+        "Do not save",
+        "Ne pas enregistrer"
+      ],
+      "Zustimmen": [
+        "Allow storage",
+        "Autoriser"
+      ],
+      "Keine Browserspeicherung · nur diese Sitzung": [
+        "Browser storage off · this session only",
+        "Stockage désactivé · cette session uniquement"
+      ],
+      "Speicherung aus · vorhandene Browserdaten konnten nicht vollständig gelöscht werden": [
+        "Storage off · existing browser data could not be fully deleted",
+        "Stockage désactivé · les anciennes données n’ont pas pu être entièrement supprimées"
+      ],
+      "Gespeicherter Stand konnte nicht geladen werden.": [
+        "Could not load the saved document.",
+        "Impossible de charger le document enregistré."
+      ],
+      "Browserspeicherung erlaubt": [
+        "Browser storage allowed",
+        "Stockage du navigateur autorisé"
       ]
     };
     const HELP_TRANSLATIONS = {
@@ -3016,7 +3072,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         "keywords": ""
       }, {
         "title": "Autosave and offline use",
-        "html": "<p>The app attempts to autosave to localStorage, not cookies. The status below the paper reports saving or restoration. Local file storage depends on the browser and its settings. If storage is blocked, a message is shown; file downloads still work.</p><p>A different browser, private mode, cleared browser data or moving the HTML file may prevent access to the previous local backup. Save .schmier for an independent backup; browser storage does not replace it and does not contain undo history.</p><p>The app, help, tutorial and fonts are embedded in this one HTML file. Typing, import, download, PDF and printing work offline. Language and view preferences are stored separately from your document.</p>",
+        "html": "<p>Only after explicit consent does the app attempt to autosave to localStorage, not cookies. Without consent, documents and preferences remain in session memory only. The status below the paper reports saving or restoration. Local file storage depends on the browser and its settings. If storage is blocked, a message is shown; file downloads still work.</p><p>A different browser, private mode, cleared browser data or moving the HTML file may prevent access to the previous local backup. Save .schmier for an independent backup; browser storage does not replace it and does not contain undo history.</p><p>The app, help, tutorial and fonts are embedded in this one HTML file. Typing, import, download, PDF and printing work offline. Language and view preferences are stored separately from your document.</p>",
         "keywords": ""
       }, {
         "title": "PDF export and printing",
@@ -3113,7 +3169,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         "keywords": ""
       }, {
         "title": "Sauvegarde automatique et hors connexion",
-        "html": "<p>L’application essaie de sauvegarder automatiquement dans localStorage, sans cookies. Le statut sous la page indique la sauvegarde ou la restauration. Le stockage des fichiers locaux dépend du navigateur et de ses paramètres. S’il est bloqué, un message apparaît ; les téléchargements restent possibles.</p><p>Un autre navigateur, le mode privé, l’effacement des données ou un déplacement du fichier HTML peut empêcher l’accès à l’ancienne sauvegarde. Utilise Enregistrer .schmier pour une copie indépendante : le stockage local ne la remplace pas et ne contient pas l’historique d’annulation.</p><p>Application, aide, tutoriel et polices sont intégrés dans cet unique fichier HTML. Saisie, import, téléchargement, PDF et impression fonctionnent hors connexion. La langue et la vue sont mémorisées séparément du document.</p>",
+        "html": "<p>Uniquement après accord explicite, l’application essaie de sauvegarder automatiquement dans localStorage, sans cookies. Sans accord, documents et préférences restent seulement en mémoire pendant la session. Le statut sous la page indique la sauvegarde ou la restauration. Le stockage des fichiers locaux dépend du navigateur et de ses paramètres. S’il est bloqué, un message apparaît ; les téléchargements restent possibles.</p><p>Un autre navigateur, le mode privé, l’effacement des données ou un déplacement du fichier HTML peut empêcher l’accès à l’ancienne sauvegarde. Utilise Enregistrer .schmier pour une copie indépendante : le stockage local ne la remplace pas et ne contient pas l’historique d’annulation.</p><p>Application, aide, tutoriel et polices sont intégrés dans cet unique fichier HTML. Saisie, import, téléchargement, PDF et impression fonctionnent hors connexion. La langue et la vue sont mémorisées séparément du document.</p>",
         "keywords": ""
       }, {
         "title": "Export PDF et impression",
@@ -3150,11 +3206,297 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
      * SPRACHE UND UI-LOKALISIERUNG
      * Sprach- und Ansichtseinstellungen liegen außerhalb des gespeicherten Dokuments.
      */
+    /* Persistenz ist ausschließlich nach ausdrücklicher Zustimmung erlaubt.
+     * Eine Ablehnung wird absichtlich nicht gespeichert; beim nächsten Start wird erneut gefragt.
+     */
+    // Die Speicherentscheidung verwendet ausschließlich die Browsersprache,
+    // unabhängig von der auf Deutsch/Englisch/Französisch beschränkten App-Oberfläche.
+    const CONSENT_TRANSLATIONS = {
+      "de": [
+        "Im Browser speichern?",
+        "Nur mit deiner Zustimmung speichern wir Dokumente und Einstellungen (Sprache, Seitenansicht und Zoom) lokal in diesem Browser. Auch deine Zustimmung wird dort gemerkt. Es werden keine Cookies gesetzt und keine Daten von der Anwendung an einen Server gesendet.",
+        "Ohne Zustimmung bleibt alles nur bis zum Schließen der Seite im Arbeitsspeicher. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Eine Ablehnung wird nicht gespeichert; beim nächsten Start fragen wir erneut.",
+        "Du kannst weiterhin selbst .schmier- oder PDF-Dateien herunterladen. Über den Speicher-Button im Kopf lässt sich die Entscheidung jederzeit ändern.",
+        "Nicht speichern",
+        "Zustimmen"
+      ],
+      "en": [
+        "Save in this browser?",
+        "Only with your consent do we save documents and preferences (language, page view and zoom) locally in this browser. Your consent is also remembered there. The app sets no cookies and sends no data to a server.",
+        "Without consent, everything stays only in memory until the page is closed. Existing browser data for this app is deleted. A refusal is not saved; we ask again next time.",
+        "You can still download .schmier or PDF files yourself. Use the storage button in the header to change your decision at any time.",
+        "Do not save",
+        "Allow storage"
+      ],
+      "fr": [
+        "Enregistrer dans ce navigateur ?",
+        "Uniquement avec ton accord, nous enregistrons les documents et préférences (langue, affichage et zoom) localement dans ce navigateur. Ton accord y est aussi mémorisé. L’application ne crée aucun cookie et n’envoie aucune donnée à un serveur.",
+        "Sans accord, tout reste seulement en mémoire jusqu’à la fermeture de la page. Les données de cette application déjà stockées dans le navigateur sont supprimées. Le refus n’est pas enregistré ; la question reviendra au prochain démarrage.",
+        "Tu peux toujours télécharger toi-même des fichiers .schmier ou PDF. Le bouton de stockage dans l’en-tête permet de changer ta décision à tout moment.",
+        "Ne pas enregistrer",
+        "Autoriser"
+      ],
+      "bg": [
+        "Да се запазва ли в този браузър?",
+        "Само с твоето съгласие запазваме документите и настройките (език, изглед на страниците и мащаб) локално в този браузър. Запазва се и съгласието ти. Приложението не използва бисквитки и не изпраща данни към сървър.",
+        "Без съгласие всичко остава само в оперативната памет до затварянето на страницата. Съществуващите данни на това приложение в браузъра се изтриват. Отказът не се запазва; при следващото отваряне ще попитаме отново.",
+        "Все още можеш самостоятелно да изтегляш .schmier или PDF файлове. Бутонът за съхранение в горната лента позволява да промениш решението си по всяко време.",
+        "Без запазване",
+        "Разрешавам"
+      ],
+      "cs": [
+        "Ukládat v tomto prohlížeči?",
+        "Pouze s tvým souhlasem ukládáme dokumenty a nastavení (jazyk, zobrazení stránek a přiblížení) místně v tomto prohlížeči. Ukládá se i tvůj souhlas. Aplikace nepoužívá cookies a neposílá žádná data na server.",
+        "Bez souhlasu zůstane vše pouze v operační paměti do zavření stránky. Existující data této aplikace v prohlížeči budou smazána. Odmítnutí se neukládá; při příštím spuštění se zeptáme znovu.",
+        "Soubory .schmier nebo PDF můžeš nadále stahovat ručně. Své rozhodnutí můžeš kdykoli změnit tlačítkem úložiště v horní liště.",
+        "Neukládat",
+        "Povolit ukládání"
+      ],
+      "da": [
+        "Gem i denne browser?",
+        "Kun med dit samtykke gemmer vi dokumenter og indstillinger (sprog, sidevisning og zoom) lokalt i denne browser. Dit samtykke gemmes også. Appen bruger ingen cookies og sender ingen data til en server.",
+        "Uden samtykke bliver alt kun i arbejdshukommelsen, indtil siden lukkes. Eksisterende browserdata for denne app slettes. Et afslag gemmes ikke; vi spørger igen næste gang.",
+        "Du kan stadig selv downloade .schmier- eller PDF-filer. Du kan til enhver tid ændre dit valg med lagringsknappen øverst.",
+        "Gem ikke",
+        "Tillad lagring"
+      ],
+      "el": [
+        "Αποθήκευση σε αυτό το πρόγραμμα περιήγησης;",
+        "Μόνο με τη συγκατάθεσή σου αποθηκεύουμε έγγραφα και ρυθμίσεις (γλώσσα, προβολή σελίδων και μεγέθυνση) τοπικά σε αυτό το πρόγραμμα περιήγησης. Αποθηκεύεται και η συγκατάθεσή σου. Η εφαρμογή δεν χρησιμοποιεί cookies και δεν στέλνει δεδομένα σε διακομιστή.",
+        "Χωρίς συγκατάθεση, όλα παραμένουν μόνο στη μνήμη μέχρι να κλείσει η σελίδα. Τα υπάρχοντα δεδομένα αυτής της εφαρμογής στο πρόγραμμα περιήγησης διαγράφονται. Η άρνηση δεν αποθηκεύεται· την επόμενη φορά θα ρωτήσουμε ξανά.",
+        "Μπορείς να συνεχίσεις να κατεβάζεις αρχεία .schmier ή PDF χειροκίνητα. Το κουμπί αποθήκευσης στην επάνω γραμμή σού επιτρέπει να αλλάξεις την απόφασή σου οποιαδήποτε στιγμή.",
+        "Να μην αποθηκεύονται",
+        "Να επιτρέπεται"
+      ],
+      "es": [
+        "¿Guardar en este navegador?",
+        "Solo con tu consentimiento guardamos documentos y preferencias (idioma, vista de páginas y zoom) localmente en este navegador. También se guarda tu consentimiento. La aplicación no utiliza cookies ni envía datos a un servidor.",
+        "Sin consentimiento, todo permanece únicamente en la memoria hasta que cierres la página. Se eliminan los datos existentes de esta aplicación en el navegador. El rechazo no se guarda; volveremos a preguntar en el próximo inicio.",
+        "Puedes seguir descargando archivos .schmier o PDF por tu cuenta. El botón de almacenamiento de la cabecera permite cambiar tu decisión en cualquier momento.",
+        "No guardar",
+        "Permitir almacenamiento"
+      ],
+      "et": [
+        "Kas salvestada selles brauseris?",
+        "Ainult sinu nõusolekul salvestame dokumendid ja seaded (keel, lehevaade ja suum) kohalikult sellesse brauserisse. Salvestatakse ka sinu nõusolek. Rakendus ei kasuta küpsiseid ega saada andmeid serverisse.",
+        "Ilma nõusolekuta jääb kõik ainult töömällu kuni lehe sulgemiseni. Selle rakenduse olemasolevad brauseriandmed kustutatakse. Keeldumist ei salvestata; järgmisel avamisel küsime uuesti.",
+        "Saad endiselt ise alla laadida .schmier- või PDF-faile. Päises oleva salvestusnupu abil saad oma otsust igal ajal muuta.",
+        "Ära salvesta",
+        "Luba salvestamine"
+      ],
+      "fi": [
+        "Tallennetaanko tähän selaimeen?",
+        "Vain suostumuksellasi tallennamme asiakirjat ja asetukset (kieli, sivunäkymä ja zoomaus) paikallisesti tähän selaimeen. Myös suostumuksesi tallennetaan. Sovellus ei käytä evästeitä eikä lähetä tietoja palvelimelle.",
+        "Ilman suostumusta kaikki säilyy vain työmuistissa sivun sulkemiseen asti. Tämän sovelluksen aiemmat selaintiedot poistetaan. Kieltäytymistä ei tallenneta; kysymme uudelleen seuraavalla kerralla.",
+        "Voit edelleen ladata .schmier- tai PDF-tiedostoja itse. Voit muuttaa päätöstäsi milloin tahansa yläpalkin tallennuspainikkeella.",
+        "Älä tallenna",
+        "Salli tallennus"
+      ],
+      "ga": [
+        "Sábháil sa bhrabhsálaí seo?",
+        "Ní shábhálaimid doiciméid ná socruithe (teanga, amharc na leathanach agus súmáil) go háitiúil sa bhrabhsálaí seo ach le do thoiliú. Sábháiltear do thoiliú freisin. Ní úsáideann an aip fianáin agus ní sheolann sí sonraí chuig freastalaí.",
+        "Gan toiliú, fanann gach rud sa chuimhne oibre amháin go dtí go ndúntar an leathanach. Scriostar na sonraí atá ag an aip seo sa bhrabhsálaí cheana féin. Ní shábháiltear diúltú; cuirfimid an cheist arís an chéad uair eile.",
+        "Is féidir leat comhaid .schmier nó PDF a íoslódáil de láimh fós. Is féidir leat do chinneadh a athrú am ar bith leis an gcnaipe stórála sa cheanntásc.",
+        "Ná sábháil",
+        "Ceadaigh stóráil"
+      ],
+      "hr": [
+        "Spremiti u ovaj preglednik?",
+        "Samo uz tvoj pristanak lokalno u ovom pregledniku spremamo dokumente i postavke (jezik, prikaz stranica i zumiranje). Sprema se i tvoj pristanak. Aplikacija ne koristi kolačiće i ne šalje podatke poslužitelju.",
+        "Bez pristanka sve ostaje samo u radnoj memoriji do zatvaranja stranice. Postojeći podaci ove aplikacije u pregledniku se brišu. Odbijanje se ne sprema; pri sljedećem otvaranju ponovno ćemo pitati.",
+        "I dalje možeš ručno preuzimati .schmier ili PDF datoteke. Odluku možeš promijeniti u bilo kojem trenutku gumbom za pohranu u zaglavlju.",
+        "Nemoj spremati",
+        "Dopusti pohranu"
+      ],
+      "hu": [
+        "Mentés ebben a böngészőben?",
+        "Csak a hozzájárulásoddal mentjük a dokumentumokat és beállításokat (nyelv, oldalnézet és nagyítás) helyileg ebben a böngészőben. A hozzájárulásodat is megjegyezzük. Az alkalmazás nem használ sütiket, és nem küld adatokat szerverre.",
+        "Hozzájárulás nélkül minden csak a munkamemóriában marad az oldal bezárásáig. Az alkalmazás korábbi böngészőadatai törlődnek. Az elutasítást nem mentjük; a következő indításkor újra megkérdezzük.",
+        "Továbbra is letölthetsz .schmier- vagy PDF-fájlokat saját kérésedre. A fejlécben lévő tárolási gombbal bármikor megváltoztathatod a döntésedet.",
+        "Ne mentse",
+        "Tárolás engedélyezése"
+      ],
+      "it": [
+        "Salvare in questo browser?",
+        "Solo con il tuo consenso salviamo documenti e preferenze (lingua, vista delle pagine e zoom) localmente in questo browser. Viene memorizzato anche il consenso. L’applicazione non usa cookie e non invia dati a un server.",
+        "Senza consenso, tutto rimane soltanto nella memoria fino alla chiusura della pagina. I dati precedenti di questa applicazione nel browser vengono eliminati. Il rifiuto non viene memorizzato; lo chiederemo di nuovo al prossimo avvio.",
+        "Puoi continuare a scaricare manualmente file .schmier o PDF. Il pulsante di archiviazione nell’intestazione permette di cambiare la scelta in qualsiasi momento.",
+        "Non salvare",
+        "Consenti archiviazione"
+      ],
+      "lt": [
+        "Išsaugoti šioje naršyklėje?",
+        "Tik gavę tavo sutikimą šioje naršyklėje vietoje išsaugome dokumentus ir nuostatas (kalbą, puslapių rodinį ir mastelį). Išsaugomas ir tavo sutikimas. Programa nenaudoja slapukų ir nesiunčia duomenų į serverį.",
+        "Be sutikimo viskas lieka tik darbinėje atmintyje, kol uždaromas puslapis. Esami šios programos duomenys naršyklėje ištrinami. Atsisakymas neišsaugomas; kitą kartą paklausime iš naujo.",
+        "Vis tiek gali savo nuožiūra atsisiųsti .schmier arba PDF failus. Sprendimą bet kada galima pakeisti saugojimo mygtuku antraštėje.",
+        "Nesaugoti",
+        "Leisti saugoti"
+      ],
+      "lv": [
+        "Saglabāt šajā pārlūkprogrammā?",
+        "Tikai ar tavu piekrišanu mēs šajā pārlūkprogrammā lokāli saglabājam dokumentus un iestatījumus (valodu, lapu skatu un tālummaiņu). Tiek saglabāta arī tava piekrišana. Lietotne neizmanto sīkdatnes un nesūta datus uz serveri.",
+        "Bez piekrišanas viss paliek tikai operatīvajā atmiņā līdz lapas aizvēršanai. Šīs lietotnes iepriekšējie dati pārlūkprogrammā tiek izdzēsti. Atteikums netiek saglabāts; nākamajā reizē jautāsim vēlreiz.",
+        "Joprojām vari pats lejupielādēt .schmier vai PDF failus. Lēmumu jebkurā laikā var mainīt ar glabāšanas pogu galvenē.",
+        "Nesaglabāt",
+        "Atļaut glabāšanu"
+      ],
+      "mt": [
+        "Tissejvja f’dan il-browser?",
+        "Bil-kunsens tiegħek biss nissejvjaw id-dokumenti u s-settings (il-lingwa, il-veduta tal-paġni u ż-żum) lokalment f’dan il-browser. Il-kunsens tiegħek jiġi ssejvjat ukoll. L-applikazzjoni ma tużax cookies u ma tibgħat ebda data lil server.",
+        "Mingħajr kunsens, kollox jibqa’ biss fil-memorja sakemm tingħalaq il-paġna. Id-data eżistenti ta’ din l-applikazzjoni fil-browser titħassar. Ir-rifjut ma jiġix issejvjat; nistaqsuk mill-ġdid meta terġa’ tiftaħha.",
+        "Xorta tista’ tniżżel fajls .schmier jew PDF int stess. Tista’ tibdel id-deċiżjoni tiegħek fi kwalunkwe ħin bil-buttuna tal-ħażna fin-naħa ta’ fuq.",
+        "Tissejvjax",
+        "Ħalli l-ħażna"
+      ],
+      "nl": [
+        "Opslaan in deze browser?",
+        "Alleen met jouw toestemming slaan we documenten en instellingen (taal, paginaweergave en zoom) lokaal in deze browser op. Ook je toestemming wordt onthouden. De app gebruikt geen cookies en verstuurt geen gegevens naar een server.",
+        "Zonder toestemming blijft alles alleen in het werkgeheugen totdat je de pagina sluit. Bestaande browsergegevens van deze app worden verwijderd. Een weigering wordt niet opgeslagen; de volgende keer vragen we het opnieuw.",
+        "Je kunt nog steeds zelf .schmier- of PDF-bestanden downloaden. Met de opslagknop bovenaan kun je je keuze op elk moment wijzigen.",
+        "Niet opslaan",
+        "Opslag toestaan"
+      ],
+      "pl": [
+        "Zapisywać w tej przeglądarce?",
+        "Tylko za Twoją zgodą zapisujemy dokumenty i ustawienia (język, widok stron i powiększenie) lokalnie w tej przeglądarce. Zapisywana jest również Twoja zgoda. Aplikacja nie używa plików cookie i nie wysyła danych na serwer.",
+        "Bez zgody wszystko pozostaje tylko w pamięci operacyjnej do zamknięcia strony. Istniejące dane tej aplikacji w przeglądarce zostaną usunięte. Odmowa nie jest zapisywana; przy następnym uruchomieniu zapytamy ponownie.",
+        "Nadal możesz samodzielnie pobierać pliki .schmier lub PDF. Przycisk pamięci w nagłówku pozwala w każdej chwili zmienić decyzję.",
+        "Nie zapisuj",
+        "Zezwól na zapis"
+      ],
+      "pt": [
+        "Guardar neste navegador?",
+        "Só com o teu consentimento guardamos documentos e preferências (idioma, vista das páginas e zoom) localmente neste navegador. O teu consentimento também é guardado. A aplicação não utiliza cookies nem envia dados para um servidor.",
+        "Sem consentimento, tudo fica apenas na memória até fechares a página. Os dados existentes desta aplicação no navegador são eliminados. A recusa não é guardada; voltaremos a perguntar na próxima abertura.",
+        "Podes continuar a descarregar ficheiros .schmier ou PDF por tua iniciativa. O botão de armazenamento no cabeçalho permite alterar a decisão a qualquer momento.",
+        "Não guardar",
+        "Permitir armazenamento"
+      ],
+      "ro": [
+        "Se salvează în acest browser?",
+        "Numai cu acordul tău salvăm documentele și preferințele (limba, vizualizarea paginilor și zoomul) local în acest browser. Se salvează și acordul tău. Aplicația nu folosește cookie-uri și nu trimite date către un server.",
+        "Fără acord, totul rămâne doar în memoria de lucru până la închiderea paginii. Datele existente ale acestei aplicații în browser sunt șterse. Refuzul nu este salvat; vom întreba din nou la următoarea pornire.",
+        "Poți descărca în continuare fișiere .schmier sau PDF din proprie inițiativă. Butonul de stocare din antet permite schimbarea deciziei oricând.",
+        "Nu salva",
+        "Permite stocarea"
+      ],
+      "sk": [
+        "Ukladať v tomto prehliadači?",
+        "Iba s tvojím súhlasom ukladáme dokumenty a nastavenia (jazyk, zobrazenie strán a priblíženie) lokálne v tomto prehliadači. Ukladá sa aj tvoj súhlas. Aplikácia nepoužíva cookies a neposiela žiadne údaje na server.",
+        "Bez súhlasu zostane všetko iba v operačnej pamäti do zatvorenia stránky. Existujúce údaje tejto aplikácie v prehliadači sa vymažú. Odmietnutie sa neukladá; pri ďalšom spustení sa opýtame znova.",
+        "Súbory .schmier alebo PDF si môžeš naďalej sťahovať samostatne. Rozhodnutie môžeš kedykoľvek zmeniť tlačidlom úložiska v hlavičke.",
+        "Neukladať",
+        "Povoliť ukladanie"
+      ],
+      "sl": [
+        "Shrani v ta brskalnik?",
+        "Samo s tvojim soglasjem shranjujemo dokumente in nastavitve (jezik, pogled strani in povečavo) lokalno v ta brskalnik. Shrani se tudi tvoje soglasje. Aplikacija ne uporablja piškotkov in ne pošilja podatkov na strežnik.",
+        "Brez soglasja vse ostane samo v delovnem pomnilniku do zaprtja strani. Obstoječi podatki te aplikacije v brskalniku se izbrišejo. Zavrnitev se ne shrani; ob naslednjem odprtju bomo vprašali znova.",
+        "Še vedno lahko samostojno preneseš datoteke .schmier ali PDF. Odločitev lahko kadar koli spremeniš z gumbom za shranjevanje v glavi.",
+        "Ne shrani",
+        "Dovoli shranjevanje"
+      ],
+      "sv": [
+        "Spara i den här webbläsaren?",
+        "Endast med ditt samtycke sparar vi dokument och inställningar (språk, sidvisning och zoom) lokalt i den här webbläsaren. Även ditt samtycke sparas. Appen använder inga kakor och skickar inga uppgifter till en server.",
+        "Utan samtycke stannar allt bara i arbetsminnet tills sidan stängs. Befintliga webbläsardata för den här appen raderas. Ett nej sparas inte; vi frågar igen nästa gång.",
+        "Du kan fortfarande själv ladda ned .schmier- eller PDF-filer. Med lagringsknappen i sidhuvudet kan du ändra ditt val när som helst.",
+        "Spara inte",
+        "Tillåt lagring"
+      ]
+    };
+
+    function consentBrowserLanguage() {
+      // Manche Emulatoren ändern nur die Hauptsprache, nicht die Liste weiterer Sprachen.
+      const preferences = [navigator.language, ...(navigator.languages || [])].filter(Boolean);
+      for (const candidate of preferences) {
+        const base = String(candidate).toLowerCase().split(/[-_]/)[0];
+        if (Object.hasOwn(CONSENT_TRANSLATIONS, base)) return base;
+      }
+      return 'en';
+    }
+
+    function renderStorageConsent() {
+      const locale = consentBrowserLanguage();
+      const [title, details, refusal, manual, decline, accept] = CONSENT_TRANSLATIONS[locale];
+      const dialog = $('storageConsentDialog');
+      dialog.lang = locale;
+      $('storageConsentTitle').textContent = title;
+      const paragraphs = dialog.querySelectorAll('p');
+      [details, refusal, manual].forEach((text, index) => { paragraphs[index].textContent = text; });
+      $('storageDecline').textContent = decline;
+      $('storageAccept').textContent = accept;
+    }
+
+    const STORAGE_CONSENT_KEY = 'schmierpapier.storageConsent';
+    const APP_STORAGE_KEYS = [STORAGE_CONSENT_KEY, 'schmierpapier.v1', 'schmierpapier.language',
+      'schmierpapier.pageView', 'schmierpapier.zoom'];
+    let storageAllowed = false;
+    let initialStoragePrompt = false;
+    try { storageAllowed = localStorage.getItem(STORAGE_CONSENT_KEY) === 'accepted-v1'; } catch {}
+
+    function readAppStorage(key) {
+      return storageAllowed ? localStorage.getItem(key) : null;
+    }
+    function writeAppStorage(key, value) {
+      if (storageAllowed) localStorage.setItem(key, value);
+    }
+    function removeAppStorage(key) {
+      if (storageAllowed) localStorage.removeItem(key);
+    }
+    function openStorageConsent(initial = false) {
+      renderStorageConsent();
+      if ($('storageConsentDialog').open) return;
+      initialStoragePrompt = initial;
+      $('storageConsentDialog').showModal();
+      $('storageDecline').focus();
+    }
+    function chooseStorage(allow) {
+      clearTimeout(saveTimer);
+      const firstChoice = initialStoragePrompt;
+      initialStoragePrompt = false;
+      storageAllowed = allow;
+      $('storageConsentDialog').close();
+      if (!allow) {
+        let cleared = true;
+        for (const key of APP_STORAGE_KEYS) {
+          try { localStorage.removeItem(key); } catch { cleared = false; }
+        }
+        status(cleared ? 'Keine Browserspeicherung · nur diese Sitzung' :
+          'Speicherung aus · vorhandene Browserdaten konnten nicht vollständig gelöscht werden');
+        return;
+      }
+      try {
+        if (firstChoice) {
+          const saved = readAppStorage(KEY);
+          if (saved) doc = validate(JSON.parse(saved));
+          page = 0; pos = 0;
+          const savedView = readAppStorage('schmierpapier.pageView');
+          pageView = savedView === '1' ? '1' : '2';
+          $('pageView').value = pageView;
+          const savedZoom = Number(readAppStorage('schmierpapier.zoom'));
+          manualZoom = savedZoom >= .25 && savedZoom <= 2 ? savedZoom : null;
+          setLanguage(preferredLanguage(), false);
+          render();
+        }
+      } catch { status('Gespeicherter Stand konnte nicht geladen werden.'); }
+      try {
+        writeAppStorage(STORAGE_CONSENT_KEY, 'accepted-v1');
+        writeAppStorage(LANGUAGE_KEY, language);
+        const preferences = tutorial ? tutorial.backup : { pageView, manualZoom };
+        writeAppStorage('schmierpapier.pageView', preferences.pageView);
+        if (preferences.manualZoom === null) removeAppStorage('schmierpapier.zoom');
+        else writeAppStorage('schmierpapier.zoom', String(preferences.manualZoom));
+        status('Browserspeicherung erlaubt');
+      } catch { status('Browserspeicher nicht verfügbar – bitte als .schmier speichern'); }
+      persist();
+    }
+
     const LANGUAGE_KEY = 'schmierpapier.language';
 
     function preferredLanguage() {
       try {
-        const stored = localStorage.getItem(LANGUAGE_KEY);
+        const stored = readAppStorage(LANGUAGE_KEY);
         if (['de', 'en', 'fr'].includes(stored)) return stored
       } catch {}
       for (const candidate of navigator.languages?.length ? navigator.languages : [navigator.language || 'de']) {
@@ -3224,15 +3566,15 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       const topics = {
         de: {
           title: 'Sprache und gespeicherte Einstellungen',
-          html: '<p>Die Sprachauswahl mit dem Globus im Header bietet <strong>Deutsch, English und Français</strong>. Beim ersten Start wird die erste unterstützte Sprache aus den Browsereinstellungen verwendet; ist keine dabei, Deutsch.</p><p>Eine eigene Auswahl wird nach Möglichkeit im lokalen Browserspeicher gemerkt und hat beim nächsten Start Vorrang. Bei gesperrtem Speicher funktioniert der Wechsel für die aktuelle Sitzung. Oberfläche, Tooltips, Meldungen, Hilfesuche und Tutorial wechseln gemeinsam. Sprache und Ansicht gehören nicht zum Dokument; Texte, Zahlenstrahlmarken, Dateinamen und Zeichnungen werden weder übersetzt noch verändert. Tastenkürzel und Rechenzeichen bleiben gleich. Alle Übersetzungen sind in der HTML-Datei enthalten und funktionieren offline.</p>'
+          html: '<p>Die Sprachauswahl mit dem Globus im Header bietet <strong>Deutsch, English und Français</strong>. Beim ersten Start wird die erste unterstützte Sprache aus den Browsereinstellungen verwendet; ist keine dabei, Deutsch.</p><p>Eine eigene Auswahl wird nur mit Zustimmung zur Browserspeicherung und bei verfügbarem Speicher gemerkt und hat dann beim nächsten Start Vorrang. Bei gesperrtem Speicher funktioniert der Wechsel für die aktuelle Sitzung. Oberfläche, Tooltips, Meldungen, Hilfesuche und Tutorial wechseln gemeinsam. Sprache und Ansicht gehören nicht zum Dokument; Texte, Zahlenstrahlmarken, Dateinamen und Zeichnungen werden weder übersetzt noch verändert. Tastenkürzel und Rechenzeichen bleiben gleich. Alle Übersetzungen sind in der HTML-Datei enthalten und funktionieren offline.</p>'
         },
         en: {
           title: 'Language and remembered settings',
-          html: '<p>The globe language selector offers <strong>Deutsch, English and Français</strong>. On first use, the first supported browser language is selected, with German as fallback. Your own selection is stored in localStorage when available and takes priority next time. If storage is blocked, switching still works for the session.</p><p>Interface, tooltips, messages, searchable help and tutorial change together. Language and view are separate from the document. Written text, axis labels, document names and drawings are never translated or changed. Keyboard shortcuts and mathematical symbols stay the same. All translations are embedded and work offline.</p>'
+          html: '<p>The globe language selector offers <strong>Deutsch, English and Français</strong>. On first use, the first supported browser language is selected, with German as fallback. Your own selection is stored in localStorage only with storage consent and when available, and then takes priority next time. If storage is blocked, switching still works for the session.</p><p>Interface, tooltips, messages, searchable help and tutorial change together. Language and view are separate from the document. Written text, axis labels, document names and drawings are never translated or changed. Keyboard shortcuts and mathematical symbols stay the same. All translations are embedded and work offline.</p>'
         },
         fr: {
           title: 'Langue et préférences mémorisées',
-          html: '<p>Le sélecteur avec un globe propose <strong>Deutsch, English et Français</strong>. Au premier démarrage, la première langue prise en charge dans les préférences du navigateur est choisie ; sinon, l’allemand. Ton choix est mémorisé dans localStorage si possible et devient prioritaire. Si le stockage est bloqué, le changement reste possible pour la session.</p><p>Interface, infobulles, messages, recherche d’aide et tutoriel changent ensemble. Langue et vue sont séparées du document. Textes saisis, valeurs des axes, noms des documents et dessins ne sont jamais traduits ni modifiés. Raccourcis et signes mathématiques restent identiques. Toutes les traductions sont intégrées et fonctionnent hors connexion.</p>'
+          html: '<p>Le sélecteur avec un globe propose <strong>Deutsch, English et Français</strong>. Au premier démarrage, la première langue prise en charge dans les préférences du navigateur est choisie ; sinon, l’allemand. Ton choix est mémorisé dans localStorage seulement avec ton accord au stockage et si celui-ci est disponible, et devient alors prioritaire. Si le stockage est bloqué, le changement reste possible pour la session.</p><p>Interface, infobulles, messages, recherche d’aide et tutoriel changent ensemble. Langue et vue sont séparées du document. Textes saisis, valeurs des axes, noms des documents et dessins ne sont jamais traduits ni modifiés. Raccourcis et signes mathématiques restent identiques. Toutes les traductions sont intégrées et fonctionnent hors connexion.</p>'
         }
       };
       return [...articles, {
@@ -3270,7 +3612,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
           return
         }
         if (node.nodeType !== Node.ELEMENT_NODE) return;
-        if (node.matches('script,style,#name,.numberline-label,#helpContent,#helpNav,#language option')) return;
+        if (node.matches('script,style,#name,.numberline-label,#helpContent,#helpNav,#language option,#storageConsentDialog')) return;
         for (const attr of ['title', 'aria-label', 'placeholder'])
           if (node.hasAttribute(attr)) {
             const old = node.getAttribute(attr),
@@ -3298,7 +3640,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       document.documentElement.lang = next;
       document.getElementById('language').value = next;
       if (remember) try {
-        localStorage.setItem(LANGUAGE_KEY, next)
+        writeAppStorage(LANGUAGE_KEY, next)
       } catch {}
       if (document.getElementById('helpDialog').open) {
         document.getElementById('helpSearch').value = '';
@@ -3927,9 +4269,14 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     function persist() {
       if (tutorial) return;
       clearTimeout(saveTimer);
+      if (!storageAllowed) {
+        status('Keine Browserspeicherung · nur diese Sitzung');
+        return;
+      }
       saveTimer = setTimeout(() => {
+        if (!storageAllowed) return;
         try {
-          localStorage.setItem(KEY, JSON.stringify(doc));
+          writeAppStorage(KEY, JSON.stringify(doc));
           status('Im Browser gespeichert')
         } catch {
           status('Browserspeicher nicht verfügbar – bitte als .schmier speichern')
@@ -4877,18 +5224,18 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
 
     let manualZoom = null;
     try {
-      const savedZoom = Number(localStorage.getItem('schmierpapier.zoom'));
+      const savedZoom = Number(readAppStorage('schmierpapier.zoom'));
       if (savedZoom >= .25 && savedZoom <= 2) manualZoom = savedZoom
     } catch {}
     let pageView = '2';
     try {
-      pageView = localStorage.getItem('schmierpapier.pageView') === '1' ? '1' : '2'
+      pageView = readAppStorage('schmierpapier.pageView') === '1' ? '1' : '2'
     } catch {}
     $('pageView').value = pageView;
     $('pageView').onchange = () => {
       pageView = $('pageView').value;
       try {
-        if (!tutorial) localStorage.setItem('schmierpapier.pageView', pageView)
+        if (!tutorial) writeAppStorage('schmierpapier.pageView', pageView)
       } catch {}
       renderSpread()
     };
@@ -4915,8 +5262,8 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       manualZoom = delta === null ? null : Math.max(.25, Math.min(2, Math.round((current + delta) * 100) / 100));
       try {
         if (!tutorial) {
-          if (manualZoom === null) localStorage.removeItem('schmierpapier.zoom');
-          else localStorage.setItem('schmierpapier.zoom', String(manualZoom))
+          if (manualZoom === null) removeAppStorage('schmierpapier.zoom');
+          else writeAppStorage('schmierpapier.zoom', String(manualZoom))
         }
       } catch {}
       scaleSpread()
@@ -7352,7 +7699,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
 
     function tutorialGate(e) {
       if (!tutorial) return;
-      if (e.target.closest?.('#tutorialCoach,.language-picker')) return;
+      if (e.target.closest?.('#tutorialCoach,.language-picker,#storageConsentOpen,#storageConsentDialog')) return;
       if (e.type === 'keydown' && e.key === 'Escape') {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -7546,7 +7893,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     }, {
       "title": "Automatische Sicherung und Offline-Nutzung",
       "keywords": "lokal localstorage cookie cookies browser speichern datei offline internet datenschutz",
-      "html": "<p>Die Anwendung versucht, den aktuellen Dokumentstand automatisch im <strong>lokalen Browserspeicher (localStorage)</strong> zu sichern. Sie verwendet dafür keine Cookies. Unter dem Blatt steht, ob gespeichert oder der letzte Stand wiederhergestellt wurde.</p><p>Ob lokaler Speicher beim Öffnen einer HTML-Datei erlaubt ist, hängt vom Browser und dessen Einstellungen ab. Wird er blockiert, erscheint ein Hinweis; die Datei-Downloads funktionieren weiterhin. Ein anderer Browser, privater Modus, gelöschte Browserdaten oder ein anderer Dateipfad können den Zugriff auf einen früheren lokalen Stand verhindern.</p><p><strong>Für eine unabhängige Sicherung nutze .schmier speichern.</strong> Die Browsersicherung ersetzt diese Datei nicht. Sie enthält außerdem keine Rückgängig-Historie.</p><p>HTML, JavaScript, Hilfe, Handschrift und Symbolschrift sind vollständig in der Anwendung eingebettet. Schreiben, Dateiimport, Download, PDF und Drucken benötigen keine Internetverbindung.</p>"
+      "html": "<p>Nur nach ausdrücklicher Zustimmung versucht die Anwendung, den aktuellen Dokumentstand automatisch im <strong>lokalen Browserspeicher (localStorage)</strong> zu sichern. Ohne Zustimmung bleiben Dokument und Einstellungen ausschließlich im Arbeitsspeicher dieser Sitzung. Sie verwendet dafür keine Cookies. Unter dem Blatt steht, ob gespeichert oder der letzte Stand wiederhergestellt wurde.</p><p>Ob lokaler Speicher beim Öffnen einer HTML-Datei erlaubt ist, hängt vom Browser und dessen Einstellungen ab. Wird er blockiert, erscheint ein Hinweis; die Datei-Downloads funktionieren weiterhin. Ein anderer Browser, privater Modus, gelöschte Browserdaten oder ein anderer Dateipfad können den Zugriff auf einen früheren lokalen Stand verhindern.</p><p><strong>Für eine unabhängige Sicherung nutze .schmier speichern.</strong> Die Browsersicherung ersetzt diese Datei nicht. Sie enthält außerdem keine Rückgängig-Historie.</p><p>HTML, JavaScript, Hilfe, Handschrift und Symbolschrift sind vollständig in der Anwendung eingebettet. Schreiben, Dateiimport, Download, PDF und Drucken benötigen keine Internetverbindung.</p>"
     }, {
       "title": "PDF-Export und Drucken",
       "keywords": "pdf export download drucker drucken a4 papier ausgabe",
@@ -7596,6 +7943,10 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       "keywords": "fullscreen full screen plein écran vollbild bildschirm",
       "html": "<p>Le bouton à quatre coins près du sélecteur de langue affiche toute l’application en plein écran. Clique à nouveau ou appuie sur <kbd>Échap</kbd> pour quitter. Le pictogramme et l’infobulle indiquent l’état. L’adaptation des pages suit la taille de la fenêtre ; le zoom manuel est conservé.</p><p>Le plein écran ne modifie pas le document et n’est pas mémorisé. Il dépend du navigateur et de son autorisation ; un refus ou une fonction indisponible est signalé sous le papier.</p>"
     });
+    HELP_ARTICLES.push({"title": "Browserspeicherung: Zustimmung und Ablehnung", "html": "<p>Beim ersten Start fragt die Anwendung, ob sie lokal im Browser speichern darf. Sie setzt keine Cookies. Mit <strong>Zustimmen</strong> dürfen Dokument, Sprache, Seitenansicht, Zoom und die Zustimmung selbst in localStorage gespeichert werden. Diese Daten werden von der Anwendung nicht an einen Server übertragen.</p><p><strong>Nicht speichern</strong> erlaubt keine dauerhafte Browserspeicherung, auch nicht für Sprache, Ansicht oder die Ablehnung selbst. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Das offene Dokument bleibt im Arbeitsspeicher bis zum Schließen oder Neuladen der Seite. Beim nächsten Start erscheint die Frage erneut. Manuell angeforderte .schmier- und PDF-Downloads sowie Drucken bleiben möglich.</p><p>Über den <strong>Speicher-Button mit Schild im Kopf</strong> kannst du die Frage erneut öffnen und die Entscheidung ändern. Ein späteres Ablehnen löscht die gespeicherten Anwendungsdaten und stoppt weitere automatische Sicherungen, ohne das offene Dokument zu leeren. Daten anderer Anwendungen werden nicht angefasst.</p><p>Bei gesperrtem Browserspeicher funktioniert die Anwendung weiter für die aktuelle Sitzung. Eine .schmier-Datei bleibt die unabhängige Sicherungsmöglichkeit. Die Speicherabfrage ist in allen 24 EU-Amtssprachen verfügbar und richtet sich unabhängig von der Anwendungssprache nach den bevorzugten Browsersprachen. Für andere Browsersprachen wird Englisch verwendet. Der Speicher-Button folgt weiterhin der gewählten Anwendungssprache.</p>", "keywords": "cookie cookies localstorage consent zustimmung ablehnen speichern privacy stockage accord refus speichern datenschutz"});
+    HELP_TRANSLATIONS.en.push({"title": "Browser storage: consent and refusal", "html": "<p>At first launch, the app asks whether it may save locally in the browser. It sets no cookies. <strong>Allow storage</strong> permits saving the document, language, page view, zoom and consent itself in localStorage. The application does not send these data to a server.</p><p><strong>Do not save</strong> disables all persistent browser storage, including language, view and the refusal itself. Existing browser data belonging to this app is deleted. The open document stays in memory until the page is closed or reloaded. The question appears again next time. Explicitly requested .schmier and PDF downloads and printing still work.</p><p>The <strong>shield-shaped storage button in the header</strong> reopens the question. Refusing later deletes stored app data and stops future autosaves without clearing the open document. Other applications’ data is untouched.</p><p>If browser storage is blocked, the app still works for the current session. A .schmier download remains an independent backup. The storage prompt supports all 24 official EU languages and follows browser language preferences independently of the app language, with English as fallback. The header button follows the selected app language.</p>", "keywords": "cookie cookies localstorage consent zustimmung ablehnen speichern privacy stockage accord refus speichern datenschutz"});
+    HELP_TRANSLATIONS.fr.push({"title": "Stockage du navigateur : accord et refus", "html": "<p>Au premier démarrage, l’application demande si elle peut enregistrer localement dans le navigateur. Elle ne crée aucun cookie. <strong>Autoriser</strong> permet d’enregistrer le document, la langue, l’affichage, le zoom et l’accord lui-même dans localStorage. Ces données ne sont pas envoyées à un serveur par l’application.</p><p><strong>Ne pas enregistrer</strong> désactive tout stockage persistant, y compris la langue, l’affichage et le refus lui-même. Les anciennes données de cette application sont supprimées du navigateur. Le document ouvert reste en mémoire jusqu’à la fermeture ou au rechargement. La question revient au prochain démarrage. Les téléchargements .schmier et PDF demandés explicitement ainsi que l’impression restent possibles.</p><p>Le <strong>bouton de stockage en forme de bouclier dans l’en-tête</strong> permet de revoir la question. Refuser ensuite supprime les données enregistrées et arrête les sauvegardes automatiques, sans vider le document ouvert. Les données des autres applications restent intactes.</p><p>Si le stockage est bloqué, l’application fonctionne pour la session courante. Un téléchargement .schmier reste une sauvegarde indépendante. La demande de consentement est disponible dans les 24 langues officielles de l’UE et suit les préférences linguistiques du navigateur indépendamment de la langue de l’application, avec l’anglais par défaut. Le bouton de l’en-tête suit la langue de l’application.</p>", "keywords": "cookie cookies localstorage consent zustimmung ablehnen speichern privacy stockage accord refus speichern datenschutz"});
+
     let helpReturnFocus = null;
     const helpPlainText = article => {
       const el = document.createElement('div');
@@ -7961,16 +8312,26 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
      * Lokale Sicherung laden, Dokument zeichnen und danach die Oberflächensprache anwenden.
      */
     try {
-      const saved = localStorage.getItem(KEY);
+      const saved = readAppStorage(KEY);
       if (saved) {
         doc = validate(JSON.parse(saved));
         status('Letzten Stand wiederhergestellt')
-      } else status('Automatische Browsersicherung bereit')
+      } else status(storageAllowed ? 'Automatische Browsersicherung bereit' : 'Keine Browserspeicherung · nur diese Sitzung')
     } catch {
       status('Browserspeicher nicht verfügbar – bitte als .schmier speichern')
     }
     render();
     initialiseLanguage();
+    window.addEventListener('languagechange', renderStorageConsent);
+    window.addEventListener('load', renderStorageConsent);
+    window.addEventListener('focus', () => {
+      if ($('storageConsentDialog').open) renderStorageConsent();
+    });
+    $('storageConsentOpen').onclick = () => openStorageConsent();
+    $('storageAccept').onclick = () => chooseStorage(true);
+    $('storageDecline').onclick = () => chooseStorage(false);
+    $('storageConsentDialog').addEventListener('cancel', event => event.preventDefault());
+    if (!storageAllowed) openStorageConsent(true);
   </script>
   </body>
 </html>

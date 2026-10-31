@@ -57,16 +57,24 @@ Aucune installation, aucun compte ni serveur n’est nécessaire. L’applicatio
 - Le type de papier est fixé à la création de chaque page. Les deux types peuvent coexister dans un document.
 - Sur papier millimétré, les outils concernés s’alignent tous les 1 mm. Les cases d’écriture restent de 5 mm.
 - Zoom, adaptation automatique à la largeur de la fenêtre et plein écran.
-- Interface, infobulles, aide et tutoriel en **allemand, anglais et français**. Au premier démarrage, une langue du navigateur est choisie si elle est prise en charge ; un choix manuel est mémorisé dans le navigateur.
+- Interface, infobulles, aide et tutoriel en **allemand, anglais et français**. Au premier démarrage, une langue du navigateur est choisie si elle est prise en charge ; un choix manuel est mémorisé dans le navigateur si le stockage est autorisé.
 
 ## Enregistrer et partager
 
 - **Enregistrer .schmier** télécharge un fichier modifiable contenant toutes les pages et leur contenu. **Charger un fichier** permet de le rouvrir plus tard.
 - **Exporter en PDF** produit un document A4 avec toutes les pages existantes. Les pages du PDF sont des images ; leur texte n’est pas sélectionnable comme du texte PDF ordinaire.
 - **Imprimer** ouvre la boîte de dialogue du navigateur. Pour des dessins aux mesures exactes, choisir A4 et la taille réelle ou 100 %.
-- L’application essaie de sauvegarder automatiquement dans le stockage local du navigateur. Sa disponibilité pour un fichier HTML local dépend du navigateur et de ses paramètres. Télécharger un fichier `.schmier` permet de conserver une sauvegarde indépendante.
+- Après accord, l’application essaie de sauvegarder automatiquement dans le stockage local du navigateur. Sa disponibilité pour un fichier HTML local dépend du navigateur et de ses paramètres. Télécharger un fichier `.schmier` permet de conserver une sauvegarde indépendante.
 
 L’application ne transmet pas les calculs à un serveur. Changer de langue ne modifie ni les textes saisis, ni les valeurs des graduations, ni les dessins.
+
+## Stockage du navigateur et consentement
+
+Au premier démarrage, l’application demande si les documents et préférences (langue, affichage et zoom) peuvent être enregistrés localement dans le navigateur. Elle ne crée aucun cookie. Ces données et l’accord lui-même sont enregistrés uniquement après consentement.
+
+Avec **« Ne pas enregistrer »**, tout reste seulement en mémoire jusqu’à la fermeture ou au rechargement de la page. Les anciennes données de cette application sont supprimées du navigateur. Le refus n’est pas enregistré ; la question revient donc au prochain démarrage. Le **bouton de stockage en forme de bouclier dans l’en-tête** permet de changer de décision à tout moment. Les téléchargements `.schmier` et PDF explicitement demandés ainsi que l’impression restent possibles.
+
+La demande de consentement utilise la langue préférée prise en charge du navigateur, indépendamment de la langue de l’application. Elle comprend les **24 langues officielles de l’UE**, avec l’anglais par défaut. Le reste de l’application reste disponible en allemand, anglais et français.
 
 ## Quelques raccourcis utiles
 
