@@ -4,7 +4,9 @@
 
 Changes: [Changelog](CHANGELOG.en.md).
 
-**Try it now:** [Live demo in your browser](https://htmlpreview.github.io/?https://github.com/newboerg/schmierpapier/blob/main/schmierpapier.html) – no download needed. For offline use, download the HTML file as described below.
+**Try it now:** [Live demo in your browser](https://schmierpapier.org/schmierpapier.html) – no download needed. For offline use, download the HTML file as described below.
+
+**Direct download:** [Download the HTML file](https://schmierpapier.org/download.php).
 
 **Digital maths paper for people who cannot use ordinary paper in maths lessons.**
 
@@ -14,9 +16,35 @@ Schmierpapier provides a place to calculate, experiment and draw directly in the
 
 The application supports independent work in maths lessons: use the keyboard and mouse to write calculations in cells, arrange fractions clearly and draw geometric constructions with digital tools. Many features are available through buttons, so a keyboard shortcut is not required for every action.
 
-Version **0.4**
+Version **0.4.2**
 
 Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the app header opens it in a new tab.
+
+## New in v0.4.2
+
+- Tutorial aligned with current bracket menus: explains the middle normal default, size rows and arrow navigation. Main button, menu arrow and held 8/9 are equivalent; wrong shapes, sizes or modifiers are blocked before insertion with specific feedback. Optional key hints are introduced early.
+
+- Split buttons show one shared key hint centred above the group. The root menu is labelled Q.
+
+- Hold 5/6/7 for pink/neon-yellow/neon-green highlight regions; hold S for strike-through. Arrows select, holding the same key again confirms, Esc cancels. Ctrl+N/O added where delivered by the browser; hold B/O for New/Open alternatives. F11 fullscreen and new key hints added.
+
+- Key hints before Help: click the keyboard icon or hold T to toggle subtle red shortcut labels above buttons. Hints follow the layout, preserve focus and stay out of files, PDF and print. Also available in keyboard drawing modes and the tutorial.
+
+- Hold G for keyboard set-square control: confirm position and rotation, move a prominent pencil along the edge, confirm line start/end. Left/Right move by 1 mm, Up/Down change edge; red preview before drawing. During compass radius selection, holding G toggles the measuring guide without ending the compass. Mouse control is preserved.
+
+- Hold K for a keyboard compass at the selected cell. K or Enter confirms centre, radius (Left/Right in 1 mm), arc start and arc end. Arrows rotate the compass; a red dashed preview precedes drawing, Esc cancels. A completed arc remains one erasable pencil stroke. The mouse button retains its existing workflow.
+
+- The percent shortcut follows the recognised letter Z instead of the physical US key position. Holding Z therefore also works with swapped Y/Z layouts; Y remains ordinary text input.
+
+- Hold I for integral sizes (large above, normal preselected in the middle, large below), also available from the new menu arrow. Hold U for &, Z for %. Short letter input and Ctrl+Z are preserved.
+
+- Split buttons join without gaps or rounded inner corners. The new arrow next to √ opens the same root menu as holding Q; the main button still inserts a square root directly.
+
+- Q menu adds ⁿ√: choose another root in three sizes, then enter its index (2–9999, e.g. 3). The upper-left index is preserved in saved files, copies, PDF and print.
+- Large roots without browser conflicts: hold Q (German: Quadratwurzel) for the size menu, with the normal square root in the middle row on the left preselected, large variants above and below, and indexed roots in the right column. Up/Down choose size, Left/Right root type; Enter confirms, Esc cancels. Holding W keeps normal roots; holding Shift+W keeps large roots above. Ctrl+W is left entirely to the browser.
+- Bracket menus offer three size rows: double-height above, normal (preselected), double-height below. Left/Right choose shape, Up/Down size, Enter confirms. Large brackets are accessible without key combinations even with sub/superscript active.
+- Holding N now waits for the first arrow key to choose orientation and direction. The preview arrowhead is solid and clearly shaped. Holding W inserts a square root; a short W remains text input.
+- Keyboard number lines: hold N for an arrow preview; arrows adjust length/edge, Left+Right or Up+Down select or confirm the direction. Holding N again also confirms; Esc cancels. Labels remain manual.
 
 ## New in v0.4
 

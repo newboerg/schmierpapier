@@ -2,6 +2,36 @@
 
 [Deutsch](CHANGELOG.md) · [English](CHANGELOG.en.md) · **Français**
 
+## v0.4.2
+
+- Les exposants commencent un peu plus à droite et les plus longs dépassent le bord vers la droite. Ils restent liés à leur case d’origine, avec le même alignement en PDF et à l’impression.
+
+- Nouveau logo avec nom et favicons assortis ajoutés à l’application et au site. Les images sont intégrées directement dans l’application, qui reste un seul fichier HTML hors ligne.
+
+- Tutoriel adapté aux menus de parenthèses actuels : présélection normale au centre, lignes de taille et flèches expliquées. Bouton principal, flèche et 8/9 prolongés sont équivalents ; formes, tailles ou modificateurs incorrects sont bloqués avant saisie avec explication précise. L’aide des touches optionnelle est présentée tôt.
+
+- Les boutons doubles partagent une seule indication de touche centrée sur le groupe. Le menu des racines est indiqué par Q.
+
+- Maintenir 5/6/7 pour les zones rose/jaune fluo/vert fluo ; S pour barrer. Les flèches sélectionnent, le même appui prolongé confirme, Échap annule. Ctrl+N/O ajoutés si transmis ; B/O prolongés offrent Nouveau/Ouvrir. F11 et les nouvelles indications de touches ajoutés.
+
+- Aide des touches avant Aide : cliquer le clavier ou maintenir T affiche/masque les raccourcis rouges discrets au-dessus des boutons. Les indications suivent la mise en page, préservent le focus et restent hors des fichiers, PDF et impressions. Disponibles aussi pendant les tracés au clavier et le tutoriel.
+
+- Maintenir G contrôle l’équerre au clavier : valider position et rotation, guider un crayon bien visible sur le bord, valider début/fin. Gauche/Droite avancent par 1 mm, Haut/Bas changent de côté ; aperçu rouge avant tracé. Pendant le choix du rayon, G prolongé active/désactive la mesure sans quitter le compas. La souris reste disponible.
+
+- Maintenir K démarre le compas au clavier dans la case sélectionnée. K ou Entrée valide centre, rayon (Gauche/Droite par 1 mm), début et fin de l’arc. Les flèches tournent le compas ; aperçu rouge pointillé avant tracé, Échap annule. L’arc terminé reste un trait effaçable en entier. Le bouton souris conserve son fonctionnement.
+
+- Le raccourci pour cent suit la lettre Z reconnue plutôt que la position physique américaine. Maintenir Z fonctionne donc aussi avec Y/Z inversés ; Y reste une saisie de texte normale.
+
+- Maintenir I ouvre les tailles d’intégrale (grande vers le haut, normale présélectionnée au centre, grande vers le bas), aussi accessibles par la nouvelle flèche. Maintenir U insère &, Z insère %. Les lettres courtes et Ctrl+Z sont conservés.
+
+- Les boutons doubles sont joints sans espace ni coins intérieurs arrondis. La nouvelle flèche près de √ ouvre le même menu que Q prolongé ; le bouton principal insère toujours directement une racine carrée.
+
+- Le menu Q ajoute ⁿ√ : choisir une autre racine dans trois tailles puis saisir son indice (2–9999, p. ex. 3). L’indice en haut à gauche est conservé dans les fichiers, copies, PDF et impressions.
+- Grandes racines sans conflit navigateur : maintenir Q (Quadratwurzel en allemand) ouvre les tailles, racine carrée normale à gauche de la ligne centrale présélectionnée, grandes variantes au-dessus et en dessous, racines avec indice à droite. Haut/Bas choisissent la taille, Gauche/Droite le type ; Entrée valide, Échap annule. W prolongé conserve la racine normale ; Maj+W la grande vers le haut. Ctrl+W reste entièrement réservé au navigateur.
+- Les menus proposent trois lignes de taille : double vers le haut, normale (présélectionnée), double vers le bas. Gauche/Droite choisissent la forme, Haut/Bas la taille, Entrée valide. Les grandes formes restent accessibles sans combinaison même en mode indice/exposant.
+- Maintenir N attend désormais la première flèche pour choisir orientation et sens. La pointe de l’aperçu est pleine et nette. Maintenir W insère une racine ; un W court reste une saisie de texte.
+- Axes gradués au clavier : maintenir N démarre un aperçu fléché rouge. Les flèches et leurs combinaisons règlent et valident l’axe ; maintenir N de nouveau valide aussi. Graduations manuelles, origine commune et retour après deux axes sont conservés.
+
 ## v0.4
 
 - Bouton racine après les parenthèses : son tracé se termine exactement au coin supérieur droit de la case et peut être prolongé par un trait de stylo.

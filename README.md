@@ -4,7 +4,9 @@
 
 Änderungen: [Changelog](CHANGELOG.md).
 
-**Direkt ausprobieren:** [Live-Test im Browser](https://htmlpreview.github.io/?https://github.com/newboerg/schmierpapier/blob/main/schmierpapier.html) – ohne Download. Für die Offline-Nutzung die HTML-Datei wie unten beschrieben herunterladen.
+**Direkt ausprobieren:** [Live-Test im Browser](https://schmierpapier.org/schmierpapier.html) – ohne Download. Für die Offline-Nutzung die HTML-Datei wie unten beschrieben herunterladen.
+
+**Direkter Download:** [HTML-Datei herunterladen](https://schmierpapier.org/download.php).
 
 **Digitales Rechenpapier für Menschen, die im Mathematikunterricht kein normales Papier benutzen können.**
 
@@ -14,9 +16,35 @@ Schmierpapier bietet einen Platz zum Rechnen, Ausprobieren und Zeichnen direkt i
 
 Die Anwendung soll das eigenständige Arbeiten im Mathematikunterricht unterstützen: Rechnungen lassen sich mit Tastatur und Maus in Kästchen schreiben, Brüche übersichtlich anordnen und geometrische Konstruktionen mit digitalen Werkzeugen zeichnen. Viele Funktionen sind über Buttons erreichbar, sodass nicht für jede Eingabe eine Tastenkombination nötig ist.
 
-Version **0.4**
+Version **0.4.2**
 
 Projektwebseite: [schmierpapier.org](https://schmierpapier.org). Das Logo im App-Header öffnet sie in einem neuen Tab.
+
+## Neu in v0.4.2
+
+- Tutorial an die aktuellen Klammermenüs angepasst: mittlere normale Vorauswahl, Größenzeilen und Pfeilnavigation werden erklärt. Hauptbutton, Menüpfeil und 8/9 halten sind gleichwertig erlaubt; falsche Formen, Größen oder Zusatztasten werden vor der Eingabe abgefangen und gezielt erklärt. Die optionale Tastenhilfe wird früh vorgestellt.
+
+- Geteilte Buttons zeigen in der Tastenhilfe nur einen gemeinsamen Hinweis mittig über der Gruppe. Die Wurzelauswahl ist mit Q gekennzeichnet.
+
+- 5/6/7 halten startet Textmarker-Bereiche in Pink/Neongelb/Neongrün; S halten startet Durchstreichen. Pfeile wählen, dieselbe Taste erneut halten bestätigt, Esc bricht ab. Dateikürzel Strg+N/O ergänzt, soweit der Browser sie weitergibt; B/O halten sind Alternativen für Neu/Öffnen. F11 für Vollbild und die neuen Kürzel in der Tastenhilfe ergänzt.
+
+- Tastenhilfe vor dem Hilfebutton: Tastatur-Piktogramm oder T halten blendet dezente rote Shortcut-Hinweise über den Buttons ein/aus. Die Hinweise folgen dem Layout, erhalten den Fokus und bleiben aus Dateien, PDF und Druck ausgeschlossen. Auch in Tastatur-Zeichenmodi und im Tutorial verfügbar.
+
+- G halten startet das Geodreieck per Tastatur: Position und Drehung bestätigen, markanten Stift am Rand führen, Strichanfang und -ende bestätigen. Links/Rechts fährt in 1-mm-Schritten, Hoch/Runter wechselt die Kante; rote Vorschau vor dem Zeichnen. Während der Zirkel-Radiuswahl schaltet G halten die Messhilfe ein/aus und beendet den Zirkel nicht. Mausbedienung bleibt erhalten.
+
+- K halten startet den Zirkel per Tastatur am ausgewählten Kästchen. K oder Enter bestätigt nacheinander Mittelpunkt, Radius (Links/Rechts in 1 mm), Bogenanfang und Bogenende. Pfeile drehen den Zirkel; rote gestrichelte Vorschau vor dem Zeichnen, Esc bricht ab. Ein fertiger Bogen bleibt ein radierbarer Bleistiftstrich. Der Mausbutton behält den bisherigen Ablauf.
+
+- Der Prozent-Shortcut folgt dem tatsächlich erkannten Buchstaben Z statt der physischen US-Tastenposition. Z halten funktioniert damit auch bei vertauschtem Y/Z; Y bleibt normale Texteingabe.
+
+- I halten öffnet die Integral-Größenwahl (oben groß nach oben, mittig normal vorausgewählt, unten groß nach unten), auch über den neuen Menüpfeil erreichbar. U halten schreibt &, Z halten %. Kurze Buchstabeneingaben und Strg+Z bleiben erhalten.
+
+- Geteilte Buttons sind ohne Zwischenraum und innere Eckrundungen verbunden. Der neue Pfeil neben √ öffnet dieselbe Wurzelauswahl wie Q halten; das Hauptzeichen fügt weiterhin direkt eine Quadratwurzel ein.
+
+- Q-Menü um ⁿ√ erweitert: andere Wurzeln in drei Größen wählen und anschließend den Wurzelexponenten (2–9999, z. B. 3) selbst eingeben. Der Exponent steht links oben und bleibt bei Speichern, Kopieren, PDF und Druck erhalten.
+- Große Wurzeln ohne Browserkonflikt: Q (Quadratwurzel) halten öffnet die Größenwahl; die normale Quadratwurzel links in der Mitte ist vorausgewählt. Darüber steht die große Variante nach oben, darunter die große nach unten. Beliebige Wurzeln stehen rechts daneben. Hoch/Runter wählt die Größe, Links/Rechts den Wurzeltyp; Enter bestätigt, Esc bricht ab. W halten bleibt die normale Wurzel; Shift+W halten bleibt groß nach oben. Strg+W ist wieder vollständig dem Browser überlassen.
+- Klammermenüs bieten drei Größenzeilen: doppelhoch nach oben, normal (vorausgewählt), doppelhoch nach unten. Links/Rechts wählen die Form, Hoch/Runter die Größe, Enter bestätigt. Große Klammern sind damit auch bei aktivem Index-/Potenzmodus ohne Tastenkombination erreichbar.
+- N halten wartet zunächst auf die erste Pfeiltaste für Orientierung und Richtung. Der Vorschaupfeil ist geschlossen und klar erkennbar. W halten fügt eine Wurzel ein; kurzes W bleibt Texteingabe.
+- Zahlenstrahl per Tastatur: N halten startet die Pfeilvorschau; Pfeile ändern Länge/Kante, Links+Rechts bzw. Hoch+Runter wählen oder bestätigen die Richtung. Erneutes N halten bestätigt ebenfalls; Esc bricht ab. Beschriftung bleibt händisch.
 
 ## Neu in v0.4
 
