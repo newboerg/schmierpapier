@@ -49,7 +49,7 @@ function renderSpread() {
   companion.querySelector('.geo-overlay')?.remove();
   companion.querySelector('.compass-overlay')?.remove();
   companion.querySelector('.axis-label-editor')?.remove();
-  companion.querySelectorAll('.region-box,.paper-badge,.keyboard-line-preview,.keyboard-area').forEach(el => el.remove());
+  companion.querySelectorAll('.region-box,.paper-badge,.keyboard-line-preview,.keyboard-area,.stretch-bracket-preview').forEach(el => el.remove());
   companion.removeAttribute('id');
   companion.className = 'paper companion' + (paperTypeAt(other) === 'millimeter' ? ' millimeter' : '');
   setPaperGrid(companion, paperTypeAt(other));

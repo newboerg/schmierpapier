@@ -16,9 +16,23 @@ Schmierpapier provides a place to calculate, experiment and draw directly in the
 
 The application supports independent work in maths lessons: use the keyboard and mouse to write calculations in cells, arrange fractions clearly and draw geometric constructions with digital tools. Many features are available through buttons, so a keyboard shortcut is not required for every action.
 
-Version **0.4.3 (development)**
+Version **0.4.4 (development)**
 
 Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the app header opens it in a new tab.
+
+## New in v0.4.4
+
+- Added the tutorial exercise 2 1/2 + 1/2 = 3: double-height whole numbers, plus and equals via U or button; normal numerators/denominators and fraction bars by mouse or keyboard. Navigation and the on-screen keypad remain available.
+- The U writing mode now enlarges arithmetic, comparison, percent and per-mille signs too. This works with the keyboard, numeric keypad and symbol buttons; Ctrl/Shift+Enter keeps its fraction-equals function.
+- The Miscellaneous symbols menu (hold Z) also includes ‰ (per mille) and ± (plus–minus, plus above minus).
+- Writing a large character replaces ordinary text in both occupied cells. Ordinary typing or Space in either occupied cell replaces or removes the whole large character. Undo restores the previous content.
+- Root and integral menus now share the five bracket size rows: variable height above, double height above, normal (preselected), double height below and variable height below. Hold Q for roots or I for integrals, or use their menu arrows. Square roots/indefinite integrals are on the left; indexed roots/definite integrals are on the right. Arrows select a tile; Enter confirms.
+- For variable height, the root degree or lower and upper integration limits are requested first. Cancellation changes nothing. The active cell then remains the start: Up/Down chooses the target row and Enter commits, or click the target row. The column stays fixed; Esc discards the red dashed preview. Degree and limits are previewed and attached at the final ends. Greek names in limits are still replaced, such as 2pi → 2π. Roots end at the top-right corner without a hook so a line can extend them. Save/load, whole-symbol copying, undo, PDF/printing and deletion from any occupied cell respect the full height. Previews are never saved or exported.
+- The new Double-height text button, or holding U for about 0.6 seconds, toggles a persistent writing mode. A clockwise frame shows the hold time; the active button pulses, or stays outlined with reduced motion. A short U still writes u. Numbers and letters, including Greek letters, span two cells down from the current cell, one column per character. Writing advances right; Enter and automatic wrapping advance two rows while enabled. Hold U again or click the button to turn it off. For a mixed fraction, write the large whole-number 1, turn the mode off, then add the ordinary fraction beside it.
+- Arithmetic and comparison signs such as +, −, ·, :, /, =, ≠, <, >, ≤, ≥, ≈, ≡, ∝, ±, ∓, % and ‰ are also double-height; punctuation stays normal-height. Persistent sub/superscript and double-height modes are mutually exclusive; individual Ctrl/Shift digits still allow small annotations. No half character is written at the bottom edge: choose a cell higher up. Large letters/numbers can be deleted from either cell, fully copied/cut, undone and preserved in .schmier, PDF and printing. U replaces the former direct ampersand shortcut; & remains in Miscellaneous symbols (hold Z). Names, searches and labels retain ordinary text entry. The tutorial temporarily resets the mode and restores it afterwards.
+- Bracket menus now have five size rows: variable height above, double height above, normal (preselected), double height below and variable height below. Each row offers round, square, curly and angle brackets. Open with the menu arrow or hold 8/9; arrows select shape and row, Enter confirms the choice. For the tutorial calculation, still use the normal round bracket in the middle.
+- For variable height, the cell active when height selection begins remains the starting cell. Up/Down moves the endpoint by whole cells within the chosen direction; heights from one cell to the page edge are available. A red dashed bracket previews the result; Enter commits it. Alternatively click the target row on the same page; the bracket stays in the starting column. Moving the mouse over the paper previews the target height before clicking. Esc, clicking outside the paper or leaving the window cancels without changing the document. Writing then continues to the right of the starting cell. Active sub/superscript mode does not change the selected bracket height.
+- The entire bracket belongs to all occupied cells and can be deleted from any of them with Delete or Backspace. Undo/redo and .schmier files preserve its height. Select the full bracket span to copy or cut it; partial regions do not include it. PDF and printing include only committed brackets, not previews. Older documents with double-height symbols still load; older app versions cannot reliably display variable heights.
 
 ## New in v0.4.3
 
@@ -92,7 +106,7 @@ A movable on-screen numeric keypad is available from the header. It stays above 
 - Special equals signs across two vertically adjacent cells for fraction calculations.
 - Indefinite and definite integrals at normal or double height. Hold I for the menu; definite integrals are on the right. Enter the lower and upper limits in order (1–16 characters each, without spaces). Limits survive `.schmier` files, copies, PDF and printing. Nothing is calculated.
 - Greek names in integral limits are replaced automatically: pi, omega, alpha, beta, phi, theta, psi, tau, lambda, rho, sigma, xi and zeta. The first letter determines case regardless of the remaining letters: omega → ω, Omega → Ω, 2pi → 2π, -Pi/2 → -Π/2. Complete names are recognised next to numbers and operators; other words remain unchanged. The 16-character limit applies after replacement.
-- Symbol menus for logic (hold L, default ∧), set theory (hold M, default ∈) and miscellaneous symbols (hold Z, default %, plus &, ∀, ∃, ∄). The main button writes the default; its arrow opens selection, arrows/Enter or clicks choose, Esc closes. Hold U remains a direct way to insert &.
+- Symbol menus for logic (hold L, default ∧), set theory (hold M, default ∈) and miscellaneous symbols (hold Z, default %, plus &, ∀, ∃, ∄). The main button writes the default; its arrow opens selection, arrows/Enter or clicks choose, Esc closes. Hold U now toggles double-height text; & stays in the symbol menu.
 - Greek letters: the π button inserts Pi; its arrow or holding P in a cell opens the Greek menu. Use arrows and Enter to choose, Esc to close; a short P still writes p. Ctrl/Shift insert subscript/superscript.
 - Mathematical notation using `·` for multiplication and `:` for division.
 
@@ -158,6 +172,7 @@ The storage consent prompt uses the preferred supported browser language indepen
 | Hold P | Greek-letter menu, π preselected |
 | Hold Enter | Comparison-sign menu |
 | Hold I | Integral menu: Up/Down for size, Left/Right for indefinite/definite; enter limits in order |
+| Hold U | Toggle double-height numbers and letters |
 | Hold L / M / Z | Choose logic / set theory / miscellaneous symbols |
 | Hold Shift alone and release | Toggle superscript |
 | Hold Ctrl alone and release | Toggle subscript |

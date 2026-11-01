@@ -65,6 +65,7 @@ function tutorialSteps() {
     power = at(15, 5),
     copy = at(20, 5),
     move = at(22, 5);
+  const mixedTall = (index, symbol) => doc.tallBrackets[0].some(b => b.text && b.upper === index && b.side === symbol && b.height === 2);
   const value = (start, length) => Array.from({
     length
   }, (_, i) => doc.pages[0][start + i] || '').join('');
@@ -211,6 +212,29 @@ function tutorialSteps() {
       kind: 'symbol', symbol: 'π',
       done: () => doc.pages[0][at(18, 7)] === 'π'
     },
+    cell(at(25, 5), "Einen gemischten Bruch schreiben", "Gehe zu Zeile 25 · Spalte 5 oder klicke dort. Wir schreiben 2 1/2 + 1/2 = 3. Die ganze 2, Plus, Gleichzeichen und Ergebnis werden doppelhoch; Zähler und Nenner normal groß. Die Brüche stehen wirklich übereinander, nicht als Schrägstrich."),
+    button('#largeMode', "Doppelhohe Schrift einschalten", "Klicke auf den Button für doppelhohe Schrift oder halte U etwa 0,6 Sekunden. Der Rahmen zeigt die Wartezeit; der aktive Button pulsiert. Jetzt werden Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen nach unten geschrieben.", () => largeMode),
+    typing("Die ganze 2 groß schreiben", "Schreibe 2 mit Tastatur oder Bildschirm-Nummernblock. Die große 2 belegt Zeile 25 und 26 in Spalte 5. Daneben bauen wir den ersten halben Bruch auf.", "2", () => mixedTall(at(25, 5), '2')),
+    button('#largeMode', "Zur normalen Schrift zurück", "Klicke erneut auf doppelhohe Schrift oder halte U erneut. Der Button hört auf zu pulsieren. Die nächsten Ziffern werden normal groß geschrieben; die bereits geschriebenen großen Zeichen bleiben groß.", () => !largeMode),
+    typing("Erster Zähler: 1", "Schreibe die normal große 1 direkt rechts neben die große 2. Sie ist der Zähler des ersten halben Bruchs.", "1", () => doc.pages[0][at(25, 6)] === '1'),
+    cell(at(26, 6), "Unter den ersten Zähler", "Gehe zu Zeile 26 · Spalte 6 oder klicke dort. Hier kommt der Nenner des ersten halben Bruchs hin."),
+    typing("Erster Nenner: 2", "Schreibe die normal große 2 unter die 1.", "2", () => doc.pages[0][at(26, 6)] === '2'),
+    line("Den gemischten Bruch vervollständigen", "Maus: Ziehe mit rechts zwischen den goldenen Punkten zwischen 1 und 2. Tastatur: Der Zähler ist ausgewählt. Drücke Links+Rechts gleichzeitig, lasse los und bestätige erneut mit Links+Rechts. Die Vorschau liegt unten zwischen Zähler und Nenner. Jetzt steht dort 2 1/2.", [6, 26], [7, 26]),
+    cell(at(25, 8), "Platz für das große Plus", "Gehe zu Zeile 25 · Spalte 8 oder klicke dort. Das Plus steht auf derselben Höhe wie die große 2."),
+    button('#largeMode', "Doppelhohe Schrift einschalten", "Klicke auf den Button für doppelhohe Schrift oder halte U etwa 0,6 Sekunden. Der Rahmen zeigt die Wartezeit; der aktive Button pulsiert. Jetzt werden Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen nach unten geschrieben.", () => largeMode),
+    typing("Das Plus doppelhoch schreiben", "Schreibe +. Im aktiven U-Modus wird auch das Rechenzeichen doppelhoch, passend zur ganzen 2.", "+", () => mixedTall(at(25, 8), '+')),
+    button('#largeMode', "Zur normalen Schrift zurück", "Klicke erneut auf doppelhohe Schrift oder halte U erneut. Der Button hört auf zu pulsieren. Die nächsten Ziffern werden normal groß geschrieben; die bereits geschriebenen großen Zeichen bleiben groß.", () => !largeMode),
+    cell(at(25, 10), "Den zweiten halben Bruch platzieren", "Gehe zu Zeile 25 · Spalte 10 oder klicke dort. Hier beginnt der zweite Bruch 1/2."),
+    typing("Zweiter Zähler: 1", "Schreibe die normal große 1 für den zweiten Zähler.", "1", () => doc.pages[0][at(25, 10)] === '1'),
+    cell(at(26, 10), "Unter den zweiten Zähler", "Gehe zu Zeile 26 · Spalte 10 oder klicke dort. Der Nenner steht direkt unter seiner 1."),
+    typing("Zweiter Nenner: 2", "Schreibe 2. Beide halben Brüche haben nun Zähler und Nenner.", "2", () => doc.pages[0][at(26, 10)] === '2'),
+    line("Den zweiten Halb-Bruch unterstreichen", "Maus: Ziehe den Bruchstrich mit rechts zwischen den goldenen Punkten. Tastatur: Links+Rechts gleichzeitig, loslassen, erneut Links+Rechts zum Bestätigen. Der Strich trennt die zweite 1 von ihrer 2.", [10, 26], [11, 26]),
+    cell(at(25, 12), "Platz für das große Gleichzeichen", "Gehe zu Zeile 25 · Spalte 12 oder klicke dort. Hier kommt das doppelhohe Gleichzeichen hin."),
+    button('#largeMode', "Doppelhohe Schrift einschalten", "Klicke auf den Button für doppelhohe Schrift oder halte U etwa 0,6 Sekunden. Der Rahmen zeigt die Wartezeit; der aktive Button pulsiert. Jetzt werden Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen nach unten geschrieben.", () => largeMode),
+    typing("Das Gleichzeichen doppelhoch schreiben", "Drücke Enter am Nummernblock oder = am Bildschirm-Nummernblock. Auch die normale Zeichentaste = ist erlaubt. Im U-Modus wird das Gleichzeichen doppelhoch; Strg oder Shift brauchen wir hier nicht.", "=", () => mixedTall(at(25, 12), '=')),
+    cell(at(25, 14), "Platz für das große Ergebnis", "Gehe zu Zeile 25 · Spalte 14 oder klicke dort. Doppelhohe Schrift bleibt für das Ergebnis eingeschaltet."),
+    typing("Das Ergebnis: eine ganze 3", "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.", "3", () => mixedTall(at(25, 14), '3')),
+    button('#largeMode', "Zur normalen Schrift zurück", "Klicke erneut auf doppelhohe Schrift oder halte U erneut. Der Button hört auf zu pulsieren. Die nächsten Ziffern werden normal groß geschrieben; die bereits geschriebenen großen Zeichen bleiben groß.", () => !largeMode),
     button('#copyRegion', 'Eine fertige Rechnung kopieren',
       'Klicke auf Kopieren oder halte C etwa 0,6 Sekunden. Wir kopieren die unterstrichene Rechnung aus Zeile 6.',
       () => region?.mode === 'copy'), {
@@ -363,7 +387,7 @@ function showTutorialStep() {
     keyboardLine = null;
     select((step.start[1] - 2) * COLS + step.start[0] - 1);
   } else if (['typing', 'key', 'symbol', 'cell', 'companion'].includes(step.kind) || tutorialPenDigit() || keyboardArea ||
-      ['KeyR', 'KeyC', 'KeyX', 'KeyE', 'KeyD', 'PageUp', 'PageDown', 'Insert', 'Delete', 'ShiftLeft', 'ControlLeft'].some(tutorialHoldAllowed) || step.target === '#save' ||
+      ['KeyR', 'KeyC', 'KeyX', 'KeyE', 'KeyD', 'PageUp', 'PageDown', 'Insert', 'Delete', 'ShiftLeft', 'ControlLeft', 'KeyU'].some(tutorialHoldAllowed) || step.target === '#save' ||
       ['#parenOpen', '#parenClose'].includes(step.target)) select(pos);
   else $('editor').blur();
   const scrollTarget = step.kind === 'line' ? nodes[Math.max(0, (step.start[1] - 1) * COLS + step.start[0] -
@@ -376,6 +400,7 @@ function showTutorialStep() {
 }
 
 function startTutorial() {
+  cancelStretchBracket();
   cancelModifierModeHolds();
   for (const code of [...actionHolds.keys()]) finishActionHold(code);
   closeExtraMenu(); cancelKeyboardArea();
@@ -410,6 +435,7 @@ function startTutorial() {
     manualZoom,
     smallMode,
     smallFresh,
+    largeMode,
     tool,
     ink,
     markerColor,
@@ -446,6 +472,8 @@ function startTutorial() {
   returnColumn = pos % COLS;
   history = [];
   future = [];
+  largeMode = false;
+  updateLargeModeButton();
   smallMode = null;
   smallFresh = false;
   tool = 'pen';
@@ -506,6 +534,7 @@ function endTutorial() {
     manualZoom,
     smallMode,
     smallFresh,
+    largeMode,
     tool,
     ink,
     markerColor
@@ -516,6 +545,7 @@ function endTutorial() {
   $('pageView').value = pageView;
   $('carryMode').setAttribute('aria-pressed', String(smallMode === 'carries'));
   $('powerMode').setAttribute('aria-pressed', String(smallMode === 'powers'));
+  updateLargeModeButton();
   $('paper').classList.toggle('marking', tool !== 'pen');
   document.querySelectorAll('.swatch').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tool ===
     tool && (tool === 'eraser' || b.dataset.color === (tool === 'pen' ? ink : markerColor)))));
@@ -656,6 +686,7 @@ function tutorialGate(e) {
         if (/^Numpad\d$/.test(e.code)) value = e.code.slice(-1);
         if (e.code === 'NumpadMultiply' || value === '*') value = '·';
         if (e.code === 'NumpadDivide' || value === '÷') value = ':';
+        if (e.code === 'NumpadEnter') value = '=';
         allowed = typeof value === 'string' && value.length === 1 && step.expected.startsWith(tutorial
           .stepInput + value);
         if (allowed) tutorial.stepInput += value
@@ -774,7 +805,7 @@ function tutorialHoldAllowed(code) {
   if (/^Shift(?:Left|Right)$/.test(code) && step.target === '#powerMode') return true;
   if (/^Control(?:Left|Right)$/.test(code) && step.target === '#carryMode') return true;
   const target = tourElement(step);
-  return code === 'KeyE' && step.target === '#pdf' ||
+  return code === 'KeyU' && step.target === '#largeMode' || code === 'KeyE' && step.target === '#pdf' ||
     /^(?:Digit|Numpad)8$/.test(code) && step.target === '#parenOpen' || /^(?:Digit|Numpad)9$/.test(code) && step.target === '#parenClose' ||
     code === 'KeyR' && target?.dataset.tool === 'eraser' ||
     code === 'KeyC' && step.target === '#copyRegion' || code === 'KeyX' && step.target === '#cutRegion' ||

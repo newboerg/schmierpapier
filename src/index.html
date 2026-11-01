@@ -239,6 +239,12 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
           <span class="tool-separator" aria-hidden="true"></span>
         </div>
         <div class="palette-group math-symbols" role="group" aria-label="Mathematische Zeichen">
+          <button id="largeMode" aria-pressed="false" title="Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen schreiben" aria-label="Doppelhohe Schrift">
+            <svg width="25" height="25" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+              <rect x="2" y="2" width="12" height="11" rx=".5"></rect><rect x="2" y="13" width="12" height="11" rx=".5"></rect>
+              <path d="M6 8 10 5v16M6 21h8" stroke-width="1.8"></path><path d="m20 3-3 3m3-3 3 3M20 3v20m-3-3 3 3 3-3"></path>
+            </svg>
+          </button>
           <button id="carryMode" aria-pressed="false" title="Tiefgestellt (Index / Übertrag): ein- oder ausschalten. Mehrere Zeichen unten rechts schreiben; beim Ausschalten ein Kästchen nach unten." aria-label="Tiefgestellt">
             <svg width="25" height="25" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
               <rect x="3" y="8" width="12" height="12" rx=".6"></rect>
@@ -308,6 +314,11 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     </main>
 
     <div id="bracketOpenMenu" class="extra-menu" role="group" aria-label="Öffnende Klammer auswählen" hidden>
+      <span class="bracket-size-label">Beliebig hoch nach oben</span>
+      <button data-stretch="up" data-size="stretch-up" data-symbol="(" title="Beliebig hoch nach oben">(<small aria-hidden="true">↟</small></button>
+      <button data-stretch="up" data-size="stretch-up" data-symbol="[" title="Beliebig hoch nach oben">[<small aria-hidden="true">↟</small></button>
+      <button data-stretch="up" data-size="stretch-up" data-symbol="{" title="Beliebig hoch nach oben">{<small aria-hidden="true">↟</small></button>
+      <button data-stretch="up" data-size="stretch-up" data-symbol="&lt;" title="Beliebig hoch nach oben">&lt;<small aria-hidden="true">↟</small></button>
       <span class="bracket-size-label">Doppelhoch nach oben</span>
       <button data-size="up" data-symbol="(" title="Doppelhoch nach oben">(<small aria-hidden="true">↑</small></button>
       <button data-size="up" data-symbol="[" title="Doppelhoch nach oben">[<small aria-hidden="true">↑</small></button>
@@ -323,8 +334,18 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       <button data-size="down" data-symbol="[" title="Doppelhoch nach unten">[<small aria-hidden="true">↓</small></button>
       <button data-size="down" data-symbol="{" title="Doppelhoch nach unten">{<small aria-hidden="true">↓</small></button>
       <button data-size="down" data-symbol="&lt;" title="Doppelhoch nach unten">&lt;<small aria-hidden="true">↓</small></button>
+      <span class="bracket-size-label">Beliebig hoch nach unten</span>
+      <button data-stretch="down" data-size="stretch-down" data-symbol="(" title="Beliebig hoch nach unten">(<small aria-hidden="true">↡</small></button>
+      <button data-stretch="down" data-size="stretch-down" data-symbol="[" title="Beliebig hoch nach unten">[<small aria-hidden="true">↡</small></button>
+      <button data-stretch="down" data-size="stretch-down" data-symbol="{" title="Beliebig hoch nach unten">{<small aria-hidden="true">↡</small></button>
+      <button data-stretch="down" data-size="stretch-down" data-symbol="&lt;" title="Beliebig hoch nach unten">&lt;<small aria-hidden="true">↡</small></button>
     </div>
     <div id="bracketCloseMenu" class="extra-menu" role="group" aria-label="Schließende Klammer auswählen" hidden>
+      <span class="bracket-size-label">Beliebig hoch nach oben</span>
+      <button data-stretch="up" data-size="stretch-up" data-symbol=")" title="Beliebig hoch nach oben">)<small aria-hidden="true">↟</small></button>
+      <button data-stretch="up" data-size="stretch-up" data-symbol="]" title="Beliebig hoch nach oben">]<small aria-hidden="true">↟</small></button>
+      <button data-stretch="up" data-size="stretch-up" data-symbol="}" title="Beliebig hoch nach oben">}<small aria-hidden="true">↟</small></button>
+      <button data-stretch="up" data-size="stretch-up" data-symbol="&gt;" title="Beliebig hoch nach oben">&gt;<small aria-hidden="true">↟</small></button>
       <span class="bracket-size-label">Doppelhoch nach oben</span>
       <button data-size="up" data-symbol=")" title="Doppelhoch nach oben">)<small aria-hidden="true">↑</small></button>
       <button data-size="up" data-symbol="]" title="Doppelhoch nach oben">]<small aria-hidden="true">↑</small></button>
@@ -340,22 +361,35 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       <button data-size="down" data-symbol="]" title="Doppelhoch nach unten">]<small aria-hidden="true">↓</small></button>
       <button data-size="down" data-symbol="}" title="Doppelhoch nach unten">}<small aria-hidden="true">↓</small></button>
       <button data-size="down" data-symbol="&gt;" title="Doppelhoch nach unten">&gt;<small aria-hidden="true">↓</small></button>
+      <span class="bracket-size-label">Beliebig hoch nach unten</span>
+      <button data-stretch="down" data-size="stretch-down" data-symbol=")" title="Beliebig hoch nach unten">)<small aria-hidden="true">↡</small></button>
+      <button data-stretch="down" data-size="stretch-down" data-symbol="]" title="Beliebig hoch nach unten">]<small aria-hidden="true">↡</small></button>
+      <button data-stretch="down" data-size="stretch-down" data-symbol="}" title="Beliebig hoch nach unten">}<small aria-hidden="true">↡</small></button>
+      <button data-stretch="down" data-size="stretch-down" data-symbol="&gt;" title="Beliebig hoch nach unten">&gt;<small aria-hidden="true">↡</small></button>
     </div>
     <div id="integralChoiceMenu" class="extra-menu" role="group" aria-label="Integrale auswählen" hidden>
+      <button data-symbol="∫" data-stretch="up" data-size="stretch-up" title="Beliebig hoch nach oben">∫↟</button>
+      <button data-symbol="∫" data-definite="true" data-stretch="up" data-size="stretch-up" title="Bestimmtes Integral: Beliebig hoch nach oben">∫ₐᵇ↟</button>
       <button data-symbol="∫" data-size="up" title="Doppelhoch nach oben">∫↑</button>
       <button data-symbol="∫" data-definite="true" data-size="up" title="Bestimmtes Integral nach oben">∫ₐᵇ↑</button>
       <button data-symbol="∫" title="Normal · auch Index/Potenz">∫</button>
       <button data-symbol="∫" data-definite="true" title="Bestimmtes Integral normal">∫ₐᵇ</button>
       <button data-symbol="∫" data-size="down" title="Doppelhoch nach unten">∫↓</button>
       <button data-symbol="∫" data-definite="true" data-size="down" title="Bestimmtes Integral nach unten">∫ₐᵇ↓</button>
+      <button data-symbol="∫" data-stretch="down" data-size="stretch-down" title="Beliebig hoch nach unten">∫↡</button>
+      <button data-symbol="∫" data-definite="true" data-stretch="down" data-size="stretch-down" title="Bestimmtes Integral: Beliebig hoch nach unten">∫ₐᵇ↡</button>
     </div>
     <div id="rootChoiceMenu" class="extra-menu" role="group" aria-label="Wurzelgröße auswählen" hidden>
+      <button data-symbol="√" data-stretch="up" data-size="stretch-up" title="Beliebig hoch nach oben">√↟</button>
+      <button data-symbol="√" data-root-degree="true" data-stretch="up" data-size="stretch-up" title="Beliebige Wurzel: Beliebig hoch nach oben">ⁿ√↟</button>
       <button data-symbol="√" data-size="up" title="Doppelhoch nach oben">√↑</button>
       <button data-symbol="√" data-root-degree="true" data-size="up" title="Andere Wurzel nach oben">ⁿ√↑</button>
       <button data-symbol="√" title="Normal · auch Index/Potenz">√</button>
       <button data-symbol="√" data-root-degree="true" title="Andere Wurzel normal">ⁿ√</button>
       <button data-symbol="√" data-size="down" title="Doppelhoch nach unten">√↓</button>
       <button data-symbol="√" data-root-degree="true" data-size="down" title="Andere Wurzel nach unten">ⁿ√↓</button>
+      <button data-symbol="√" data-stretch="down" data-size="stretch-down" title="Beliebig hoch nach unten">√↡</button>
+      <button data-symbol="√" data-root-degree="true" data-stretch="down" data-size="stretch-down" title="Beliebige Wurzel: Beliebig hoch nach unten">ⁿ√↡</button>
     </div>
     <div id="logicMenu" class="extra-menu" role="group" aria-label="Logikzeichen auswählen" hidden></div>
     <div id="setsMenu" class="extra-menu" role="group" aria-label="Mengenzeichen auswählen" hidden></div>

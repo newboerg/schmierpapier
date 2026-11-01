@@ -6,6 +6,8 @@ let smallMode = null,
 
 // @part part-02
 function toggleSmallMode(mode) {
+  largeMode = false;
+  updateLargeModeButton();
   const previous = smallMode;
   if (previous === mode) {
     smallMode = null;

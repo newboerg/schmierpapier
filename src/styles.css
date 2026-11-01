@@ -2053,3 +2053,10 @@
     .hold-progress rect { fill: none; stroke: #bb6900; stroke-width: 3; stroke-dasharray: 100; stroke-dashoffset: 100; }
     @media print { .hold-progress, .mode-hold-progress { display: none !important; } }
     .palette-group.math-symbols { flex-wrap: wrap; min-width: 0; max-width: 100%; }
+    .stretch-bracket-preview { fill: none; stroke: #d52d35; stroke-width: .45; stroke-dasharray: 1.1 .7; pointer-events: none; }
+    #bracketOpenMenu, #bracketCloseMenu { max-height: calc(100vh - 16px); overflow-y: auto; }
+    @media print { .stretch-bracket-preview { display: none !important; } }
+    #largeMode { width: 36px; min-width: 36px; padding: 0; }
+    #largeMode[aria-pressed="true"] { background: #24644e; color: white; border-color: #24644e; animation: small-mode-pulse 1.5s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { #largeMode[aria-pressed="true"] { animation: none; box-shadow: 0 0 0 3px #24644e50; } }
+    #rootChoiceMenu, #integralChoiceMenu { max-height: calc(100vh - 16px); overflow-y: auto; }

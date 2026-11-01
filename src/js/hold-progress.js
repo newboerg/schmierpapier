@@ -38,7 +38,7 @@ function actionHoldButton(code, held) {
   if (/^(?:Digit|Numpad)[89]$/.test(code)) return $(code.endsWith('8') ? 'parenOpen' : 'parenClose');
   const ids = {
     KeyB: 'newFile', KeyO: 'open', KeyS: 'strikeToggle', KeyG: 'geoToggle', KeyK: 'compassToggle',
-    KeyI: 'integral', KeyL: 'logic', KeyM: 'sets', KeyU: 'percent', KeyZ: 'percent',
+    KeyI: 'integral', KeyL: 'logic', KeyM: 'sets', KeyU: 'largeMode', KeyZ: 'percent',
     KeyQ: 'root', KeyW: 'root', KeyN: 'numberLineToggle', KeyR: null, KeyX: 'cutRegion',
     KeyC: 'copyRegion', KeyE: 'pdf', KeyD: 'pageView', PageUp: 'prev', PageDown: 'next',
     Insert: 'add', Delete: 'remove'

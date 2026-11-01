@@ -560,7 +560,66 @@ const LOCALE_DE = {
     "Bitte 1 bis 16 Zeichen ohne Leerzeichen eingeben.": "Bitte 1 bis 16 Zeichen ohne Leerzeichen eingeben.",
     "Klicke auf Hochstellen oder halte Shift allein etwa 0,6 Sekunden und lasse los. Der Modus hängt die nächste Eingabe klein oben rechts an die 2 an. Strg allein halten und loslassen schaltet entsprechend Tiefstellen; mit anderen Tasten bleiben es normale Tastenkombinationen. Der Rahmen um den gelben Button füllt sich dabei im Uhrzeigersinn; wenn er vollständig ist, kannst du zum Umschalten loslassen.": "Klicke auf Hochstellen oder halte Shift allein etwa 0,6 Sekunden und lasse los. Der Modus hängt die nächste Eingabe klein oben rechts an die 2 an. Strg allein halten und loslassen schaltet entsprechend Tiefstellen; mit anderen Tasten bleiben es normale Tastenkombinationen. Der Rahmen um den gelben Button füllt sich dabei im Uhrzeigersinn; wenn er vollständig ist, kannst du zum Umschalten loslassen.",
     "Integrale auswählen": "Integrale auswählen",
-    "Integrale auswählen (I halten)": "Integrale auswählen (I halten)"
+    "Integrale auswählen (I halten)": "Integrale auswählen (I halten)",
+    "Beliebig hoch nach oben": "Beliebig hoch nach oben",
+    "Beliebig hoch nach unten": "Beliebig hoch nach unten",
+    "Klammerhöhe wählen: Hoch/Runter oder Zielkästchen anklicken · Enter bestätigt · Esc bricht ab": "Klammerhöhe wählen: Hoch/Runter oder Zielkästchen anklicken · Enter bestätigt · Esc bricht ab",
+    "Klammer eingefügt": "Klammer eingefügt",
+    "Ungültige Klammerhöhe.": "Ungültige Klammerhöhe.",
+    "Klammerauswahl abgebrochen": "Klammerauswahl abgebrochen",
+    "Höhe wählen: Hoch/Runter oder Zielkästchen anklicken · Enter bestätigt · Esc bricht ab": "Höhe wählen: Hoch/Runter oder Zielkästchen anklicken · Enter bestätigt · Esc bricht ab",
+    "Größenauswahl abgebrochen": "Größenauswahl abgebrochen",
+    "Zeichen eingefügt": "Zeichen eingefügt",
+    "Doppelhohe Schrift": "Doppelhohe Schrift",
+    "Doppelhohe Schrift (U halten): Zahlen und Buchstaben über zwei Kästchen schreiben": "Doppelhohe Schrift (U halten): Zahlen und Buchstaben über zwei Kästchen schreiben",
+    "Doppelhohe Schrift eingeschaltet": "Doppelhohe Schrift eingeschaltet",
+    "Doppelhohe Schrift ausgeschaltet": "Doppelhohe Schrift ausgeschaltet",
+    "Für doppelhohe Schrift fehlt unten ein Kästchen.": "Für doppelhohe Schrift fehlt unten ein Kästchen.",
+    "Beliebige Wurzel: Beliebig hoch nach oben": "Beliebige Wurzel: Beliebig hoch nach oben",
+    "Beliebige Wurzel: Beliebig hoch nach unten": "Beliebige Wurzel: Beliebig hoch nach unten",
+    "Bestimmtes Integral: Beliebig hoch nach oben": "Bestimmtes Integral: Beliebig hoch nach oben",
+    "Bestimmtes Integral: Beliebig hoch nach unten": "Bestimmtes Integral: Beliebig hoch nach unten",
+    "Promille": "Promille",
+    "Plusminus": "Plusminus",
+    "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen schreiben": "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen schreiben",
+    "Einen gemischten Bruch schreiben": "Einen gemischten Bruch schreiben",
+    "Gehe zu Zeile 25 · Spalte 5 oder klicke dort. Wir schreiben 2 1/2 + 1/2 = 3. Die ganze 2, Plus, Gleichzeichen und Ergebnis werden doppelhoch; Zähler und Nenner normal groß. Die Brüche stehen wirklich übereinander, nicht als Schrägstrich.": "Gehe zu Zeile 25 · Spalte 5 oder klicke dort. Wir schreiben 2 1/2 + 1/2 = 3. Die ganze 2, Plus, Gleichzeichen und Ergebnis werden doppelhoch; Zähler und Nenner normal groß. Die Brüche stehen wirklich übereinander, nicht als Schrägstrich.",
+    "Doppelhohe Schrift einschalten": "Doppelhohe Schrift einschalten",
+    "Klicke auf den Button für doppelhohe Schrift oder halte U etwa 0,6 Sekunden. Der Rahmen zeigt die Wartezeit; der aktive Button pulsiert. Jetzt werden Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen nach unten geschrieben.": "Klicke auf den Button für doppelhohe Schrift oder halte U etwa 0,6 Sekunden. Der Rahmen zeigt die Wartezeit; der aktive Button pulsiert. Jetzt werden Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen nach unten geschrieben.",
+    "Die ganze 2 groß schreiben": "Die ganze 2 groß schreiben",
+    "Schreibe 2 mit Tastatur oder Bildschirm-Nummernblock. Die große 2 belegt Zeile 25 und 26 in Spalte 5. Daneben bauen wir den ersten halben Bruch auf.": "Schreibe 2 mit Tastatur oder Bildschirm-Nummernblock. Die große 2 belegt Zeile 25 und 26 in Spalte 5. Daneben bauen wir den ersten halben Bruch auf.",
+    "Zur normalen Schrift zurück": "Zur normalen Schrift zurück",
+    "Klicke erneut auf doppelhohe Schrift oder halte U erneut. Der Button hört auf zu pulsieren. Die nächsten Ziffern werden normal groß geschrieben; die bereits geschriebenen großen Zeichen bleiben groß.": "Klicke erneut auf doppelhohe Schrift oder halte U erneut. Der Button hört auf zu pulsieren. Die nächsten Ziffern werden normal groß geschrieben; die bereits geschriebenen großen Zeichen bleiben groß.",
+    "Erster Zähler: 1": "Erster Zähler: 1",
+    "Schreibe die normal große 1 direkt rechts neben die große 2. Sie ist der Zähler des ersten halben Bruchs.": "Schreibe die normal große 1 direkt rechts neben die große 2. Sie ist der Zähler des ersten halben Bruchs.",
+    "Unter den ersten Zähler": "Unter den ersten Zähler",
+    "Gehe zu Zeile 26 · Spalte 6 oder klicke dort. Hier kommt der Nenner des ersten halben Bruchs hin.": "Gehe zu Zeile 26 · Spalte 6 oder klicke dort. Hier kommt der Nenner des ersten halben Bruchs hin.",
+    "Erster Nenner: 2": "Erster Nenner: 2",
+    "Schreibe die normal große 2 unter die 1.": "Schreibe die normal große 2 unter die 1.",
+    "Den gemischten Bruch vervollständigen": "Den gemischten Bruch vervollständigen",
+    "Maus: Ziehe mit rechts zwischen den goldenen Punkten zwischen 1 und 2. Tastatur: Der Zähler ist ausgewählt. Drücke Links+Rechts gleichzeitig, lasse los und bestätige erneut mit Links+Rechts. Die Vorschau liegt unten zwischen Zähler und Nenner. Jetzt steht dort 2 1/2.": "Maus: Ziehe mit rechts zwischen den goldenen Punkten zwischen 1 und 2. Tastatur: Der Zähler ist ausgewählt. Drücke Links+Rechts gleichzeitig, lasse los und bestätige erneut mit Links+Rechts. Die Vorschau liegt unten zwischen Zähler und Nenner. Jetzt steht dort 2 1/2.",
+    "Platz für das große Plus": "Platz für das große Plus",
+    "Gehe zu Zeile 25 · Spalte 8 oder klicke dort. Das Plus steht auf derselben Höhe wie die große 2.": "Gehe zu Zeile 25 · Spalte 8 oder klicke dort. Das Plus steht auf derselben Höhe wie die große 2.",
+    "Das Plus doppelhoch schreiben": "Das Plus doppelhoch schreiben",
+    "Schreibe +. Im aktiven U-Modus wird auch das Rechenzeichen doppelhoch, passend zur ganzen 2.": "Schreibe +. Im aktiven U-Modus wird auch das Rechenzeichen doppelhoch, passend zur ganzen 2.",
+    "Den zweiten halben Bruch platzieren": "Den zweiten halben Bruch platzieren",
+    "Gehe zu Zeile 25 · Spalte 10 oder klicke dort. Hier beginnt der zweite Bruch 1/2.": "Gehe zu Zeile 25 · Spalte 10 oder klicke dort. Hier beginnt der zweite Bruch 1/2.",
+    "Zweiter Zähler: 1": "Zweiter Zähler: 1",
+    "Schreibe die normal große 1 für den zweiten Zähler.": "Schreibe die normal große 1 für den zweiten Zähler.",
+    "Unter den zweiten Zähler": "Unter den zweiten Zähler",
+    "Gehe zu Zeile 26 · Spalte 10 oder klicke dort. Der Nenner steht direkt unter seiner 1.": "Gehe zu Zeile 26 · Spalte 10 oder klicke dort. Der Nenner steht direkt unter seiner 1.",
+    "Zweiter Nenner: 2": "Zweiter Nenner: 2",
+    "Schreibe 2. Beide halben Brüche haben nun Zähler und Nenner.": "Schreibe 2. Beide halben Brüche haben nun Zähler und Nenner.",
+    "Den zweiten Halb-Bruch unterstreichen": "Den zweiten Halb-Bruch unterstreichen",
+    "Maus: Ziehe den Bruchstrich mit rechts zwischen den goldenen Punkten. Tastatur: Links+Rechts gleichzeitig, loslassen, erneut Links+Rechts zum Bestätigen. Der Strich trennt die zweite 1 von ihrer 2.": "Maus: Ziehe den Bruchstrich mit rechts zwischen den goldenen Punkten. Tastatur: Links+Rechts gleichzeitig, loslassen, erneut Links+Rechts zum Bestätigen. Der Strich trennt die zweite 1 von ihrer 2.",
+    "Platz für das große Gleichzeichen": "Platz für das große Gleichzeichen",
+    "Gehe zu Zeile 25 · Spalte 12 oder klicke dort. Hier kommt das doppelhohe Gleichzeichen hin.": "Gehe zu Zeile 25 · Spalte 12 oder klicke dort. Hier kommt das doppelhohe Gleichzeichen hin.",
+    "Das Gleichzeichen doppelhoch schreiben": "Das Gleichzeichen doppelhoch schreiben",
+    "Drücke Enter am Nummernblock oder = am Bildschirm-Nummernblock. Auch die normale Zeichentaste = ist erlaubt. Im U-Modus wird das Gleichzeichen doppelhoch; Strg oder Shift brauchen wir hier nicht.": "Drücke Enter am Nummernblock oder = am Bildschirm-Nummernblock. Auch die normale Zeichentaste = ist erlaubt. Im U-Modus wird das Gleichzeichen doppelhoch; Strg oder Shift brauchen wir hier nicht.",
+    "Platz für das große Ergebnis": "Platz für das große Ergebnis",
+    "Gehe zu Zeile 25 · Spalte 14 oder klicke dort. Doppelhohe Schrift bleibt für das Ergebnis eingeschaltet.": "Gehe zu Zeile 25 · Spalte 14 oder klicke dort. Doppelhohe Schrift bleibt für das Ergebnis eingeschaltet.",
+    "Das Ergebnis: eine ganze 3": "Das Ergebnis: eine ganze 3",
+    "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.": "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier."
   },
   "helpInitial": [
     {
@@ -802,8 +861,8 @@ const LOCALE_DE = {
     },
     {
       "title": "Logik, Mengenlehre und verschiedene Symbole",
-      "keywords": "L M Z U ∀ ∃ ∄ % & logic set menge quantor quantifier quantificateur symbole",
-      "html": "<p>Drei geteilte Buttons bieten zusätzliche mathematische Zeichen. Der Hauptbutton schreibt das Standardsymbol; der kleine Pfeil oder etwa 0,6 Sekunden Halten im Schreibkästchen öffnet das zugehörige Menü. <strong>L: Logik</strong>, Standard ∧; außerdem ∨, ¬, ⇒, ⇔, ⊕, ⊤, ⊥. <strong>M: Mengenlehre</strong>, Standard ∈; außerdem ∉, ⊂, ⊆, ⊄, ⊈, ∪, ∩, ∅, ∖ und ℕ, ℤ, ℚ, ℝ, ℂ. <strong>Z: Verschiedene Symbole</strong>, Standard %; außerdem &amp;, ∀ (für alle), ∃ (es existiert), ∄ (es existiert nicht). Die bisherigen einzelnen Buttons für &amp; und % sind hier zusammengefasst; U halten fügt &amp; weiterhin direkt ein.</p><p>Mit Pfeiltasten auswählen und Enter bestätigen oder ein Symbol anklicken. Esc schließt ohne Änderung. Tooltips nennen die Bedeutung. Die Auswahl behält den Fokus im Schreibkästchen; nach normaler Eingabe geht es ein Kästchen weiter. Bei aktivem Hoch-/Tiefstellen-Modus wird das Symbol an die kleine Zeichenfolge angehängt. Kurzes L/M/Z schreibt weiterhin den Buchstaben; Strg+Z bleibt Rückgängig. Z richtet sich nach dem erkannten Buchstaben, auch auf QWERTZ. In Namen, Such- und Beschriftungsfeldern bleiben die Tasten normale Eingaben. Alle Zeichen sind offline eingebettet und erscheinen auch in PDF und Druck.</p><p>Zeichenleiste neu geordnet: nach dem Geodreieck folgt ein Trennstrich, dann Index/Potenz, Vergleichszeichen, öffnende/schließende Klammern, Wurzeln, Integrale, verschiedene Symbole, Mengenlehre und Logik. Die griechischen Zeichen stehen anschließend.</p>"
+      "keywords": "L M Z U ∀ ∃ ∄ % & logic set menge quantor quantifier quantificateur symbole ‰ ± promille per mille pour mille plusminus plus minus",
+      "html": "<p>Drei geteilte Buttons bieten zusätzliche mathematische Zeichen. Der Hauptbutton schreibt das Standardsymbol; der kleine Pfeil oder etwa 0,6 Sekunden Halten im Schreibkästchen öffnet das zugehörige Menü. <strong>L: Logik</strong>, Standard ∧; außerdem ∨, ¬, ⇒, ⇔, ⊕, ⊤, ⊥. <strong>M: Mengenlehre</strong>, Standard ∈; außerdem ∉, ⊂, ⊆, ⊄, ⊈, ∪, ∩, ∅, ∖ und ℕ, ℤ, ℚ, ℝ, ℂ. <strong>Z: Verschiedene Symbole</strong>, Standard %; außerdem &amp;, ∀ (für alle), ∃ (es existiert), ∄ (es existiert nicht). Die bisherigen einzelnen Buttons für &amp; und % sind hier zusammengefasst; U halten schaltet jetzt doppelhohe Schrift; &amp; bleibt in diesem Menü.</p><p>Mit Pfeiltasten auswählen und Enter bestätigen oder ein Symbol anklicken. Esc schließt ohne Änderung. Tooltips nennen die Bedeutung. Die Auswahl behält den Fokus im Schreibkästchen; nach normaler Eingabe geht es ein Kästchen weiter. Bei aktivem Hoch-/Tiefstellen-Modus wird das Symbol an die kleine Zeichenfolge angehängt. Kurzes L/M/Z schreibt weiterhin den Buchstaben; Strg+Z bleibt Rückgängig. Z richtet sich nach dem erkannten Buchstaben, auch auf QWERTZ. In Namen, Such- und Beschriftungsfeldern bleiben die Tasten normale Eingaben. Alle Zeichen sind offline eingebettet und erscheinen auch in PDF und Druck.</p><p>Zeichenleiste neu geordnet: nach dem Geodreieck folgt ein Trennstrich, dann Index/Potenz, Vergleichszeichen, öffnende/schließende Klammern, Wurzeln, Integrale, verschiedene Symbole, Mengenlehre und Logik. Die griechischen Zeichen stehen anschließend.</p><p>Im Menü Verschiedene Symbole (Z halten) stehen zusätzlich ‰ (Promille) und ± (Plusminus, Plus über Minus) zur Auswahl.</p>"
     },
     {
       "title": "Fortschrittsrahmen beim Halten von Shift/Strg",
@@ -814,6 +873,26 @@ const LOCALE_DE = {
       "title": "Fortschrittsrahmen für alle Halte-Tasten",
       "keywords": "fortschritt progress attente halten hold touches tasten rahmen clockwise uhrzeigersinn",
       "html": "<p>Alle Halte-Tastenkürzel zeigen die Wartezeit als im Uhrzeigersinn gefüllten Rahmen am zugehörigen Button – auch Stiftfarben, Textmarker, Klammern und Symbolmenüs, Geometriewerkzeuge, Bereichswerkzeuge, Seiten, Zoom, Dateien, PDF und Tastenhilfe. Nach etwa 0,6 Sekunden wird die Aktion ausgelöst und der Rahmen verschwindet. Frühes Loslassen oder Abbrechen entfernt ihn; kurze Eingaben behalten ihre Funktion. Bei Shift/Strg bleibt der volle Rahmen bis zum Loslassen sichtbar, weil erst dann umgeschaltet wird. Direkte Mausklicks benötigen keine Haltezeit. Die Anzeige funktioniert auch im Tutorial und bleibt aus Dokumenten, PDF und Druck ausgeschlossen.</p>"
+    },
+    {
+      "title": "Klammern mit frei wählbarer Höhe",
+      "keywords": "klammer bracket parenthèse accolade höhe height hauteur 8 9 preview vorschau libre",
+      "html": "<p>Klammermenüs bieten jetzt fünf Größenzeilen: beliebig nach oben, doppelhoch nach oben, normal (vorausgewählt), doppelhoch nach unten und beliebig nach unten. Jede Zeile enthält runde, eckige, geschweifte und spitze Klammern. Öffnen per Menüpfeil oder 8/9 halten; Pfeiltasten wählen Form und Zeile, Enter bestätigt die Auswahl. Für die normale Tutorial-Rechnung weiterhin die normale runde Klammer in der Mitte wählen.</p><p>Bei beliebiger Höhe bleibt das beim Öffnen der Höhenwahl aktive Kästchen der Startpunkt. Hoch/Runter verändert das Ende in ganzen Kästchen innerhalb der gewählten Richtung; die Höhe ist vom einzelnen Kästchen bis zum Seitenrand frei wählbar. Eine rote gestrichelte Klammer zeigt die Vorschau, Enter setzt sie endgültig. Alternativ die gewünschte Zielzeile auf derselben Seite anklicken; die Klammer bleibt in der Startspalte. Mausbewegungen über dem Papier zeigen die Zielhöhe vor dem Klick. Esc, ein Klick außerhalb des Papiers oder Verlassen des Fensters verwirft die Vorschau ohne Dokumentänderung. Danach geht die Schreibposition rechts neben das Startkästchen. Ein aktiver Hoch-/Tiefstellen-Modus verändert die gewählte Klammerhöhe nicht.</p><p>Die gesamte Klammer gehört zu allen belegten Kästchen und lässt sich aus jedem davon mit Entf oder Rücktaste löschen. Rückgängig/Wiederholen und .schmier-Dateien erhalten die Höhe. Zum Kopieren oder Ausschneiden den vollständigen Klammerbereich auswählen; Teilbereiche enthalten die Klammer nicht. PDF und Druck übernehmen nur endgültige Klammern, keine Vorschauen. Ältere Dokumente mit doppelhohen Zeichen bleiben ladbar; ältere App-Versionen können frei gewählte Höhen nicht zuverlässig darstellen.</p>"
+    },
+    {
+      "title": "Wurzeln und Integrale mit frei wählbarer Höhe",
+      "keywords": "Q I wurzel root racine integral intégrale höhe height hauteur degree grenzen bornes",
+      "html": "<p>Wurzel- und Integralmenüs haben wie die Klammern fünf Größenzeilen: beliebig nach oben, doppelhoch nach oben, normal (vorausgewählt), doppelhoch nach unten und beliebig nach unten. Q halten öffnet die Wurzeln, I halten die Integrale; die Menüpfeile sind gleichwertig. Links stehen Quadratwurzeln bzw. unbestimmte Integrale, rechts Wurzeln mit Exponent bzw. bestimmte Integrale. Pfeile wählen die Kachel, Enter bestätigt.</p><p>Bei freier Höhe werden ein Wurzelexponent bzw. die untere und obere Integrationsgrenze zuerst abgefragt. Abbrechen verändert nichts. Danach bleibt das aktive Kästchen der Startpunkt: Hoch/Runter wählt die Zielzeile, Enter setzt das Zeichen, alternativ die Zielzeile anklicken. Die Spalte bleibt fest; Esc verwirft die rote gestrichelte Vorschau. Exponent und Grenzen werden mit angezeigt und an den endgültigen Enden befestigt. Griechische Namen in Integralgrenzen werden weiterhin ersetzt, etwa 2pi → 2π. Wurzeln enden oben rechts ohne Haken und lassen sich mit einer Linie fortsetzen. Speichern/Laden, Kopieren ganzer Zeichen, Rückgängig, PDF/Druck und Löschen aus jedem belegten Kästchen berücksichtigen die volle Höhe. Vorschauen werden nicht gespeichert oder exportiert.</p><p>Übergang von der Parametereingabe zur freien Höhenwahl abgesichert: verspätete Tasten-, Klick- und Fokusereignisse nativer Dialoge bestätigen oder verwerfen die Vorschau nicht mehr. Das gilt für bestimmte Integrale und Wurzeln mit Exponent; erst eine neue Eingabe nach dem Dialog bedient die Höhenwahl.</p>"
+    },
+    {
+      "title": "Doppelhohe Zahlen und Buchstaben",
+      "keywords": "U groß large double doppelhoch lettre mixed fraction gemischter bruch nombre fractionnaire ± % ‰ + - = rechnen arithmetic calcul vergleich comparison",
+      "html": "<p>Der neue Button Doppelhohe Schrift oder U etwa 0,6 Sekunden halten schaltet einen dauerhaften Schreibmodus ein und aus. Während des Haltens füllt sich der Fortschrittsrahmen im Uhrzeigersinn; der aktive Button pulsiert, bei reduzierten Animationen bleibt er deutlich umrandet. Ein kurzer U-Tastendruck schreibt weiter den Buchstaben u. Zahlen und Buchstaben, auch griechische, werden ab dem aktuellen Kästchen zwei Kästchen nach unten hoch geschrieben, eine Spalte pro Zeichen. Danach geht es nach rechts; Enter und automatischer Zeilenumbruch gehen im aktiven Modus zwei Zeilen weiter. U erneut halten oder den Button anklicken beendet den Modus. So lässt sich zum Beispiel die große 1 eines gemischten Bruchs schreiben und der Bruch daneben anschließend normal ergänzen.</p><p>Rechen- und Vergleichszeichen wie +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % und ‰ werden ebenfalls doppelhoch geschrieben; Satzzeichen bleiben normal hoch. Hoch-/Tiefstellen und doppelhohe Schrift sind als dauerhafte Modi gegenseitig ausschließend; einzelne Strg/Shift-Ziffern bleiben für kleine Anmerkungen verfügbar. Am unteren Seitenrand wird kein halbes Zeichen geschrieben: Wähle ein Kästchen weiter oben. Große Buchstaben/Zahlen lassen sich aus beiden Kästchen löschen, vollständig kopieren/ausschneiden, rückgängig machen und in .schmier, PDF und Druck erhalten. U ersetzt den früheren direkten Und-Shortcut; & bleibt im Menü Verschiedene Symbole (Z halten). Namen, Suchfelder und Beschriftungen behalten ihre normale Texteingabe. Das Tutorial setzt den Modus vorübergehend zurück und stellt ihn danach wieder her.</p><p>Beim Schreiben eines großen Zeichens werden vorhandene normale Zeichen in seinen beiden Kästchen ersetzt. Normales Schreiben oder Leertaste in einem der belegten Kästchen ersetzt bzw. entfernt das große Zeichen als Ganzes. Rückgängig stellt den vorherigen Inhalt wieder her.</p><p>Der U-Schreibmodus vergrößert jetzt auch Rechen-, Vergleichs-, Prozent- und Promillezeichen. Das gilt für Tastatur, Nummernblock und Symbolbuttons; Strg/Shift+Enter für Bruch-Gleichzeichen bleibt erhalten.</p>"
+    },
+    {
+      "title": "Gemischter Bruch im Tutorial",
+      "keywords": "tutorial tutoriel mixed gemischt bruch fraction U doppelhoch double hauteur",
+      "html": "<p>Tutorial um die Rechnung 2 1/2 + 1/2 = 3 ergänzt: ganze Zahlen, Plus und Gleichzeichen doppelhoch mit U oder Button; Zähler und Nenner normal, Bruchstriche wahlweise per Maus oder Tastatur. Navigation und Bildschirm-Nummernblock bleiben nutzbar.</p>"
     }
   ],
   "consent": [

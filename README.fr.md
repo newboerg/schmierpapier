@@ -16,9 +16,23 @@ Schmierpapier offre un espace pour calculer, essayer et dessiner directement dan
 
 L’application vise à favoriser le travail autonome en cours de mathématiques : le clavier et la souris permettent d’écrire les calculs dans des cases, de disposer clairement les fractions et de réaliser des constructions géométriques avec des outils numériques. De nombreuses fonctions sont accessibles par des boutons, sans devoir utiliser une combinaison de touches pour chaque action.
 
-Version **0.4.3 (développement)**
+Version **0.4.4 (développement)**
 
 Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l’en-tête de l’application l’ouvre dans un nouvel onglet.
+
+## Nouveautés de la v0.4.4
+
+- Ajout au tutoriel de 2 1/2 + 1/2 = 3 : entiers, plus et égal de double hauteur avec U ou le bouton ; numérateurs/dénominateurs normaux et barres à la souris ou au clavier. Navigation et pavé à l’écran restent disponibles.
+- Le mode U agrandit désormais aussi les signes de calcul, comparaison, pourcentage et pour mille. Cela fonctionne au clavier, au pavé et avec les boutons ; Ctrl/Maj+Entrée conserve l’égalité pour fractions.
+- Le menu Symboles divers (maintenir Z) propose aussi ‰ (pour mille) et ± (plus ou moins, plus au-dessus de moins).
+- Écrire un grand caractère remplace le texte ordinaire dans ses deux cases. Une saisie ordinaire ou Espace dans l’une des cases remplace ou efface le grand caractère entier. Annuler restaure le contenu précédent.
+- Les menus des racines et intégrales proposent les cinq lignes des parenthèses : hauteur libre vers le haut, double vers le haut, normale (présélectionnée), double vers le bas et hauteur libre vers le bas. Maintenir Q pour les racines, I pour les intégrales, ou cliquer sur leur flèche. À gauche : racines carrées/intégrales indéfinies ; à droite : racines avec indice/intégrales définies. Les flèches choisissent la case ; Entrée valide.
+- Pour une hauteur libre, l’indice de racine ou les bornes inférieure et supérieure sont demandés en premier. Annuler ne change rien. La case active reste ensuite le départ : Haut/Bas choisit la ligne cible, Entrée fixe le signe, ou cliquer sur la ligne cible. La colonne reste fixe ; Échap annule l’aperçu rouge en pointillés. Indice et bornes sont prévisualisés puis fixés aux extrémités finales. Les noms grecs des bornes restent remplacés, par exemple 2pi → 2π. La racine finit au coin supérieur droit sans crochet pour prolonger par un trait. Enregistrement/chargement, copie du signe entier, annulation, PDF/impression et effacement depuis toute case occupée respectent la hauteur complète. Les aperçus ne sont ni enregistrés ni exportés.
+- Le nouveau bouton Écriture de double hauteur, ou un appui sur U d’environ 0,6 seconde, active/désactive un mode permanent. Un cadre horaire montre l’attente ; le bouton actif pulse, ou reste entouré si les animations sont réduites. Un appui court écrit toujours u. Chiffres et lettres, grecques comprises, occupent deux cases vers le bas depuis la case active, une colonne par caractère. La saisie avance à droite ; Entrée et le retour automatique avancent de deux lignes dans ce mode. Maintenir U de nouveau ou cliquer sur le bouton pour l’arrêter. Pour un nombre fractionnaire, écrire le grand 1 entier, arrêter le mode, puis ajouter la fraction ordinaire à côté.
+- Les signes de calcul et comparaison comme +, −, ·, :, /, =, ≠, <, >, ≤, ≥, ≈, ≡, ∝, ±, ∓, % et ‰ sont aussi de double hauteur ; la ponctuation garde sa hauteur normale. Les modes permanents indice/exposant et double hauteur s’excluent ; Ctrl/Maj avec un chiffre permet toujours une petite annotation ponctuelle. Aucun demi-caractère n’est écrit au bord inférieur : choisir une case plus haute. Les grandes lettres/chiffres s’effacent depuis chacune des cases, se copient/coupent en entier, s’annulent et restent dans .schmier, PDF et impressions. U remplace l’ancien raccourci direct de l’esperluette ; & reste dans Symboles divers (maintenir Z). Noms, recherches et graduations gardent leur saisie normale. Le tutoriel désactive temporairement le mode puis le restaure.
+- Les menus proposent cinq lignes de taille : hauteur libre vers le haut, double vers le haut, normale (présélectionnée), double vers le bas et hauteur libre vers le bas. Chaque ligne contient les formes rondes, carrées, accolades et chevrons. Ouvrir par la flèche ou maintenir 8/9 ; les flèches choisissent forme et ligne, Entrée valide. Pour le calcul du tutoriel, garder la forme ronde normale au milieu.
+- Pour la hauteur libre, la case active au début du choix reste le point de départ. Haut/Bas déplace l’extrémité par cases entières dans la direction choisie, d’une case jusqu’au bord de la page. Une parenthèse rouge en pointillés montre l’aperçu ; Entrée la fixe. On peut aussi cliquer sur la ligne cible de la même page ; la forme reste dans la colonne de départ. Le déplacement de la souris sur le papier montre la hauteur avant le clic. Échap, un clic hors du papier ou la sortie de la fenêtre annule sans modifier le document. La saisie reprend à droite de la case de départ. Le mode indice/exposant actif ne change pas la hauteur choisie.
+- La forme entière appartient à toutes les cases occupées et s’efface depuis chacune avec Suppr ou Retour arrière. Annuler/rétablir et les fichiers .schmier conservent la hauteur. Pour copier ou couper, sélectionner toute la hauteur ; une zone partielle n’inclut pas la forme. PDF et impression n’incluent que les formes validées, pas les aperçus. Les anciens documents à signes doubles restent lisibles ; les anciennes versions de l’application ne représentent pas fiablement les hauteurs libres.
 
 ## Nouveautés de la v0.4.3
 
@@ -92,7 +106,7 @@ Un pavé numérique déplaçable est accessible dans l’en-tête. Il reste au-d
 - Signes égal spéciaux entre deux cases superposées pour les calculs de fractions.
 - Intégrales indéfinies et définies de hauteur normale ou double. Maintenir I ouvre le menu ; les intégrales définies sont à droite. Saisir la borne inférieure puis supérieure (1–16 caractères chacune, sans espaces). Les bornes restent dans les fichiers `.schmier`, copies, PDF et impressions. Aucun calcul n’est effectué.
 - Les noms grecs dans les bornes d’intégration sont remplacés automatiquement : pi, omega, alpha, beta, phi, theta, psi, tau, lambda, rho, sigma, xi et zeta. La première lettre détermine la casse, indépendamment des suivantes : omega → ω, Omega → Ω, 2pi → 2π, -Pi/2 → -Π/2. Les noms complets sont reconnus à côté des nombres et opérateurs ; les autres mots restent inchangés. La limite de 16 caractères s’applique après remplacement.
-- Menus de logique (maintenir L, défaut ∧), ensembles (maintenir M, défaut ∈) et symboles divers (maintenir Z, défaut %, avec &, ∀, ∃, ∄). Le bouton principal écrit le signe par défaut ; sa flèche ouvre le menu, flèches/Entrée ou clic choisissent, Échap ferme. Maintenir U reste un accès direct à &.
+- Menus de logique (maintenir L, défaut ∧), ensembles (maintenir M, défaut ∈) et symboles divers (maintenir Z, défaut %, avec &, ∀, ∃, ∄). Le bouton principal écrit le signe par défaut ; sa flèche ouvre le menu, flèches/Entrée ou clic choisissent, Échap ferme. Maintenir U active désormais la double hauteur ; & reste dans le menu.
 - Lettres grecques : le bouton π insère Pi ; sa flèche ou un appui prolongé sur P dans une case ouvre le menu grec. Flèches et Entrée choisissent, Échap ferme ; un appui court sur P écrit toujours p. Ctrl/Maj insèrent un indice/exposant.
 - Signes de calcul utilisant `·` pour la multiplication et `:` pour la division.
 
@@ -158,6 +172,7 @@ La demande de consentement utilise la langue préférée prise en charge du navi
 | Maintenir P | Menu grec, π présélectionné |
 | Maintenir Entrée | Menu des signes de comparaison |
 | Maintenir I | Menu des intégrales : Haut/Bas pour la taille, Gauche/Droite pour indéfinie/définie ; saisir les bornes dans l’ordre |
+| Maintenir U | Activer/désactiver chiffres et lettres de double hauteur |
 | Maintenir L / M / Z | Choisir logique / ensembles / symboles divers |
 | Maintenir Maj seule puis relâcher | Activer/désactiver exposant |
 | Maintenir Ctrl seule puis relâcher | Activer/désactiver indice |

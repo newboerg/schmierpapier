@@ -560,7 +560,66 @@ const LOCALE_EN = {
     "Bitte 1 bis 16 Zeichen ohne Leerzeichen eingeben.": "Please enter 1 to 16 characters without spaces.",
     "Klicke auf Hochstellen oder halte Shift allein etwa 0,6 Sekunden und lasse los. Der Modus hängt die nächste Eingabe klein oben rechts an die 2 an. Strg allein halten und loslassen schaltet entsprechend Tiefstellen; mit anderen Tasten bleiben es normale Tastenkombinationen. Der Rahmen um den gelben Button füllt sich dabei im Uhrzeigersinn; wenn er vollständig ist, kannst du zum Umschalten loslassen.": "Click Superscript or hold Shift alone for about 0.6 seconds, then release. The mode attaches input to the upper right of 2. Holding Ctrl alone and releasing similarly toggles Subscript; using another key keeps the normal shortcut. The frame around the yellow button fills clockwise; once complete, release to toggle the mode.",
     "Integrale auswählen": "Choose integrals",
-    "Integrale auswählen (I halten)": "Choose integrals (hold I)"
+    "Integrale auswählen (I halten)": "Choose integrals (hold I)",
+    "Beliebig hoch nach oben": "Variable height above",
+    "Beliebig hoch nach unten": "Variable height below",
+    "Klammerhöhe wählen: Hoch/Runter oder Zielkästchen anklicken · Enter bestätigt · Esc bricht ab": "Choose bracket height: Up/Down or click a target cell · Enter confirms · Esc cancels",
+    "Klammer eingefügt": "Bracket inserted",
+    "Ungültige Klammerhöhe.": "Invalid bracket height.",
+    "Klammerauswahl abgebrochen": "Bracket selection cancelled",
+    "Höhe wählen: Hoch/Runter oder Zielkästchen anklicken · Enter bestätigt · Esc bricht ab": "Choose height: Up/Down or click a target cell · Enter confirms · Esc cancels",
+    "Größenauswahl abgebrochen": "Size selection cancelled",
+    "Zeichen eingefügt": "Symbol inserted",
+    "Doppelhohe Schrift": "Double-height text",
+    "Doppelhohe Schrift (U halten): Zahlen und Buchstaben über zwei Kästchen schreiben": "Double-height text (hold U): write numbers and letters across two cells",
+    "Doppelhohe Schrift eingeschaltet": "Double-height text enabled",
+    "Doppelhohe Schrift ausgeschaltet": "Double-height text disabled",
+    "Für doppelhohe Schrift fehlt unten ein Kästchen.": "Double-height text needs another cell below.",
+    "Beliebige Wurzel: Beliebig hoch nach oben": "Indexed root: variable height above",
+    "Beliebige Wurzel: Beliebig hoch nach unten": "Indexed root: variable height below",
+    "Bestimmtes Integral: Beliebig hoch nach oben": "Definite integral: variable height above",
+    "Bestimmtes Integral: Beliebig hoch nach unten": "Definite integral: variable height below",
+    "Promille": "Per mille",
+    "Plusminus": "Plus–minus",
+    "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen schreiben": "Double-height text (hold U): write numbers, letters and arithmetic signs across two cells",
+    "Einen gemischten Bruch schreiben": "Write a mixed fraction",
+    "Gehe zu Zeile 25 · Spalte 5 oder klicke dort. Wir schreiben 2 1/2 + 1/2 = 3. Die ganze 2, Plus, Gleichzeichen und Ergebnis werden doppelhoch; Zähler und Nenner normal groß. Die Brüche stehen wirklich übereinander, nicht als Schrägstrich.": "Go to row 25 · column 5, or click there. We write 2 1/2 + 1/2 = 3. The whole 2, plus, equals and result will be double-height; numerators and denominators normal-height. Fractions are stacked, not written with a slash.",
+    "Doppelhohe Schrift einschalten": "Enable double-height text",
+    "Klicke auf den Button für doppelhohe Schrift oder halte U etwa 0,6 Sekunden. Der Rahmen zeigt die Wartezeit; der aktive Button pulsiert. Jetzt werden Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen nach unten geschrieben.": "Click the double-height text button or hold U for about 0.6 seconds. The frame shows the wait; the active button pulses. Numbers, letters and arithmetic signs now span two cells downwards.",
+    "Die ganze 2 groß schreiben": "Write the whole 2 large",
+    "Schreibe 2 mit Tastatur oder Bildschirm-Nummernblock. Die große 2 belegt Zeile 25 und 26 in Spalte 5. Daneben bauen wir den ersten halben Bruch auf.": "Write 2 using the keyboard or on-screen keypad. The large 2 occupies rows 25 and 26 in column 5. We will place the first half beside it.",
+    "Zur normalen Schrift zurück": "Return to normal text",
+    "Klicke erneut auf doppelhohe Schrift oder halte U erneut. Der Button hört auf zu pulsieren. Die nächsten Ziffern werden normal groß geschrieben; die bereits geschriebenen großen Zeichen bleiben groß.": "Click double-height text again or hold U again. The button stops pulsing. The next digits will have normal height; existing large symbols stay large.",
+    "Erster Zähler: 1": "First numerator: 1",
+    "Schreibe die normal große 1 direkt rechts neben die große 2. Sie ist der Zähler des ersten halben Bruchs.": "Write a normal-height 1 immediately to the right of the large 2. It is the numerator of the first half.",
+    "Unter den ersten Zähler": "Below the first numerator",
+    "Gehe zu Zeile 26 · Spalte 6 oder klicke dort. Hier kommt der Nenner des ersten halben Bruchs hin.": "Go to row 26 · column 6, or click there. This is the denominator of the first half.",
+    "Erster Nenner: 2": "First denominator: 2",
+    "Schreibe die normal große 2 unter die 1.": "Write a normal-height 2 below the 1.",
+    "Den gemischten Bruch vervollständigen": "Complete the mixed fraction",
+    "Maus: Ziehe mit rechts zwischen den goldenen Punkten zwischen 1 und 2. Tastatur: Der Zähler ist ausgewählt. Drücke Links+Rechts gleichzeitig, lasse los und bestätige erneut mit Links+Rechts. Die Vorschau liegt unten zwischen Zähler und Nenner. Jetzt steht dort 2 1/2.": "Mouse: right-drag between the golden points between 1 and 2. Keyboard: the numerator is selected. Press Left+Right together, release, then confirm with Left+Right again. The preview is below the numerator. You now have 2 1/2.",
+    "Platz für das große Plus": "Space for the large plus",
+    "Gehe zu Zeile 25 · Spalte 8 oder klicke dort. Das Plus steht auf derselben Höhe wie die große 2.": "Go to row 25 · column 8, or click there. The plus will align with the large 2.",
+    "Das Plus doppelhoch schreiben": "Write a double-height plus",
+    "Schreibe +. Im aktiven U-Modus wird auch das Rechenzeichen doppelhoch, passend zur ganzen 2.": "Write +. With U mode active, arithmetic signs also become double-height, matching the whole 2.",
+    "Den zweiten halben Bruch platzieren": "Place the second half",
+    "Gehe zu Zeile 25 · Spalte 10 oder klicke dort. Hier beginnt der zweite Bruch 1/2.": "Go to row 25 · column 10, or click there. The second fraction 1/2 starts here.",
+    "Zweiter Zähler: 1": "Second numerator: 1",
+    "Schreibe die normal große 1 für den zweiten Zähler.": "Write a normal-height 1 for the second numerator.",
+    "Unter den zweiten Zähler": "Below the second numerator",
+    "Gehe zu Zeile 26 · Spalte 10 oder klicke dort. Der Nenner steht direkt unter seiner 1.": "Go to row 26 · column 10, or click there. The denominator sits directly below its 1.",
+    "Zweiter Nenner: 2": "Second denominator: 2",
+    "Schreibe 2. Beide halben Brüche haben nun Zähler und Nenner.": "Write 2. Both halves now have numerators and denominators.",
+    "Den zweiten Halb-Bruch unterstreichen": "Add the second fraction bar",
+    "Maus: Ziehe den Bruchstrich mit rechts zwischen den goldenen Punkten. Tastatur: Links+Rechts gleichzeitig, loslassen, erneut Links+Rechts zum Bestätigen. Der Strich trennt die zweite 1 von ihrer 2.": "Mouse: right-drag the fraction bar between the golden points. Keyboard: Left+Right together, release, then Left+Right again to confirm. The bar separates the second 1 from its 2.",
+    "Platz für das große Gleichzeichen": "Space for the large equals sign",
+    "Gehe zu Zeile 25 · Spalte 12 oder klicke dort. Hier kommt das doppelhohe Gleichzeichen hin.": "Go to row 25 · column 12, or click there. The double-height equals sign goes here.",
+    "Das Gleichzeichen doppelhoch schreiben": "Write a double-height equals sign",
+    "Drücke Enter am Nummernblock oder = am Bildschirm-Nummernblock. Auch die normale Zeichentaste = ist erlaubt. Im U-Modus wird das Gleichzeichen doppelhoch; Strg oder Shift brauchen wir hier nicht.": "Press numpad Enter or = on the on-screen keypad. The ordinary = character key also works. U mode makes the equals sign double-height; no Ctrl or Shift is needed.",
+    "Platz für das große Ergebnis": "Space for the large result",
+    "Gehe zu Zeile 25 · Spalte 14 oder klicke dort. Doppelhohe Schrift bleibt für das Ergebnis eingeschaltet.": "Go to row 25 · column 14, or click there. Double-height text stays enabled for the result.",
+    "Das Ergebnis: eine ganze 3": "The result: a whole 3",
+    "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.": "Write 3. One half plus one half makes one whole; together with 2, that is 3. The paper now shows 2 1/2 + 1/2 = 3 with large whole numbers and arithmetic signs."
   },
   "helpInitial": [
     {
@@ -802,8 +861,8 @@ const LOCALE_EN = {
     },
     {
       "title": "Logic, set theory and miscellaneous symbols",
-      "keywords": "L M Z U ∀ ∃ ∄ % & logic set menge quantor quantifier quantificateur symbole",
-      "html": "<p>Three split buttons provide additional mathematical symbols. The main button writes the default symbol; its arrow or a 0.6-second hold in a writing cell opens the menu. <strong>L: Logic</strong>, default ∧; also ∨, ¬, ⇒, ⇔, ⊕, ⊤, ⊥. <strong>M: Set theory</strong>, default ∈; also ∉, ⊂, ⊆, ⊄, ⊈, ∪, ∩, ∅, ∖ and ℕ, ℤ, ℚ, ℝ, ℂ. <strong>Z: Miscellaneous symbols</strong>, default %; also &amp;, ∀ (for all), ∃ (there exists), ∄ (there does not exist). The former separate &amp; and % buttons are combined here; hold U still inserts &amp; directly.</p><p>Select with arrows and confirm with Enter, or click a symbol. Esc closes without changes. Tooltips explain meanings. Focus stays in the writing cell; normal insertion moves one cell forward. Active sub/superscript mode appends the symbol to the small sequence. Short L/M/Z still type letters; Ctrl+Z remains Undo. Z follows the recognised letter, including on QWERTZ. Names, searches and label fields retain normal typing. All symbols are embedded offline and included in PDF and printing.</p><p>Reordered the symbol toolbar: after the set square comes a separator, then subscript/superscript, comparisons, opening/closing brackets, roots, integrals, miscellaneous symbols, set theory and logic. Greek letters follow.</p>"
+      "keywords": "L M Z U ∀ ∃ ∄ % & logic set menge quantor quantifier quantificateur symbole ‰ ± promille per mille pour mille plusminus plus minus",
+      "html": "<p>Three split buttons provide additional mathematical symbols. The main button writes the default symbol; its arrow or a 0.6-second hold in a writing cell opens the menu. <strong>L: Logic</strong>, default ∧; also ∨, ¬, ⇒, ⇔, ⊕, ⊤, ⊥. <strong>M: Set theory</strong>, default ∈; also ∉, ⊂, ⊆, ⊄, ⊈, ∪, ∩, ∅, ∖ and ℕ, ℤ, ℚ, ℝ, ℂ. <strong>Z: Miscellaneous symbols</strong>, default %; also &amp;, ∀ (for all), ∃ (there exists), ∄ (there does not exist). The former separate &amp; and % buttons are combined here; hold U now toggles double-height text; &amp; stays in this menu.</p><p>Select with arrows and confirm with Enter, or click a symbol. Esc closes without changes. Tooltips explain meanings. Focus stays in the writing cell; normal insertion moves one cell forward. Active sub/superscript mode appends the symbol to the small sequence. Short L/M/Z still type letters; Ctrl+Z remains Undo. Z follows the recognised letter, including on QWERTZ. Names, searches and label fields retain normal typing. All symbols are embedded offline and included in PDF and printing.</p><p>Reordered the symbol toolbar: after the set square comes a separator, then subscript/superscript, comparisons, opening/closing brackets, roots, integrals, miscellaneous symbols, set theory and logic. Greek letters follow.</p><p>The Miscellaneous symbols menu (hold Z) also includes ‰ (per mille) and ± (plus–minus, plus above minus).</p>"
     },
     {
       "title": "Progress frame when holding Shift/Ctrl",
@@ -814,6 +873,26 @@ const LOCALE_EN = {
       "title": "Progress frames for all hold keys",
       "keywords": "fortschritt progress attente halten hold touches tasten rahmen clockwise uhrzeigersinn",
       "html": "<p>All hold-key shortcuts show their wait as a clockwise progress frame on the corresponding button, including pen colours, highlighters, brackets and symbol menus, geometry tools, region tools, pages, zoom, files, PDF and key hints. After about 0.6 seconds the action runs and the frame disappears. Early release or cancellation removes it; short input keeps its normal function. For Shift/Ctrl the full frame remains until release, when the mode toggles. Direct mouse clicks need no hold time. The indicator also works in the tutorial and is excluded from documents, PDF and printing.</p>"
+    },
+    {
+      "title": "Variable-height brackets",
+      "keywords": "klammer bracket parenthèse accolade höhe height hauteur 8 9 preview vorschau libre",
+      "html": "<p>Bracket menus now have five size rows: variable height above, double height above, normal (preselected), double height below and variable height below. Each row offers round, square, curly and angle brackets. Open with the menu arrow or hold 8/9; arrows select shape and row, Enter confirms the choice. For the tutorial calculation, still use the normal round bracket in the middle.</p><p>For variable height, the cell active when height selection begins remains the starting cell. Up/Down moves the endpoint by whole cells within the chosen direction; heights from one cell to the page edge are available. A red dashed bracket previews the result; Enter commits it. Alternatively click the target row on the same page; the bracket stays in the starting column. Moving the mouse over the paper previews the target height before clicking. Esc, clicking outside the paper or leaving the window cancels without changing the document. Writing then continues to the right of the starting cell. Active sub/superscript mode does not change the selected bracket height.</p><p>The entire bracket belongs to all occupied cells and can be deleted from any of them with Delete or Backspace. Undo/redo and .schmier files preserve its height. Select the full bracket span to copy or cut it; partial regions do not include it. PDF and printing include only committed brackets, not previews. Older documents with double-height symbols still load; older app versions cannot reliably display variable heights.</p>"
+    },
+    {
+      "title": "Variable-height roots and integrals",
+      "keywords": "Q I wurzel root racine integral intégrale höhe height hauteur degree grenzen bornes",
+      "html": "<p>Root and integral menus now share the five bracket size rows: variable height above, double height above, normal (preselected), double height below and variable height below. Hold Q for roots or I for integrals, or use their menu arrows. Square roots/indefinite integrals are on the left; indexed roots/definite integrals are on the right. Arrows select a tile; Enter confirms.</p><p>For variable height, the root degree or lower and upper integration limits are requested first. Cancellation changes nothing. The active cell then remains the start: Up/Down chooses the target row and Enter commits, or click the target row. The column stays fixed; Esc discards the red dashed preview. Degree and limits are previewed and attached at the final ends. Greek names in limits are still replaced, such as 2pi → 2π. Roots end at the top-right corner without a hook so a line can extend them. Save/load, whole-symbol copying, undo, PDF/printing and deletion from any occupied cell respect the full height. Previews are never saved or exported.</p><p>Protected the transition from parameter prompts to variable-height placement: delayed key, click and focus events from native dialogs no longer commit or discard the preview. This covers definite integrals and indexed roots; placement responds only to fresh input after the dialog.</p>"
+    },
+    {
+      "title": "Double-height numbers and letters",
+      "keywords": "U groß large double doppelhoch lettre mixed fraction gemischter bruch nombre fractionnaire ± % ‰ + - = rechnen arithmetic calcul vergleich comparison",
+      "html": "<p>The new Double-height text button, or holding U for about 0.6 seconds, toggles a persistent writing mode. A clockwise frame shows the hold time; the active button pulses, or stays outlined with reduced motion. A short U still writes u. Numbers and letters, including Greek letters, span two cells down from the current cell, one column per character. Writing advances right; Enter and automatic wrapping advance two rows while enabled. Hold U again or click the button to turn it off. For a mixed fraction, write the large whole-number 1, turn the mode off, then add the ordinary fraction beside it.</p><p>Arithmetic and comparison signs such as +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % and ‰ are also double-height; punctuation stays normal-height. Persistent sub/superscript and double-height modes are mutually exclusive; individual Ctrl/Shift digits still allow small annotations. No half character is written at the bottom edge: choose a cell higher up. Large letters/numbers can be deleted from either cell, fully copied/cut, undone and preserved in .schmier, PDF and printing. U replaces the former direct ampersand shortcut; & remains in Miscellaneous symbols (hold Z). Names, searches and labels retain ordinary text entry. The tutorial temporarily resets the mode and restores it afterwards.</p><p>Writing a large character replaces ordinary text in both occupied cells. Ordinary typing or Space in either occupied cell replaces or removes the whole large character. Undo restores the previous content.</p><p>The U writing mode now enlarges arithmetic, comparison, percent and per-mille signs too. This works with the keyboard, numeric keypad and symbol buttons; Ctrl/Shift+Enter keeps its fraction-equals function.</p>"
+    },
+    {
+      "title": "Mixed fraction in the tutorial",
+      "keywords": "tutorial tutoriel mixed gemischt bruch fraction U doppelhoch double hauteur",
+      "html": "<p>Added the tutorial exercise 2 1/2 + 1/2 = 3: double-height whole numbers, plus and equals via U or button; normal numerators/denominators and fraction bars by mouse or keyboard. Navigation and the on-screen keypad remain available.</p>"
     }
   ],
   "consent": [

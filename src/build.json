@@ -195,6 +195,10 @@
       "part": "part-02"
     },
     {
+      "file": "js/large-text.js",
+      "part": "part-01"
+    },
+    {
       "file": "js/editor.js",
       "part": "part-01"
     },

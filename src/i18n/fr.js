@@ -560,7 +560,66 @@ const LOCALE_FR = {
     "Bitte 1 bis 16 Zeichen ohne Leerzeichen eingeben.": "Saisir de 1 à 16 caractères sans espaces.",
     "Klicke auf Hochstellen oder halte Shift allein etwa 0,6 Sekunden und lasse los. Der Modus hängt die nächste Eingabe klein oben rechts an die 2 an. Strg allein halten und loslassen schaltet entsprechend Tiefstellen; mit anderen Tasten bleiben es normale Tastenkombinationen. Der Rahmen um den gelben Button füllt sich dabei im Uhrzeigersinn; wenn er vollständig ist, kannst du zum Umschalten loslassen.": "Clique sur Exposant ou maintiens Maj seule environ 0,6 seconde puis relâche. Le mode écrit en haut à droite du 2. Ctrl seule maintenue puis relâchée active de même Indice ; avec une autre touche, le raccourci normal reste actif. Le cadre autour du bouton jaune se remplit dans le sens horaire ; une fois complet, relâche pour changer de mode.",
     "Integrale auswählen": "Choisir des intégrales",
-    "Integrale auswählen (I halten)": "Choisir des intégrales (maintenir I)"
+    "Integrale auswählen (I halten)": "Choisir des intégrales (maintenir I)",
+    "Beliebig hoch nach oben": "Hauteur libre vers le haut",
+    "Beliebig hoch nach unten": "Hauteur libre vers le bas",
+    "Klammerhöhe wählen: Hoch/Runter oder Zielkästchen anklicken · Enter bestätigt · Esc bricht ab": "Choisir la hauteur : Haut/Bas ou cliquer sur une case cible · Entrée valide · Échap annule",
+    "Klammer eingefügt": "Parenthèse insérée",
+    "Ungültige Klammerhöhe.": "Hauteur de parenthèse invalide.",
+    "Klammerauswahl abgebrochen": "Choix de la parenthèse annulé",
+    "Höhe wählen: Hoch/Runter oder Zielkästchen anklicken · Enter bestätigt · Esc bricht ab": "Choisir la hauteur : Haut/Bas ou cliquer sur une case cible · Entrée valide · Échap annule",
+    "Größenauswahl abgebrochen": "Choix de la taille annulé",
+    "Zeichen eingefügt": "Signe inséré",
+    "Doppelhohe Schrift": "Écriture de double hauteur",
+    "Doppelhohe Schrift (U halten): Zahlen und Buchstaben über zwei Kästchen schreiben": "Écriture de double hauteur (maintenir U) : chiffres et lettres sur deux cases",
+    "Doppelhohe Schrift eingeschaltet": "Écriture de double hauteur activée",
+    "Doppelhohe Schrift ausgeschaltet": "Écriture de double hauteur désactivée",
+    "Für doppelhohe Schrift fehlt unten ein Kästchen.": "Il manque une case en dessous pour écrire en double hauteur.",
+    "Beliebige Wurzel: Beliebig hoch nach oben": "Racine avec indice : hauteur libre vers le haut",
+    "Beliebige Wurzel: Beliebig hoch nach unten": "Racine avec indice : hauteur libre vers le bas",
+    "Bestimmtes Integral: Beliebig hoch nach oben": "Intégrale définie : hauteur libre vers le haut",
+    "Bestimmtes Integral: Beliebig hoch nach unten": "Intégrale définie : hauteur libre vers le bas",
+    "Promille": "Pour mille",
+    "Plusminus": "Plus ou moins",
+    "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen schreiben": "Écriture de double hauteur (maintenir U) : chiffres, lettres et signes de calcul sur deux cases",
+    "Einen gemischten Bruch schreiben": "Écrire un nombre fractionnaire",
+    "Gehe zu Zeile 25 · Spalte 5 oder klicke dort. Wir schreiben 2 1/2 + 1/2 = 3. Die ganze 2, Plus, Gleichzeichen und Ergebnis werden doppelhoch; Zähler und Nenner normal groß. Die Brüche stehen wirklich übereinander, nicht als Schrägstrich.": "Va à la ligne 25 · colonne 5, ou clique dessus. Nous écrivons 2 1/2 + 1/2 = 3. Le 2 entier, plus, égal et le résultat seront de double hauteur ; numérateurs et dénominateurs de hauteur normale. Les fractions sont superposées, sans barre oblique.",
+    "Doppelhohe Schrift einschalten": "Activer la double hauteur",
+    "Klicke auf den Button für doppelhohe Schrift oder halte U etwa 0,6 Sekunden. Der Rahmen zeigt die Wartezeit; der aktive Button pulsiert. Jetzt werden Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen nach unten geschrieben.": "Clique sur le bouton de double hauteur ou maintiens U environ 0,6 seconde. Le cadre indique l’attente ; le bouton actif pulse. Chiffres, lettres et signes de calcul occupent maintenant deux cases vers le bas.",
+    "Die ganze 2 groß schreiben": "Écrire le 2 entier en grand",
+    "Schreibe 2 mit Tastatur oder Bildschirm-Nummernblock. Die große 2 belegt Zeile 25 und 26 in Spalte 5. Daneben bauen wir den ersten halben Bruch auf.": "Écris 2 au clavier ou avec le pavé à l’écran. Le grand 2 occupe les lignes 25 et 26 en colonne 5. Nous plaçons le premier demi à côté.",
+    "Zur normalen Schrift zurück": "Revenir à la hauteur normale",
+    "Klicke erneut auf doppelhohe Schrift oder halte U erneut. Der Button hört auf zu pulsieren. Die nächsten Ziffern werden normal groß geschrieben; die bereits geschriebenen großen Zeichen bleiben groß.": "Clique de nouveau sur double hauteur ou maintiens U de nouveau. Le bouton ne pulse plus. Les prochains chiffres seront de hauteur normale ; les grands signes déjà écrits restent grands.",
+    "Erster Zähler: 1": "Premier numérateur : 1",
+    "Schreibe die normal große 1 direkt rechts neben die große 2. Sie ist der Zähler des ersten halben Bruchs.": "Écris un 1 de hauteur normale juste à droite du grand 2. C’est le numérateur du premier demi.",
+    "Unter den ersten Zähler": "Sous le premier numérateur",
+    "Gehe zu Zeile 26 · Spalte 6 oder klicke dort. Hier kommt der Nenner des ersten halben Bruchs hin.": "Va à la ligne 26 · colonne 6, ou clique dessus. C’est la place du dénominateur du premier demi.",
+    "Erster Nenner: 2": "Premier dénominateur : 2",
+    "Schreibe die normal große 2 unter die 1.": "Écris un 2 de hauteur normale sous le 1.",
+    "Den gemischten Bruch vervollständigen": "Compléter le nombre fractionnaire",
+    "Maus: Ziehe mit rechts zwischen den goldenen Punkten zwischen 1 und 2. Tastatur: Der Zähler ist ausgewählt. Drücke Links+Rechts gleichzeitig, lasse los und bestätige erneut mit Links+Rechts. Die Vorschau liegt unten zwischen Zähler und Nenner. Jetzt steht dort 2 1/2.": "Souris : trace avec le bouton droit entre les points dorés, entre 1 et 2. Clavier : le numérateur est sélectionné. Appuie sur Gauche+Droite ensemble, relâche, puis confirme de même. L’aperçu se trouve sous le numérateur. Tu as maintenant 2 1/2.",
+    "Platz für das große Plus": "Place du grand plus",
+    "Gehe zu Zeile 25 · Spalte 8 oder klicke dort. Das Plus steht auf derselben Höhe wie die große 2.": "Va à la ligne 25 · colonne 8, ou clique dessus. Le plus sera aligné sur le grand 2.",
+    "Das Plus doppelhoch schreiben": "Écrire le plus en double hauteur",
+    "Schreibe +. Im aktiven U-Modus wird auch das Rechenzeichen doppelhoch, passend zur ganzen 2.": "Écris +. En mode U, les signes de calcul ont aussi une double hauteur, comme le 2 entier.",
+    "Den zweiten halben Bruch platzieren": "Placer le second demi",
+    "Gehe zu Zeile 25 · Spalte 10 oder klicke dort. Hier beginnt der zweite Bruch 1/2.": "Va à la ligne 25 · colonne 10, ou clique dessus. La seconde fraction 1/2 commence ici.",
+    "Zweiter Zähler: 1": "Second numérateur : 1",
+    "Schreibe die normal große 1 für den zweiten Zähler.": "Écris un 1 de hauteur normale pour le second numérateur.",
+    "Unter den zweiten Zähler": "Sous le second numérateur",
+    "Gehe zu Zeile 26 · Spalte 10 oder klicke dort. Der Nenner steht direkt unter seiner 1.": "Va à la ligne 26 · colonne 10, ou clique dessus. Le dénominateur se trouve juste sous son 1.",
+    "Zweiter Nenner: 2": "Second dénominateur : 2",
+    "Schreibe 2. Beide halben Brüche haben nun Zähler und Nenner.": "Écris 2. Les deux demis ont maintenant leur numérateur et leur dénominateur.",
+    "Den zweiten Halb-Bruch unterstreichen": "Ajouter la seconde barre de fraction",
+    "Maus: Ziehe den Bruchstrich mit rechts zwischen den goldenen Punkten. Tastatur: Links+Rechts gleichzeitig, loslassen, erneut Links+Rechts zum Bestätigen. Der Strich trennt die zweite 1 von ihrer 2.": "Souris : trace la barre avec le bouton droit entre les points dorés. Clavier : Gauche+Droite ensemble, relâche, puis de nouveau pour confirmer. La barre sépare le second 1 de son 2.",
+    "Platz für das große Gleichzeichen": "Place du grand signe égal",
+    "Gehe zu Zeile 25 · Spalte 12 oder klicke dort. Hier kommt das doppelhohe Gleichzeichen hin.": "Va à la ligne 25 · colonne 12, ou clique dessus. Le signe égal de double hauteur vient ici.",
+    "Das Gleichzeichen doppelhoch schreiben": "Écrire égal en double hauteur",
+    "Drücke Enter am Nummernblock oder = am Bildschirm-Nummernblock. Auch die normale Zeichentaste = ist erlaubt. Im U-Modus wird das Gleichzeichen doppelhoch; Strg oder Shift brauchen wir hier nicht.": "Appuie sur Entrée du pavé numérique ou = du pavé à l’écran. La touche de caractère = fonctionne aussi. Le mode U donne la double hauteur ; pas besoin de Ctrl ni Maj.",
+    "Platz für das große Ergebnis": "Place du grand résultat",
+    "Gehe zu Zeile 25 · Spalte 14 oder klicke dort. Doppelhohe Schrift bleibt für das Ergebnis eingeschaltet.": "Va à la ligne 25 · colonne 14, ou clique dessus. La double hauteur reste active pour le résultat.",
+    "Das Ergebnis: eine ganze 3": "Le résultat : un 3 entier",
+    "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.": "Écris 3. Un demi plus un demi fait un entier ; avec 2, cela donne 3. Le papier montre maintenant 2 1/2 + 1/2 = 3 avec de grands entiers et signes de calcul."
   },
   "helpInitial": [
     {
@@ -802,8 +861,8 @@ const LOCALE_FR = {
     },
     {
       "title": "Logique, ensembles et symboles divers",
-      "keywords": "L M Z U ∀ ∃ ∄ % & logic set menge quantor quantifier quantificateur symbole",
-      "html": "<p>Trois boutons avec flèche proposent des symboles mathématiques supplémentaires. Le bouton principal écrit le symbole par défaut ; sa flèche ou un appui de 0,6 seconde dans une case ouvre le menu. <strong>L : Logique</strong>, défaut ∧ ; aussi ∨, ¬, ⇒, ⇔, ⊕, ⊤, ⊥. <strong>M : Ensembles</strong>, défaut ∈ ; aussi ∉, ⊂, ⊆, ⊄, ⊈, ∪, ∩, ∅, ∖ et ℕ, ℤ, ℚ, ℝ, ℂ. <strong>Z : Symboles divers</strong>, défaut % ; aussi &amp;, ∀ (pour tout), ∃ (il existe), ∄ (il n’existe pas). Les anciens boutons séparés &amp; et % sont regroupés ici ; maintenir U insère toujours &amp; directement.</p><p>Choisir avec les flèches puis Entrée, ou cliquer sur un symbole. Échap ferme sans modification. Les infobulles expliquent les signes. Le focus reste dans la case ; la saisie normale avance d’une case. En mode indice/exposant actif, le symbole s’ajoute à la petite suite. Un appui court sur L/M/Z écrit toujours la lettre ; Ctrl+Z reste Annuler. Z suit la lettre reconnue, aussi sur QWERTZ. Noms, recherches et champs de graduation gardent leur saisie normale. Les signes sont intégrés hors connexion et figurent dans le PDF et l’impression.</p><p>Barre de symboles réorganisée : après l’équerre, un séparateur, puis indice/exposant, comparaisons, parenthèses ouvrantes/fermantes, racines, intégrales, symboles divers, ensembles et logique. Les lettres grecques suivent.</p>"
+      "keywords": "L M Z U ∀ ∃ ∄ % & logic set menge quantor quantifier quantificateur symbole ‰ ± promille per mille pour mille plusminus plus minus",
+      "html": "<p>Trois boutons avec flèche proposent des symboles mathématiques supplémentaires. Le bouton principal écrit le symbole par défaut ; sa flèche ou un appui de 0,6 seconde dans une case ouvre le menu. <strong>L : Logique</strong>, défaut ∧ ; aussi ∨, ¬, ⇒, ⇔, ⊕, ⊤, ⊥. <strong>M : Ensembles</strong>, défaut ∈ ; aussi ∉, ⊂, ⊆, ⊄, ⊈, ∪, ∩, ∅, ∖ et ℕ, ℤ, ℚ, ℝ, ℂ. <strong>Z : Symboles divers</strong>, défaut % ; aussi &amp;, ∀ (pour tout), ∃ (il existe), ∄ (il n’existe pas). Les anciens boutons séparés &amp; et % sont regroupés ici ; maintenir U active désormais la double hauteur ; &amp; reste dans ce menu.</p><p>Choisir avec les flèches puis Entrée, ou cliquer sur un symbole. Échap ferme sans modification. Les infobulles expliquent les signes. Le focus reste dans la case ; la saisie normale avance d’une case. En mode indice/exposant actif, le symbole s’ajoute à la petite suite. Un appui court sur L/M/Z écrit toujours la lettre ; Ctrl+Z reste Annuler. Z suit la lettre reconnue, aussi sur QWERTZ. Noms, recherches et champs de graduation gardent leur saisie normale. Les signes sont intégrés hors connexion et figurent dans le PDF et l’impression.</p><p>Barre de symboles réorganisée : après l’équerre, un séparateur, puis indice/exposant, comparaisons, parenthèses ouvrantes/fermantes, racines, intégrales, symboles divers, ensembles et logique. Les lettres grecques suivent.</p><p>Le menu Symboles divers (maintenir Z) propose aussi ‰ (pour mille) et ± (plus ou moins, plus au-dessus de moins).</p>"
     },
     {
       "title": "Cadre de progression pour Maj/Ctrl",
@@ -814,6 +873,26 @@ const LOCALE_FR = {
       "title": "Cadres de progression pour tous les appuis prolongés",
       "keywords": "fortschritt progress attente halten hold touches tasten rahmen clockwise uhrzeigersinn",
       "html": "<p>Tous les raccourcis par appui prolongé affichent leur attente par un cadre se remplissant dans le sens horaire sur le bouton correspondant : couleurs de stylo, surligneurs, parenthèses et menus de symboles, outils géométriques, zones, pages, zoom, fichiers, PDF et indications de touches. Après environ 0,6 seconde, l’action se déclenche et le cadre disparaît. Un relâchement anticipé ou une annulation le retire ; les appuis courts gardent leur fonction. Pour Maj/Ctrl, le cadre complet reste jusqu’au relâchement qui change le mode. Les clics directs ne demandent aucune attente. L’indicateur fonctionne aussi dans le tutoriel et reste exclu des documents, PDF et impressions.</p>"
+    },
+    {
+      "title": "Parenthèses de hauteur libre",
+      "keywords": "klammer bracket parenthèse accolade höhe height hauteur 8 9 preview vorschau libre",
+      "html": "<p>Les menus proposent cinq lignes de taille : hauteur libre vers le haut, double vers le haut, normale (présélectionnée), double vers le bas et hauteur libre vers le bas. Chaque ligne contient les formes rondes, carrées, accolades et chevrons. Ouvrir par la flèche ou maintenir 8/9 ; les flèches choisissent forme et ligne, Entrée valide. Pour le calcul du tutoriel, garder la forme ronde normale au milieu.</p><p>Pour la hauteur libre, la case active au début du choix reste le point de départ. Haut/Bas déplace l’extrémité par cases entières dans la direction choisie, d’une case jusqu’au bord de la page. Une parenthèse rouge en pointillés montre l’aperçu ; Entrée la fixe. On peut aussi cliquer sur la ligne cible de la même page ; la forme reste dans la colonne de départ. Le déplacement de la souris sur le papier montre la hauteur avant le clic. Échap, un clic hors du papier ou la sortie de la fenêtre annule sans modifier le document. La saisie reprend à droite de la case de départ. Le mode indice/exposant actif ne change pas la hauteur choisie.</p><p>La forme entière appartient à toutes les cases occupées et s’efface depuis chacune avec Suppr ou Retour arrière. Annuler/rétablir et les fichiers .schmier conservent la hauteur. Pour copier ou couper, sélectionner toute la hauteur ; une zone partielle n’inclut pas la forme. PDF et impression n’incluent que les formes validées, pas les aperçus. Les anciens documents à signes doubles restent lisibles ; les anciennes versions de l’application ne représentent pas fiablement les hauteurs libres.</p>"
+    },
+    {
+      "title": "Racines et intégrales de hauteur libre",
+      "keywords": "Q I wurzel root racine integral intégrale höhe height hauteur degree grenzen bornes",
+      "html": "<p>Les menus des racines et intégrales proposent les cinq lignes des parenthèses : hauteur libre vers le haut, double vers le haut, normale (présélectionnée), double vers le bas et hauteur libre vers le bas. Maintenir Q pour les racines, I pour les intégrales, ou cliquer sur leur flèche. À gauche : racines carrées/intégrales indéfinies ; à droite : racines avec indice/intégrales définies. Les flèches choisissent la case ; Entrée valide.</p><p>Pour une hauteur libre, l’indice de racine ou les bornes inférieure et supérieure sont demandés en premier. Annuler ne change rien. La case active reste ensuite le départ : Haut/Bas choisit la ligne cible, Entrée fixe le signe, ou cliquer sur la ligne cible. La colonne reste fixe ; Échap annule l’aperçu rouge en pointillés. Indice et bornes sont prévisualisés puis fixés aux extrémités finales. Les noms grecs des bornes restent remplacés, par exemple 2pi → 2π. La racine finit au coin supérieur droit sans crochet pour prolonger par un trait. Enregistrement/chargement, copie du signe entier, annulation, PDF/impression et effacement depuis toute case occupée respectent la hauteur complète. Les aperçus ne sont ni enregistrés ni exportés.</p><p>Transition sécurisée entre saisie des paramètres et choix libre de hauteur : les événements retardés de touche, clic et focus des dialogues natifs ne valident ni n’annulent l’aperçu. Cela concerne les intégrales définies et racines avec indice ; seules les nouvelles saisies après le dialogue commandent la hauteur.</p>"
+    },
+    {
+      "title": "Chiffres et lettres de double hauteur",
+      "keywords": "U groß large double doppelhoch lettre mixed fraction gemischter bruch nombre fractionnaire ± % ‰ + - = rechnen arithmetic calcul vergleich comparison",
+      "html": "<p>Le nouveau bouton Écriture de double hauteur, ou un appui sur U d’environ 0,6 seconde, active/désactive un mode permanent. Un cadre horaire montre l’attente ; le bouton actif pulse, ou reste entouré si les animations sont réduites. Un appui court écrit toujours u. Chiffres et lettres, grecques comprises, occupent deux cases vers le bas depuis la case active, une colonne par caractère. La saisie avance à droite ; Entrée et le retour automatique avancent de deux lignes dans ce mode. Maintenir U de nouveau ou cliquer sur le bouton pour l’arrêter. Pour un nombre fractionnaire, écrire le grand 1 entier, arrêter le mode, puis ajouter la fraction ordinaire à côté.</p><p>Les signes de calcul et comparaison comme +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % et ‰ sont aussi de double hauteur ; la ponctuation garde sa hauteur normale. Les modes permanents indice/exposant et double hauteur s’excluent ; Ctrl/Maj avec un chiffre permet toujours une petite annotation ponctuelle. Aucun demi-caractère n’est écrit au bord inférieur : choisir une case plus haute. Les grandes lettres/chiffres s’effacent depuis chacune des cases, se copient/coupent en entier, s’annulent et restent dans .schmier, PDF et impressions. U remplace l’ancien raccourci direct de l’esperluette ; & reste dans Symboles divers (maintenir Z). Noms, recherches et graduations gardent leur saisie normale. Le tutoriel désactive temporairement le mode puis le restaure.</p><p>Écrire un grand caractère remplace le texte ordinaire dans ses deux cases. Une saisie ordinaire ou Espace dans l’une des cases remplace ou efface le grand caractère entier. Annuler restaure le contenu précédent.</p><p>Le mode U agrandit désormais aussi les signes de calcul, comparaison, pourcentage et pour mille. Cela fonctionne au clavier, au pavé et avec les boutons ; Ctrl/Maj+Entrée conserve l’égalité pour fractions.</p>"
+    },
+    {
+      "title": "Nombre fractionnaire dans le tutoriel",
+      "keywords": "tutorial tutoriel mixed gemischt bruch fraction U doppelhoch double hauteur",
+      "html": "<p>Ajout au tutoriel de 2 1/2 + 1/2 = 3 : entiers, plus et égal de double hauteur avec U ou le bouton ; numérateurs/dénominateurs normaux et barres à la souris ou au clavier. Navigation et pavé à l’écran restent disponibles.</p>"
     }
   ],
   "consent": [

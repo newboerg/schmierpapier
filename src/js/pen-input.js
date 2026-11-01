@@ -143,7 +143,7 @@ function capturePen(event) {
     event.stopImmediatePropagation();
     return;
   }
-  if (event.pointerType !== 'pen' || tutorial || $('helpDialog').open) return;
+  if (event.pointerType !== 'pen' || tutorial || stretchBracket || $('helpDialog').open) return;
   if (event.type === 'pointerdown') {
     if (penGesture || !(event.buttons & 33) && ![0, 5].includes(event.button)) return;
     if (!startPenGesture(event)) return;
@@ -170,7 +170,7 @@ for (const type of ['pointerdown', 'pointermove', 'pointerup', 'pointercancel'])
   window.addEventListener(type, capturePen, { capture: true, passive: false });
 }
 window.addEventListener('click', event => {
-  if (event.pointerType === 'pen' && event.target.closest?.('.paper:not(.blank-page)')) {
+  if (!stretchBracket && event.pointerType === 'pen' && event.target.closest?.('.paper:not(.blank-page)')) {
     event.preventDefault();
     event.stopImmediatePropagation();
   }

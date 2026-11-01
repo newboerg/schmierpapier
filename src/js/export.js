@@ -105,6 +105,14 @@ async function pdfExport() {
         }
       }
       for (const bracket of doc.tallBrackets[p]) {
+        if (bracket.text) {
+          c.save(); c.fillStyle = bracket.color;
+          c.font = `${11*scale}px "OfflineHandschrift", "OfflineSymbols", cursive`;
+          c.textAlign = 'center'; c.textBaseline = 'middle';
+          c.fillText(bracket.side, (7.5 + (bracket.upper % COLS) * 5) * scale,
+            (10 + Math.floor(bracket.upper / COLS) * 5) * scale, 4.2 * scale);
+          c.restore(); continue;
+        }
         if (isGreek(bracket.side)) {
           c.save();
           c.fillStyle = bracket.color;
@@ -223,7 +231,7 @@ function preparePrint() {
     sheet.querySelector('.geo-overlay')?.remove();
     sheet.querySelector('.compass-overlay')?.remove();
     sheet.querySelector('.axis-label-editor')?.remove();
-    sheet.querySelectorAll('.region-box,.paper-badge,.keyboard-line-preview,.keyboard-area').forEach(el => el.remove());
+    sheet.querySelectorAll('.region-box,.paper-badge,.keyboard-line-preview,.keyboard-area,.stretch-bracket-preview').forEach(el => el.remove());
     sheet.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
     sheet.querySelectorAll('.cell').forEach((el, index) => {
       el.classList.remove('selected');

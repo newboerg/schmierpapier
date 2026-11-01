@@ -369,7 +369,7 @@ function openExtraMenu(id, anchor, modifiers = {}) {
   const r = anchor.getBoundingClientRect();
   menu.style.left = Math.max(8, Math.min(r.left, innerWidth - menu.offsetWidth - 8)) + 'px';
   menu.style.top = Math.max(8, Math.min(r.bottom + 5, innerHeight - menu.offsetHeight - 8)) + 'px';
-  menu.querySelectorAll('button').forEach((b, i) => b.classList.toggle('menu-current', i === (id === 'integralChoiceMenu' || id === 'rootChoiceMenu' ? 2 : id === 'bracketOpenMenu' || id === 'bracketCloseMenu' ? 4 : 0)));
+  menu.querySelectorAll('button').forEach((b, i) => b.classList.toggle('menu-current', i === (id === 'integralChoiceMenu' || id === 'rootChoiceMenu' ? 4 : id === 'bracketOpenMenu' || id === 'bracketCloseMenu' ? 8 : 0)));
   if (id === 'bracketOpenMenu') $('parenOpenMore').setAttribute('aria-expanded', 'true');
   if (id === 'bracketCloseMenu') $('parenCloseMore').setAttribute('aria-expanded', 'true');
 }
@@ -381,6 +381,7 @@ function chooseExtra(button, event = {}) {
   if (button.dataset.size === 'up') { modifiers.ctrlKey = false; modifiers.shiftKey = true; }
   closeExtraMenu();
   if (id === 'paperChoiceMenu') addSheet(button.dataset.paper);
+  else if (button.dataset.stretch) beginStretchChoice(button);
   else if (button.dataset.textSymbol) insertMathSymbol(button.dataset.symbol);
   else if (button.dataset.definite) insertDefiniteIntegral(modifiers);
   else if (button.dataset.rootDegree) insertIndexedRoot(modifiers);
@@ -420,7 +421,8 @@ function runHeldAction(code) {
   else if (code === 'KeyK') holdCompass(code);
   else if (code === 'KeyI') holdIntegralMenu(code);
   else if (code === 'KeyL' || code === 'KeyM') openExtraMenu(code === 'KeyL' ? 'logicMenu' : 'setsMenu', $(code === 'KeyL' ? 'logic' : 'sets'));
-  else if (code === 'KeyU' || code === 'KeyZ') holdExtraSymbol(code);
+  else if (code === 'KeyU') toggleLargeMode();
+  else if (code === 'KeyZ') holdExtraSymbol(code);
   else if (code === 'KeyQ') holdRootMenu(code);
   else if (code === 'KeyW') holdDirectRoot(code);
   else if (code === 'KeyN') holdNumberLine(code);
@@ -474,7 +476,7 @@ function initialiseModifierModes() {
     updateModifierModePreview();
     if (!modifier || event.target !== $('editor') || event.altKey || event.metaKey ||
         event.key === 'Shift' && event.ctrlKey || event.key === 'Control' && event.shiftKey ||
-        extraMenu || greekMenuOpen || relationMenuOpen || keyboardArea) return;
+        extraMenu || greekMenuOpen || relationMenuOpen || keyboardArea || stretchBracket) return;
     const mode = event.key === 'Shift' ? 'powers' : 'carries';
     if (!modifierModeAllowed(mode) || modifierModeHolds.has(event.code) || event.repeat) return;
     const held = { mode, target: event.target, ready: false, used: false, started: performance.now() };
@@ -544,13 +546,14 @@ function initialiseExtendedControls() {
           if (event.key === 'ArrowLeft') i = row * 2;
           if (event.key === 'ArrowRight') i = row * 2 + 1;
           if (event.key === 'ArrowUp') i = Math.max(0, row - 1) * 2 + col;
-          if (event.key === 'ArrowDown') i = Math.min(2, row + 1) * 2 + col;
+          if (event.key === 'ArrowDown') i = Math.min(4, row + 1) * 2 + col;
         } else {
           const grid = ['bracketOpenMenu', 'bracketCloseMenu', 'logicMenu', 'setsMenu', 'miscMenu'].includes(extraMenu);
           const delta = grid && ['ArrowUp', 'ArrowDown'].includes(event.key) ? 4 : 1;
           i = (i + (['ArrowLeft', 'ArrowUp'].includes(event.key) ? -delta : delta) + buttons.length) % buttons.length;
         }
         buttons[i].classList.add('menu-current');
+        buttons[i].scrollIntoView({ block: 'nearest' });
       }
       return;
     }

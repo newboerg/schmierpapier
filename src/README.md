@@ -24,7 +24,8 @@ Unter Windows gegebenenfalls `py -3` statt `python3` verwenden. `--watch` läuft
 | `js/file-io.js` | Lesen, Speichern, Dokumentprüfung und lokale Sicherung |
 | `js/export.js` | PDF und Druck |
 | `js/compass.js`, `js/set-square.js`, `js/number-line.js` | Geometriewerkzeuge |
-| `js/brackets.js` | Alle Klammerformen gemeinsam |
+| `js/brackets.js` | Klammerformen und gemeinsame freie Höhenwahl für Klammern, Wurzeln und Integrale |
+| `js/large-text.js` | Einrastender U-Modus, doppelhohe Buchstaben/Zahlen und ihre Darstellung |
 | `js/integral.js` | Unbestimmte und bestimmte Integrale, Eingabe und Zuordnung der Grenzen |
 | `js/symbol-menus.js`, `js/logic.js`, `js/sets.js`, `js/percent.js` | Gemeinsame Symbolmenüs und deren Logik-, Mengen- und verschiedene Zeichen |
 | Übrige `js/*.js` | Einzelne Features wie Wurzeln, Integral, Marker, Radierer, Durchstreichen, Ansichten, Seiten, Hilfe und Tutorial |

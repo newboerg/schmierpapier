@@ -8,23 +8,36 @@ function write(text) {
   }
   const chars = Array.from(text.replace(/÷/g, ':').replace(/\*/g, '·').replace(/\r/g, ''));
   if (!chars.length) return;
+  if (largeMode && isTallCharacter(chars[0]) && pos + COLS >= COUNT) {
+    status(tr('Für doppelhohe Schrift fehlt unten ein Kästchen.'));
+    select(pos); return;
+  }
   checkpoint();
   let cursor = pos,
     startCol = pos % COLS;
   for (const ch of chars) {
     if (ch === '\n') {
-      cursor = (Math.floor(cursor / COLS) + 1) * COLS + startCol;
+      cursor = (Math.floor(cursor / COLS) + (largeMode ? 2 : 1)) * COLS + startCol;
       if (cursor >= COUNT) break;
       continue
     }
     if (/[\u0000-\u001f\u007f]/.test(ch)) continue;
     if (cursor >= COUNT) break;
-    if (ch === ' ') delete doc.pages[page][cursor];
-    else {
+    if (largeMode && isTallCharacter(ch)) {
+      if (cursor + COLS >= COUNT) {
+        status(tr('Für doppelhohe Schrift fehlt unten ein Kästchen.'));
+        break;
+      }
+      writeTallCharacter(cursor, ch);
+    } else if (ch === ' ') {
+      delete doc.pages[page][cursor];
+      doc.tallBrackets[page] = doc.tallBrackets[page].filter(b => !b.text || !bracketOccupies(b, cursor));
+    } else {
+      doc.tallBrackets[page] = doc.tallBrackets[page].filter(b => !b.text || !bracketOccupies(b, cursor));
       doc.pages[page][cursor] = ch;
       doc.inks[page][cursor] = ink
     }
-    cursor++
+    cursor += largeMode && cursor % COLS === COLS - 1 ? COLS + 1 : 1;
   }
   pos = Math.min(cursor, COUNT - 1);
   changed();
@@ -127,7 +140,7 @@ $('editor').addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') target = pos + 1;
   if (e.key === 'ArrowUp') target = pos - COLS;
   if (e.key === 'ArrowDown') target = pos + COLS;
-  if (e.key === 'Enter') target = Math.min(row + 1, ROWS - 1) * COLS + returnColumn;
+  if (e.key === 'Enter') target = Math.min(row + (largeMode ? 2 : 1), ROWS - 1) * COLS + returnColumn;
   if (e.key === 'Home') target = row * COLS;
   if (e.key === 'End') target = row * COLS + COLS - 1;
   if (e.key === 'Tab') target = pos + (e.shiftKey ? -1 : 1);
@@ -142,12 +155,12 @@ $('editor').addEventListener('keydown', e => {
     checkpoint();
     if (e.key === 'Backspace' && !doc.pages[page][pos] && !doc.carries[page][pos] && !doc.powers[page][
         pos] && !doc.fractionEquals[page][pos] && !doc.fractionEquals[page][pos - COLS] && !doc
-      .tallBrackets[page].some(b => b.upper === pos || b.upper + COLS === pos)) pos = Math.max(0, pos -
+      .tallBrackets[page].some(b => bracketOccupies(b, pos))) pos = Math.max(0, pos -
     1);
-    const bracketIndex = doc.tallBrackets[page].findIndex(b => b.upper === pos || b.upper + COLS === pos);
+    const bracketIndex = doc.tallBrackets[page].findIndex(b => bracketOccupies(b, pos));
     if (bracketIndex >= 0) {
       const removed = doc.tallBrackets[page].splice(bracketIndex, 1)[0];
-      if (removed.side === '∫') removeIntegralLimits(removed.upper, true);
+      if (removed.side === '∫') removeIntegralLimits(removed.upper, removed.height ?? 2);
       if (removed.side === '√' && doc.powers[page][removed.upper]?.rootDegree) delete doc.powers[page][removed.upper];
     }
     else if (doc.fractionEquals[page][pos]) delete doc.fractionEquals[page][pos];

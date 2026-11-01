@@ -102,8 +102,7 @@ function snapshotRegion(sourcePage, r) {
   }
   data.fractionEquals = Object.fromEntries(Object.entries(doc.fractionEquals[sourcePage]).filter(([k]) =>
     inRegion(+k, r) && inRegion(+k + COLS, r)));
-  data.tallBrackets = doc.tallBrackets[sourcePage].filter(b => inRegion(b.upper, r) && inRegion(b.upper +
-    COLS, r)).map(b => ({
+  data.tallBrackets = doc.tallBrackets[sourcePage].filter(b => inRegion(b.upper, r) && inRegion(bracketLastIndex(b), r)).map(b => ({
     ...b
   }));
   data.lines = splitRegionLines(doc.lines[sourcePage], r).inside;
@@ -123,8 +122,7 @@ function eraseRegion(targetPage, r) {
       if (inRegion(+key, r)) delete doc[field][targetPage][key];
   for (const key of Object.keys(doc.fractionEquals[targetPage]))
     if (inRegion(+key, r) && inRegion(+key + COLS, r)) delete doc.fractionEquals[targetPage][key];
-  doc.tallBrackets[targetPage] = doc.tallBrackets[targetPage].filter(b => !(inRegion(b.upper, r) && inRegion(b
-    .upper + COLS, r)));
+  doc.tallBrackets[targetPage] = doc.tallBrackets[targetPage].filter(b => !(inRegion(b.upper, r) && inRegion(bracketLastIndex(b), r)));
   doc.lines[targetPage] = splitRegionLines(doc.lines[targetPage], r).outside;
   doc.pencilLines[targetPage] = splitPencilRegion(doc.pencilLines[targetPage], r).outside;
   doc.freehand[targetPage] = splitFreehandRegion(doc.freehand[targetPage], r).outside;

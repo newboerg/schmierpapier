@@ -25,6 +25,5 @@ document.querySelectorAll('.swatch').forEach(button => button.addEventListener('
 
 // Feature action called by the shared keyboard dispatcher.
 function holdExtraSymbol(code) {
-  if (code === 'KeyU') insertMathSymbol('&');
-  else openExtraMenu('miscMenu', $('percent'));
+  openExtraMenu('miscMenu', $('percent'));
 }

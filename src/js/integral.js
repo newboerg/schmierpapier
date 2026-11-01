@@ -25,10 +25,7 @@ function normaliseIntegralLimit(text) {
 
 // Limits use the existing per-cell annotations, just like an indexed root.
 // Both prompts finish before the undo checkpoint, so cancelling changes nothing.
-function insertDefiniteIntegral(modifiers = {}) {
-  const upper = modifiers.ctrlKey ? pos : modifiers.shiftKey ? pos - COLS : pos;
-  const tall = !!(modifiers.ctrlKey || modifiers.shiftKey);
-  if (upper < 0 || tall && upper + COLS >= COUNT) return;
+function askIntegralLimits() {
   const ask = key => {
     for (;;) {
       const value = prompt(tr(key), '');
@@ -39,22 +36,31 @@ function insertDefiniteIntegral(modifiers = {}) {
     }
   };
   const lowerLimit = ask('Untere Integrationsgrenze eingeben, zum Beispiel 0 oder a:');
-  if (lowerLimit === null) { select(pos); return; }
+  if (lowerLimit === null) return null;
   const upperLimit = ask('Obere Integrationsgrenze eingeben, zum Beispiel 1 oder b:');
-  if (upperLimit === null) { select(pos); return; }
+  if (upperLimit === null) return null;
+  return { lower: lowerLimit, upper: upperLimit };
+}
+
+function insertDefiniteIntegral(modifiers = {}) {
+  const upper = modifiers.ctrlKey ? pos : modifiers.shiftKey ? pos - COLS : pos;
+  const tall = !!(modifiers.ctrlKey || modifiers.shiftKey);
+  if (upper < 0 || tall && upper + COLS >= COUNT) return;
+  const limits = askIntegralLimits();
+  if (limits === null) { select(pos); return; }
   const previous = smallMode;
   smallMode = null;
   insertBracket('∫', modifiers);
   smallMode = previous;
   const lower = upper + (tall ? COLS : 0);
-  doc.powers[page][upper] = { text: upperLimit, color: ink, integralLimit: true };
-  doc.carries[page][lower] = { text: lowerLimit, color: ink, integralLimit: true };
+  doc.powers[page][upper] = { text: limits.upper, color: ink, integralLimit: true };
+  doc.carries[page][lower] = { text: limits.lower, color: ink, integralLimit: true };
   changed();
   select(pos);
 }
 
-function removeIntegralLimits(upper, tall = false) {
+function removeIntegralLimits(upper, height = 1) {
   if (doc.powers[page][upper]?.integralLimit) delete doc.powers[page][upper];
-  const lower = upper + (tall ? COLS : 0);
+  const lower = upper + (height - 1) * COLS;
   if (doc.carries[page][lower]?.integralLimit) delete doc.carries[page][lower];
 }

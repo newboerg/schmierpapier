@@ -8,8 +8,10 @@
 - Document new or changed features in the application's built-in help in German, English, and French. Update affected tutorial instructions in all three languages as well.
 - Preserve the single-file, offline operation of `schmierpapier.html` and the independent licence notices for its embedded fonts.
 
-- The published application release is v0.4.2; upcoming development changes belong to v0.4.3. Record new changes in matching v0.4.3 sections of all three changelogs, preserving the existing v0.4.2 and v0.4 release history. Do not assign new changes to v0.4.2.
+- The published application release is v0.4.3. Keep all three changelogs aligned and preserve previous release history. New development belongs to v0.4.4; record it in matching sections in all three changelogs.
 
 - Application sources now live under `src/`. Edit those sources, never the generated root `schmierpapier.html`. After app changes run `python3 build.py` and `python3 build.py --check`; include the regenerated HTML with the source change. The build requires only Python 3.10+ standard-library modules. `python3 build.py --watch` rebuilds after saves.
 - Preserve `src/build.json` section order and the shared classic-script scope. New JS files/parts must be listed there. Keep locale keys/help coverage aligned in `src/i18n/de.js`, `en.js`, and `fr.js`. Read `src/README.md` for the source map and assembly rules. Font/logo assets under `src/assets/` must remain embedded in the generated output.
-- Deployment is currently on hold at the user's request. Do not upload or publish until the user explicitly requests the next upload; build/watch/check are local-only. Before a future authorized upload, rebuild the current app and verify it with `--check`.
+- Development is now v0.4.4 and uploads are on hold at the user’s explicit request. Do not upload or publish app or homepage changes until the user requests the next upload. Build/watch/check remain local-only.
+
+- The homepage uses a SHA-256 hash in its Content-Security-Policy for the inline `site-i18n` script. Whenever its script content or translations change, recompute the hash from the exact UTF-8 text between the script tags before browser testing and deployment; keep the CSP in place.

@@ -22,6 +22,7 @@ initialiseShortcutHints();
 initialiseKeypad();
 initialiseStrike();
 initialiseModifierModes();
+initialiseStretchBrackets();
 initialiseExtendedControls();
 initialiseMathTools();
 window.addEventListener('languagechange', renderStorageConsent);

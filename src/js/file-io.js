@@ -128,14 +128,22 @@ function validateDocument(data) {
     const list = data.tallBrackets?.[i] ?? [];
     if (!Array.isArray(list) || list.length > COUNT * 60) throw Error('Ungültige Klammern.');
     return list.map(b => {
-      if (!b || !Number.isInteger(b.upper) || b.upper < 0 || b.upper >= COUNT - COLS || (!['[', ']',
+      if (!b || !Number.isInteger(b.upper) || b.upper < 0 || b.upper >= COUNT || (!['[', ']',
           '(', ')', '{', '}', '∫', '√', ...relationSymbols
-        ].includes(b.side) && !isGreek(b.side)) || !INKS.includes(b.color)) throw Error(
+        ].includes(b.side) && !isGreek(b.side) && !(b.text === true && isTallCharacter(b.side))) || !INKS.includes(b.color)) throw Error(
         'Ungültige Klammer.');
+      const height = b.height === undefined ? 2 : b.height;
+      if (!Number.isInteger(height) || height < 1 || height > ROWS ||
+          b.upper + (height - 1) * COLS >= COUNT ||
+          b.height !== undefined && !['(', ')', '[', ']', '{', '}', '<', '>', '√', '∫'].includes(b.side) && b.text !== true ||
+          b.text !== undefined && (b.text !== true || !isTallCharacter(b.side) || height !== 2))
+        throw Error('Ungültige Klammerhöhe.');
       return {
         upper: b.upper,
         side: b.side,
-        color: b.color
+        color: b.color,
+        ...(b.height !== undefined ? { height } : {}),
+        ...(b.text === true ? { text: true } : {})
       }
     })
   });

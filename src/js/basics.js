@@ -175,6 +175,7 @@ function status(s) {
 
 // @part part-06
 function render() {
+  if (stretchBracket && (stretchBracket.page !== page || stretchBracket.document !== doc)) cancelStretchBracket(false);
   if (keyboardArea?.phase === 'select' && keyboardArea.page !== page) cancelKeyboardArea();
   if (keyboardLine && keyboardLine.page !== page) keyboardLine = null;
   applyPaperType();

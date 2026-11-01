@@ -46,6 +46,7 @@ function renderLines() {
     layer.append(path);
   }
   for (const bracket of doc.tallBrackets[page]) {
+    if (bracket.text) { drawTallCharacter(layer, bracket); continue; }
     if (isGreek(bracket.side)) {
       const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
       text.setAttribute('x', 7.5 + (bracket.upper % COLS) * 5);
@@ -71,6 +72,7 @@ function renderLines() {
   }
   if (drag) line([...drag.start, ...drag.end], true);
   drawKeyboardLine();
+  drawStretchBracketPreview();
   if (armed && corner) {
     const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     dot.setAttribute('cx', corner[0] * 5);

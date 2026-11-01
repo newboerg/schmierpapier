@@ -23,7 +23,7 @@ function updateShortcutHints() {
     ['#prev', 'Bild↑…'], ['#next', 'Bild↓…'], ['#pageView', 'D…'],
     ['#add', 'Einfg…'], ['#remove', 'Entf…'], ['#zoomIn', '+…'], ['#zoomOut', '−…'],
     ['#undo', 'Strg+Z'], ['#redo', 'Strg+Y'], ['#save', 'Strg+S'], ['#pdf', 'E…'], ['#print', 'Strg+P'],
-    ['#cutRegion', 'X…'], ['#copyRegion', 'C…'], ['#carryMode', 'Strg…'], ['#powerMode', 'Shift…'],
+    ['#cutRegion', 'X…'], ['#copyRegion', 'C…'], ['#largeMode', 'U…'], ['#carryMode', 'Strg…'], ['#powerMode', 'Shift…'],
     ['.swatch[data-tool="eraser"]', 'R…'], ['#compassToggle', 'K…'], ['#geoToggle', 'G…'],
     ['#numberLineToggle', 'N…'], ['#integral', 'I…'],
     ['#greek', 'P…'], ['#parenOpen', '8…'],
