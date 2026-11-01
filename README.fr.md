@@ -16,9 +16,16 @@ Schmierpapier offre un espace pour calculer, essayer et dessiner directement dan
 
 L’application vise à favoriser le travail autonome en cours de mathématiques : le clavier et la souris permettent d’écrire les calculs dans des cases, de disposer clairement les fractions et de réaliser des constructions géométriques avec des outils numériques. De nombreuses fonctions sont accessibles par des boutons, sans devoir utiliser une combinaison de touches pour chaque action.
 
-Version **0.4.2**
+Version **0.4.3 (développement)**
 
 Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l’en-tête de l’application l’ouvre dans un nouvel onglet.
+
+## Nouveautés de la v0.4.3
+
+- Tous les raccourcis par appui prolongé affichent un cadre de progression horaire sur leur bouton ; les appuis courts restent inchangés.
+- Intégrales définies avec saisie des bornes, nouveaux menus de logique, ensembles et symboles divers, et cadre de progression visible en maintenant Maj/Ctrl.
+- Sources par fonction sous `src/` au lieu de modifier directement le HTML final.
+- Un assemblage Python local avec surveillance/vérification produit toujours un seul fichier hors ligne, avec langues, polices et logos intégrés.
 
 ## Nouveautés de la v0.4.2
 
@@ -83,7 +90,10 @@ Un pavé numérique déplaçable est accessible dans l’en-tête. Il reste au-d
 - Parenthèses, crochets, accolades et chevrons par boutons principaux et menus, aussi en double hauteur sur deux cases.
 - Racines et signes de comparaison comme `=`, `≠`, `<`, `>`, `≤`, `≥` et `≈`, aussi en double hauteur.
 - Signes égal spéciaux entre deux cases superposées pour les calculs de fractions.
-- Boutons pour les intégrales, les lettres grecques, `&` et `%`. Le bouton π insère Pi ; sa flèche ou un appui prolongé sur P dans une case ouvre le menu grec. Flèches et Entrée choisissent, Échap ferme ; un appui court sur P écrit toujours p. Ctrl/Maj insèrent un indice/exposant.
+- Intégrales indéfinies et définies de hauteur normale ou double. Maintenir I ouvre le menu ; les intégrales définies sont à droite. Saisir la borne inférieure puis supérieure (1–16 caractères chacune, sans espaces). Les bornes restent dans les fichiers `.schmier`, copies, PDF et impressions. Aucun calcul n’est effectué.
+- Les noms grecs dans les bornes d’intégration sont remplacés automatiquement : pi, omega, alpha, beta, phi, theta, psi, tau, lambda, rho, sigma, xi et zeta. La première lettre détermine la casse, indépendamment des suivantes : omega → ω, Omega → Ω, 2pi → 2π, -Pi/2 → -Π/2. Les noms complets sont reconnus à côté des nombres et opérateurs ; les autres mots restent inchangés. La limite de 16 caractères s’applique après remplacement.
+- Menus de logique (maintenir L, défaut ∧), ensembles (maintenir M, défaut ∈) et symboles divers (maintenir Z, défaut %, avec &, ∀, ∃, ∄). Le bouton principal écrit le signe par défaut ; sa flèche ouvre le menu, flèches/Entrée ou clic choisissent, Échap ferme. Maintenir U reste un accès direct à &.
+- Lettres grecques : le bouton π insère Pi ; sa flèche ou un appui prolongé sur P dans une case ouvre le menu grec. Flèches et Entrée choisissent, Échap ferme ; un appui court sur P écrit toujours p. Ctrl/Maj insèrent un indice/exposant.
 - Signes de calcul utilisant `·` pour la multiplication et `:` pour la division.
 
 ### Dessiner et surligner
@@ -147,6 +157,8 @@ La demande de consentement utilise la langue préférée prise en charge du navi
 | Maintenir 8 / 9 | Menu des formes ouvrantes / fermantes |
 | Maintenir P | Menu grec, π présélectionné |
 | Maintenir Entrée | Menu des signes de comparaison |
+| Maintenir I | Menu des intégrales : Haut/Bas pour la taille, Gauche/Droite pour indéfinie/définie ; saisir les bornes dans l’ordre |
+| Maintenir L / M / Z | Choisir logique / ensembles / symboles divers |
 | Maintenir Maj seule puis relâcher | Activer/désactiver exposant |
 | Maintenir Ctrl seule puis relâcher | Activer/désactiver indice |
 | Gauche+Droite ensemble | Démarrer/confirmer un trait horizontal |
@@ -160,7 +172,7 @@ La demande de consentement utilise la langue préférée prise en charge du navi
 | Maintenir E | Exporter toutes les pages en PDF |
 | Échap | Annuler aperçu, sélection ou menu ; quitter le tutoriel |
 
-**Maintenir** signifie environ 0,6 seconde dans une case active, sans touche de modification. Les saisies courtes de chiffres et lettres sont conservées ; Suppr court efface la case. Ctrl/Maj ne bascule le mode qu’au relâchement, sans autre touche ni clic. Ces raccourcis ne concernent pas les noms, recherches ou graduations. Pendant un trait au clavier, les flèches règlent sa longueur et son bord ; Échap annule l’aperçu.
+**Maintenir** signifie environ 0,6 seconde dans une case active, sans touche de modification. Les saisies courtes de chiffres et lettres sont conservées ; Suppr court efface la case. Ctrl/Maj ne bascule le mode qu’au relâchement, sans autre touche ni clic. Ces raccourcis ne concernent pas les noms, recherches ou graduations. Pendant un trait au clavier, les flèches règlent sa longueur et son bord ; Échap annule l’aperçu. Un cadre se remplit dans le sens horaire sur le bouton correspondant pendant l’appui sur Maj/Ctrl ; un cadre complet indique que le mode est prêt. Relâcher trop tôt, une autre touche, un clic ou la perte du focus annule l’appui.
 
 L’aide intégrée, avec recherche, contient les instructions complètes. Le tutoriel utilise un document d’exercice séparé puis restaure le document personnel.
 
@@ -174,11 +186,42 @@ Clique sur les cases dorées ou rejoins-les avec les flèches, Tab et Début/Fin
 
 L’exercice d’enregistrement accepte Ctrl+S, ou ⌘+S sur Mac. Maintiens E pour exporter le PDF, ou D pour changer l’affichage dans l’exercice correspondant. Les téléchargements contiennent seulement les pages d’exercice. Échap termine le tutoriel et restaure ton document, même depuis l’écran final.
 
-## Développement
+## Développement et assemblage
 
-L’application reste volontairement dans un seul fichier HTML. HTML, CSS et JavaScript sont mis en forme pour faciliter la lecture ; des commentaires de section expliquent la structure du document, les coordonnées, les outils, le stockage et les traductions. Les polices intégrées restent des données Base64 compactes. Aucune compilation n’est nécessaire. Les changements importants sont répercutés ensemble dans les trois README, les trois journaux des modifications et les textes d’aide et de tutoriel concernés.
+**Modifier les sources sous `src/`, pas le fichier généré `schmierpapier.html`.** Pour utiliser l’application, seul le fichier HTML final est nécessaire ; seul le développement exige un assemblage. Prérequis : **Python 3.10 ou plus récent**, sans paquet supplémentaire, Node.js ni accès Internet.
 
-Le quadrillage à l’écran utilise une couche SVG continue afin que les lignes restent régulières aux différents niveaux de zoom dans Firefox.
+Depuis la racine du projet :
+
+```sh
+python3 build.py
+python3 build.py --watch
+python3 build.py --check
+python3 -m unittest discover -s src/tests -v
+```
+
+- `python3 build.py` génère le fichier `schmierpapier.html` actuel.
+- `--watch` reconstruit automatiquement après l’enregistrement des sources. Arrêter avec Ctrl+C ; recharger le fichier final dans le navigateur.
+- `--check` vérifie sans écrire que la sortie correspond aux sources. Une sortie périmée renvoie un statut d’échec.
+- La dernière commande teste la reproductibilité, les sources/traductions manquantes, les ressources intégrées et la reconstruction automatique.
+
+Sous Windows, utiliser `py -3` au lieu de `python3` si nécessaire. Une autre sortie est possible avec `python3 build.py --output /tmp/schmierpapier-test.html`.
+
+| Source | Rôle |
+|---|---|
+| `src/index.html`, `src/styles.css` | Structure HTML et présentation |
+| `src/js/*.js` | Fichiers par fonction ; toutes les parenthèses ensemble dans `brackets.js` |
+| `src/js/file-io.js`, `src/js/export.js` | Lecture/enregistrement et PDF/impression |
+| `src/js/basics.js`, `src/js/keyboard.js`, `src/js/regions.js` | Fondations communes, clavier et sélection de zones |
+| `src/i18n/de.js`, `en.js`, `fr.js` | Interface, aide, tutoriel et messages de chaque langue |
+| `src/i18n/consent-eu.js` | Autres langues de l’UE pour l’avis de stockage |
+| `src/assets/` | Polices et logos intégrés lors de l’assemblage |
+| `src/version.txt`, `src/build.json` | Version de développement, sources et ordre d’assemblage |
+
+Une fonction peut comporter plusieurs sections `// @part`. Le manifeste les assemble dans l’ordre existant en un seul script classique à portée partagée. Les nouveaux fichiers JS doivent y figurer. Les langues ont les mêmes clés d’interface ; les traductions ou articles manquants sont signalés. La sortie n’est remplacée qu’après validation ; en cas d’erreur, le dernier HTML valide est conservé. `--check` ne remplace pas les tests fonctionnels dans le navigateur.
+
+Détails sur sections, langues et ressources : [Guide des sources et de l’assemblage](src/README.md) (allemand). `src/index.html` contient des paramètres d’assemblage et n’est pas un aperçu exécutable. Le fichier final intègre tout le CSS, JavaScript, les polices et logos et reste utilisable hors ligne. **Ni l’assemblage ni la surveillance n’envoient de fichiers.** Le dossier du site reste indépendant.
+
+Les changements importants gardent les trois README, journaux et textes d’aide/tutoriel concernés alignés. Les licences indépendantes des polices restent dans les métadonnées et avis. Le quadrillage utilise toujours une couche SVG continue pour un rendu régulier dans Firefox.
 
 ## Licence
 

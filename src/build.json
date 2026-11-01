@@ -1,0 +1,478 @@
+{
+  "template": "index.html",
+  "styles": [
+    "styles.css"
+  ],
+  "version": "version.txt",
+  "languages": [
+    "i18n/de.js",
+    "i18n/en.js",
+    "i18n/fr.js",
+    "i18n/consent-eu.js",
+    "i18n/registry.js"
+  ],
+  "assets": [
+    {
+      "file": "assets/fonts/symbols.ttf",
+      "mime": "font/ttf"
+    },
+    {
+      "file": "assets/fonts/handwriting.ttf",
+      "mime": "font/ttf"
+    },
+    {
+      "file": "assets/logos/symbol.svg",
+      "mime": "image/svg+xml"
+    },
+    {
+      "file": "assets/logos/wordmark.svg",
+      "mime": "image/svg+xml"
+    }
+  ],
+  "scripts": [
+    {
+      "file": "js/basics.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/comparisons.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/greek.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/hold-progress.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/keyboard.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/greek.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/keyboard.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/language.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/help.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/storage-consent.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/language.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/help.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/language.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/basics.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/compass.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/number-line.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/set-square.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/tutorial.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/small-scripts.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/basics.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/pen.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/rendering.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/greek.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/brackets.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/basics.js",
+      "part": "part-04"
+    },
+    {
+      "file": "js/pen.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/highlighter.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/palette.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/highlighter.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/eraser.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/highlighter.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/basics.js",
+      "part": "part-05"
+    },
+    {
+      "file": "js/file-io.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/history.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/basics.js",
+      "part": "part-06"
+    },
+    {
+      "file": "js/small-scripts.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/subscript.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/superscript.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/small-scripts.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/subscript.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/superscript.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/editor.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/integral.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/greek.js",
+      "part": "part-04"
+    },
+    {
+      "file": "js/symbol-menus.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/logic.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/sets.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/ampersand.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/percent.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/brackets.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/editor.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/basics.js",
+      "part": "part-07"
+    },
+    {
+      "file": "js/previous-page.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/next-page.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/add-page.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/delete-page.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/document-name.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/history.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/undo.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/redo.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/keyboard.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/file-io.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/new-document.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/file-io.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/export.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/zoom.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/page-view.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/zoom.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/fullscreen.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/zoom.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/fullscreen.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/page-view.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/regions.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/tutorial.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/number-line.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/key-hints.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/compass.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/rendering.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/compass.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/geometry.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/set-square.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/geometry.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/set-square.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/tutorial.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/help.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/keypad.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/help.js",
+      "part": "part-04"
+    },
+    {
+      "file": "js/strike.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/help.js",
+      "part": "part-05"
+    },
+    {
+      "file": "js/roots.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/comparisons.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/greek.js",
+      "part": "part-05"
+    },
+    {
+      "file": "js/comparisons.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/keyboard.js",
+      "part": "part-04"
+    },
+    {
+      "file": "js/number-line.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/keyboard.js",
+      "part": "part-05"
+    },
+    {
+      "file": "js/tutorial.js",
+      "part": "part-04"
+    },
+    {
+      "file": "js/keyboard.js",
+      "part": "part-06"
+    },
+    {
+      "file": "js/help.js",
+      "part": "part-06"
+    },
+    {
+      "file": "js/keyboard.js",
+      "part": "part-07"
+    },
+    {
+      "file": "js/roots.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/regions.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/eraser.js",
+      "part": "part-02"
+    },
+    {
+      "file": "js/regions.js",
+      "part": "part-03"
+    },
+    {
+      "file": "js/tutorial.js",
+      "part": "part-05"
+    },
+    {
+      "file": "js/keyboard.js",
+      "part": "part-08"
+    },
+    {
+      "file": "js/help.js",
+      "part": "part-07"
+    },
+    {
+      "file": "js/pen-input.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/bootstrap.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/help.js",
+      "part": "part-08"
+    },
+    {
+      "file": "js/bootstrap.js",
+      "part": "part-02"
+    }
+  ]
+}

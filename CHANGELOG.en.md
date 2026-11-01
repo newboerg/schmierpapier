@@ -2,6 +2,21 @@
 
 [Deutsch](CHANGELOG.md) · **English** · [Français](CHANGELOG.fr.md)
 
+## v0.4.3
+
+- Moved subscript and superscript buttons directly before the equals sign in the symbol toolbar.
+- Reordered the symbol toolbar: after the set square comes a separator, then comparisons, opening/closing brackets, roots, integrals, miscellaneous symbols, set theory and logic. Greek letters follow.
+- All hold-key shortcuts show their wait as a clockwise progress frame on the corresponding button, including pen colours, highlighters, brackets and symbol menus, geometry tools, region tools, pages, zoom, files, PDF and key hints. After about 0.6 seconds the action runs and the frame disappears. Early release or cancellation removes it; short input keeps its normal function. For Shift/Ctrl the full frame remains until release, when the mode toggles. Direct mouse clicks need no hold time. The indicator also works in the tutorial and is excluded from documents, PDF and printing.
+- Greek names in integral limits are replaced automatically: pi, omega, alpha, beta, phi, theta, psi, tau, lambda, rho, sigma, xi and zeta. The first letter determines case regardless of the remaining letters: omega → ω, Omega → Ω, 2pi → 2π, -Pi/2 → -Π/2. Complete names are recognised next to numbers and operators; other words remain unchanged. The 16-character limit applies after replacement.
+- Added definite integrals to the three-row integral menu: indefinite on the left, definite on the right; normal in the middle, double height above/below. Lower and upper limits are entered in sequence like a root degree. Cancellation leaves data unchanged; limits survive save/load, copy, undo, PDF and printing and are deleted with the integral.
+- New symbol menus: hold L for logic (default ∧), M for set theory (∈), Z for miscellaneous symbols (%). Combined & and %; added ∀, ∃ and ∄. Arrow/click or arrows/Enter select, Esc cancels; short letters and Ctrl+Z are preserved. Hold U remains a direct & shortcut. Extended the embedded offline symbol font while preserving its independent licence.
+- Holding Shift/Ctrl shows a clockwise progress frame until ready to latch. Toggling still occurs on release; other input or loss of focus cancels. Updated key hints, built-in help and READMEs in all three languages. No upload.
+
+- Development sources split under `src/`: HTML template, CSS, feature-specific JavaScript, shared foundations and one language file each for German, English and French. Brackets stay together; reading/saving and PDF/printing have their own files.
+- Fonts and logos are source assets embedded without modification; the generated `schmierpapier.html` remains a single offline file. A manifest preserves the existing event and startup order.
+- Added a reproducible Python build without extra packages: one-shot builds, automatic rebuilds with `--watch` and freshness verification with `--check`. Missing sources, sections and translations are reported; errors preserve the last good output.
+- Documented source layout and build workflow in all three READMEs; added automated build tests. App version now comes from `src/version.txt`, set to 0.4.3. No publication or upload as part of this migration.
+
 ## v0.4.2
 
 - Superscripts start slightly farther right; longer exponents extend rightwards beyond the cell border. They remain attached to their original cell, with matching PDF and print alignment.

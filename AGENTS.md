@@ -8,4 +8,8 @@
 - Document new or changed features in the application's built-in help in German, English, and French. Update affected tutorial instructions in all three languages as well.
 - Preserve the single-file, offline operation of `schmierpapier.html` and the independent licence notices for its embedded fonts.
 
-- The current application release is v0.4.2. Record changes since v0.4 in the v0.4.2 section of all three changelogs; preserve the original v0.4 release history.
+- The published application release is v0.4.2; upcoming development changes belong to v0.4.3. Record new changes in matching v0.4.3 sections of all three changelogs, preserving the existing v0.4.2 and v0.4 release history. Do not assign new changes to v0.4.2.
+
+- Application sources now live under `src/`. Edit those sources, never the generated root `schmierpapier.html`. After app changes run `python3 build.py` and `python3 build.py --check`; include the regenerated HTML with the source change. The build requires only Python 3.10+ standard-library modules. `python3 build.py --watch` rebuilds after saves.
+- Preserve `src/build.json` section order and the shared classic-script scope. New JS files/parts must be listed there. Keep locale keys/help coverage aligned in `src/i18n/de.js`, `en.js`, and `fr.js`. Read `src/README.md` for the source map and assembly rules. Font/logo assets under `src/assets/` must remain embedded in the generated output.
+- Deployment is currently on hold at the user's request. Do not upload or publish until the user explicitly requests the next upload; build/watch/check are local-only. Before a future authorized upload, rebuild the current app and verify it with `--check`.

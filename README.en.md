@@ -16,9 +16,16 @@ Schmierpapier provides a place to calculate, experiment and draw directly in the
 
 The application supports independent work in maths lessons: use the keyboard and mouse to write calculations in cells, arrange fractions clearly and draw geometric constructions with digital tools. Many features are available through buttons, so a keyboard shortcut is not required for every action.
 
-Version **0.4.2**
+Version **0.4.3 (development)**
 
 Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the app header opens it in a new tab.
+
+## New in v0.4.3
+
+- All hold-key shortcuts show a clockwise progress frame on their corresponding button; short presses are unchanged.
+- Definite integrals with entered limits, new logic, set theory and miscellaneous symbol menus, and a visible progress frame while holding Shift/Ctrl.
+- Feature sources under `src/` replace direct editing of the finished HTML file.
+- A local Python build with watch/check modes still produces one offline file, embedding languages, fonts and logos.
 
 ## New in v0.4.2
 
@@ -83,7 +90,10 @@ A movable on-screen numeric keypad is available from the header. It stays above 
 - Round, square, curly and angle brackets through main buttons and arrow menus, including double-height forms spanning two cells.
 - Square roots and comparison signs such as `=`, `≠`, `<`, `>`, `≤`, `≥` and `≈`, also in double-height forms.
 - Special equals signs across two vertically adjacent cells for fraction calculations.
-- Buttons for integrals, Greek letters, `&` and `%`. The π button inserts Pi; its arrow or holding P in a cell opens the Greek menu. Use arrows and Enter to choose, Esc to close; a short P still writes p. Ctrl/Shift insert subscript/superscript.
+- Indefinite and definite integrals at normal or double height. Hold I for the menu; definite integrals are on the right. Enter the lower and upper limits in order (1–16 characters each, without spaces). Limits survive `.schmier` files, copies, PDF and printing. Nothing is calculated.
+- Greek names in integral limits are replaced automatically: pi, omega, alpha, beta, phi, theta, psi, tau, lambda, rho, sigma, xi and zeta. The first letter determines case regardless of the remaining letters: omega → ω, Omega → Ω, 2pi → 2π, -Pi/2 → -Π/2. Complete names are recognised next to numbers and operators; other words remain unchanged. The 16-character limit applies after replacement.
+- Symbol menus for logic (hold L, default ∧), set theory (hold M, default ∈) and miscellaneous symbols (hold Z, default %, plus &, ∀, ∃, ∄). The main button writes the default; its arrow opens selection, arrows/Enter or clicks choose, Esc closes. Hold U remains a direct way to insert &.
+- Greek letters: the π button inserts Pi; its arrow or holding P in a cell opens the Greek menu. Use arrows and Enter to choose, Esc to close; a short P still writes p. Ctrl/Shift insert subscript/superscript.
 - Mathematical notation using `·` for multiplication and `:` for division.
 
 ### Drawing and highlighting
@@ -147,6 +157,8 @@ The storage consent prompt uses the preferred supported browser language indepen
 | Hold 8 / 9 | Opening / closing bracket menu |
 | Hold P | Greek-letter menu, π preselected |
 | Hold Enter | Comparison-sign menu |
+| Hold I | Integral menu: Up/Down for size, Left/Right for indefinite/definite; enter limits in order |
+| Hold L / M / Z | Choose logic / set theory / miscellaneous symbols |
 | Hold Shift alone and release | Toggle superscript |
 | Hold Ctrl alone and release | Toggle subscript |
 | Left+Right together | Start/confirm horizontal line |
@@ -160,7 +172,7 @@ The storage consent prompt uses the preferred supported browser language indepen
 | Hold E | Export all pages as PDF |
 | Esc | Cancel preview, selection or menu; exit tutorial |
 
-**Hold** means about 0.6 seconds in an active writing cell, without modifiers. Short digit and letter input is preserved; short Delete erases cell content. Ctrl/Shift toggles commit only on release if no other key or mouse click was used. Hold shortcuts do not apply in names, search or label fields. While drawing a keyboard line, arrows change its length and cell edge; Esc discards the preview.
+**Hold** means about 0.6 seconds in an active writing cell, without modifiers. Short digit and letter input is preserved; short Delete erases cell content. Ctrl/Shift toggles commit only on release if no other key or mouse click was used. Hold shortcuts do not apply in names, search or label fields. While drawing a keyboard line, arrows change its length and cell edge; Esc discards the preview. A clockwise progress frame on the matching button shows the Shift/Ctrl hold time; a full frame means ready. Early release, another key, a click or loss of focus cancels the hold.
 
 The built-in, searchable help contains the full instructions. The tutorial uses a separate practice document and restores your own document afterwards.
 
@@ -174,11 +186,42 @@ Click gold target cells or reach them with arrows, Tab and Home/End. Reaching a 
 
 The save exercise accepts Ctrl+S, also ⌘+S on Mac. Hold E to export PDF, or D to change view in its matching exercise. Downloads contain practice pages only. Esc exits the tutorial and restores your document, including from the final screen.
 
-## Development
+## Development and build
 
-The application deliberately stays in one HTML file. HTML, CSS and JavaScript are formatted for readability, with section comments explaining document structure, coordinates, drawing tools, storage and translations. Embedded fonts remain compact Base64 data. No build step is required. Important changes are reflected together in all three READMEs, all three changelogs and the affected help and tutorial texts.
+**Edit the sources under `src/`, not the generated `schmierpapier.html`.** Users still need only the finished HTML file; only development requires a build. Requirement: **Python 3.10 or newer**, with no extra packages, Node.js or internet access.
 
-The on-screen grid uses a continuous SVG layer so its lines remain consistent at different zoom levels in Firefox.
+From the project root:
+
+```sh
+python3 build.py
+python3 build.py --watch
+python3 build.py --check
+python3 -m unittest discover -s src/tests -v
+```
+
+- `python3 build.py` generates the current `schmierpapier.html`.
+- `--watch` rebuilds automatically after saving source changes. Stop with Ctrl+C; reload the finished file in your browser.
+- `--check` verifies that the output matches the sources without writing. A stale build returns a failure status.
+- The last command tests reproducibility, missing sources/translations, embedded assets and automatic rebuilding.
+
+On Windows, use `py -3` instead of `python3` if needed. An alternative output is possible with `python3 build.py --output /tmp/schmierpapier-test.html`.
+
+| Source | Responsibility |
+|---|---|
+| `src/index.html`, `src/styles.css` | HTML structure and presentation |
+| `src/js/*.js` | Feature files; all brackets together in `brackets.js` |
+| `src/js/file-io.js`, `src/js/export.js` | Reading/saving and PDF/printing |
+| `src/js/basics.js`, `src/js/keyboard.js`, `src/js/regions.js` | Shared foundations, keyboard control and region selection |
+| `src/i18n/de.js`, `en.js`, `fr.js` | Interface, help, tutorial and messages for each language |
+| `src/i18n/consent-eu.js` | Additional EU languages for the storage notice |
+| `src/assets/` | Fonts and logos embedded during the build |
+| `src/version.txt`, `src/build.json` | Development version, sources and assembly order |
+
+Features may contain several `// @part` sections. The manifest assembles them in the established order into one classic script with shared scope. New JS files must be listed there. Language files share the same UI keys; the build reports missing translations or help articles. Output is replaced only after successful validation; a failed build leaves the last good HTML untouched. `--check` does not replace browser functional tests.
+
+Section, language-data and asset-placeholder details: [Source and assembly guide](src/README.md) (German). `src/index.html` contains placeholders and is not a runnable preview. The finished `schmierpapier.html` embeds all CSS, JavaScript, fonts and logos and remains fully offline. **Build and watch never upload anything.** The homepage directory remains independent.
+
+Important changes keep all three READMEs, changelogs and affected help/tutorial texts aligned. Independent font licences remain in metadata and notices. The grid still uses one continuous SVG layer for consistent Firefox rendering.
 
 ## Licence
 

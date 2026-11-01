@@ -2,6 +2,21 @@
 
 **Deutsch** · [English](CHANGELOG.en.md) · [Français](CHANGELOG.fr.md)
 
+## v0.4.3
+
+- Index- und Potenzbuttons direkt vor das Gleichzeichen in der Zeichenleiste verschoben.
+- Zeichenleiste neu geordnet: nach dem Geodreieck folgt ein Trennstrich, dann Vergleichszeichen, öffnende/schließende Klammern, Wurzeln, Integrale, verschiedene Symbole, Mengenlehre und Logik. Die griechischen Zeichen stehen anschließend.
+- Alle Halte-Tastenkürzel zeigen die Wartezeit als im Uhrzeigersinn gefüllten Rahmen am zugehörigen Button – auch Stiftfarben, Textmarker, Klammern und Symbolmenüs, Geometriewerkzeuge, Bereichswerkzeuge, Seiten, Zoom, Dateien, PDF und Tastenhilfe. Nach etwa 0,6 Sekunden wird die Aktion ausgelöst und der Rahmen verschwindet. Frühes Loslassen oder Abbrechen entfernt ihn; kurze Eingaben behalten ihre Funktion. Bei Shift/Strg bleibt der volle Rahmen bis zum Loslassen sichtbar, weil erst dann umgeschaltet wird. Direkte Mausklicks benötigen keine Haltezeit. Die Anzeige funktioniert auch im Tutorial und bleibt aus Dokumenten, PDF und Druck ausgeschlossen.
+- Griechische Namen werden in Integralgrenzen automatisch ersetzt: pi, omega, alpha, beta, phi, theta, psi, tau, lambda, rho, sigma, xi und zeta. Der erste Buchstabe bestimmt Groß-/Kleinschreibung, unabhängig von den restlichen Buchstaben: omega → ω, Omega → Ω, 2pi → 2π, -Pi/2 → -Π/2. Ganze Namen werden auch neben Zahlen und Rechenzeichen erkannt; andere Wörter bleiben unverändert. Die Grenze von 16 Zeichen gilt nach der Ersetzung.
+- Bestimmte Integrale im dreizeiligen Integralmenü ergänzt: links unbestimmt, rechts bestimmt; mittig normal, darüber/darunter doppelhoch. Untere und obere Grenze werden nacheinander wie der Wurzelexponent eingegeben. Abbruch verändert nichts; Grenzen bleiben beim Speichern/Laden, Kopieren, Rückgängig, PDF und Druck erhalten und werden zusammen mit dem Integral gelöscht.
+- Neue Symbolmenüs: L halten für Logik (∧ als Standard), M halten für Mengenlehre (∈), Z halten für verschiedene Symbole (%). & und % zusammengeführt; ∀, ∃ und ∄ ergänzt. Pfeil/Klick oder Pfeiltasten/Enter wählen, Esc bricht ab; kurze Buchstaben und Strg+Z bleiben erhalten. U halten bleibt als direkter &-Shortcut verfügbar. Symbolschrift offline erweitert, unabhängige Schriftlizenz beibehalten.
+- Shift/Strg zeigen beim Halten einen im Uhrzeigersinn gefüllten Fortschrittsrahmen bis zur Einrastbereitschaft. Umschalten weiterhin erst beim Loslassen; andere Eingaben und Fokusverlust brechen ab. Tastenhilfe, integrierte Hilfe und READMEs in allen drei Sprachen aktualisiert. Kein Upload.
+
+- Entwicklungsquellen nach `src/` aufgeteilt: HTML-Grunddatei, CSS, thematische JavaScript-Features, gemeinsame Grundlagen sowie je eine Sprachdatei für Deutsch, Englisch und Französisch. Alle Klammern liegen gemeinsam, Lesen/Speichern und PDF/Druck jeweils in eigenen Dateien.
+- Schriften und Logos liegen als Quelldateien vor und werden unverändert eingebettet; die fertige `schmierpapier.html` bleibt eine einzelne Offline-Datei. Die bestehende Ereignis- und Startreihenfolge bleibt über ein Manifest erhalten.
+- Reproduzierbaren Python-Build ohne Zusatzpakete ergänzt: einmaliges Bauen, automatischer Neuaufbau mit `--watch` und Aktualitätsprüfung mit `--check`. Fehlende Quellen, Abschnitte und Übersetzungen werden gemeldet; bei Fehlern bleibt die letzte gültige Ausgabe erhalten.
+- Build-Prozess und Quellenstruktur in allen drei READMEs dokumentiert; automatische Build-Tests ergänzt. App-Version aus `src/version.txt` auf 0.4.3 gesetzt. Keine Veröffentlichung oder Upload im Rahmen dieser Umstellung.
+
 ## v0.4.2
 
 - Potenzen beginnen etwas weiter rechts und wachsen bei längeren Exponenten über den Kästchenrand hinaus nach rechts. Die Zuordnung zum ursprünglichen Kästchen bleibt erhalten; PDF und Druck folgen derselben Ausrichtung.

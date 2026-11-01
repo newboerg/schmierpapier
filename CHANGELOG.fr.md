@@ -2,6 +2,21 @@
 
 [Deutsch](CHANGELOG.md) · [English](CHANGELOG.en.md) · **Français**
 
+## v0.4.3
+
+- Boutons indice et exposant déplacés juste avant le signe égal dans la barre de symboles.
+- Barre de symboles réorganisée : après l’équerre, un séparateur, puis comparaisons, parenthèses ouvrantes/fermantes, racines, intégrales, symboles divers, ensembles et logique. Les lettres grecques suivent.
+- Tous les raccourcis par appui prolongé affichent leur attente par un cadre se remplissant dans le sens horaire sur le bouton correspondant : couleurs de stylo, surligneurs, parenthèses et menus de symboles, outils géométriques, zones, pages, zoom, fichiers, PDF et indications de touches. Après environ 0,6 seconde, l’action se déclenche et le cadre disparaît. Un relâchement anticipé ou une annulation le retire ; les appuis courts gardent leur fonction. Pour Maj/Ctrl, le cadre complet reste jusqu’au relâchement qui change le mode. Les clics directs ne demandent aucune attente. L’indicateur fonctionne aussi dans le tutoriel et reste exclu des documents, PDF et impressions.
+- Les noms grecs dans les bornes d’intégration sont remplacés automatiquement : pi, omega, alpha, beta, phi, theta, psi, tau, lambda, rho, sigma, xi et zeta. La première lettre détermine la casse, indépendamment des suivantes : omega → ω, Omega → Ω, 2pi → 2π, -Pi/2 → -Π/2. Les noms complets sont reconnus à côté des nombres et opérateurs ; les autres mots restent inchangés. La limite de 16 caractères s’applique après remplacement.
+- Ajout des intégrales définies au menu à trois lignes : indéfinies à gauche, définies à droite ; normales au milieu, doubles vers le haut/bas. Saisie successive des bornes inférieure et supérieure comme pour l’indice d’une racine. Annuler ne change rien ; les bornes restent dans l’enregistrement/chargement, la copie, l’annulation, le PDF et l’impression et sont effacées avec l’intégrale.
+- Nouveaux menus : maintenir L pour la logique (défaut ∧), M pour les ensembles (∈), Z pour les symboles divers (%). & et % regroupés ; ∀, ∃ et ∄ ajoutés. Flèche/clic ou flèches/Entrée choisissent, Échap annule ; lettres courtes et Ctrl+Z préservés. Maintenir U reste un raccourci direct pour &. Police de symboles hors connexion étendue avec conservation de sa licence indépendante.
+- Maintenir Maj/Ctrl affiche un cadre de progression horaire jusqu’à l’activation possible. Le changement reste au relâchement ; autre saisie ou perte du focus annule. Indications de touches, aide intégrée et README actualisés dans les trois langues. Aucun envoi.
+
+- Sources de développement séparées sous `src/` : modèle HTML, CSS, JavaScript par fonction, bases communes et un fichier de langue pour allemand, anglais et français. Les parenthèses restent ensemble ; lecture/enregistrement et PDF/impression ont leurs fichiers.
+- Polices et logos deviennent des ressources sources intégrées sans modification ; le HTML généré reste un seul fichier hors ligne. Un manifeste préserve l’ordre des événements et du démarrage.
+- Ajout d’un assemblage Python reproductible sans paquets : génération simple, reconstruction automatique avec `--watch` et contrôle avec `--check`. Les sources, sections et traductions manquantes sont signalées ; les erreurs conservent la dernière sortie valide.
+- Structure et assemblage documentés dans les trois README ; tests automatiques ajoutés. La version vient de `src/version.txt`, fixée à 0.4.3. Aucune publication ni aucun envoi lors de cette migration.
+
 ## v0.4.2
 
 - Les exposants commencent un peu plus à droite et les plus longs dépassent le bord vers la droite. Ils restent liés à leur case d’origine, avec le même alignement en PDF et à l’impression.

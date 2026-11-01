@@ -16,9 +16,16 @@ Schmierpapier bietet einen Platz zum Rechnen, Ausprobieren und Zeichnen direkt i
 
 Die Anwendung soll das eigenständige Arbeiten im Mathematikunterricht unterstützen: Rechnungen lassen sich mit Tastatur und Maus in Kästchen schreiben, Brüche übersichtlich anordnen und geometrische Konstruktionen mit digitalen Werkzeugen zeichnen. Viele Funktionen sind über Buttons erreichbar, sodass nicht für jede Eingabe eine Tastenkombination nötig ist.
 
-Version **0.4.2**
+Version **0.4.3 (Entwicklung)**
 
 Projektwebseite: [schmierpapier.org](https://schmierpapier.org). Das Logo im App-Header öffnet sie in einem neuen Tab.
+
+## Neu in v0.4.3
+
+- Alle Halte-Tastenkürzel zeigen einen im Uhrzeigersinn gefüllten Fortschrittsrahmen am zugehörigen Button; kurzes Drücken bleibt unverändert.
+- Bestimmte Integrale mit frei eingegebenen Grenzen, neue Menüs für Logik, Mengenlehre und verschiedene Symbole sowie ein sichtbarer Fortschrittsrahmen beim Halten von Shift/Strg.
+- Thematische Quellen unter `src/` statt direkter Änderungen an der fertigen HTML-Datei.
+- Ein lokaler Python-Build mit Watch- und Prüfmodus erzeugt weiterhin eine einzelne Offline-Datei; Sprachdateien, Schriften und Logos werden eingebettet.
 
 ## Neu in v0.4.2
 
@@ -83,7 +90,10 @@ Ein verschiebbarer Bildschirm-Nummernblock ist über einen Button im Kopf erreic
 - Runde, eckige, geschweifte und spitze Klammern über Hauptbuttons und Pfeilmenüs, auch über zwei Kästchen Höhe.
 - Wurzelzeichen sowie Vergleichszeichen wie `=`, `≠`, `<`, `>`, `≤`, `≥` und `≈`, auch doppelhoch.
 - Besondere Gleichzeichen zwischen zwei übereinanderliegenden Kästchen für Bruchrechnungen.
-- Buttons für Integral, griechische Buchstaben, `&` und `%`. Der π-Button schreibt Pi; sein Pfeil oder langes Halten von P im Kästchen öffnet das griechische Zeichenmenü. Pfeiltasten und Enter wählen, Esc schließt; kurzes P schreibt weiterhin p. Strg/Shift erzeugen Index/Potenz.
+- Unbestimmte und bestimmte Integrale in normaler oder doppelter Höhe. Das Menü mit I halten bietet rechts bestimmte Integrale; untere und obere Grenze werden nacheinander eingegeben (je 1–16 Zeichen ohne Leerzeichen). Grenzen bleiben in `.schmier`, Kopien, PDF und Druck erhalten. Es findet keine Berechnung statt.
+- Griechische Namen werden in Integralgrenzen automatisch ersetzt: pi, omega, alpha, beta, phi, theta, psi, tau, lambda, rho, sigma, xi und zeta. Der erste Buchstabe bestimmt Groß-/Kleinschreibung, unabhängig von den restlichen Buchstaben: omega → ω, Omega → Ω, 2pi → 2π, -Pi/2 → -Π/2. Ganze Namen werden auch neben Zahlen und Rechenzeichen erkannt; andere Wörter bleiben unverändert. Die Grenze von 16 Zeichen gilt nach der Ersetzung.
+- Symbolmenüs für Logik (L halten, Standard ∧), Mengenlehre (M halten, Standard ∈) und verschiedene Symbole (Z halten, Standard %, außerdem &, ∀, ∃, ∄). Hauptbutton schreibt den Standard; Pfeil öffnet die Auswahl, Pfeiltasten/Enter oder Klick wählen, Esc schließt. U halten bleibt als direkter Weg zu & erhalten.
+- Griechische Buchstaben: Der π-Button schreibt Pi; sein Pfeil oder langes Halten von P im Kästchen öffnet das griechische Zeichenmenü. Pfeiltasten und Enter wählen, Esc schließt; kurzes P schreibt weiterhin p. Strg/Shift erzeugen Index/Potenz.
 - Rechenzeichen in der Schreibweise `·` für Multiplikation und `:` für Division.
 
 ### Zeichnen und Markieren
@@ -147,6 +157,8 @@ Die Speicherabfrage wird unabhängig von der Anwendungssprache in der bevorzugte
 | 8 / 9 halten | Menü für öffnende / schließende Klammern |
 | P halten | Griechisches Zeichenmenü, π vorausgewählt |
 | Enter halten | Vergleichszeichen-Menü |
+| I halten | Integralmenü: Hoch/Runter Größe, Links/Rechts unbestimmt/bestimmt; Grenzen nacheinander eingeben |
+| L / M / Z halten | Logik / Mengenlehre / verschiedene Symbole auswählen |
 | Shift allein halten und loslassen | Hochstellen ein-/ausschalten |
 | Strg allein halten und loslassen | Tiefstellen ein-/ausschalten |
 | Links+Rechts gleichzeitig | Waagerechten Strich starten/bestätigen |
@@ -160,7 +172,7 @@ Die Speicherabfrage wird unabhängig von der Anwendungssprache in der bevorzugte
 | E halten | Alle Seiten als PDF exportieren |
 | Esc | Vorschau, Auswahl oder Menü abbrechen; Tutorial beenden |
 
-**Halten** bedeutet etwa 0,6 Sekunden im aktiven Schreibkästchen, ohne Zusatztasten. Kurze Zahlen- und Buchstabeneingaben bleiben erhalten; kurzes Entf löscht Kästcheninhalt. Bei Strg/Shift wird erst beim Loslassen umgeschaltet, sofern keine andere Taste oder kein Mausklick hinzugekommen ist. In Namen, Such- und Beschriftungsfeldern gelten die Halte-Shortcuts nicht. Beim Tastaturstrich ändern die Pfeile Länge und Kästchenkante; Esc verwirft die Vorschau.
+**Halten** bedeutet etwa 0,6 Sekunden im aktiven Schreibkästchen, ohne Zusatztasten. Kurze Zahlen- und Buchstabeneingaben bleiben erhalten; kurzes Entf löscht Kästcheninhalt. Bei Strg/Shift wird erst beim Loslassen umgeschaltet, sofern keine andere Taste oder kein Mausklick hinzugekommen ist. In Namen, Such- und Beschriftungsfeldern gelten die Halte-Shortcuts nicht. Beim Tastaturstrich ändern die Pfeile Länge und Kästchenkante; Esc verwirft die Vorschau. Ein im Uhrzeigersinn gefüllter Rahmen am passenden Button zeigt die Haltezeit von Shift/Strg; ein vollständiger Rahmen bedeutet bereit. Kurzes Loslassen, weitere Taste, Klick oder Fokusverlust verwirft den Haltevorgang.
 
 Die vollständige Beschreibung steht in der integrierten, durchsuchbaren Hilfe. Das Tutorial nutzt ein separates Übungsdokument und stellt anschließend das eigene Dokument wieder her.
 
@@ -174,11 +186,42 @@ Gold markierte Zielkästchen lassen sich anklicken oder mit Pfeiltasten, Tab und
 
 Im Speicherschritt funktioniert Strg+S, am Mac auch ⌘+S. E halten startet den PDF-Export, D halten wechselt die Ansicht in der entsprechenden Übung. Downloads enthalten nur die Übungsseiten. Esc beendet das Tutorial und stellt das eigene Dokument wieder her – auch auf dem Abschlussbildschirm.
 
-## Entwicklung
+## Entwicklung und Build
 
-Die Anwendung bleibt bewusst in einer einzigen HTML-Datei. HTML, CSS und JavaScript sind lesbar formatiert; Abschnittskommentare erklären Dokumentstruktur, Koordinaten, Zeichenwerkzeuge, Speicherung und Übersetzungen. Die eingebetteten Schriftdateien bleiben kompakte Base64-Daten. Es ist kein Build-Schritt erforderlich. Bei wichtigen Änderungen werden alle drei READMEs, die drei Changelogs und die betroffenen Hilfe- und Tutorialtexte gemeinsam aktualisiert.
+**Bearbeitet werden die Quellen unter `src/`, nicht die erzeugte `schmierpapier.html`.** Für die Benutzung genügt weiterhin die fertige HTML-Datei; nur die Entwicklung benötigt einen Build. Voraussetzung: **Python 3.10 oder neuer**, ohne zusätzliche Pakete, Node.js oder Internetzugriff.
 
-Das Bildschirmraster wird als durchgehende SVG-Ebene gezeichnet, damit die Linien auch bei unterschiedlichen Zoomstufen in Firefox gleichmäßig dargestellt werden.
+Im Projekt-Hauptordner:
+
+```sh
+python3 build.py
+python3 build.py --watch
+python3 build.py --check
+python3 -m unittest discover -s src/tests -v
+```
+
+- `python3 build.py` erzeugt die aktuelle `schmierpapier.html`.
+- `--watch` baut nach dem Speichern geänderter Quellen automatisch neu. Mit Strg+C beenden; die fertige Datei im Browser neu laden.
+- `--check` prüft ohne Schreiben, ob die Ausgabe zu den Quellen passt. Ein veralteter Build liefert einen Fehlerstatus.
+- Der letzte Befehl prüft reproduzierbaren Build, fehlende Quellen/Übersetzungen, eingebettete Assets und automatischen Neuaufbau.
+
+Unter Windows gegebenenfalls `py -3` statt `python3` verwenden. Eine alternative Ausgabe ist mit `python3 build.py --output /tmp/schmierpapier-test.html` möglich.
+
+| Quelle | Zuständigkeit |
+|---|---|
+| `src/index.html`, `src/styles.css` | HTML-Grundgerüst und Darstellung |
+| `src/js/*.js` | Thematische Feature-Dateien; alle Klammern gemeinsam in `brackets.js` |
+| `src/js/file-io.js`, `src/js/export.js` | Lesen/Speichern bzw. PDF/Druck |
+| `src/js/basics.js`, `src/js/keyboard.js`, `src/js/regions.js` | Gemeinsame Grundlagen, Tastensteuerung und Bereichsauswahl |
+| `src/i18n/de.js`, `en.js`, `fr.js` | Je Sprache Oberfläche, Hilfe, Tutorial und Meldungen |
+| `src/i18n/consent-eu.js` | Zusätzliche EU-Sprachen für den Speicherhinweis |
+| `src/assets/` | Schriften und Logos, die beim Build eingebettet werden |
+| `src/version.txt`, `src/build.json` | Entwicklungsversion, Quellen und Zusammenbaureihenfolge |
+
+Einzelne Features können mehrere `// @part`-Abschnitte enthalten. Das Manifest setzt sie in der bewährten Reihenfolge zu einem klassischen Script mit gemeinsamem Gültigkeitsbereich zusammen. Neue JS-Dateien müssen dort aufgeführt werden. Die Sprachdateien enthalten dieselben UI-Schlüssel; fehlende Übersetzungen oder Hilfeartikel meldet der Build. Der Build ersetzt die Ausgabe nur nach erfolgreicher Prüfung; bei einem Fehler bleibt die letzte gültige HTML-Datei erhalten. `--check` ersetzt keine Funktionstests im Browser.
+
+Details zu Abschnitten, Sprachdaten und Asset-Platzhaltern: [Quellen und Zusammenbau](src/README.md). `src/index.html` enthält Platzhalter und ist keine lauffähige Vorschau. Die fertige `schmierpapier.html` enthält CSS, JavaScript, Schriften und Logos vollständig und bleibt offline nutzbar. **Build und Watch-Modus laden nichts hoch.** Der Homepage-Ordner bleibt davon unabhängig.
+
+Bei wichtigen Änderungen werden alle drei READMEs, Changelogs und betroffenen Hilfe-/Tutorialtexte gemeinsam gepflegt. Die unabhängigen Schriftlizenzen bleiben in den Metadaten und Hinweisen erhalten. Das Bildschirmraster verwendet weiterhin eine durchgehende SVG-Ebene für gleichmäßige Firefox-Darstellung.
 
 ## Lizenz
 
