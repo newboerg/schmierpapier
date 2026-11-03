@@ -619,7 +619,43 @@ const LOCALE_FR = {
     "Platz für das große Ergebnis": "Place du grand résultat",
     "Gehe zu Zeile 25 · Spalte 14 oder klicke dort. Doppelhohe Schrift bleibt für das Ergebnis eingeschaltet.": "Va à la ligne 25 · colonne 14, ou clique dessus. La double hauteur reste active pour le résultat.",
     "Das Ergebnis: eine ganze 3": "Le résultat : un 3 entier",
-    "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.": "Écris 3. Un demi plus un demi fait un entier ; avec 2, cela donne 3. Le papier montre maintenant 2 1/2 + 1/2 = 3 avec de grands entiers et signes de calcul."
+    "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.": "Écris 3. Un demi plus un demi fait un entier ; avec 2, cela donne 3. Le papier montre maintenant 2 1/2 + 1/2 = 3 avec de grands entiers et signes de calcul.",
+    "Einstellungen": "Paramètres",
+    "Haltezeit für Tastenkürzel (Millisekunden)": "Durée de maintien des raccourcis (millisecondes)",
+    "200–3000 ms · Standard: 600 ms. Gilt auch für Shift und Strg.": "200–3000 ms · Par défaut : 600 ms. S’applique aussi à Maj et Ctrl.",
+    "Schrift auf dem Papier": "Police sur le papier",
+    "Handschrift": "Écriture manuscrite",
+    "Konsole (Monospace)": "Console (chasse fixe)",
+    "Übernehmen": "Appliquer",
+    "Einstellungen werden in diesem Browser gespeichert.": "Les paramètres sont enregistrés dans ce navigateur.",
+    "Ohne Speicherzustimmung gelten Einstellungen nur in dieser Sitzung.": "Sans autorisation de stockage, les paramètres ne s’appliquent qu’à cette session.",
+    "Aufgabenbezeichnung": "Libellé d’exercice",
+    "Aufgabenbezeichnung (A halten)": "Libellé d’exercice (maintenir A)",
+    "Größe der Aufgabenbezeichnung wählen": "Choisir la taille du libellé d’exercice",
+    "Aufgabenbezeichnung: normale Höhe": "Libellé d’exercice : hauteur normale",
+    "Aufgabenbezeichnung: doppelte Höhe": "Libellé d’exercice : double hauteur",
+    "Aufgabenbezeichnung eingeben (zum Beispiel 1a):": "Saisir un libellé d’exercice (par exemple 1a) :",
+    "Für diese Aufgabenbezeichnung fehlen Kästchen am Seitenrand.": "Il manque des carreaux au bord de la page pour ce libellé d’exercice.",
+    "Die Aufgabenbezeichnung ist zu lang (maximal 10000 Zeichen).": "Le libellé d’exercice est trop long (10000 caractères maximum).",
+    "Punkt im eigenen Kästchen": "Point dans son propre carreau",
+    "Komma im eigenen Kästchen": "Virgule dans son propre carreau",
+    "Ungültige Satzzeichen.": "Ponctuation non valide.",
+    "Ungültige Aufgabenbezeichnung.": "Libellé d’exercice non valide.",
+    "Neuerungen seit deinem gespeicherten Stand": "Nouveautés depuis votre version enregistrée",
+    "Gespeichert mit Version:": "Enregistré avec la version :",
+    "Aktuelle Version:": "Version actuelle :",
+    "Dieser ältere Stand enthält keine Versionsangabe. Die folgenden Versionsübersichten dienen zur Orientierung.": "Cet ancien document ne contient pas de numéro de version. Les résumés suivants sont fournis à titre indicatif.",
+    "Weiterarbeiten": "Continuer",
+    "Komma und Punkt sparen Kästchen; Aufgabenbezeichnungen passen in zwei Kästchen.": "Les virgules et les points économisent des carreaux ; les libellés d’exercice tiennent dans deux carreaux.",
+    "Geodreieck: Skalenwerte an Strichanfang und Strichende besser sichtbar.": "Équerre : graduations plus lisibles au début et à la fin d’un trait.",
+    "Einstellungen für Haltezeit und Schrift; gespeicherte Dokumente merken sich die App-Version.": "Durée de maintien et police réglables ; les documents enregistrés conservent la version de l’application.",
+    "Frei wählbare Höhen für Klammern, Wurzeln und Integrale; doppelhohe Schrift und gemischte Brüche im Tutorial.": "Hauteurs réglables pour parenthèses, racines et intégrales ; écriture double et nombres mixtes dans le tutoriel.",
+    "Bestimmte Integrale, weitere mathematische Symbolmenüs und sichtbarer Fortschritt beim Halten von Tasten.": "Intégrales définies, nouveaux menus de symboles mathématiques et progression visible du maintien des touches.",
+    "Mehr Werkzeuge per Tastatur bedienen; Symbol- und Größenmenüs sowie Tastenhinweise.": "Davantage d’outils accessibles au clavier, menus de symboles et de tailles, et indications des raccourcis.",
+    "Erweiterte Tastaturbedienung und ein verständlicheres Tutorial.": "Commandes au clavier enrichies et tutoriel plus clair.",
+    "Anfang": "Début",
+    "Ende": "Fin",
+    "Einstellungen (F halten)": "Paramètres (maintenir F)"
   },
   "helpInitial": [
     {
@@ -893,11 +929,36 @@ const LOCALE_FR = {
       "title": "Nombre fractionnaire dans le tutoriel",
       "keywords": "tutorial tutoriel mixed gemischt bruch fraction U doppelhoch double hauteur",
       "html": "<p>Ajout au tutoriel de 2 1/2 + 1/2 = 3 : entiers, plus et égal de double hauteur avec U ou le bouton ; numérateurs/dénominateurs normaux et barres à la souris ou au clavier. Navigation et pavé à l’écran restent disponibles.</p>"
+    },
+    {
+      "title": "Virgule et point sans carreau supplémentaire",
+      "keywords": "virgule point décimal supprimer troisième couche",
+      "html": "<p>Les virgules et points saisis au clavier, au pavé numérique ou collés ne prennent pas de carreau supplémentaire. Dans 3,14, les chiffres 3, 1 et 4 occupent des carreaux voisins ; la virgule appartient au 3 et apparaît en bas à droite de son carreau. Saisir le signe après un chiffre ne déplace pas le curseur. Après une navigation volontaire ou un clic, un signe isolé appartient au carreau sélectionné.</p><p>Le signe constitue la troisième petite couche de suppression : exposant d’abord, indice/retenue ensuite, virgule ou point en troisième, puis caractère principal. Les couches absentes sont ignorées ; les grands symboles et signes égal de fraction conservent leur priorité. Sélectionner le carreau du chiffre associé pour effacer son signe. Un nouveau point ou une virgule remplace le signe existant dans ce carreau. Le collage de calculs complets fonctionne aussi.</p><p>Pour un signe occupant son propre carreau, utiliser Symboles divers (maintenir Z). En écriture normale, ces entrées occupent un carreau entier. En mode exposant/indice, elles rejoignent la petite suite. Les anciens fichiers conservent leurs carreaux de ponctuation ordinaires. Les nouveaux signes sont enregistrés, copiés et exportés en PDF/impression avec leur carreau associé.</p><p>Les virgules et points se trouvent légèrement au-delà du bord droit du carreau pour laisser de la place aux indices.</p>"
+    },
+    {
+      "title": "Libellés d’exercice sur deux carreaux",
+      "keywords": "exercice libellé numéro préfixe 1a maintenir A",
+      "html": "<p>Le bouton 1a) insère un libellé tel que 1a) dans deux carreaux horizontaux. Un clic ouvre la saisie. La flèche du menu ou A maintenu permet de choisir la hauteur normale (1 ligne × 2 colonnes) ou double (2 × 2). Les flèches sélectionnent, Entrée confirme, Échap ferme le menu. Ctrl/Maj + clic ou le mode double hauteur actif choisit aussi la double hauteur vers le bas.</p><p>La police est réduite proportionnellement pour faire tenir tout le texte dans la largeur ; un libellé plus long devient plus petit. Aucun texte n’est tronqué. Le curseur avance ensuite de deux carreaux à droite. Il faut assez de place aux bords droit et inférieur. Annuler ou une saisie vide ne change rien. Un appui court sur A écrit toujours a.</p><p>Le libellé appartient à tout son rectangle. Suppr ou Retour arrière dans un carreau occupé le supprime entièrement ; une saisie ordinaire le remplace. Pour copier/couper, sélectionner le rectangle entier. Annuler/rétablir, .schmier, PDF et impression conservent texte, hauteur et couleur. Il s’agit d’un libellé, pas d’un numéro d’exercice calculé automatiquement.</p>"
+    },
+    {
+      "title": "Paramètres : durée de maintien et police",
+      "keywords": "paramètres réglages délai maintien maj ctrl police monospace console",
+      "html": "<p>La roue dentée du bandeau ouvre les paramètres. La durée de tous les raccourcis maintenus peut être réglée entre 200 et 3000 millisecondes (600 ms par défaut). Elle s’applique aux couleurs, menus, outils, pages, zoom et au verrouillage Maj/Ctrl. Le cadre de progression suit la même durée. Les durées indiquées dans l’aide et le tutoriel suivent ce réglage. Le bref délai aux coins des carreaux reste inchangé.</p><p>Choisir l’écriture manuscrite ou une police de console intégrée à chasse fixe. Les deux fonctionnent hors ligne. Le choix concerne tout le document, y compris petits textes, double hauteur, libellés d’exercice, PDF et impression. Les graduations des instruments et les textes d’interface gardent leur police lisible. Appliquer active le choix ; Annuler ou Échap abandonne les changements non confirmés.</p><p>Avec autorisation, les paramètres sont enregistrés localement dans ce navigateur. Sans autorisation, ils ne durent que pendant la session ; retirer l’autorisation efface les données stockées. Le fichier .schmier contient aussi ces paramètres et les restaure à l’ouverture. Aucun cookie n’est créé et aucun paramètre n’est envoyé à un serveur.</p><p>Dans un carreau d’écriture, maintenir F (préférences ; en allemand : Feineinstellungen) ouvre la même fenêtre, avec le cadre de progression habituel et la durée choisie. Un appui court écrit toujours f ; Ctrl/⌘+F reste la recherche du navigateur. Les noms et autres champs conservent leur saisie normale. Les indications de raccourcis affichent F au-dessus de la roue dentée.</p>"
+    },
+    {
+      "title": "Nouveautés à l’ouverture d’un document",
+      "keywords": "version nouveautés changelog enregistrer ouvrir navigateur",
+      "html": "<p>Les fichiers .schmier et les sauvegardes locales enregistrent désormais la version de l’application utilisée, séparément de la version du format. Ouvrir un ancien document affiche les résumés des versions entre la version enregistrée et celle de l’application. Aucune fenêtre ne s’affiche pour une version actuelle ou plus récente. Continuer ou Échap ferme la fenêtre.</p><p>Les anciens fichiers sans numéro de version restent lisibles. La fenêtre précise que leur version d’origine est inconnue et propose les résumés disponibles à titre indicatif. L’enregistrement suivant indique la version actuelle. Refuser le stockage dans le navigateur empêche aussi la conservation locale du numéro de version. L’historique complet reste dans les trois fichiers CHANGELOG du projet.</p>"
+    },
+    {
+      "title": "Équerre : graduations au début et à la fin",
+      "keywords": "équerre règle graduation début fin cm lecture",
+      "html": "<p>Lors du tracé le long d’un bord extérieur, des indications rouges agrandies montrent les graduations du début et de la fin. Ce sont les valeurs de l’échelle imprimée, pas une longueur de trait calculée. L’hypoténuse a son zéro au centre et des nombres positifs de chaque côté. Les deux autres côtés commencent à zéro à l’angle droit et augmentent vers l’hypoténuse.</p><p>Au clavier, les indications restent visibles quand le crayon parcourt le bord ; les deux apparaissent après fixation du début. À la souris, elles apparaissent uniquement à proximité du bord (à moins de 3 mm) et disparaissent en le quittant. Elles ne calculent ni angle ni différence et ne sont ni enregistrées ni exportées en PDF/impression. L’aperçu rouge en pointillés reste visible.</p>"
     }
   ],
   "consent": [
     "Enregistrer dans ce navigateur ?",
-    "Uniquement avec ton accord, nous enregistrons les documents et préférences (langue, affichage et zoom) localement dans ce navigateur. Ton accord y est aussi mémorisé. L’application ne crée aucun cookie et n’envoie aucune donnée à un serveur.",
+    "Uniquement avec ton accord, nous enregistrons les documents et préférences (langue, affichage, zoom, police et durée de maintien des touches) localement dans ce navigateur. Ton accord y est aussi mémorisé. L’application ne crée aucun cookie et n’envoie aucune donnée à un serveur.",
     "Sans accord, tout reste seulement en mémoire jusqu’à la fermeture de la page. Les données de cette application déjà stockées dans le navigateur sont supprimées. Le refus n’est pas enregistré ; la question reviendra au prochain démarrage.",
     "Tu peux toujours télécharger toi-même des fichiers .schmier ou PDF. Le bouton de stockage dans l’en-tête permet de changer ta décision à tout moment.",
     "Ne pas enregistrer",

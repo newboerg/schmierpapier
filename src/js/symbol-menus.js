@@ -16,5 +16,5 @@ function registerSymbolMenu(name, buttonId, symbols) {
 }
 
 function insertMathSymbol(symbol) {
-  smallMode ? writeSmallSequence(symbol) : write(symbol);
+  smallMode ? writeSmallSequence(symbol) : write(symbol, symbol === '.' || symbol === ',');
 }

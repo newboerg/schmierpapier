@@ -16,9 +16,18 @@ Schmierpapier bietet einen Platz zum Rechnen, Ausprobieren und Zeichnen direkt i
 
 Die Anwendung soll das eigenständige Arbeiten im Mathematikunterricht unterstützen: Rechnungen lassen sich mit Tastatur und Maus in Kästchen schreiben, Brüche übersichtlich anordnen und geometrische Konstruktionen mit digitalen Werkzeugen zeichnen. Viele Funktionen sind über Buttons erreichbar, sodass nicht für jede Eingabe eine Tastenkombination nötig ist.
 
-Version **0.4.4 (Entwicklung)**
+Version **0.5 (Entwicklung)**
 
 Projektwebseite: [schmierpapier.org](https://schmierpapier.org). Das Logo im App-Header öffnet sie in einem neuen Tab.
+
+## Neu in v0.5 (Entwicklung)
+
+- Komma und Punkt stehen rechts unten am zugehörigen Kästchen und lassen die nächste Ziffer direkt daneben zu. Eigene Satzzeichen-Kästchen sind über Verschiedene Symbole verfügbar.
+- Aufgabenbezeichnungen wie 1a) passen in zwei waagerechte Kästchen, wahlweise doppelhoch; längerer Text wird automatisch kleiner. A halten öffnet die Größenwahl.
+- Die Einstellungen (Zahnrad oder F halten) erlauben 200–3000 ms Haltezeit für lange Tastendrücke und Handschrift oder eine eingebettete Konsolen-Schrift. Hilfe und Tutorial zeigen die eingestellte Dauer. Beide Schriften bleiben offline nutzbar, auch in PDF und Druck.
+- Dateien und Browsersicherungen enthalten die speichernde App-Version sowie die Schrift-/Haltezeit-Einstellungen. Beim Öffnen älterer Stände erscheinen die neueren Versionsübersichten; alte Dateien ohne Versionsangabe bleiben lesbar. Browserspeicherung erfordert weiterhin Zustimmung.
+- Das Geodreieck zeigt Skalenwerte an Strichanfang und -ende vergrößert an: per Tastatur beim Fahren am Rand, per Maus nur in Kantennähe. Es berechnet keine Strichlänge.
+- v0.5 bleibt vorerst lokal; die veröffentlichte Version ist weiterhin v0.4.4. Keine Uploads bis zur Freigabe.
 
 ## Neu in v0.4.4
 

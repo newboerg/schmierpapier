@@ -25,7 +25,7 @@ function showButtonHoldProgress(held, button, isPending) {
     if (!isPending() || held.fired || held.opened || held.selected || document.activeElement !== held.target) {
       stop(); return;
     }
-    rect.style.strokeDashoffset = String(100 * (1 - Math.min(1, (performance.now() - started) / 600)));
+    rect.style.strokeDashoffset = String(100 * (1 - Math.min(1, (performance.now() - started) / settings.holdDelay)));
     frame = requestAnimationFrame(tick);
   };
   tick();
@@ -37,7 +37,7 @@ function actionHoldButton(code, held) {
     return document.querySelectorAll('.swatch[data-tool="marker"]')[Number(code.slice(-1)) - 5];
   if (/^(?:Digit|Numpad)[89]$/.test(code)) return $(code.endsWith('8') ? 'parenOpen' : 'parenClose');
   const ids = {
-    KeyB: 'newFile', KeyO: 'open', KeyS: 'strikeToggle', KeyG: 'geoToggle', KeyK: 'compassToggle',
+    KeyF: 'settingsOpen', KeyA: 'taskLabel', KeyB: 'newFile', KeyO: 'open', KeyS: 'strikeToggle', KeyG: 'geoToggle', KeyK: 'compassToggle',
     KeyI: 'integral', KeyL: 'logic', KeyM: 'sets', KeyU: 'largeMode', KeyZ: 'percent',
     KeyQ: 'root', KeyW: 'root', KeyN: 'numberLineToggle', KeyR: null, KeyX: 'cutRegion',
     KeyC: 'copyRegion', KeyE: 'pdf', KeyD: 'pageView', PageUp: 'prev', PageDown: 'next',

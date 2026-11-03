@@ -18,12 +18,12 @@ function updateShortcutHints() {
   if (!layer || !shortcutHintsVisible) return;
   layer.replaceChildren();
   const bindings = [
-    ['#shortcutHintsToggle', 'T…'], ['#helpOpen', 'F1'],
+    ['#settingsOpen', 'F…'], ['#shortcutHintsToggle', 'T…'], ['#helpOpen', 'F1'],
     ['#newFile', 'B…'], ['#open', 'O…'], ['#fullscreen', 'F11'], ['#strikeToggle', 'S…'],
     ['#prev', 'Bild↑…'], ['#next', 'Bild↓…'], ['#pageView', 'D…'],
     ['#add', 'Einfg…'], ['#remove', 'Entf…'], ['#zoomIn', '+…'], ['#zoomOut', '−…'],
     ['#undo', 'Strg+Z'], ['#redo', 'Strg+Y'], ['#save', 'Strg+S'], ['#pdf', 'E…'], ['#print', 'Strg+P'],
-    ['#cutRegion', 'X…'], ['#copyRegion', 'C…'], ['#largeMode', 'U…'], ['#carryMode', 'Strg…'], ['#powerMode', 'Shift…'],
+    ['#taskLabel', 'A…'], ['#cutRegion', 'X…'], ['#copyRegion', 'C…'], ['#largeMode', 'U…'], ['#carryMode', 'Strg…'], ['#powerMode', 'Shift…'],
     ['.swatch[data-tool="eraser"]', 'R…'], ['#compassToggle', 'K…'], ['#geoToggle', 'G…'],
     ['#numberLineToggle', 'N…'], ['#integral', 'I…'],
     ['#greek', 'P…'], ['#parenOpen', '8…'],
@@ -84,7 +84,7 @@ window.addEventListener('keydown', event => {
     held.timer = setTimeout(() => {
       if (document.activeElement !== held.target) return;
       held.fired = true; toggleShortcutHints();
-    }, 600);
+    }, settings.holdDelay);
     shortcutHintHold = held;
     showButtonHoldProgress(held, $('shortcutHintsToggle'), () => shortcutHintHold === held);
   }

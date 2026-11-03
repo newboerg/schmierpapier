@@ -199,7 +199,7 @@ function initialiseMathTools() {
           if (document.activeElement !== held.target || page !== held.page || (tutorial && tutorialPenDigit() !== held.digit)) return;
           held.selected = true;
           document.querySelectorAll('.swatch[data-tool="pen"]')[Number(held.digit) - 1].click();
-        }, 600);
+        }, settings.holdDelay);
         penNumberHolds.set(event.code, held);
         showButtonHoldProgress(held, document.querySelectorAll('.swatch[data-tool="pen"]')[Number(held.digit) - 1], () => penNumberHolds.get(event.code) === held);
       }
@@ -230,7 +230,7 @@ function initialiseMathTools() {
       event.preventDefault(); event.stopImmediatePropagation();
       if (!greekHold) {
         const held = { key: event.key, target: event.target, shiftKey: event.shiftKey, opened: false };
-        held.timer = setTimeout(() => { held.opened = true; openGreekMenu(held); }, 600);
+        held.timer = setTimeout(() => { held.opened = true; openGreekMenu(held); }, settings.holdDelay);
         greekHold = held;
         showButtonHoldProgress(held, $('greek'), () => greekHold === held);
       }
@@ -241,7 +241,7 @@ function initialiseMathTools() {
       event.preventDefault(); event.stopImmediatePropagation();
       if (!enterHold) {
         const held = { code: event.code, ctrlKey: event.ctrlKey, shiftKey: event.shiftKey, target: event.target, opened: false };
-        held.timer = setTimeout(() => { held.opened = true; openRelationMenu(held); }, 600);
+        held.timer = setTimeout(() => { held.opened = true; openRelationMenu(held); }, settings.holdDelay);
         enterHold = held;
         showButtonHoldProgress(held, $('relationEqual'), () => enterHold === held);
       }
@@ -354,6 +354,7 @@ function closeExtraMenu() {
   if (extraMenu === 'rootChoiceMenu') $('rootMore').setAttribute('aria-expanded', 'false');
   if (extraMenu === 'integralChoiceMenu') $('integralMore').setAttribute('aria-expanded', 'false');
   for (const name of ['logic', 'sets', 'misc']) $(name + 'More').setAttribute('aria-expanded', 'false');
+  $('taskLabelMore').setAttribute('aria-expanded', 'false');
   extraMenu = null;
 }
 
@@ -363,6 +364,7 @@ function openExtraMenu(id, anchor, modifiers = {}) {
   extraModifiers = { ctrlKey: !!modifiers.ctrlKey, shiftKey: !!modifiers.shiftKey };
   const menu = $(id);
   menu.hidden = false;
+  if (id === 'taskLabelMenu') $('taskLabelMore').setAttribute('aria-expanded', 'true');
   if (id === 'rootChoiceMenu') $('rootMore').setAttribute('aria-expanded', 'true');
   if (id === 'integralChoiceMenu') $('integralMore').setAttribute('aria-expanded', 'true');
   for (const name of ['logic', 'sets', 'misc']) if (id === name + 'Menu') $(name + 'More').setAttribute('aria-expanded', 'true');
@@ -380,7 +382,8 @@ function chooseExtra(button, event = {}) {
   if (button.dataset.size === 'down') { modifiers.ctrlKey = true; modifiers.shiftKey = false; }
   if (button.dataset.size === 'up') { modifiers.ctrlKey = false; modifiers.shiftKey = true; }
   closeExtraMenu();
-  if (id === 'paperChoiceMenu') addSheet(button.dataset.paper);
+  if (id === 'taskLabelMenu') insertTaskLabel(Number(button.dataset.taskHeight));
+  else if (id === 'paperChoiceMenu') addSheet(button.dataset.paper);
   else if (button.dataset.stretch) beginStretchChoice(button);
   else if (button.dataset.textSymbol) insertMathSymbol(button.dataset.symbol);
   else if (button.dataset.definite) insertDefiniteIntegral(modifiers);
@@ -404,7 +407,7 @@ function finishActionHold(code, short = false) {
     tourFeedback('Halte die angegebene Taste länger gedrückt, bis die Aktion startet.'); return;
   }
   if (['+', '-'].includes(held.key)) write(held.key);
-  else if (['KeyL', 'KeyM', 'KeyB', 'KeyO', 'KeyS', 'KeyG', 'KeyK', 'KeyI', 'KeyU', 'KeyZ', 'KeyQ', 'KeyW', 'KeyN', 'KeyR', 'KeyX', 'KeyC', 'KeyE', 'KeyD'].includes(code)) write(held.key);
+  else if (['KeyF', 'KeyA', 'KeyL', 'KeyM', 'KeyB', 'KeyO', 'KeyS', 'KeyG', 'KeyK', 'KeyI', 'KeyU', 'KeyZ', 'KeyQ', 'KeyW', 'KeyN', 'KeyR', 'KeyX', 'KeyC', 'KeyE', 'KeyD'].includes(code)) write(held.key);
   else if (code === 'Delete') held.target.dispatchEvent(new KeyboardEvent('keydown', {key: 'Delete', code, bubbles: true, cancelable: true}));
   else if (['PageUp', 'PageDown'].includes(code)) window.scrollBy(0, (code === 'PageUp' ? -1 : 1) * innerHeight * .85);
 }
@@ -419,6 +422,8 @@ function runHeldAction(code) {
   else if (code === 'PageUp' || code === 'PageDown') holdPageTravel(code);
   else if (code === 'KeyG') holdSetSquare(code);
   else if (code === 'KeyK') holdCompass(code);
+  else if (code === 'KeyF') $('settingsOpen').click();
+  else if (code === 'KeyA') openExtraMenu('taskLabelMenu', $('taskLabel'));
   else if (code === 'KeyI') holdIntegralMenu(code);
   else if (code === 'KeyL' || code === 'KeyM') openExtraMenu(code === 'KeyL' ? 'logicMenu' : 'setsMenu', $(code === 'KeyL' ? 'logic' : 'sets'));
   else if (code === 'KeyU') toggleLargeMode();
@@ -439,7 +444,7 @@ function updateModifierModePreview() {
     $(id).classList.toggle('mode-hold', !!pending);
     $(id).classList.toggle('mode-hold-ready', !!pending?.ready);
     const progress = $(id).querySelector('.mode-hold-progress rect');
-    if (progress) progress.style.strokeDashoffset = pending ? String(100 * (1 - Math.min(1, (performance.now() - pending.started) / 600))) : '100';
+    if (progress) progress.style.strokeDashoffset = pending ? String(100 * (1 - Math.min(1, (performance.now() - pending.started) / settings.holdDelay))) : '100';
   }
 }
 
@@ -480,7 +485,7 @@ function initialiseModifierModes() {
     const mode = event.key === 'Shift' ? 'powers' : 'carries';
     if (!modifierModeAllowed(mode) || modifierModeHolds.has(event.code) || event.repeat) return;
     const held = { mode, target: event.target, ready: false, used: false, started: performance.now() };
-    held.timer = setTimeout(() => { held.ready = true; updateModifierModePreview(); }, 600);
+    held.timer = setTimeout(() => { held.ready = true; updateModifierModePreview(); }, settings.holdDelay);
     modifierModeHolds.set(event.code, held);
     animateModifierModeProgress();
   }, true);
@@ -514,17 +519,17 @@ function actionHoldCode(event) {
 }
 
 function initialiseExtendedControls() {
-  for (const [trigger, id] of [['parenOpenMore', 'bracketOpenMenu'], ['parenCloseMore', 'bracketCloseMenu'], ['rootMore', 'rootChoiceMenu'], ['integralMore', 'integralChoiceMenu'], ['logicMore', 'logicMenu'], ['setsMore', 'setsMenu'], ['miscMore', 'miscMenu']]) {
+  for (const [trigger, id] of [['parenOpenMore', 'bracketOpenMenu'], ['parenCloseMore', 'bracketCloseMenu'], ['rootMore', 'rootChoiceMenu'], ['integralMore', 'integralChoiceMenu'], ['logicMore', 'logicMenu'], ['setsMore', 'setsMenu'], ['miscMore', 'miscMenu'], ['taskLabelMore', 'taskLabelMenu']]) {
     $(trigger).onclick = event => extraMenu === id ? closeExtraMenu() : openExtraMenu(id, $(trigger), event);
     $(trigger).addEventListener('pointerdown', e => e.preventDefault());
   }
-  for (const id of ['bracketOpenMenu', 'bracketCloseMenu', 'rootChoiceMenu', 'integralChoiceMenu', 'logicMenu', 'setsMenu', 'miscMenu', 'paperChoiceMenu']) {
+  for (const id of ['bracketOpenMenu', 'bracketCloseMenu', 'rootChoiceMenu', 'integralChoiceMenu', 'logicMenu', 'setsMenu', 'miscMenu', 'taskLabelMenu', 'paperChoiceMenu']) {
     $(id).addEventListener('pointerdown', event => event.preventDefault());
     for (const button of $(id).querySelectorAll('button')) button.onclick = event => chooseExtra(button, event);
   }
   window.addEventListener('pointerdown', event => {
     for (const code of [...actionHolds.keys()]) if (!actionHolds.get(code).fired) finishActionHold(code);
-    if (extraMenu && !event.target.closest?.('#' + extraMenu + ',#parenOpenMore,#parenCloseMore,#rootMore,#integralMore,#logicMore,#setsMore,#miscMore')) closeExtraMenu();
+    if (extraMenu && !event.target.closest?.('#' + extraMenu + ',#parenOpenMore,#parenCloseMore,#rootMore,#integralMore,#logicMore,#setsMore,#miscMore,#taskLabelMore')) closeExtraMenu();
     if (keyboardArea?.mode === 'erase' && !event.target.closest?.('#virtualKeypad')) cancelKeyboardArea();
     else if (keyboardArea && event.target.closest?.('#paper')) {
       keyboardArea = null; document.querySelector('.keyboard-area')?.remove();
@@ -589,7 +594,7 @@ function initialiseExtendedControls() {
     }
     const bracketKey = /^(?:Digit|Numpad)[89]$/.test(actionHoldCode(event));
     const zoomKey = event.key === '+' || event.key === '-';
-    const supported = /^(?:Digit|Numpad)[5-7]$/.test(actionHoldCode(event)) || zoomKey || bracketKey || ['KeyL', 'KeyM', 'KeyB', 'KeyO', 'KeyS', 'KeyG', 'KeyK', 'KeyI', 'KeyU', 'KeyZ', 'KeyQ', 'KeyW', 'KeyN', 'KeyR', 'KeyX', 'KeyC', 'KeyE', 'KeyD', 'PageUp', 'PageDown', 'Insert', 'Delete'].includes(actionHoldCode(event));
+    const supported = /^(?:Digit|Numpad)[5-7]$/.test(actionHoldCode(event)) || zoomKey || bracketKey || ['KeyF', 'KeyA', 'KeyL', 'KeyM', 'KeyB', 'KeyO', 'KeyS', 'KeyG', 'KeyK', 'KeyI', 'KeyU', 'KeyZ', 'KeyQ', 'KeyW', 'KeyN', 'KeyR', 'KeyX', 'KeyC', 'KeyE', 'KeyD', 'PageUp', 'PageDown', 'Insert', 'Delete'].includes(actionHoldCode(event));
     if (keyboardArea && plain && !supported) {
       event.preventDefault(); event.stopImmediatePropagation(); return;
     }
@@ -600,7 +605,7 @@ function initialiseExtendedControls() {
       held.timer = setTimeout(() => {
         if (document.activeElement !== held.target || !tutorialHoldAllowed(actionHoldCode(event))) return;
         held.fired = true; runHeldAction(actionHoldCode(event));
-      }, 600);
+      }, settings.holdDelay);
       actionHolds.set(actionHoldCode(event), held);
       const code = actionHoldCode(event);
       showButtonHoldProgress(held, actionHoldButton(code, held), () => actionHolds.get(code) === held);

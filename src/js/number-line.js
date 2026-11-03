@@ -147,7 +147,7 @@ function drawNumberLineSvg(layer, axis, preview = false) {
         y: label.y,
         fill: axis[4],
         'font-size': 3.6,
-        'font-family': 'OfflineHandschrift, OfflineSymbols, cursive',
+        'font-family': writingFont(),
         'text-anchor': label.anchor,
         'dominant-baseline': 'central',
         class: 'numberline-label',

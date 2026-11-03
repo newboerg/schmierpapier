@@ -13,6 +13,8 @@ $('remove').onclick = () => {
     doc.numberLines.splice(page, 1);
     doc.inks.splice(page, 1);
     doc.highlights.splice(page, 1);
+    doc.decimalMarks.splice(page, 1);
+    doc.taskLabels.splice(page, 1);
     doc.carries.splice(page, 1);
     doc.powers.splice(page, 1);
     doc.fractionEquals.splice(page, 1);

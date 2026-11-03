@@ -11,7 +11,7 @@ function persist() {
   saveTimer = setTimeout(() => {
     if (!storageAllowed) return;
     try {
-      writeAppStorage(KEY, JSON.stringify(doc));
+      writeAppStorage(KEY, JSON.stringify(documentForSave()));
       status('Im Browser gespeichert')
     } catch {
       status('Browserspeicher nicht verfügbar – bitte als .schmier speichern')
@@ -35,7 +35,7 @@ function download(blob, name) {
 
 function saveFile() {
   doc.name = $('name').value.trim() || 'Mein Rechenblatt';
-  download(new Blob([JSON.stringify(doc, null, 2)], {
+  download(new Blob([JSON.stringify(documentForSave(), null, 2)], {
     type: 'application/json'
   }), filename() + '.schmier');
   persist();
@@ -70,7 +70,7 @@ function validateDocument(data) {
         'Das Dokument enthält Zeichen im freizuhaltenden Kästchenrahmen.');
       return row * COLS + col
     };
-    for (const field of ['pages', 'inks', 'highlights', 'carries', 'powers', 'fractionEquals']) {
+    for (const field of ['pages', 'inks', 'highlights', 'carries', 'powers', 'fractionEquals', 'decimalMarks', 'taskLabels']) {
       if (data[field]) data[field] = data[field].map(values => {
         if (!values || typeof values !== 'object' || Array.isArray(values)) throw Error(
           'Ungültiges Blatt.');
@@ -123,6 +123,29 @@ function validateDocument(data) {
       }
     }
     return clean
+  });
+  const decimalMarks = data.pages.map((_, i) => {
+    const values = data.decimalMarks?.[i] ?? {};
+    if (!values || typeof values !== 'object' || Array.isArray(values)) throw Error('Ungültige Satzzeichen.');
+    const clean = {};
+    for (const [key, mark] of Object.entries(values)) {
+      if (!/^\d+$/.test(key) || +key >= COUNT || !mark || !['.', ','].includes(mark.text) || !INKS.includes(mark.color)) throw Error('Ungültige Satzzeichen.');
+      clean[+key] = { text: mark.text, color: mark.color };
+    }
+    return clean;
+  });
+  const taskLabels = data.pages.map((_, i) => {
+    const values = data.taskLabels?.[i] ?? {};
+    if (!values || typeof values !== 'object' || Array.isArray(values)) throw Error('Ungültige Aufgabenbezeichnung.');
+    const clean = {};
+    for (const [key, label] of Object.entries(values)) {
+      if (!/^\d+$/.test(key) || +key >= COUNT || +key % COLS >= COLS - 1 || !label ||
+          ![1, 2].includes(label.height) || +key + (label.height - 1) * COLS >= COUNT ||
+          typeof label.text !== 'string' || !label.text.trim() || label.text.length > 10000 ||
+          /[\u0000-\u001f\u007f]/.test(label.text) || !INKS.includes(label.color)) throw Error('Ungültige Aufgabenbezeichnung.');
+      clean[+key] = { text: label.text, color: label.color, height: label.height };
+    }
+    return clean;
   });
   const tallBrackets = data.pages.map((_, i) => {
     const list = data.tallBrackets?.[i] ?? [];
@@ -218,6 +241,10 @@ function validateDocument(data) {
     pencilLines,
     numberLines,
     tallBrackets,
+    decimalMarks,
+    taskLabels,
+    savedWith: typeof data.savedWith === 'string' && /^\d+\.\d+(?:\.\d+)?$/.test(data.savedWith) ? data.savedWith : null,
+    settings: normaliseSettings(data.settings ?? settings),
     carries: smallDigits('carries'),
     powers: smallDigits('powers'),
     fractionEquals: colors('fractionEquals', INKS).map(values => {
@@ -254,16 +281,18 @@ $('openFile').onchange = async e => {
     const loaded = validate(JSON.parse(await file.text()));
     if ((doc.pages.some(p => Object.keys(p).length) || doc.lines.some(lines => lines.length) || doc
         .pencilLines.some(lines => lines.length) || doc.freehand.some(strokes => strokes.length) || doc.numberLines.some(lines => lines.length) || doc
-        .highlights.some(h => Object.keys(h).length) || doc.carries.some(c => Object.keys(c).length) ||
+        .decimalMarks.some(h => Object.keys(h).length) || doc.taskLabels.some(h => Object.keys(h).length) || doc.highlights.some(h => Object.keys(h).length) || doc.carries.some(c => Object.keys(c).length) ||
         doc.powers.some(c => Object.keys(c).length) || doc.fractionEquals.some(c => Object.keys(c)
         .length) || doc.tallBrackets.some(b => b.length)) && !confirm(
         'Aktuelles Dokument ersetzen? Vorher bei Bedarf als .schmier speichern.')) return;
     checkpoint();
     doc = loaded;
+    applySettings(loaded.settings, true);
     page = 0;
     pos = 0;
   returnColumn = 0;
-    changed()
+    changed();
+    showSavedReleaseNotes(loaded);
   } catch (err) {
     alert('Datei konnte nicht geöffnet werden: ' + err.message)
   } finally {

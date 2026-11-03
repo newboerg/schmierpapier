@@ -9,7 +9,7 @@ const HELP_TRANSLATIONS = {
 // @part part-02
 function currentHelpArticles() {
   const articles = language === 'de' ? HELP_ARTICLES : HELP_TRANSLATIONS[language];
-  return [...articles, LOCALES[language].languageTopic];
+  return [...articles, LOCALES[language].languageTopic].map(article => ({ ...article, html: holdTimeText(article.html) }));
 }
 
 // @part part-03

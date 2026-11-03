@@ -30,6 +30,8 @@ in the embedded font metadata; see the font notices below.
     <title>Schmierpapier · Kariertes Rechenpapier</title>
     <!-- Schmier Handschrift: angepasste Caveat (Ziffer 5). Quelle: https://github.com/googlefonts/caveat
 Copyright und vollständige SIL-OFL-1.1-Lizenz stehen in den eingebetteten Schrift-Metadaten (Name-ID 0/13/14). -->
+    <!-- Konsolenschrift: unveränderte DejaVu Sans Mono. Quelle: https://dejavu-fonts.github.io/
+         Copyright- und Lizenzhinweise sind vollständig in den eingebetteten Font-Metadaten erhalten. -->
     <!-- Symbolschrift: Ausschnitt aus DejaVu Sans Oblique. Quelle: https://dejavu-fonts.github.io/
 Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-Metadaten (Name-ID 0/13/14). -->
     <style>
@@ -103,6 +105,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
               </svg>
               <span>Drucken</span>
             </button>
+            <button id="settingsOpen" title="Einstellungen (F halten)" aria-label="Einstellungen" aria-haspopup="dialog">⚙</button>
             <button id="storageConsentOpen" title="Browserspeicherung prüfen oder ändern" aria-label="Browserspeicherung"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"></path><path d="m8 12 3 3 5-6"></path></svg></button>
             <button id="keypadToggle" type="button" title="Bildschirm-Nummernblock ein-/ausblenden" aria-label="Bildschirm-Nummernblock ein-/ausblenden" aria-controls="virtualKeypad" aria-expanded="false" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="2" width="18" height="20" rx="3"/><path d="M7 7h2m2 0h2m2 0h2M7 12h2m2 0h2m2 0h2M7 17h2m2 0h2m2 0h2"/></svg></button>
           <button id="fullscreen" title="Vollbild einschalten" aria-label="Vollbild einschalten" aria-pressed="false">
@@ -239,6 +242,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
           <span class="tool-separator" aria-hidden="true"></span>
         </div>
         <div class="palette-group math-symbols" role="group" aria-label="Mathematische Zeichen">
+          <span class="relation-buttons"><button id="taskLabel" title="Aufgabenbezeichnung (A halten)" aria-label="Aufgabenbezeichnung">1a)</button><button id="taskLabelMore" title="Größe der Aufgabenbezeichnung wählen" aria-label="Größe der Aufgabenbezeichnung wählen" aria-haspopup="menu" aria-expanded="false">▾</button></span>
           <button id="largeMode" aria-pressed="false" title="Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen schreiben" aria-label="Doppelhohe Schrift">
             <svg width="25" height="25" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
               <rect x="2" y="2" width="12" height="11" rx=".5"></rect><rect x="2" y="13" width="12" height="11" rx=".5"></rect>
@@ -407,7 +411,22 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       </div>
       <div id="keypadKeys" class="keypad-keys"></div>
     </section>
-    <dialog id="storageConsentDialog" aria-labelledby="storageConsentTitle"><h2 id="storageConsentTitle">Im Browser speichern?</h2><p>Nur mit deiner Zustimmung speichern wir Dokumente und Einstellungen (Sprache, Seitenansicht und Zoom) lokal in diesem Browser. Auch deine Zustimmung wird dort gemerkt. Es werden keine Cookies gesetzt und keine Daten von der Anwendung an einen Server gesendet.</p><p>Ohne Zustimmung bleibt alles nur bis zum Schließen der Seite im Arbeitsspeicher. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Eine Ablehnung wird nicht gespeichert; beim nächsten Start fragen wir erneut.</p><p>Du kannst weiterhin selbst .schmier- oder PDF-Dateien herunterladen. Über den Speicher-Button im Kopf lässt sich die Entscheidung jederzeit ändern.</p><div class="storage-consent-actions"><button id="storageDecline">Nicht speichern</button><button id="storageAccept" class="primary">Zustimmen</button></div></dialog>
+    <div id="taskLabelMenu" class="extra-menu" role="menu" hidden>
+      <button data-task-height="1" title="Aufgabenbezeichnung: normale Höhe">1a) · 1 × 2</button>
+      <button data-task-height="2" title="Aufgabenbezeichnung: doppelte Höhe">1a) · 2 × 2</button>
+    </div>
+    <dialog id="settingsDialog" aria-labelledby="settingsTitle">
+      <form id="settingsForm">
+        <h2 id="settingsTitle">Einstellungen</h2>
+        <label>Haltezeit für Tastenkürzel (Millisekunden)<input id="holdDelay" type="number" min="200" max="3000" step="50" required></label>
+        <p>200–3000 ms · Standard: 600 ms. Gilt auch für Shift und Strg.</p>
+        <label>Schrift auf dem Papier<select id="writingFont"><option value="handwriting">Handschrift</option><option value="console">Konsole (Monospace)</option></select></label>
+        <p id="settingsStorageNote"></p>
+        <div class="dialog-actions"><button id="settingsCancel" type="button">Abbrechen</button><button type="submit">Übernehmen</button></div>
+      </form>
+    </dialog>
+    <dialog id="releaseDialog" aria-labelledby="releaseTitle"><h2 id="releaseTitle">Neuerungen seit deinem gespeicherten Stand</h2><p id="releaseOrigin"></p><div id="releaseContent"></div><div class="dialog-actions"><button id="releaseClose">Weiterarbeiten</button></div></dialog>
+    <dialog id="storageConsentDialog" aria-labelledby="storageConsentTitle"><h2 id="storageConsentTitle">Im Browser speichern?</h2><p>Nur mit deiner Zustimmung speichern wir Dokumente und Einstellungen (Sprache, Seitenansicht, Zoom, Schrift und Haltezeit) lokal in diesem Browser. Auch deine Zustimmung wird dort gemerkt. Es werden keine Cookies gesetzt und keine Daten von der Anwendung an einen Server gesendet.</p><p>Ohne Zustimmung bleibt alles nur bis zum Schließen der Seite im Arbeitsspeicher. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Eine Ablehnung wird nicht gespeichert; beim nächsten Start fragen wir erneut.</p><p>Du kannst weiterhin selbst .schmier- oder PDF-Dateien herunterladen. Über den Speicher-Button im Kopf lässt sich die Entscheidung jederzeit ändern.</p><div class="storage-consent-actions"><button id="storageDecline">Nicht speichern</button><button id="storageAccept" class="primary">Zustimmen</button></div></dialog>
     <dialog id="helpDialog" aria-labelledby="helpTitle">
       <div class="help-shell">
         <div class="help-head">

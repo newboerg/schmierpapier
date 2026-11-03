@@ -194,7 +194,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font: 5.5mm 'OfflineHandschrift', 'OfflineSymbols', cursive;
+      font: 5.5mm var(--writing-font);
       color: #172e65;
       cursor: default;
       white-space: pre
@@ -218,7 +218,7 @@
       box-shadow: inset 0 0 0 1.5px #35865e;
       color: #172e65;
       text-align: center;
-      font: 5.5mm 'OfflineHandschrift', 'OfflineSymbols', cursive;
+      font: 5.5mm var(--writing-font);
       outline: none !important;
       caret-color: #24644e
     }
@@ -1518,7 +1518,7 @@
       border: 1px dashed #9baa9d;
       border-radius: 3px;
       background: #fffefaf2;
-      font: 3.6mm 'OfflineHandschrift', 'OfflineSymbols', cursive;
+      font: 3.6mm var(--writing-font);
       pointer-events: auto;
       cursor: default;
       outline: none
@@ -2060,3 +2060,27 @@
     #largeMode[aria-pressed="true"] { background: #24644e; color: white; border-color: #24644e; animation: small-mode-pulse 1.5s ease-in-out infinite; }
     @media (prefers-reduced-motion: reduce) { #largeMode[aria-pressed="true"] { animation: none; box-shadow: 0 0 0 3px #24644e50; } }
     #rootChoiceMenu, #integralChoiceMenu { max-height: calc(100vh - 16px); overflow-y: auto; }
+
+    @font-face {
+      font-family: OfflineConsole;
+      src: url({{asset:assets/fonts/console.ttf}}) format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    :root { --writing-font: OfflineHandschrift, OfflineSymbols, cursive; }
+    .tall-character, .task-label, .decimal-mark { font-family: var(--writing-font); }
+    #settingsDialog, #releaseDialog { width: min(560px, 94vw); max-height: 85vh; overflow: auto;
+      border: 1px solid #b6c8bf; border-radius: 14px; padding: 24px; color: #25342f; }
+    #settingsDialog::backdrop, #releaseDialog::backdrop { background: #152b244d; }
+    #settingsForm label { display: grid; gap: 8px; margin: 18px 0; }
+    #settingsForm input, #settingsForm select { width: 100%; padding: 9px; font: inherit; }
+    .dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+    #taskLabel { width: 36px; min-width: 36px; padding: 0; font-size: 17px; }
+    #taskLabelMenu { grid-template-columns: 1fr; }
+    #taskLabelMenu button { width: auto; min-width: 160px; font: 15px system-ui; }
+    .geo-scale-readout { pointer-events: none; }
+    .geo-scale-readout text { font: bold 2.9px system-ui; fill: #a3212c; }
+    @media print { #settingsDialog, #releaseDialog { display: none !important; } }
+
+    #taskLabelMore { width: 23px; min-width: 23px; padding: 0; }

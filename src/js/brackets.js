@@ -111,7 +111,7 @@ function drawStretchBracketPreview() {
     const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     text.setAttribute('class', 'stretch-bracket-preview');
     text.setAttribute('x', left); text.setAttribute('y', top);
-    text.setAttribute('font-family', 'OfflineHandschrift, OfflineSymbols, cursive');
+    text.setAttribute('font-family', writingFont());
     text.setAttribute('font-size', '2');
     if (hanging) text.setAttribute('dominant-baseline', 'hanging');
     text.style.fill = '#d52d35'; text.style.stroke = 'none';

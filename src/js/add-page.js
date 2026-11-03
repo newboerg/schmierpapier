@@ -17,6 +17,8 @@ function addSheet(type = 'squared') {
   doc.numberLines.splice(page + 1, 0, []);
   doc.inks.splice(page + 1, 0, {});
   doc.highlights.splice(page + 1, 0, {});
+  doc.decimalMarks.splice(page + 1, 0, {});
+  doc.taskLabels.splice(page + 1, 0, {});
   doc.carries.splice(page + 1, 0, {});
   doc.powers.splice(page + 1, 0, {});
   doc.fractionEquals.splice(page + 1, 0, {});

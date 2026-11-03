@@ -619,7 +619,43 @@ const LOCALE_DE = {
     "Platz für das große Ergebnis": "Platz für das große Ergebnis",
     "Gehe zu Zeile 25 · Spalte 14 oder klicke dort. Doppelhohe Schrift bleibt für das Ergebnis eingeschaltet.": "Gehe zu Zeile 25 · Spalte 14 oder klicke dort. Doppelhohe Schrift bleibt für das Ergebnis eingeschaltet.",
     "Das Ergebnis: eine ganze 3": "Das Ergebnis: eine ganze 3",
-    "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.": "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier."
+    "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.": "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.",
+    "Einstellungen": "Einstellungen",
+    "Haltezeit für Tastenkürzel (Millisekunden)": "Haltezeit für Tastenkürzel (Millisekunden)",
+    "200–3000 ms · Standard: 600 ms. Gilt auch für Shift und Strg.": "200–3000 ms · Standard: 600 ms. Gilt auch für Shift und Strg.",
+    "Schrift auf dem Papier": "Schrift auf dem Papier",
+    "Handschrift": "Handschrift",
+    "Konsole (Monospace)": "Konsole (Monospace)",
+    "Übernehmen": "Übernehmen",
+    "Einstellungen werden in diesem Browser gespeichert.": "Einstellungen werden in diesem Browser gespeichert.",
+    "Ohne Speicherzustimmung gelten Einstellungen nur in dieser Sitzung.": "Ohne Speicherzustimmung gelten Einstellungen nur in dieser Sitzung.",
+    "Aufgabenbezeichnung": "Aufgabenbezeichnung",
+    "Aufgabenbezeichnung (A halten)": "Aufgabenbezeichnung (A halten)",
+    "Größe der Aufgabenbezeichnung wählen": "Größe der Aufgabenbezeichnung wählen",
+    "Aufgabenbezeichnung: normale Höhe": "Aufgabenbezeichnung: normale Höhe",
+    "Aufgabenbezeichnung: doppelte Höhe": "Aufgabenbezeichnung: doppelte Höhe",
+    "Aufgabenbezeichnung eingeben (zum Beispiel 1a):": "Aufgabenbezeichnung eingeben (zum Beispiel 1a):",
+    "Für diese Aufgabenbezeichnung fehlen Kästchen am Seitenrand.": "Für diese Aufgabenbezeichnung fehlen Kästchen am Seitenrand.",
+    "Die Aufgabenbezeichnung ist zu lang (maximal 10000 Zeichen).": "Die Aufgabenbezeichnung ist zu lang (maximal 10000 Zeichen).",
+    "Punkt im eigenen Kästchen": "Punkt im eigenen Kästchen",
+    "Komma im eigenen Kästchen": "Komma im eigenen Kästchen",
+    "Ungültige Satzzeichen.": "Ungültige Satzzeichen.",
+    "Ungültige Aufgabenbezeichnung.": "Ungültige Aufgabenbezeichnung.",
+    "Neuerungen seit deinem gespeicherten Stand": "Neuerungen seit deinem gespeicherten Stand",
+    "Gespeichert mit Version:": "Gespeichert mit Version:",
+    "Aktuelle Version:": "Aktuelle Version:",
+    "Dieser ältere Stand enthält keine Versionsangabe. Die folgenden Versionsübersichten dienen zur Orientierung.": "Dieser ältere Stand enthält keine Versionsangabe. Die folgenden Versionsübersichten dienen zur Orientierung.",
+    "Weiterarbeiten": "Weiterarbeiten",
+    "Komma und Punkt sparen Kästchen; Aufgabenbezeichnungen passen in zwei Kästchen.": "Komma und Punkt sparen Kästchen; Aufgabenbezeichnungen passen in zwei Kästchen.",
+    "Geodreieck: Skalenwerte an Strichanfang und Strichende besser sichtbar.": "Geodreieck: Skalenwerte an Strichanfang und Strichende besser sichtbar.",
+    "Einstellungen für Haltezeit und Schrift; gespeicherte Dokumente merken sich die App-Version.": "Einstellungen für Haltezeit und Schrift; gespeicherte Dokumente merken sich die App-Version.",
+    "Frei wählbare Höhen für Klammern, Wurzeln und Integrale; doppelhohe Schrift und gemischte Brüche im Tutorial.": "Frei wählbare Höhen für Klammern, Wurzeln und Integrale; doppelhohe Schrift und gemischte Brüche im Tutorial.",
+    "Bestimmte Integrale, weitere mathematische Symbolmenüs und sichtbarer Fortschritt beim Halten von Tasten.": "Bestimmte Integrale, weitere mathematische Symbolmenüs und sichtbarer Fortschritt beim Halten von Tasten.",
+    "Mehr Werkzeuge per Tastatur bedienen; Symbol- und Größenmenüs sowie Tastenhinweise.": "Mehr Werkzeuge per Tastatur bedienen; Symbol- und Größenmenüs sowie Tastenhinweise.",
+    "Erweiterte Tastaturbedienung und ein verständlicheres Tutorial.": "Erweiterte Tastaturbedienung und ein verständlicheres Tutorial.",
+    "Anfang": "Anfang",
+    "Ende": "Ende",
+    "Einstellungen (F halten)": "Einstellungen (F halten)"
   },
   "helpInitial": [
     {
@@ -893,11 +929,36 @@ const LOCALE_DE = {
       "title": "Gemischter Bruch im Tutorial",
       "keywords": "tutorial tutoriel mixed gemischt bruch fraction U doppelhoch double hauteur",
       "html": "<p>Tutorial um die Rechnung 2 1/2 + 1/2 = 3 ergänzt: ganze Zahlen, Plus und Gleichzeichen doppelhoch mit U oder Button; Zähler und Nenner normal, Bruchstriche wahlweise per Maus oder Tastatur. Navigation und Bildschirm-Nummernblock bleiben nutzbar.</p>"
+    },
+    {
+      "title": "Komma und Punkt ohne eigenes Kästchen",
+      "keywords": "komma punkt dezimal dezimalzeichen löschen dritte ebene",
+      "html": "<p>Komma und Punkt aus Tastatur, Nummernblock oder eingefügtem Text verbrauchen kein eigenes Kästchen. Beim Tippen von 3,14 stehen 3, 1 und 4 direkt nebeneinander; das Komma gehört zur 3 und steht rechts unten dahinter. Nach einer Ziffer bleibt die Schreibposition beim Komma unverändert. Nach gezielter Navigation oder einem Klick gehört ein einzeln eingegebenes Satzzeichen zum ausgewählten Kästchen.</p><p>Das Satzzeichen ist die dritte kleine Löschebene: zuerst Hochzahl, dann Index/Übertrag, dann Komma oder Punkt, danach das Hauptzeichen. Nicht vorhandene Ebenen werden übersprungen; große Zeichen und Bruch-Gleichzeichen behalten ihren bisherigen Vorrang. Zum Löschen das Kästchen der zugehörigen Zahl wählen. Ein neues Komma oder ein Punkt ersetzt ein vorhandenes Satzzeichen desselben Kästchens. Ganze Rechnungen lassen sich auch einfügen.</p><p>Ein Punkt oder Komma, das selbst ein Kästchen belegen soll, steht im Menü Verschiedene Symbole (Z halten). Diese Menüzeichen schreiben im normalen Schreibmodus ein vollständiges Kästchen. Im Hoch-/Tiefstellen-Modus hängen sie an der kleinen Zeichenfolge. Alte Dateien mit gewöhnlichen Satzzeichen behalten ihre bisherigen Kästchen. Neue Satzzeichen werden mit ihrer Zahl gespeichert, kopiert und nach PDF/Druck übernommen.</p><p>Komma und Punkt stehen etwas rechts außerhalb der Kästchenkante, damit sie Abstand zu tiefgestellten Zeichen haben.</p>"
+    },
+    {
+      "title": "Aufgabenbezeichnungen in zwei Kästchen",
+      "keywords": "aufgabenbezeichnung aufgabe nummer prefix 1a A halten",
+      "html": "<p>Der Button 1a) schreibt eine Aufgabenbezeichnung wie 1a) in zwei waagerechte Kästchen. Ein Klick öffnet die Texteingabe. Der Menüpfeil oder A halten öffnet die Größenwahl: normale Höhe (1 Zeile × 2 Spalten) oder doppelte Höhe (2 × 2). Pfeile wählen, Enter bestätigt, Esc schließt das Menü. Strg/Shift + Klick oder ein aktiver Doppelhoch-Modus wählen ebenfalls doppelte Höhe nach unten.</p><p>Die Schrift wird automatisch proportional verkleinert, bis der ganze Text in die Breite passt; längere Texte werden entsprechend kleiner. Es wird kein Text abgeschnitten. Nach dem Einfügen geht es zwei Kästchen nach rechts. Am rechten oder unteren Seitenrand muss genug Platz sein. Abbrechen oder eine leere Eingabe verändert nichts. Kurzes A schreibt weiterhin a.</p><p>Die Bezeichnung gehört zu ihrem gesamten Rechteck: Entf oder Rücktaste in einem belegten Kästchen entfernt sie vollständig; normales Schreiben ersetzt sie. Zum Kopieren/Ausschneiden das ganze Rechteck auswählen. Undo/Redo, .schmier, PDF und Druck erhalten Text, Höhe und Farbe. Das ist eine Beschriftung, keine automatisch berechnete Aufgabennummer.</p>"
+    },
+    {
+      "title": "Einstellungen: Haltezeit und Schrift",
+      "keywords": "einstellungen settings haltezeit warten shift strg schrift monospace konsole",
+      "html": "<p>Das Zahnrad im Kopf öffnet die Einstellungen. Die Haltezeit für alle langen Tastenkürzel lässt sich von 200 bis 3000 Millisekunden ändern (Standard 600 ms). Sie gilt für Farben, Menüs, Werkzeuge, Seiten, Zoom und die Einrastfunktion von Shift/Strg. Der im Uhrzeigersinn laufende Rahmen folgt derselben Zeit. Die Angaben in Hilfe und Tutorial werden an die eingestellte Dauer angepasst. Die kurze Wartezeit an Kästchenecken bleibt unverändert.</p><p>Als Papierschrift stehen Handschrift und eine eingebettete Konsolen-Schrift mit fester Zeichenbreite zur Wahl. Beide funktionieren offline; die Einstellung gilt für das ganze Dokument einschließlich kleiner und doppelhoher Texte, Aufgabenbezeichnungen, PDF und Druck. Geometrieskalen und Oberflächentexte behalten ihre gut lesbare Beschriftung. Übernehmen aktiviert die Auswahl; Abbrechen oder Esc verwirft Änderungen im Fenster.</p><p>Mit Zustimmung werden Einstellungen lokal in diesem Browser gespeichert. Ohne Zustimmung gelten sie nur für die Sitzung; beim Widerruf werden gespeicherte Browserdaten entfernt. Beim Speichern als .schmier werden die Einstellungen zusätzlich in der Datei abgelegt und beim Öffnen übernommen. Es werden keine Cookies gesetzt und keine Einstellungen an einen Server gesendet.</p><p>Im Schreibkästchen öffnet F halten (Feineinstellungen) das Fenster ebenfalls, mit dem üblichen Fortschrittsrahmen und der eingestellten Haltezeit. Kurzes F schreibt weiterhin f; Strg/⌘+F bleibt die Browsersuche. Namen und andere Textfelder bleiben normale Eingabefelder. Die Tastenhilfe zeigt F über dem Zahnrad.</p>"
+    },
+    {
+      "title": "Versionshinweise beim Öffnen",
+      "keywords": "version changelog neuerungen speichern laden browser",
+      "html": "<p>.schmier-Dateien und lokale Browsersicherungen enthalten jetzt zusätzlich zur Dateiformat-Version die App-Version, mit der sie gespeichert wurden. Beim Öffnen eines älteren Standes werden die Versionsübersichten zwischen dieser Version und der laufenden App angezeigt. Für die aktuelle oder eine neuere Version erscheint keine Übersicht. Weiterarbeiten oder Esc schließt das Fenster.</p><p>Alte Dateien ohne Versionsangabe bleiben ladbar; die Übersicht erklärt dann ausdrücklich, dass die genaue Herkunft unbekannt ist, und zeigt die vorhandenen Versionsübersichten zur Orientierung. Die nächste Speicherung enthält die aktuelle App-Version. Bei verweigerter Browserspeicherung wird auch die Versionsinformation nicht lokal gespeichert. Die vollständige Änderungshistorie steht weiterhin in den dreisprachigen CHANGELOG-Dateien des Projekts.</p>"
+    },
+    {
+      "title": "Geodreieck: Skalenwerte an Anfang und Ende",
+      "keywords": "geodreieck skala skalenwert anfang ende cm ablesen",
+      "html": "<p>Beim Zeichnen entlang einer Außenkante zeigen rote, vergrößerte Hinweise die Skalenposition von Anfang und Ende. Das sind die Werte der gedruckten Skala, keine berechnete Strichlänge. Die Hypotenuse hat 0 in der Mitte und positive Zahlen nach links und rechts. Die beiden Katheten beginnen am rechten Winkel mit 0 und zählen in Richtung der Hypotenuse.</p><p>Im Tastaturmodus erscheinen die Hinweise beim Fahren des Stifts entlang der Kante ständig; nach Festlegen des Anfangs stehen beide Werte da. Bei Mausbedienung werden sie nur in Kantennähe (bis 3 mm) eingeblendet. Beim Verlassen der Kante verschwinden sie. Die Hinweise messen keine Winkel oder Differenzen und werden weder gespeichert noch nach PDF oder Druck übernommen. Die rote gestrichelte Strichvorschau bleibt sichtbar.</p>"
     }
   ],
   "consent": [
     "Im Browser speichern?",
-    "Nur mit deiner Zustimmung speichern wir Dokumente und Einstellungen (Sprache, Seitenansicht und Zoom) lokal in diesem Browser. Auch deine Zustimmung wird dort gemerkt. Es werden keine Cookies gesetzt und keine Daten von der Anwendung an einen Server gesendet.",
+    "Nur mit deiner Zustimmung speichern wir Dokumente und Einstellungen (Sprache, Seitenansicht, Zoom, Schrift und Haltezeit) lokal in diesem Browser. Auch deine Zustimmung wird dort gemerkt. Es werden keine Cookies gesetzt und keine Daten von der Anwendung an einen Server gesendet.",
     "Ohne Zustimmung bleibt alles nur bis zum Schließen der Seite im Arbeitsspeicher. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Eine Ablehnung wird nicht gespeichert; beim nächsten Start fragen wir erneut.",
     "Du kannst weiterhin selbst .schmier- oder PDF-Dateien herunterladen. Über den Speicher-Button im Kopf lässt sich die Entscheidung jederzeit ändern.",
     "Nicht speichern",

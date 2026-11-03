@@ -8,10 +8,12 @@
 - Document new or changed features in the application's built-in help in German, English, and French. Update affected tutorial instructions in all three languages as well.
 - Preserve the single-file, offline operation of `schmierpapier.html` and the independent licence notices for its embedded fonts.
 
-- The published application release is v0.4.3. Keep all three changelogs aligned and preserve previous release history. New development belongs to v0.4.4; record it in matching sections in all three changelogs.
+- The published application release is v0.4.4. Keep all three changelogs aligned and preserve previous release history. New development belongs to v0.5; record new changes in matching v0.5 sections of all three changelogs.
 
 - Application sources now live under `src/`. Edit those sources, never the generated root `schmierpapier.html`. After app changes run `python3 build.py` and `python3 build.py --check`; include the regenerated HTML with the source change. The build requires only Python 3.10+ standard-library modules. `python3 build.py --watch` rebuilds after saves.
 - Preserve `src/build.json` section order and the shared classic-script scope. New JS files/parts must be listed there. Keep locale keys/help coverage aligned in `src/i18n/de.js`, `en.js`, and `fr.js`. Read `src/README.md` for the source map and assembly rules. Font/logo assets under `src/assets/` must remain embedded in the generated output.
-- Development is now v0.4.4 and uploads are on hold at the user’s explicit request. Do not upload or publish app or homepage changes until the user requests the next upload. Build/watch/check remain local-only.
+- The user started v0.5 development and explicitly suspended all uploads. Do not upload or publish app or homepage changes until the user requests the next upload. This overrides the automatic homepage deployment workflow above. Build/watch/check remain local-only.
 
 - The homepage uses a SHA-256 hash in its Content-Security-Policy for the inline `site-i18n` script. Whenever its script content or translations change, recompute the hash from the exact UTF-8 text between the script tags before browser testing and deployment; keep the CSP in place.
+
+- Keep offline release summaries in `src/js/release-notes.js` and their DE/EN/FR UI translations aligned with new changelog entries. `savedWith` stores the app release, while `version: 1` remains the document schema.

@@ -1,7 +1,15 @@
 // editor — assembled in src/build.json order; shared classic-script scope.
 
 // @part part-01
-function write(text) {
+function write(text, literalPunctuation = false) {
+  if (smallMode && !literalPunctuation && /[.,]/.test(text)) {
+    for (const part of text.split(/([.,])/)) {
+      if (!part) continue;
+      if (part === "." || part === ",") { checkpoint(); writeDecimalMark(part, pos); changed(); select(pos); }
+      else writeSmallSequence(part);
+    }
+    return;
+  }
   if (smallMode) {
     writeSmallSequence(text);
     return
@@ -15,14 +23,24 @@ function write(text) {
   checkpoint();
   let cursor = pos,
     startCol = pos % COLS;
+  let lastWritten = null;
+  let decimalTarget = decimalInput?.document === doc && decimalInput.page === page && decimalInput.next === pos
+    ? decimalInput.index : pos;
   for (const ch of chars) {
+    if (!literalPunctuation && (ch === "." || ch === ",")) {
+      writeDecimalMark(ch, lastWritten ?? decimalTarget);
+      continue;
+    }
     if (ch === '\n') {
       cursor = (Math.floor(cursor / COLS) + (largeMode ? 2 : 1)) * COLS + startCol;
       if (cursor >= COUNT) break;
+      lastWritten = null; decimalTarget = cursor;
       continue
     }
     if (/[\u0000-\u001f\u007f]/.test(ch)) continue;
     if (cursor >= COUNT) break;
+    removeLabelsAt(cursor);
+    lastWritten = cursor;
     if (largeMode && isTallCharacter(ch)) {
       if (cursor + COLS >= COUNT) {
         status(tr('Für doppelhohe Schrift fehlt unten ein Kästchen.'));
@@ -40,6 +58,7 @@ function write(text) {
     cursor += largeMode && cursor % COLS === COLS - 1 ? COLS + 1 : 1;
   }
   pos = Math.min(cursor, COUNT - 1);
+  if (lastWritten !== null) decimalInput = { document: doc, page, index: lastWritten, next: pos };
   changed();
   select(pos)
 }
@@ -57,6 +76,7 @@ $('editor').addEventListener('input', e => {
 });
 $('editor').addEventListener('click', () => {
   returnColumn = pos % COLS;
+  decimalInput = null;
   $('editor').select();
 });
 $('editor').addEventListener('paste', e => {
@@ -154,7 +174,7 @@ $('editor').addEventListener('keydown', e => {
     e.preventDefault();
     checkpoint();
     if (e.key === 'Backspace' && !doc.pages[page][pos] && !doc.carries[page][pos] && !doc.powers[page][
-        pos] && !doc.fractionEquals[page][pos] && !doc.fractionEquals[page][pos - COLS] && !doc
+        pos] && !doc.decimalMarks[page][pos] && !Object.entries(doc.taskLabels[page]).some(([key, label]) => labelOccupies(+key, label, pos)) && !doc.fractionEquals[page][pos] && !doc.fractionEquals[page][pos - COLS] && !doc
       .tallBrackets[page].some(b => bracketOccupies(b, pos))) pos = Math.max(0, pos -
     1);
     const bracketIndex = doc.tallBrackets[page].findIndex(b => bracketOccupies(b, pos));
@@ -171,6 +191,8 @@ $('editor').addEventListener('keydown', e => {
     }
     else if (doc.powers[page][pos]) delete doc.powers[page][pos];
     else if (doc.carries[page][pos]) delete doc.carries[page][pos];
+    else if (doc.decimalMarks[page][pos]) delete doc.decimalMarks[page][pos];
+    else if (Object.entries(doc.taskLabels[page]).some(([key, label]) => labelOccupies(+key, label, pos))) removeLabelsAt(pos);
     else delete doc.pages[page][pos];
     changed();
     select(pos)

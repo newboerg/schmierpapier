@@ -23,7 +23,13 @@ function preferredLanguage() {
 }
 let language = preferredLanguage();
 
-function tr(source) {
+function holdTimeText(text) {
+  if (typeof text !== 'string') return text;
+  const seconds = (settings.holdDelay / 1000).toLocaleString(language, { maximumFractionDigits: 2 });
+  return text.replace(/0[,.]6(?=\s*(?:Sekunden|seconds|seconde|s\b))/g, seconds);
+}
+function tr(source) { return holdTimeText(translateSource(source)); }
+function translateSource(source) {
   if (typeof source !== 'string' || language === 'de') return source;
   const index = language === 'en' ? 0 : 1,
     trimmed = source.trim(),

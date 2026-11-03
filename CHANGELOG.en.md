@@ -2,8 +2,22 @@
 
 [Deutsch](CHANGELOG.md) · **English** · [Français](CHANGELOG.fr.md)
 
+## v0.5
+
+- Hold F to open settings, with a progress border and shortcut hint. A short F still types text; Ctrl/⌘+F still opens browser search.
+
+- Moved commas and full stops slightly to the right to leave more space for subscripts; screen, PDF and print use the same position.
+- Commas and full stops appear at the bottom right of their owner cell, leaving adjacent cells available for the next digit. Punctuation that occupies a cell is available through Miscellaneous symbols.
+- Exercise labels such as 1a) fit across two cells, optionally double height; longer text shrinks automatically. Hold A to choose the size.
+- Settings (gear button) offer a 200–3000 ms key-hold duration and handwriting or an embedded console font. Help and tutorial show the configured duration. Both fonts work offline, including PDF and print.
+- Files and browser backups record the saving app version and font/hold settings. Opening older documents shows newer release summaries; old files without version information remain readable. Browser storage still requires consent.
+- The set square shows enlarged scale readings at line start and end: while moving along the edge by keyboard, or near the edge with the mouse. It does not calculate line length.
+
+- Started v0.5 development. The published version remains v0.4.4; uploads are suspended until explicitly authorised again.
+
 ## v0.4.4
 
+- Released v0.4.4; updated homepage release notes in all six text variants with concise user benefits.
 - Added the tutorial exercise 2 1/2 + 1/2 = 3: double-height whole numbers, plus and equals via U or button; normal numerators/denominators and fraction bars by mouse or keyboard. Navigation and the on-screen keypad remain available.
 - Protected the transition from parameter prompts to variable-height placement: delayed key, click and focus events from native dialogs no longer commit or discard the preview. This covers definite integrals and indexed roots; placement responds only to fresh input after the dialog.
 - The U writing mode now enlarges arithmetic, comparison, percent and per-mille signs too. This works with the keyboard, numeric keypad and symbol buttons; Ctrl/Shift+Enter keeps its fraction-equals function.

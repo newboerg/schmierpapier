@@ -27,6 +27,10 @@
     {
       "file": "assets/logos/wordmark.svg",
       "mime": "image/svg+xml"
+    },
+    {
+      "file": "assets/fonts/console.ttf",
+      "mime": "font/ttf"
     }
   ],
   "scripts": [
@@ -68,6 +72,10 @@
     },
     {
       "file": "js/storage-consent.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/settings.js",
       "part": "part-01"
     },
     {
@@ -159,6 +167,10 @@
       "part": "part-05"
     },
     {
+      "file": "js/release-notes.js",
+      "part": "part-01"
+    },
+    {
       "file": "js/file-io.js",
       "part": "part-01"
     },
@@ -196,6 +208,14 @@
     },
     {
       "file": "js/large-text.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/decimal-marks.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/task-labels.js",
       "part": "part-01"
     },
     {

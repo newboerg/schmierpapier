@@ -13,7 +13,7 @@ async function pdfExport() {
   button.disabled = true;
   button.textContent = 'PDF wird erstellt …';
   try {
-    await document.fonts.load('16px OfflineHandschrift');
+    await document.fonts.load('16px ' + (settings.font === 'console' ? 'OfflineConsole' : 'OfflineHandschrift'));
     await document.fonts.load('16px OfflineSymbols');
     await document.fonts.ready;
     const encoder = new TextEncoder(),
@@ -84,7 +84,7 @@ async function pdfExport() {
           c.fill()
         }
         c.save();
-        c.font = `${3.6*scale}px "OfflineHandschrift", "OfflineSymbols", cursive`;
+        c.font = `${3.6*scale}px ${writingFont()}`;
         c.textBaseline = 'middle';
         for (const label of shape.labels) {
           c.textAlign = label.anchor === 'end' ? 'right' : label.anchor === 'start' ? 'left' : 'center';
@@ -107,7 +107,7 @@ async function pdfExport() {
       for (const bracket of doc.tallBrackets[p]) {
         if (bracket.text) {
           c.save(); c.fillStyle = bracket.color;
-          c.font = `${11*scale}px "OfflineHandschrift", "OfflineSymbols", cursive`;
+          c.font = `${11*scale}px ${writingFont()}`;
           c.textAlign = 'center'; c.textBaseline = 'middle';
           c.fillText(bracket.side, (7.5 + (bracket.upper % COLS) * 5) * scale,
             (10 + Math.floor(bracket.upper / COLS) * 5) * scale, 4.2 * scale);
@@ -116,7 +116,7 @@ async function pdfExport() {
         if (isGreek(bracket.side)) {
           c.save();
           c.fillStyle = bracket.color;
-          c.font = `${8*scale}px "OfflineSymbols"`;
+          c.font = `${8*scale}px ${settings.font === "console" ? writingFont() : "OfflineSymbols"}`;
           c.textAlign = 'center';
           c.textBaseline = 'middle';
           c.fillText(bracket.side, (7.5 + (bracket.upper % COLS) * 5) * scale, (10 + Math.floor(bracket
@@ -131,7 +131,7 @@ async function pdfExport() {
         c.stroke(new Path2D(bracketPath(bracket)));
         c.restore()
       }
-      c.font = `${5.5*scale}px "OfflineHandschrift", "OfflineSymbols", cursive`;
+      c.font = `${5.5*scale}px ${writingFont()}`;
       c.textAlign = 'center';
       c.textBaseline = 'middle';
       c.fillStyle = '#172e65';
@@ -142,13 +142,13 @@ async function pdfExport() {
           c.stroke(new Path2D(rootPath(+k))); c.restore();
         } else c.fillText(v, (7.5 + (+k % COLS) * 5) * scale, (7.5 + Math.floor(+k / COLS) * 5) * scale)
       }
-      c.font = `${3.3*scale}px "OfflineHandschrift", "OfflineSymbols", cursive`;
+      c.font = `${3.3*scale}px ${writingFont()}`;
       c.textAlign = 'right';
       c.textBaseline = 'bottom';
       for (const [k, carry] of Object.entries(doc.carries[p])) {
         c.fillStyle = carry.color;
         if (carry.integralLimit) {
-          c.save(); c.font = `${2*scale}px "OfflineHandschrift", "OfflineSymbols", cursive`; c.textAlign = 'left';
+          c.save(); c.font = `${2*scale}px ${writingFont()}`; c.textAlign = 'left';
           c.fillText(carry.text, (8.1 + (+k % COLS) * 5) * scale, (10 + Math.floor(+k / COLS) * 5) * scale);
           c.restore();
           continue;
@@ -159,12 +159,12 @@ async function pdfExport() {
       for (const [k, power] of Object.entries(doc.powers[p])) {
         c.fillStyle = power.color;
         if (power.integralLimit) {
-          c.save(); c.font = `${2*scale}px "OfflineHandschrift", "OfflineSymbols", cursive`; c.textAlign = 'left';
+          c.save(); c.font = `${2*scale}px ${writingFont()}`; c.textAlign = 'left';
           c.fillText(power.text, (9.3 + (+k % COLS) * 5) * scale, (5 + Math.floor(+k / COLS) * 5) * scale);
           c.restore();
         } else if (power.rootDegree) {
           c.save();
-          c.font = `${2*scale}px "OfflineHandschrift", "OfflineSymbols", cursive`;
+          c.font = `${2*scale}px ${writingFont()}`;
           c.textAlign = 'left';
           c.fillText(power.text, (5.1 + (+k % COLS) * 5) * scale, (5.1 + Math.floor(+k / COLS) * 5) * scale, 3 * scale);
           c.restore();
@@ -175,6 +175,19 @@ async function pdfExport() {
           c.restore();
         }
       }
+      c.save();
+      c.font = `${4.2*scale}px ${writingFont()}`; c.textAlign = 'left'; c.textBaseline = 'alphabetic';
+      for (const [index, mark] of Object.entries(doc.decimalMarks[p])) {
+        c.fillStyle = mark.color;
+        c.fillText(mark.text, (DECIMAL_MARK_X + (+index % COLS) * 5) * scale, (9.7 + Math.floor(+index / COLS) * 5) * scale);
+      }
+      for (const [index, label] of Object.entries(doc.taskLabels[p])) {
+        c.font = `${taskLabelFontSize(label)*scale}px ${writingFont()}`;
+        c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillStyle = label.color;
+        c.fillText(label.text, (10 + (+index % COLS) * 5) * scale,
+          (5 + Math.floor(+index / COLS) * 5 + label.height * 2.5) * scale, 9.2 * scale);
+      }
+      c.restore();
       paintFreehand(c, scale, doc.freehand[p]);
       const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', .95));
       if (!blob) throw Error('Bild konnte nicht erzeugt werden.');

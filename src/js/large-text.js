@@ -12,7 +12,7 @@ function isTallCharacter(text) {
 }
 
 function tallCharacterWidth(text) {
-  tallTextMeasure.font = '11px "OfflineHandschrift", "OfflineSymbols", cursive';
+  tallTextMeasure.font = '11px ' + writingFont();
   return Math.min(4.2, tallTextMeasure.measureText(text).width);
 }
 
@@ -37,6 +37,7 @@ function writeTallCharacter(index, text) {
   doc.tallBrackets[page] = doc.tallBrackets[page].filter(b => !b.text ||
     !bracketOccupies(b, index) && !bracketOccupies(b, index + COLS));
   for (const cell of [index, index + COLS]) {
+    removeLabelsAt(cell);
     delete doc.pages[page][cell];
     delete doc.inks[page][cell];
   }
@@ -50,7 +51,7 @@ function drawTallCharacter(layer, character) {
   text.setAttribute('y', 10 + Math.floor(character.upper / COLS) * 5);
   text.setAttribute('text-anchor', 'middle');
   text.setAttribute('dominant-baseline', 'central');
-  text.setAttribute('font-family', 'OfflineHandschrift, OfflineSymbols, cursive');
+  text.setAttribute('font-family', writingFont());
   text.setAttribute('font-size', '11');
   text.setAttribute('textLength', tallCharacterWidth(character.side));
   text.setAttribute('lengthAdjust', 'spacingAndGlyphs');

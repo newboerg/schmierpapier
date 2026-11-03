@@ -18,6 +18,7 @@ Unter Windows gegebenenfalls `py -3` statt `python3` verwenden. `--watch` läuft
 | `version.txt` | Aktuelle Entwicklungsversion |
 | `js/basics.js`, `js/editor.js`, `js/rendering.js` | Gemeinsamer Zustand, Kästchen, Schreiben und Darstellung |
 | `js/history.js`, `js/undo.js`, `js/redo.js` | Gemeinsame Historie und ihre Buttons |
+| `js/settings.js`, `js/decimal-marks.js`, `js/task-labels.js`, `js/release-notes.js` | Einstellungen, Satzzeichenebene, zweispaltige Aufgabenbezeichnungen und Offline-Versionsübersichten |
 | `js/hold-progress.js` | Gemeinsamer Fortschrittsrahmen und Buttonzuordnung der Halte-Tasten |
 | `js/keyboard.js` | Halte-Tasten, Tastenkombinationen und Weiterleitung an Features |
 | `js/regions.js`, `js/geometry.js` | Gemeinsame Bereichsauswahl und Geometriehilfen |
@@ -53,3 +54,5 @@ Der Build schreibt reproduzierbar und ersetzt die Ausgabe erst nach erfolgreiche
 Die Lizenzen und Herkunftshinweise der Caveat-/DejaVu-Schriften bleiben in HTML und Schrift-Metadaten erhalten. Schriftdateien nicht ohne ihre Hinweise ersetzen.
 
 **Kein Upload:** Build und Watch-Modus arbeiten ausschließlich lokal. Sie laden keine Pakete und übertragen keine Dateien. Zur Veröffentlichung wird die erzeugte `schmierpapier.html` benötigt, nicht der `src`-Ordner. Die bestehende Homepage ist eine separate Quelle in `../homepage/`.
+
+Neue Release-Übersichten in `js/release-notes.js` pflegen, einschließlich aller UI-Übersetzungen. `savedWith` ist die speichernde App-Version; `version: 1` bleibt die Dateiformat-Version. `settings` enthält Haltezeit und Schrift; `decimalMarks` und `taskLabels` sind seitenparallele Kästchen-Maps. Neue Persistenzschlüssel immer in der Widerrufsliste von `storage-consent.js` führen.

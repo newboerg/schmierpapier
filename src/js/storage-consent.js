@@ -36,7 +36,7 @@ function renderStorageConsent() {
 
 const STORAGE_CONSENT_KEY = 'schmierpapier.storageConsent';
 const APP_STORAGE_KEYS = [STORAGE_CONSENT_KEY, 'schmierpapier.v1', 'schmierpapier.language',
-  'schmierpapier.pageView', 'schmierpapier.zoom'];
+  'schmierpapier.pageView', 'schmierpapier.zoom', 'schmierpapier.settings'];
 let storageAllowed = false;
 let initialStoragePrompt = false;
 try { storageAllowed = localStorage.getItem(STORAGE_CONSENT_KEY) === 'accepted-v1'; } catch {}
@@ -75,7 +75,7 @@ function chooseStorage(allow) {
   try {
     if (firstChoice) {
       const saved = readAppStorage(KEY);
-      if (saved) doc = validate(JSON.parse(saved));
+      if (saved) { doc = validate(JSON.parse(saved)); showSavedReleaseNotes(doc); }
       page = 0; pos = 0;
       const savedView = readAppStorage('schmierpapier.pageView');
       pageView = savedView === '1' ? '1' : '2';
@@ -89,6 +89,7 @@ function chooseStorage(allow) {
   try {
     writeAppStorage(STORAGE_CONSENT_KEY, 'accepted-v1');
     writeAppStorage(LANGUAGE_KEY, language);
+    saveSettings();
     const preferences = tutorial ? tutorial.backup : { pageView, manualZoom };
     writeAppStorage('schmierpapier.pageView', preferences.pageView);
     if (preferences.manualZoom === null) removeAppStorage('schmierpapier.zoom');

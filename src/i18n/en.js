@@ -619,7 +619,43 @@ const LOCALE_EN = {
     "Platz für das große Ergebnis": "Space for the large result",
     "Gehe zu Zeile 25 · Spalte 14 oder klicke dort. Doppelhohe Schrift bleibt für das Ergebnis eingeschaltet.": "Go to row 25 · column 14, or click there. Double-height text stays enabled for the result.",
     "Das Ergebnis: eine ganze 3": "The result: a whole 3",
-    "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.": "Write 3. One half plus one half makes one whole; together with 2, that is 3. The paper now shows 2 1/2 + 1/2 = 3 with large whole numbers and arithmetic signs."
+    "Schreibe 3. Ein Halb plus ein Halb ergibt ein Ganzes; zusammen mit der 2 sind es 3. Jetzt steht 2 1/2 + 1/2 = 3 mit großen ganzen Zahlen und großen Rechenzeichen auf dem Papier.": "Write 3. One half plus one half makes one whole; together with 2, that is 3. The paper now shows 2 1/2 + 1/2 = 3 with large whole numbers and arithmetic signs.",
+    "Einstellungen": "Settings",
+    "Haltezeit für Tastenkürzel (Millisekunden)": "Hold duration for keyboard shortcuts (milliseconds)",
+    "200–3000 ms · Standard: 600 ms. Gilt auch für Shift und Strg.": "200–3000 ms · Default: 600 ms. Also applies to Shift and Ctrl.",
+    "Schrift auf dem Papier": "Writing font",
+    "Handschrift": "Handwriting",
+    "Konsole (Monospace)": "Console (monospace)",
+    "Übernehmen": "Apply",
+    "Einstellungen werden in diesem Browser gespeichert.": "Settings are saved in this browser.",
+    "Ohne Speicherzustimmung gelten Einstellungen nur in dieser Sitzung.": "Without storage consent, settings apply only to this session.",
+    "Aufgabenbezeichnung": "Exercise label",
+    "Aufgabenbezeichnung (A halten)": "Exercise label (hold A)",
+    "Größe der Aufgabenbezeichnung wählen": "Choose exercise label size",
+    "Aufgabenbezeichnung: normale Höhe": "Exercise label: normal height",
+    "Aufgabenbezeichnung: doppelte Höhe": "Exercise label: double height",
+    "Aufgabenbezeichnung eingeben (zum Beispiel 1a):": "Enter an exercise label (for example 1a):",
+    "Für diese Aufgabenbezeichnung fehlen Kästchen am Seitenrand.": "There are not enough cells at the page edge for this exercise label.",
+    "Die Aufgabenbezeichnung ist zu lang (maximal 10000 Zeichen).": "The exercise label is too long (maximum 10000 characters).",
+    "Punkt im eigenen Kästchen": "Full stop in its own cell",
+    "Komma im eigenen Kästchen": "Comma in its own cell",
+    "Ungültige Satzzeichen.": "Invalid punctuation.",
+    "Ungültige Aufgabenbezeichnung.": "Invalid exercise label.",
+    "Neuerungen seit deinem gespeicherten Stand": "Changes since your saved version",
+    "Gespeichert mit Version:": "Saved with version:",
+    "Aktuelle Version:": "Current version:",
+    "Dieser ältere Stand enthält keine Versionsangabe. Die folgenden Versionsübersichten dienen zur Orientierung.": "This older document has no version information. The following release summaries are provided for reference.",
+    "Weiterarbeiten": "Continue working",
+    "Komma und Punkt sparen Kästchen; Aufgabenbezeichnungen passen in zwei Kästchen.": "Commas and full stops save cells; exercise labels fit into two cells.",
+    "Geodreieck: Skalenwerte an Strichanfang und Strichende besser sichtbar.": "Set square: clearer scale readings at the start and end of a line.",
+    "Einstellungen für Haltezeit und Schrift; gespeicherte Dokumente merken sich die App-Version.": "Adjustable hold duration and writing font; saved documents record the app version.",
+    "Frei wählbare Höhen für Klammern, Wurzeln und Integrale; doppelhohe Schrift und gemischte Brüche im Tutorial.": "Adjustable heights for brackets, roots and integrals; double-height writing and mixed fractions in the tutorial.",
+    "Bestimmte Integrale, weitere mathematische Symbolmenüs und sichtbarer Fortschritt beim Halten von Tasten.": "Definite integrals, more mathematical symbol menus and visible key-hold progress.",
+    "Mehr Werkzeuge per Tastatur bedienen; Symbol- und Größenmenüs sowie Tastenhinweise.": "More tools accessible by keyboard, symbol and size menus, and shortcut hints.",
+    "Erweiterte Tastaturbedienung und ein verständlicheres Tutorial.": "Expanded keyboard controls and a clearer tutorial.",
+    "Anfang": "Start",
+    "Ende": "End",
+    "Einstellungen (F halten)": "Settings (hold F)"
   },
   "helpInitial": [
     {
@@ -893,11 +929,36 @@ const LOCALE_EN = {
       "title": "Mixed fraction in the tutorial",
       "keywords": "tutorial tutoriel mixed gemischt bruch fraction U doppelhoch double hauteur",
       "html": "<p>Added the tutorial exercise 2 1/2 + 1/2 = 3: double-height whole numbers, plus and equals via U or button; normal numerators/denominators and fraction bars by mouse or keyboard. Navigation and the on-screen keypad remain available.</p>"
+    },
+    {
+      "title": "Comma and full stop without an extra cell",
+      "keywords": "comma full stop period decimal delete third layer",
+      "html": "<p>Commas and full stops typed on the keyboard or numpad, or pasted as text, do not take up their own cells. In 3.14, 3, 1 and 4 sit in adjacent cells; the decimal mark belongs to the 3 and appears at its bottom right. Typing the mark after a digit does not move the cursor. After deliberate navigation or a click, an individual mark belongs to the selected cell.</p><p>The mark is the third small deletion layer: superscript first, subscript/carry second, comma or full stop third, then the main character. Missing layers are skipped; tall symbols and fraction equals signs retain their existing priority. Select the owning digit’s cell to delete its mark. A new comma or full stop replaces the existing mark in that cell. Pasting complete calculations also works.</p><p>For punctuation that should occupy a cell of its own, use Miscellaneous symbols (hold Z). In normal writing mode those menu entries fill a cell. In superscript/subscript mode they join the small sequence. Older files keep their original ordinary punctuation cells. New marks are saved, copied and exported to PDF/print with their owner cell.</p><p>Commas and full stops sit slightly beyond the cell’s right edge to leave space for subscripts.</p>"
+    },
+    {
+      "title": "Exercise labels across two cells",
+      "keywords": "exercise task label prefix 1a hold A",
+      "html": "<p>The 1a) button inserts an exercise label such as 1a) across two horizontal cells. Clicking opens the text prompt. Use the menu arrow or hold A to choose normal height (1 row × 2 columns) or double height (2 × 2). Arrows select, Enter confirms, Esc closes the menu. Ctrl/Shift + click or the active double-height mode also chooses double height downwards.</p><p>The font shrinks proportionally until all the text fits the available width; longer labels become smaller. Text is not clipped. After insertion the cursor moves two cells to the right. Leave enough room at the right and bottom edges. Cancel or an empty entry changes nothing. A short A press still writes a.</p><p>The label belongs to its entire rectangle. Delete or Backspace in any occupied cell removes it as a whole; ordinary typing replaces it. Select the whole rectangle to copy/cut. Undo/redo, .schmier, PDF and print preserve text, height and colour. This is a label, not an automatically calculated exercise number.</p>"
+    },
+    {
+      "title": "Settings: hold duration and writing font",
+      "keywords": "settings preferences delay hold shift ctrl font monospace console",
+      "html": "<p>The header’s gear button opens settings. Choose a hold duration from 200 to 3000 milliseconds (default 600 ms) for all long-key shortcuts. It applies to colours, menus, tools, pages, zoom and Shift/Ctrl latching. The clockwise progress border uses the same duration. Help and tutorial timing descriptions follow the setting. The short dwell time at cell corners remains unchanged.</p><p>Choose handwriting or an embedded fixed-width console font for the paper. Both work offline. The choice applies throughout the document, including small and double-height text, exercise labels, PDF and print. Instrument scales and interface text keep their readable labels. Apply activates the choice; Cancel or Esc discards unconfirmed changes.</p><p>With consent, preferences are saved locally in this browser. Without consent they last only for this session; revoking consent removes stored browser data. Saving a .schmier file also includes these settings and opening it restores them. No cookies are set and no settings are sent to a server.</p><p>In a writing cell, hold F (preferences; German: Feineinstellungen) to open the same window, using the usual progress border and configured hold duration. A short F still types f; Ctrl/⌘+F still opens browser search. Names and other text fields keep normal input. Shortcut hints show F above the gear.</p>"
+    },
+    {
+      "title": "Release information when opening a document",
+      "keywords": "version release changelog changes save open browser",
+      "html": "<p>.schmier files and local browser backups now record the app version that saved them, separately from the file format version. Opening an older document shows release summaries between that saved version and the running app. Current or newer versions do not show a summary. Continue working or Esc closes the window.</p><p>Old files without version information still open. Their notice explicitly says that the exact originating version is unknown and offers available release summaries for reference. The next save records the current app version. Refusing browser storage also prevents local storage of version information. The complete history remains in the project’s three CHANGELOG files.</p>"
+    },
+    {
+      "title": "Set square: start and end scale readings",
+      "keywords": "set square ruler scale start end cm readout",
+      "html": "<p>When drawing along an outer edge, larger red labels show the scale positions of the start and end. These are readings from the printed scale, not a calculated line length. The hypotenuse has zero in its centre and positive numbers on both sides. The two shorter edges start at zero at the right angle and count towards the hypotenuse.</p><p>With the keyboard, the readouts stay visible while moving the pencil along an edge; both appear after setting the start. With the mouse they appear only close to the edge (within 3 mm) and disappear when leaving it. They calculate neither angles nor differences and are excluded from saved documents, PDF and print. The dashed red line preview remains visible.</p>"
     }
   ],
   "consent": [
     "Save in this browser?",
-    "Only with your consent do we save documents and preferences (language, page view and zoom) locally in this browser. Your consent is also remembered there. The app sets no cookies and sends no data to a server.",
+    "Only with your consent do we save documents and preferences (language, page view, zoom, font and key-hold duration) locally in this browser. Your consent is also remembered there. The app sets no cookies and sends no data to a server.",
     "Without consent, everything stays only in memory until the page is closed. Existing browser data for this app is deleted. A refusal is not saved; we ask again next time.",
     "You can still download .schmier or PDF files yourself. Use the storage button in the header to change your decision at any time.",
     "Do not save",

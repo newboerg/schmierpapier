@@ -8,7 +8,7 @@
 // Ein Bereich wird erst beim Einfügen verändert, damit Esc nichts verwirft.
 let region = null,
   regionClickUntil = 0;
-const REGION_FIELDS = ['pages', 'inks', 'highlights', 'carries', 'powers'];
+const REGION_FIELDS = ['pages', 'inks', 'highlights', 'carries', 'powers', 'decimalMarks'];
 
 function regionRect(a, b) {
   return {
@@ -100,6 +100,8 @@ function snapshotRegion(sourcePage, r) {
     for (const [k, v] of Object.entries(doc[field][sourcePage]))
       if (inRegion(+k, r)) data[field][k] = JSON.parse(JSON.stringify(v))
   }
+  data.taskLabels = Object.fromEntries(Object.entries(doc.taskLabels[sourcePage]).filter(([key, label]) =>
+    inRegion(+key, r) && inRegion(+key + 1 + (label.height - 1) * COLS, r)).map(([key, label]) => [key, { ...label }]));
   data.fractionEquals = Object.fromEntries(Object.entries(doc.fractionEquals[sourcePage]).filter(([k]) =>
     inRegion(+k, r) && inRegion(+k + COLS, r)));
   data.tallBrackets = doc.tallBrackets[sourcePage].filter(b => inRegion(b.upper, r) && inRegion(bracketLastIndex(b), r)).map(b => ({
@@ -120,6 +122,8 @@ function eraseRegion(targetPage, r) {
   for (const field of REGION_FIELDS)
     for (const key of Object.keys(doc[field][targetPage]))
       if (inRegion(+key, r)) delete doc[field][targetPage][key];
+  for (const [key, label] of Object.entries(doc.taskLabels[targetPage]))
+    if (inRegion(+key, r) && inRegion(+key + 1 + (label.height - 1) * COLS, r)) delete doc.taskLabels[targetPage][key];
   for (const key of Object.keys(doc.fractionEquals[targetPage]))
     if (inRegion(+key, r) && inRegion(+key + COLS, r)) delete doc.fractionEquals[targetPage][key];
   doc.tallBrackets[targetPage] = doc.tallBrackets[targetPage].filter(b => !(inRegion(b.upper, r) && inRegion(bracketLastIndex(b), r)));
@@ -151,6 +155,7 @@ function pasteRegion(point) {
   for (const field of REGION_FIELDS)
     for (const [k, v] of Object.entries(data[field])) doc[field][page][+k + offset] = JSON.parse(JSON
       .stringify(v));
+  for (const [k, v] of Object.entries(data.taskLabels)) doc.taskLabels[page][+k + offset] = { ...v };
   for (const [k, v] of Object.entries(data.fractionEquals)) doc.fractionEquals[page][+k + offset] = v;
   doc.tallBrackets[page].push(...data.tallBrackets.map(b => ({
     ...b,

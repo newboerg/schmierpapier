@@ -2,8 +2,22 @@
 
 [Deutsch](CHANGELOG.md) · [English](CHANGELOG.en.md) · **Français**
 
+## v0.5
+
+- Maintenir F ouvre les paramètres, avec cadre de progression et indication du raccourci. Un appui court écrit toujours du texte ; Ctrl/⌘+F reste la recherche du navigateur.
+
+- Virgules et points légèrement décalés à droite pour laisser davantage de place aux indices ; même position à l’écran, en PDF et à l’impression.
+- Les virgules et points apparaissent en bas à droite de leur carreau associé, laissant le carreau suivant libre pour le prochain chiffre. Les signes occupant un carreau sont disponibles dans Symboles divers.
+- Les libellés d’exercice tels que 1a) tiennent dans deux carreaux horizontaux, avec hauteur double en option ; les textes longs sont réduits automatiquement. Maintenir A ouvre le choix de taille.
+- Les paramètres (roue dentée) proposent une durée de maintien de 200–3000 ms et l’écriture manuscrite ou une police de console intégrée. L’aide et le tutoriel affichent la durée choisie. Les deux polices fonctionnent hors ligne, y compris en PDF et à l’impression.
+- Les fichiers et sauvegardes locales conservent la version de l’application et les réglages de police/maintien. L’ouverture d’anciens documents affiche les résumés des versions suivantes ; les fichiers sans version restent lisibles. Le stockage local nécessite toujours une autorisation.
+- L’équerre agrandit les graduations de début et de fin : au clavier lors du déplacement sur le bord, à la souris près du bord. Elle ne calcule pas la longueur du trait.
+
+- Début du développement de v0.5. La version publiée reste v0.4.4 ; les envois sont suspendus jusqu’à une nouvelle autorisation explicite.
+
 ## v0.4.4
 
+- Publication de v0.4.4 ; nouveautés du site actualisées dans les six variantes avec des bénéfices concis.
 - Ajout au tutoriel de 2 1/2 + 1/2 = 3 : entiers, plus et égal de double hauteur avec U ou le bouton ; numérateurs/dénominateurs normaux et barres à la souris ou au clavier. Navigation et pavé à l’écran restent disponibles.
 - Transition sécurisée entre saisie des paramètres et choix libre de hauteur : les événements retardés de touche, clic et focus des dialogues natifs ne valident ni n’annulent l’aperçu. Cela concerne les intégrales définies et racines avec indice ; seules les nouvelles saisies après le dialogue commandent la hauteur.
 - Le mode U agrandit désormais aussi les signes de calcul, comparaison, pourcentage et pour mille. Cela fonctionne au clavier, au pavé et avec les boutons ; Ctrl/Maj+Entrée conserve l’égalité pour fractions.

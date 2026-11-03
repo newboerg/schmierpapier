@@ -32,6 +32,8 @@ let doc = {
     ],
     inks: [{}],
     highlights: [{}],
+    decimalMarks: [{}],
+    taskLabels: [{}],
     carries: [{}],
     powers: [{}],
     fractionEquals: [{}],
@@ -224,7 +226,7 @@ function render() {
 function select(i, focus = true, rememberColumn = false) {
   nodes[pos]?.classList.remove('selected');
   pos = Math.max(0, Math.min(COUNT - 1, i));
-  if (rememberColumn) returnColumn = pos % COLS;
+  if (rememberColumn) { returnColumn = pos % COLS; decimalInput = null; }
   nodes[pos].classList.add('selected');
   const ed = $('editor');
   ed.style.left = (5 + (pos % COLS) * 5) + 'mm';

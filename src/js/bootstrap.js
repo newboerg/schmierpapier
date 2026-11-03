@@ -14,10 +14,14 @@ try {
 } catch {
   status('Browserspeicher nicht verfügbar – bitte als .schmier speichern')
 }
+applySettings(settings);
 render();
 initialiseLanguage();
 
 // @part part-02
+initialiseSettings();
+initialiseTaskLabels();
+showSavedReleaseNotes(doc);
 initialiseShortcutHints();
 initialiseKeypad();
 initialiseStrike();

@@ -200,6 +200,49 @@ function renderGeo() {
     preview.setAttribute('visibility', 'visible')
   } else preview.setAttribute('visibility', 'hidden');
   renderKeyboardGeoPencil(root);
+  renderGeoScaleReadouts(root);
+}
+
+// Convert a world point back to the ruler's own coordinate system.
+function geoLocal(point) {
+  const rad = geo.angle * Math.PI / 180, c = Math.cos(rad), s = Math.sin(rad);
+  const x = point[0] - geo.x, y = point[1] - geo.y;
+  return [x * c + y * s, -x * s + y * c];
+}
+function geoScaleValue(point, edge) {
+  const local = geoLocal(point);
+  // Edge 0 is the hypotenuse: both printed halves increase away from zero.
+  return edge === 0 ? Math.abs(local[0]) / 10 : Math.hypot(local[0], local[1] + 80) / 10;
+}
+function renderGeoScaleReadouts(root) {
+  root.querySelectorAll('.geo-scale-readout').forEach(node => node.remove());
+  if (geo.placing) return;
+  const state = geo.keyboard, gesture = geo.gesture;
+  const markers = [];
+  if (state && ['start', 'end'].includes(state.stage)) {
+    if (gesture?.kind === 'draw') markers.push({ point: gesture.start, edge: state.edge, label: 'Anfang' });
+    markers.push({ point: keyboardGeoPoint(), edge: state.edge, label: state.stage === 'end' ? 'Ende' : 'Anfang' });
+  } else if (!state && gesture?.kind === 'draw' && geo.edgeHover) {
+    markers.push({ point: gesture.start, edge: gesture.edge, label: 'Anfang' });
+    if (geo.edgeHover) markers.push({ point: gesture.end, edge: gesture.edge, label: 'Ende' });
+  } else if (!state && !gesture && geo.edgeHover) {
+    markers.push({ point: geo.edgeHover.projection, edge: geo.edgeHover.index, label: 'Anfang' });
+  }
+  markers.forEach((marker, index) => {
+    const value = geoScaleValue(marker.point, marker.edge);
+    const text = tr(marker.label) + ': ' + value.toLocaleString(language, { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' cm';
+    const width = Math.max(21, text.length * 1.65 + 3);
+    const x = Math.max(width / 2 + .5, Math.min(209.5 - width / 2, marker.point[0]));
+    const y = Math.max(5, Math.min(289, marker.point[1] + (index === 0 ? -9 : 8)));
+    const badge = geoSvg('g', { class: 'geo-scale-readout', 'data-geo-scale-value': value.toFixed(4),
+      'data-geo-endpoint': marker.label }, root);
+    geoSvg('line', { x1: marker.point[0], y1: marker.point[1], x2: x, y2: y,
+      stroke: '#c52f3b', 'stroke-width': .35, 'stroke-dasharray': '1 1' }, badge);
+    geoSvg('circle', { cx: marker.point[0], cy: marker.point[1], r: .9, fill: '#c52f3b' }, badge);
+    geoSvg('rect', { x: x - width / 2, y: y - 3.5, width, height: 7, rx: 1,
+      fill: '#fff8f7', stroke: '#d87780', 'stroke-width': .3 }, badge);
+    geoSvg('text', { x, y: y + 1, 'text-anchor': 'middle' }, badge).textContent = text;
+  });
 }
 
 function toggleGeo() {
@@ -213,7 +256,7 @@ function toggleGeo() {
     return;
   }
   hideCompass();
-  geo.keyboard = null;
+  geo.keyboard = null; geo.edgeHover = null;
   cancelNumberLine(false);
   if (geo.visible) {
     geo.visible = false;
@@ -380,6 +423,7 @@ function resolveGeoDraw(gesture, point) {
     }
   }
   if (best) {
+    gesture.edge = best.index;
     gesture.a = best.a;
     gesture.b = best.b;
     gesture.start = geoProjection(gesture.startPoint, best.a, best.b);
@@ -447,8 +491,10 @@ function geoCapture(e) {
         status('Zum Zeichnen mit rechts nahe an einer der drei Außenkanten beginnen.');
         return
       }
+      geo.edgeHover = edge;
       geo.gesture = {
         kind: 'draw',
+        edge: edge.index,
         a: edge.a,
         b: edge.b,
         start: edge.projection,
@@ -458,6 +504,7 @@ function geoCapture(e) {
         locked: edge.candidates.length === 1
       }
     } else if (e.button === 0 && handle) {
+      geo.edgeHover = null;
       e.preventDefault();
       e.stopImmediatePropagation();
       geo.gesture = handle.dataset.geoHandle === 'move' ? {
@@ -487,7 +534,9 @@ function geoCapture(e) {
       return
     }
     const g = geo.gesture;
-    if (!g) return;
+    const edge = nearestGeoEdge(point);
+    geo.edgeHover = edge.distance <= 3 ? edge : null;
+    if (!g) { renderGeo(); return; }
     e.preventDefault();
     e.stopImmediatePropagation();
     if (g.kind === 'move') {
@@ -498,7 +547,8 @@ function geoCapture(e) {
       geo.angle = ((g.angle + delta + 180) % 360 + 360) % 360 - 180
     } else {
       resolveGeoDraw(g, point);
-      g.end = geoProjection(point, g.a, g.b)
+      g.end = geoProjection(point, g.a, g.b);
+      if (Math.hypot(point[0] - g.end[0], point[1] - g.end[1]) > 3) geo.edgeHover = null;
     }
     renderGeo();
     return;
@@ -557,3 +607,8 @@ function holdSetSquare(code) {
   if (compass.active && compass.phase === 'radius') toggleGeo();
   else beginKeyboardGeo();
 }
+
+$('paper').addEventListener('pointerleave', () => {
+  geo.edgeHover = null;
+  if (geo.visible && !geo.keyboard) renderGeo();
+});

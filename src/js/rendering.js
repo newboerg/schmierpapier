@@ -5,6 +5,8 @@ function renderLines() {
   const layer = $('lineLayer');
   layer.replaceChildren();
   renderFreehand();
+  drawDecimalMarks(layer);
+  drawTaskLabels(layer);
 
   function line(coords, preview = false) {
     const el = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -53,7 +55,7 @@ function renderLines() {
       text.setAttribute('y', 10 + Math.floor(bracket.upper / COLS) * 5);
       text.setAttribute('text-anchor', 'middle');
       text.setAttribute('dominant-baseline', 'central');
-      text.setAttribute('font-family', 'OfflineSymbols');
+      text.setAttribute('font-family', settings.font === 'console' ? writingFont() : 'OfflineSymbols');
       text.setAttribute('font-size', '8');
       text.setAttribute('textLength', '4');
       text.setAttribute('lengthAdjust', 'spacingAndGlyphs');

@@ -2,8 +2,22 @@
 
 **Deutsch** · [English](CHANGELOG.en.md) · [Français](CHANGELOG.fr.md)
 
+## v0.5
+
+- Einstellungen per F halten (Feineinstellungen) öffnen, einschließlich Fortschrittsrahmen und Tastenhinweis. Kurzes F bleibt Texteingabe; Strg/⌘+F bleibt die Browsersuche.
+
+- Komma und Punkt etwas nach rechts versetzt, damit sie mehr Abstand zu tiefgestellten Zeichen haben; Bildschirm, PDF und Druck verwenden dieselbe Position.
+- Komma und Punkt stehen rechts unten am zugehörigen Kästchen und lassen die nächste Ziffer direkt daneben zu. Eigene Satzzeichen-Kästchen sind über Verschiedene Symbole verfügbar.
+- Aufgabenbezeichnungen wie 1a) passen in zwei waagerechte Kästchen, wahlweise doppelhoch; längerer Text wird automatisch kleiner. A halten öffnet die Größenwahl.
+- Die Einstellungen (Zahnrad) erlauben 200–3000 ms Haltezeit für lange Tastendrücke und Handschrift oder eine eingebettete Konsolen-Schrift. Hilfe und Tutorial zeigen die eingestellte Dauer. Beide Schriften bleiben offline nutzbar, auch in PDF und Druck.
+- Dateien und Browsersicherungen enthalten die speichernde App-Version sowie die Schrift-/Haltezeit-Einstellungen. Beim Öffnen älterer Stände erscheinen die neueren Versionsübersichten; alte Dateien ohne Versionsangabe bleiben lesbar. Browserspeicherung erfordert weiterhin Zustimmung.
+- Das Geodreieck zeigt Skalenwerte an Strichanfang und -ende vergrößert an: per Tastatur beim Fahren am Rand, per Maus nur in Kantennähe. Es berechnet keine Strichlänge.
+
+- Entwicklung von v0.5 begonnen. Veröffentlichte Version bleibt v0.4.4; keine Uploads bis zur erneuten Freigabe.
+
 ## v0.4.4
 
+- v0.4.4 veröffentlicht; Homepage-Neuerungen in allen sechs Textfassungen allgemein und nutzerorientiert aktualisiert.
 - Tutorial um die Rechnung 2 1/2 + 1/2 = 3 ergänzt: ganze Zahlen, Plus und Gleichzeichen doppelhoch mit U oder Button; Zähler und Nenner normal, Bruchstriche wahlweise per Maus oder Tastatur. Navigation und Bildschirm-Nummernblock bleiben nutzbar.
 - Übergang von der Parametereingabe zur freien Höhenwahl abgesichert: verspätete Tasten-, Klick- und Fokusereignisse nativer Dialoge bestätigen oder verwerfen die Vorschau nicht mehr. Das gilt für bestimmte Integrale und Wurzeln mit Exponent; erst eine neue Eingabe nach dem Dialog bedient die Höhenwahl.
 - Der U-Schreibmodus vergrößert jetzt auch Rechen-, Vergleichs-, Prozent- und Promillezeichen. Das gilt für Tastatur, Nummernblock und Symbolbuttons; Strg/Shift+Enter für Bruch-Gleichzeichen bleibt erhalten.
