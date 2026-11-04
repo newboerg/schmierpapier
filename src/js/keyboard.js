@@ -368,9 +368,7 @@ function openExtraMenu(id, anchor, modifiers = {}) {
   if (id === 'rootChoiceMenu') $('rootMore').setAttribute('aria-expanded', 'true');
   if (id === 'integralChoiceMenu') $('integralMore').setAttribute('aria-expanded', 'true');
   for (const name of ['logic', 'sets', 'misc']) if (id === name + 'Menu') $(name + 'More').setAttribute('aria-expanded', 'true');
-  const r = anchor.getBoundingClientRect();
-  menu.style.left = Math.max(8, Math.min(r.left, innerWidth - menu.offsetWidth - 8)) + 'px';
-  menu.style.top = Math.max(8, Math.min(r.bottom + 5, innerHeight - menu.offsetHeight - 8)) + 'px';
+  positionToolbarMenu(menu, anchor);
   menu.querySelectorAll('button').forEach((b, i) => b.classList.toggle('menu-current', i === (id === 'integralChoiceMenu' || id === 'rootChoiceMenu' ? 4 : id === 'bracketOpenMenu' || id === 'bracketCloseMenu' ? 8 : 0)));
   if (id === 'bracketOpenMenu') $('parenOpenMore').setAttribute('aria-expanded', 'true');
   if (id === 'bracketCloseMenu') $('parenCloseMore').setAttribute('aria-expanded', 'true');

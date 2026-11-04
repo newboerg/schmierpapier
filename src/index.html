@@ -39,267 +39,454 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     </style>
   </head>
   <body>
-    <header>
-      <div class="top">
-        <div class="brand-block">
-          <a class="brand" href="https://schmierpapier.org" target="_blank" rel="noopener noreferrer" title="schmierpapier.org"><img src="{{asset:assets/logos/wordmark.svg}}" alt="Schmierpapier" width="600" height="136"></a>
-          <span class="version">v {{version}}</span>
-        </div>
-        <div class="paging">
-          <button id="prev" aria-label="Vorherige Seite" title="Vorheriges Blatt">Zurück</button>
-          <span id="pageLabel"></span>
-          <button id="next" aria-label="Nächste Seite" title="Nächstes Blatt">Vor</button>
+    <header id="toolbar">
+      <div class="brand-block">
+        <a class="brand" href="https://schmierpapier.org" target="_blank" rel="noopener noreferrer" title="schmierpapier.org">
+          <img src="{{asset:assets/logos/wordmark.svg}}" alt="Schmierpapier" width="600" height="136">
+        </a>
+        <span class="version">
+          v {{version}}
+        </span>
+      </div>
+      <div class="toolbar-groups" id="toolbarGroups">
+        <div class="toolbar-group paging" data-toolbar-group="pages" role="group" aria-label="Seiten">
+          <button id="prev" aria-label="Vorherige Seite" title="Vorheriges Blatt">
+            Zurück
+          </button>
+          <span id="pageLabel">
+          </span>
+          <button id="next" aria-label="Nächste Seite" title="Nächstes Blatt">
+            Vor
+          </button>
           <span class="view-picker">
             <svg class="view-double" width="24" height="21" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="1.5" y="2" width="11" height="20" rx="1.5" fill="#fff"></rect>
-              <rect x="15.5" y="2" width="11" height="20" rx="1.5" fill="#fff"></rect>
-              <path d="M4.5 7h5M4.5 11h5M18.5 7h5M18.5 11h5" stroke="#91a79b"></path>
+              <rect x="1.5" y="2" width="11" height="20" rx="1.5" fill="#fff">
+              </rect>
+              <rect x="15.5" y="2" width="11" height="20" rx="1.5" fill="#fff">
+              </rect>
+              <path d="M4.5 7h5M4.5 11h5M18.5 7h5M18.5 11h5" stroke="#91a79b">
+              </path>
             </svg>
             <svg class="view-single" width="24" height="21" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="7.5" y="2" width="13" height="20" rx="1.5" fill="#fff"></rect>
-              <path d="M11 7h6M11 11h6" stroke="#91a79b"></path>
+              <rect x="7.5" y="2" width="13" height="20" rx="1.5" fill="#fff">
+              </rect>
+              <path d="M11 7h6M11 11h6" stroke="#91a79b">
+              </path>
             </svg>
             <select id="pageView" aria-label="Seitenansicht" title="Ein Blatt oder zwei Blätter nebeneinander anzeigen (D halten)">
-              <option value="2">Doppelseite</option>
-              <option value="1">Einzelseite</option>
+              <option value="2">
+                Doppelseite
+              </option>
+              <option value="1">
+                Einzelseite
+              </option>
             </select>
           </span>
           <span class="add-sheet-split">
             <button id="add" aria-label="Neue karierte Seite hinzufügen" title="Direkt eine neue karierte Seite hinzufügen">
-              <span aria-hidden="true">＋</span> Seite</button>
+              <span aria-hidden="true">
+                ＋
+              </span>
+              Seite
+            </button>
             <button id="addSheetArrow" aria-label="Weitere Papierarten hinzufügen" title="Weitere Papierarten: Millimeterpapier hinzufügen" popovertarget="addSheetMenu" aria-haspopup="true">
               <svg width="10" height="8" viewBox="0 0 10 8" aria-hidden="true">
-                <path d="m1 2 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+                <path d="m1 2 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5">
+                </path>
               </svg>
             </button>
             <span id="addSheetMenu" popover="auto">
-              <button id="addMillimeter" title="Ein neues Blatt mit orangem 1-mm-Raster hinzufügen">▦ Millimeterpapier hinzufügen</button>
+              <button id="addMillimeter" title="Ein neues Blatt mit orangem 1-mm-Raster hinzufügen">
+                ▦ Millimeterpapier hinzufügen
+              </button>
             </span>
           </span>
           <button id="remove" aria-label="Aktuelle Seite löschen" title="Aktuelle Seite löschen">
             <svg width="15" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-              <path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7M14 10v7"></path>
-            </svg> Seite</button>
-          <span class="nav-separator" aria-hidden="true"></span>
+              <path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7M14 10v7">
+              </path>
+            </svg>
+            Seite
+          </button>
+        </div>
+        <div class="toolbar-group paging" data-toolbar-group="zoom" role="group" aria-label="Zoom">
           <div class="zoom-controls" role="group" aria-label="Zoom">
-            <button id="zoomOut" title="Herauszoomen" aria-label="Herauszoomen">−</button>
-            <button id="zoomReset" title="Blätter an die Fensterbreite anpassen">100 %</button>
-            <button id="zoomIn" title="Hineinzoomen" aria-label="Hineinzoomen">+</button>
-          </div>
-        </div>
-        <div class="paging">
-          <button id="undo" aria-label="Rückgängig" title="Rückgängig (Strg + Z)">↶</button>
-          <button id="redo" aria-label="Wiederholen" title="Wiederholen (Strg + Y / Strg + Shift + Z)">↷</button>
-        </div>
-        <div class="paging">
-          <button id="newFile" title="Neue Datei (Strg+N oder B halten)">Neue Datei</button>
-          <button id="open" title="Datei laden (Strg+O oder O halten)">Datei laden</button>
-          <input id="name" aria-label="Dokumentname" value="Mein Rechenblatt" maxlength="80">
-          <button id="save" title="Dokument als .schmier speichern (Strg + S)">.schmier speichern</button>
-          <div class="export-actions">
-            <button id="pdf" class="primary" title="Alle Blätter als PDF exportieren (E halten)">PDF exportieren</button>
-            <button id="print" title="Alle Blätter drucken" aria-label="Alle Blätter drucken">
-              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M6 9V3h12v6M6 17H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"></path>
-                <path d="M6 14h12v7H6zM18 12h.01"></path>
-              </svg>
-              <span>Drucken</span>
+            <button id="zoomOut" title="Herauszoomen" aria-label="Herauszoomen">
+              −
             </button>
-            <button id="settingsOpen" title="Einstellungen (F halten)" aria-label="Einstellungen" aria-haspopup="dialog">⚙</button>
-            <button id="storageConsentOpen" title="Browserspeicherung prüfen oder ändern" aria-label="Browserspeicherung"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"></path><path d="m8 12 3 3 5-6"></path></svg></button>
-            <button id="keypadToggle" type="button" title="Bildschirm-Nummernblock ein-/ausblenden" aria-label="Bildschirm-Nummernblock ein-/ausblenden" aria-controls="virtualKeypad" aria-expanded="false" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="2" width="18" height="20" rx="3"/><path d="M7 7h2m2 0h2m2 0h2M7 12h2m2 0h2m2 0h2M7 17h2m2 0h2m2 0h2"/></svg></button>
-          <button id="fullscreen" title="Vollbild einschalten" aria-label="Vollbild einschalten" aria-pressed="false">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path data-fullscreen-icon d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"></path>
-              </svg>
+            <button id="zoomReset" title="Blätter an die Fensterbreite anpassen">
+              100 %
             </button>
-            <label class="language-picker" title="Sprache wählen · Auswahl wird in diesem Browser gespeichert">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"></circle>
-                <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
-                <path d="M3 12h18M5 6h14M5 18h14"></path>
-              </svg>
-              <select id="language" aria-label="Sprache">
-                <option value="de" lang="de">Deutsch</option>
-                <option value="en" lang="en">English</option>
-                <option value="fr" lang="fr">Français</option>
-              </select>
-            </label>
-            <button id="shortcutHintsToggle" title="Tastenhinweise ein-/ausblenden (T halten)" aria-label="Tastenhinweise" aria-pressed="false">
-              <svg width="27" height="21" viewBox="0 0 30 23" fill="none" aria-hidden="true">
-                <rect x="1" y="2" width="28" height="19" rx="3" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M5 7h3m3 0h3m3 0h3m3 0h2M5 11h3m3 0h3m3 0h3m3 0h2M9 17h12" stroke="currentColor" stroke-width="2"/>
-                <rect x="9.5" y="4.5" width="6" height="5" rx="1" fill="#db5960"/>
-                <rect x="16" y="9" width="6" height="5" rx="1" fill="#db5960"/>
-              </svg>
-            </button>
-            <button id="helpOpen" title="Hilfe mit allen Funktionen und Tastenkürzeln öffnen (F1)" aria-haspopup="dialog">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"></circle>
-                <path d="M9.5 9a2.5 2.5 0 1 1 4 2c-1 .7-1.5 1-1.5 2.5M12 17h.01"></path>
-              </svg>
-              <span>Hilfe</span>
-            </button>
-            <button id="tutorialStart" title="Interaktives Tutorial auf einem separaten Übungsblatt starten">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 5v16M12 5C9 3 5 3 2 4v15c3-1 7-1 10 2 3-3 7-3 10-2V4c-3-1-7-1-10 1Z"></path>
-                <path d="M5 8h4M5 12h4M15 8h4M15 12h4"></path>
-              </svg>
-              <span>Tutorial</span>
+            <button id="zoomIn" title="Hineinzoomen" aria-label="Hineinzoomen">
+              +
             </button>
           </div>
         </div>
-      </div>
-      <div class="palette" aria-label="Schreibwerkzeuge">
-        <div class="palette-group" role="group" aria-label="Bereiche bearbeiten">
-          <button id="cutRegion" title="Ausschneiden und verschieben: Bereich aufziehen, dann Ziel anklicken. Esc bricht ab." aria-label="Bereich ausschneiden" aria-pressed="false">✂</button>
-
+        <div class="toolbar-group paging" data-toolbar-group="edit" role="group" aria-label="Bearbeiten">
+          <button id="undo" aria-label="Rückgängig" title="Rückgängig (Strg + Z)">
+            ↶
+          </button>
+          <button id="redo" aria-label="Wiederholen" title="Wiederholen (Strg + Y / Strg + Shift + Z)">
+            ↷
+          </button>
+          <button id="cutRegion" title="Ausschneiden und verschieben: Bereich aufziehen, dann Ziel anklicken. Esc bricht ab." aria-label="Bereich ausschneiden" aria-pressed="false">
+            ✂
+          </button>
           <button id="copyRegion" title="Kopieren: Bereich aufziehen, dann Ziel anklicken. Esc bricht ab." aria-label="Bereich kopieren" aria-pressed="false">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-              <rect x="8" y="8" width="12" height="13" rx="1"></rect>
-              <path d="M15 8V3H3v13h5"></path>
+              <rect x="8" y="8" width="12" height="13" rx="1">
+              </rect>
+              <path d="M15 8V3H3v13h5">
+              </path>
             </svg>
           </button>
         </div>
-        <div class="palette-group" role="group" aria-label="Stiftfarbe">
-          <span class="palette-label">Stift</span>
+        <div class="toolbar-group paging" data-toolbar-group="files" role="group" aria-label="Datei">
+          <button id="newFile" title="Neue Datei (Strg+N oder B halten)">
+            Neue Datei
+          </button>
+          <button id="open" title="Datei laden (Strg+O oder O halten)">
+            Datei laden
+          </button>
+          <input id="name" aria-label="Dokumentname" value="Mein Rechenblatt" maxlength="80">
+          <button id="save" title="Dokument als .schmier speichern (Strg + S)">
+            .schmier speichern
+          </button>
+        </div>
+        <div class="toolbar-group paging" data-toolbar-group="output" role="group" aria-label="Ausgabe">
+          <button id="pdf" class="primary" title="Alle Blätter als PDF exportieren (E halten)">
+            PDF exportieren
+          </button>
+          <button id="print" title="Alle Blätter drucken" aria-label="Alle Blätter drucken">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 9V3h12v6M6 17H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2">
+              </path>
+              <path d="M6 14h12v7H6zM18 12h.01">
+              </path>
+            </svg>
+            <span>
+              Drucken
+            </span>
+          </button>
+        </div>
+        <div class="toolbar-group paging" data-toolbar-group="preferences" role="group" aria-label="Ansicht und Hilfe">
+          <button id="settingsOpen" title="Einstellungen (F halten)" aria-label="Einstellungen" aria-haspopup="dialog">
+            ⚙
+          </button>
+          <button id="storageConsentOpen" title="Browserspeicherung prüfen oder ändern" aria-label="Browserspeicherung">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z">
+              </path>
+              <path d="m8 12 3 3 5-6">
+              </path>
+            </svg>
+          </button>
+          <button id="keypadToggle" type="button" title="Bildschirm-Nummernblock ein-/ausblenden" aria-label="Bildschirm-Nummernblock ein-/ausblenden" aria-controls="virtualKeypad" aria-expanded="false" aria-pressed="false">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <rect x="3" y="2" width="18" height="20" rx="3"/>
+              <path d="M7 7h2m2 0h2m2 0h2M7 12h2m2 0h2m2 0h2M7 17h2m2 0h2m2 0h2"/>
+            </svg>
+          </button>
+          <button id="fullscreen" title="Vollbild einschalten" aria-label="Vollbild einschalten" aria-pressed="false">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path data-fullscreen-icon d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5">
+              </path>
+            </svg>
+          </button>
+          <label class="language-picker" title="Sprache wählen · Auswahl wird in diesem Browser gespeichert">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <circle cx="12" cy="12" r="9">
+              </circle>
+              <ellipse cx="12" cy="12" rx="4" ry="9">
+              </ellipse>
+              <path d="M3 12h18M5 6h14M5 18h14">
+              </path>
+            </svg>
+            <select id="language" aria-label="Sprache">
+              <option value="de" lang="de">
+                Deutsch
+              </option>
+              <option value="en" lang="en">
+                English
+              </option>
+              <option value="fr" lang="fr">
+                Français
+              </option>
+            </select>
+          </label>
+          <button id="shortcutHintsToggle" title="Tastenhinweise ein-/ausblenden (T halten)" aria-label="Tastenhinweise" aria-pressed="false">
+            <svg width="27" height="21" viewBox="0 0 30 23" fill="none" aria-hidden="true">
+              <rect x="1" y="2" width="28" height="19" rx="3" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M5 7h3m3 0h3m3 0h3m3 0h2M5 11h3m3 0h3m3 0h3m3 0h2M9 17h12" stroke="currentColor" stroke-width="2"/>
+              <rect x="9.5" y="4.5" width="6" height="5" rx="1" fill="#db5960"/>
+              <rect x="16" y="9" width="6" height="5" rx="1" fill="#db5960"/>
+            </svg>
+          </button>
+          <button id="helpOpen" title="Hilfe mit allen Funktionen und Tastenkürzeln öffnen (F1)" aria-haspopup="dialog">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9">
+              </circle>
+              <path d="M9.5 9a2.5 2.5 0 1 1 4 2c-1 .7-1.5 1-1.5 2.5M12 17h.01">
+              </path>
+            </svg>
+            <span>
+              Hilfe
+            </span>
+          </button>
+          <button id="tutorialStart" title="Interaktives Tutorial auf einem separaten Übungsblatt starten">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 5v16M12 5C9 3 5 3 2 4v15c3-1 7-1 10 2 3-3 7-3 10-2V4c-3-1-7-1-10 1Z">
+              </path>
+              <path d="M5 8h4M5 12h4M15 8h4M15 12h4">
+              </path>
+            </svg>
+            <span>
+              Tutorial
+            </span>
+          </button>
+        </div>
+        <span class="toolbar-row-break" aria-hidden="true"></span>
+        <div class="toolbar-group paging" data-toolbar-group="pen" role="group" aria-label="Stiftfarbe">
+          <span class="palette-label">
+            Stift
+          </span>
           <button class="swatch" data-tool="pen" data-color="#202124" style="--swatch:#202124" title="Stift Schwarz" aria-label="Stift Schwarz" aria-pressed="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="m4 16-1 5 5-1L20 8l-4-4Z"></path>
-              <path d="m13 7 4 4M3 21h7"></path>
+              <path d="m4 16-1 5 5-1L20 8l-4-4Z">
+              </path>
+              <path d="m13 7 4 4M3 21h7">
+              </path>
             </svg>
           </button>
           <button class="swatch" data-tool="pen" data-color="#172e65" style="--swatch:#172e65" title="Stift Blau" aria-label="Stift Blau" aria-pressed="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="m4 16-1 5 5-1L20 8l-4-4Z"></path>
-              <path d="m13 7 4 4M3 21h7"></path>
+              <path d="m4 16-1 5 5-1L20 8l-4-4Z">
+              </path>
+              <path d="m13 7 4 4M3 21h7">
+              </path>
             </svg>
           </button>
           <button class="swatch" data-tool="pen" data-color="#19763b" style="--swatch:#19763b" title="Stift Grün" aria-label="Stift Grün" aria-pressed="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="m4 16-1 5 5-1L20 8l-4-4Z"></path>
-              <path d="m13 7 4 4M3 21h7"></path>
+              <path d="m4 16-1 5 5-1L20 8l-4-4Z">
+              </path>
+              <path d="m13 7 4 4M3 21h7">
+              </path>
             </svg>
           </button>
           <button class="swatch" data-tool="pen" data-color="#cc3030" style="--swatch:#cc3030" title="Stift Rot" aria-label="Stift Rot" aria-pressed="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="m4 16-1 5 5-1L20 8l-4-4Z"></path>
-              <path d="m13 7 4 4M3 21h7"></path>
+              <path d="m4 16-1 5 5-1L20 8l-4-4Z">
+              </path>
+              <path d="m13 7 4 4M3 21h7">
+              </path>
             </svg>
           </button>
         </div>
-        <div class="palette-group" role="group" aria-label="Textmarker">
-          <span class="palette-label">Textmarker</span>
+        <div class="toolbar-group paging" data-toolbar-group="marker" role="group" aria-label="Textmarker">
+          <span class="palette-label">
+            Textmarker
+          </span>
           <button class="swatch" data-tool="marker" data-color="#ff65c5" style="--swatch:#ff65c5" title="Textmarker Pink (5 halten)" aria-label="Textmarker Pink (5 halten)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m6 13 8-10 7 6-9 10Z" fill="currentColor" stroke="#52665a" stroke-width="1.2"></path>
-              <path d="m6 13-3 5 5 3 4-2" fill="currentColor" stroke="#52665a" stroke-width="1.2"></path>
-              <path d="M3 23h17" stroke="currentColor" stroke-width="3"></path>
+              <path d="m6 13 8-10 7 6-9 10Z" fill="currentColor" stroke="#52665a" stroke-width="1.2">
+              </path>
+              <path d="m6 13-3 5 5 3 4-2" fill="currentColor" stroke="#52665a" stroke-width="1.2">
+              </path>
+              <path d="M3 23h17" stroke="currentColor" stroke-width="3">
+              </path>
             </svg>
           </button>
           <button class="swatch" data-tool="marker" data-color="#eeff00" style="--swatch:#eeff00" title="Textmarker Neongelb (6 halten)" aria-label="Textmarker Neongelb (6 halten)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m6 13 8-10 7 6-9 10Z" fill="currentColor" stroke="#52665a" stroke-width="1.2"></path>
-              <path d="m6 13-3 5 5 3 4-2" fill="currentColor" stroke="#52665a" stroke-width="1.2"></path>
-              <path d="M3 23h17" stroke="currentColor" stroke-width="3"></path>
+              <path d="m6 13 8-10 7 6-9 10Z" fill="currentColor" stroke="#52665a" stroke-width="1.2">
+              </path>
+              <path d="m6 13-3 5 5 3 4-2" fill="currentColor" stroke="#52665a" stroke-width="1.2">
+              </path>
+              <path d="M3 23h17" stroke="currentColor" stroke-width="3">
+              </path>
             </svg>
           </button>
           <button class="swatch" data-tool="marker" data-color="#7fff00" style="--swatch:#7fff00" title="Textmarker Neongrün (7 halten)" aria-label="Textmarker Neongrün (7 halten)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m6 13 8-10 7 6-9 10Z" fill="currentColor" stroke="#52665a" stroke-width="1.2"></path>
-              <path d="m6 13-3 5 5 3 4-2" fill="currentColor" stroke="#52665a" stroke-width="1.2"></path>
-              <path d="M3 23h17" stroke="currentColor" stroke-width="3"></path>
+              <path d="m6 13 8-10 7 6-9 10Z" fill="currentColor" stroke="#52665a" stroke-width="1.2">
+              </path>
+              <path d="m6 13-3 5 5 3 4-2" fill="currentColor" stroke="#52665a" stroke-width="1.2">
+              </path>
+              <path d="M3 23h17" stroke="currentColor" stroke-width="3">
+              </path>
             </svg>
           </button>
-          <span class="tool-separator" aria-hidden="true"></span>
-          <button id="strikeToggle" type="button" title="Durchstreichen (S halten)" aria-label="Durchstreichen" aria-pressed="false"><svg width="28" height="24" viewBox="0 0 28 24" aria-hidden="true"><text x="3" y="18" font-size="18" fill="currentColor">2x</text><path d="M2 22L26 2" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></button>
+        </div>
+        <div class="toolbar-group paging" data-toolbar-group="erase" role="group" aria-label="Markieren und Radieren">
+          <button id="strikeToggle" type="button" title="Durchstreichen (S halten)" aria-label="Durchstreichen" aria-pressed="false">
+            <svg width="28" height="24" viewBox="0 0 28 24" aria-hidden="true">
+              <text x="3" y="18" font-size="18" fill="currentColor">
+                2x
+              </text>
+              <path d="M2 22L26 2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </button>
           <button class="swatch" data-tool="eraser" style="--swatch:#68776e" title="Radierer – Textmarker und alle gezeichneten Linien entfernen" aria-label="Radierer" aria-pressed="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="m4 14 9-10a2 2 0 0 1 3 0l5 5a2 2 0 0 1 0 3L12 21H8l-4-4a2 2 0 0 1 0-3Z"></path>
-              <path d="m9 9 9 9M12 21h10"></path>
+              <path d="m4 14 9-10a2 2 0 0 1 3 0l5 5a2 2 0 0 1 0 3L12 21H8l-4-4a2 2 0 0 1 0-3Z">
+              </path>
+              <path d="m9 9 9 9M12 21h10">
+              </path>
             </svg>
           </button>
+        </div>
+        <div class="toolbar-group paging" data-toolbar-group="geometry" role="group" aria-label="Zeichenwerkzeuge">
           <button id="numberLineToggle" title="Zahlenstrahl: Start und Ziel anklicken oder N halten und mit Pfeiltasten zeichnen. Nach zwei Strahlen zurück zum vorherigen Werkzeug; Esc beendet früher." aria-label="Zahlenstrahl zeichnen" aria-pressed="false">
             <svg width="29" height="20" viewBox="0 0 32 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-              <path d="M2 12h27M25 8l4 4-4 4M4 7v10M10 9v6M16 7v10M22 9v6"></path>
+              <path d="M2 12h27M25 8l4 4-4 4M4 7v10M10 9v6M16 7v10M22 9v6">
+              </path>
             </svg>
           </button>
           <button id="compassToggle" title="Zirkel: K halten für Tastaturbedienung. Mit Maus: Mittelpunkt setzen, Radius wählen, mit rechts Kreisbögen zeichnen. Erneut klicken zum Ausblenden." aria-label="Zirkel" aria-pressed="false">
             <svg width="23" height="25" viewBox="0 0 26 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M13 2v4M11 9 4 25M15 9l7 16M7 20h12"></path>
-              <circle cx="13" cy="8" r="3"></circle>
-              <path d="m20 22 2 3 1-4" fill="#d9a93c"></path>
+              <path d="M13 2v4M11 9 4 25M15 9l7 16M7 20h12">
+              </path>
+              <circle cx="13" cy="8" r="3">
+              </circle>
+              <path d="m20 22 2 3 1-4" fill="#d9a93c">
+              </path>
             </svg>
           </button>
           <button id="geoToggle" aria-label="Geodreieck" aria-pressed="false" title="Geodreieck: G halten für Tastaturbedienung oder Zirkel-Messhilfe. Mit Maus: Nullpunkt setzen und verschieben; Spitzen drehen; mit rechts entlang einer Kante zeichnen.">
             <svg width="24" height="21" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-              <path d="M2 21 14 3l12 18Z" fill="#e2eced"></path>
-              <path d="M7 20a7 7 0 0 1 14 0" stroke="#d4a700" stroke-width="2"></path>
-              <path d="M14 21v-6M5 21v-2M9 21v-2M19 21v-2M23 21v-2"></path>
+              <path d="M2 21 14 3l12 18Z" fill="#e2eced">
+              </path>
+              <path d="M7 20a7 7 0 0 1 14 0" stroke="#d4a700" stroke-width="2">
+              </path>
+              <path d="M14 21v-6M5 21v-2M9 21v-2M19 21v-2M23 21v-2">
+              </path>
             </svg>
-            <span>Geodreieck</span>
+            <span>
+              Geodreieck
+            </span>
           </button>
-          <span class="tool-separator" aria-hidden="true"></span>
         </div>
-        <div class="palette-group math-symbols" role="group" aria-label="Mathematische Zeichen">
-          <span class="relation-buttons"><button id="taskLabel" title="Aufgabenbezeichnung (A halten)" aria-label="Aufgabenbezeichnung">1a)</button><button id="taskLabelMore" title="Größe der Aufgabenbezeichnung wählen" aria-label="Größe der Aufgabenbezeichnung wählen" aria-haspopup="menu" aria-expanded="false">▾</button></span>
+        <div class="toolbar-group paging" data-toolbar-group="format" role="group" aria-label="Schrift und Beschriftung">
+          <span class="relation-buttons">
+            <button id="taskLabel" title="Aufgabenbezeichnung (A halten)" aria-label="Aufgabenbezeichnung">
+              1a)
+            </button>
+            <button id="taskLabelMore" title="Größe der Aufgabenbezeichnung wählen" aria-label="Größe der Aufgabenbezeichnung wählen" aria-haspopup="menu" aria-expanded="false">
+              ▾
+            </button>
+          </span>
           <button id="largeMode" aria-pressed="false" title="Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen schreiben" aria-label="Doppelhohe Schrift">
             <svg width="25" height="25" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
-              <rect x="2" y="2" width="12" height="11" rx=".5"></rect><rect x="2" y="13" width="12" height="11" rx=".5"></rect>
-              <path d="M6 8 10 5v16M6 21h8" stroke-width="1.8"></path><path d="m20 3-3 3m3-3 3 3M20 3v20m-3-3 3 3 3-3"></path>
+              <rect x="2" y="2" width="12" height="11" rx=".5">
+              </rect>
+              <rect x="2" y="13" width="12" height="11" rx=".5">
+              </rect>
+              <path d="M6 8 10 5v16M6 21h8" stroke-width="1.8">
+              </path>
+              <path d="m20 3-3 3m3-3 3 3M20 3v20m-3-3 3 3 3-3">
+              </path>
             </svg>
           </button>
           <button id="carryMode" aria-pressed="false" title="Tiefgestellt (Index / Übertrag): ein- oder ausschalten. Mehrere Zeichen unten rechts schreiben; beim Ausschalten ein Kästchen nach unten." aria-label="Tiefgestellt">
             <svg width="25" height="25" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-              <rect x="3" y="8" width="12" height="12" rx=".6"></rect>
-              <rect x="18" y="15" width="6" height="6" rx=".5"></rect>
+              <rect x="3" y="8" width="12" height="12" rx=".6">
+              </rect>
+              <rect x="18" y="15" width="6" height="6" rx=".5">
+              </rect>
             </svg>
           </button>
           <button id="powerMode" aria-pressed="false" title="Hochgestellt (Exponent / Potenz): ein- oder ausschalten. Mehrere Zeichen oben rechts schreiben; beim Ausschalten ein Kästchen nach rechts." aria-label="Hochgestellt">
             <svg width="25" height="25" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-              <rect x="3" y="8" width="12" height="12" rx=".6"></rect>
-              <rect x="18" y="2" width="6" height="6" rx=".5"></rect>
+              <rect x="3" y="8" width="12" height="12" rx=".6">
+              </rect>
+              <rect x="18" y="2" width="6" height="6" rx=".5">
+              </rect>
             </svg>
           </button>
+        </div>
+        <div class="toolbar-group paging" data-toolbar-group="expressions" role="group" aria-label="Rechenzeichen und Klammern">
           <span class="relation-buttons">
-            <button id="relationEqual" title="Gleichzeichen · Strg: doppelhoch nach unten · Shift: nach oben" aria-label="Gleichzeichen einfügen">=</button>
-            <button id="relationMore" title="Weitere Vergleichszeichen (Enter gedrückt halten)" aria-label="Weitere Vergleichszeichen" aria-controls="relationMenu" aria-expanded="false">▾</button>
+            <button id="relationEqual" title="Gleichzeichen · Strg: doppelhoch nach unten · Shift: nach oben" aria-label="Gleichzeichen einfügen">
+              =
+            </button>
+            <button id="relationMore" title="Weitere Vergleichszeichen (Enter gedrückt halten)" aria-label="Weitere Vergleichszeichen" aria-controls="relationMenu" aria-expanded="false">
+              ▾
+            </button>
           </span>
           <span class="relation-buttons">
-            <button id="parenOpen" title="Runde Klammer auf (8 halten: Auswahl) · Strg: groß nach unten · Shift: groß nach oben" aria-label="Runde Klammer auf">(</button>
-            <button id="parenOpenMore" title="Weitere öffnende Klammern" aria-label="Öffnende Klammer auswählen" aria-controls="bracketOpenMenu" aria-expanded="false">▾</button>
+            <button id="parenOpen" title="Runde Klammer auf (8 halten: Auswahl) · Strg: groß nach unten · Shift: groß nach oben" aria-label="Runde Klammer auf">
+              (
+            </button>
+            <button id="parenOpenMore" title="Weitere öffnende Klammern" aria-label="Öffnende Klammer auswählen" aria-controls="bracketOpenMenu" aria-expanded="false">
+              ▾
+            </button>
           </span>
           <span class="relation-buttons">
-            <button id="parenClose" title="Runde Klammer zu (9 halten: Auswahl) · Strg: groß nach unten · Shift: groß nach oben" aria-label="Runde Klammer zu">)</button>
-            <button id="parenCloseMore" title="Weitere schließende Klammern" aria-label="Schließende Klammer auswählen" aria-controls="bracketCloseMenu" aria-expanded="false">▾</button>
+            <button id="parenClose" title="Runde Klammer zu (9 halten: Auswahl) · Strg: groß nach unten · Shift: groß nach oben" aria-label="Runde Klammer zu">
+              )
+            </button>
+            <button id="parenCloseMore" title="Weitere schließende Klammern" aria-label="Schließende Klammer auswählen" aria-controls="bracketCloseMenu" aria-expanded="false">
+              ▾
+            </button>
           </span>
           <span class="relation-buttons">
-            <button id="root" title="Wurzel · W halten · Q halten: Größe · Strg: doppelhoch nach unten · Shift: nach oben" aria-label="Wurzel einfügen"><svg width="27" height="27" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 16l5-3 5 12L20 3h7"/></svg></button>
-            <button id="rootMore" title="Wurzeln auswählen (Q halten)" aria-label="Wurzeln auswählen" aria-controls="rootChoiceMenu" aria-expanded="false">▾</button>
+            <button id="root" title="Wurzel · W halten · Q halten: Größe · Strg: doppelhoch nach unten · Shift: nach oben" aria-label="Wurzel einfügen">
+              <svg width="27" height="27" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M2 16l5-3 5 12L20 3h7"/>
+              </svg>
+            </button>
+            <button id="rootMore" title="Wurzeln auswählen (Q halten)" aria-label="Wurzeln auswählen" aria-controls="rootChoiceMenu" aria-expanded="false">
+              ▾
+            </button>
           </span>
           <span class="relation-buttons">
-            <button id="integral" title="Integralzeichen · I halten: Auswahl · Strg: groß nach unten · Shift: groß nach oben" aria-label="Integralzeichen einfügen">∫</button>
-            <button id="integralMore" title="Integrale auswählen (I halten)" aria-label="Integrale auswählen" aria-controls="integralChoiceMenu" aria-expanded="false">▾</button>
-          </span>
-          <span class="relation-buttons">
-            <button id="percent" title="Verschiedene Symbole (Z halten)" aria-label="Verschiedene Symbole">%</button>
-            <button id="miscMore" title="Verschiedene Symbole auswählen (Z halten)" aria-label="Verschiedene Symbole auswählen" aria-controls="miscMenu" aria-expanded="false">▾</button>
-          </span>
-          <span class="relation-buttons">
-            <button id="sets" title="Mengenlehre (M halten)" aria-label="Mengenlehre">∈</button>
-            <button id="setsMore" title="Mengenzeichen auswählen (M halten)" aria-label="Mengenzeichen auswählen" aria-controls="setsMenu" aria-expanded="false">▾</button>
-          </span>
-          <span class="relation-buttons">
-            <button id="logic" title="Logikzeichen (L halten)" aria-label="Logikzeichen">∧</button>
-            <button id="logicMore" title="Logikzeichen auswählen (L halten)" aria-label="Logikzeichen auswählen" aria-controls="logicMenu" aria-expanded="false">▾</button>
-          </span>
-          <span class="relation-buttons">
-            <button id="greek" title="Pi einfügen · Strg: Index · Shift: Potenz" aria-label="Pi einfügen">π</button>
-            <button id="greekMore" title="Griechische Zeichen (P gedrückt halten)" aria-label="Griechische Zeichen auswählen" aria-controls="greekMenu" aria-expanded="false">▾</button>
+            <button id="integral" title="Integralzeichen · I halten: Auswahl · Strg: groß nach unten · Shift: groß nach oben" aria-label="Integralzeichen einfügen">
+              ∫
+            </button>
+            <button id="integralMore" title="Integrale auswählen (I halten)" aria-label="Integrale auswählen" aria-controls="integralChoiceMenu" aria-expanded="false">
+              ▾
+            </button>
           </span>
         </div>
-        <span class="palette-label" id="toolHint" hidden>Stift Blau · schreiben und Linien ziehen</span>
+        <div class="toolbar-group paging" data-toolbar-group="symbols" role="group" aria-label="Weitere Symbole">
+          <span class="relation-buttons">
+            <button id="percent" title="Verschiedene Symbole (Z halten)" aria-label="Verschiedene Symbole">
+              %
+            </button>
+            <button id="miscMore" title="Verschiedene Symbole auswählen (Z halten)" aria-label="Verschiedene Symbole auswählen" aria-controls="miscMenu" aria-expanded="false">
+              ▾
+            </button>
+          </span>
+          <span class="relation-buttons">
+            <button id="sets" title="Mengenlehre (M halten)" aria-label="Mengenlehre">
+              ∈
+            </button>
+            <button id="setsMore" title="Mengenzeichen auswählen (M halten)" aria-label="Mengenzeichen auswählen" aria-controls="setsMenu" aria-expanded="false">
+              ▾
+            </button>
+          </span>
+          <span class="relation-buttons">
+            <button id="logic" title="Logikzeichen (L halten)" aria-label="Logikzeichen">
+              ∧
+            </button>
+            <button id="logicMore" title="Logikzeichen auswählen (L halten)" aria-label="Logikzeichen auswählen" aria-controls="logicMenu" aria-expanded="false">
+              ▾
+            </button>
+          </span>
+          <span class="relation-buttons">
+            <button id="greek" title="Pi einfügen · Strg: Index · Shift: Potenz" aria-label="Pi einfügen">
+              π
+            </button>
+            <button id="greekMore" title="Griechische Zeichen (P gedrückt halten)" aria-label="Griechische Zeichen auswählen" aria-controls="greekMenu" aria-expanded="false">
+              ▾
+            </button>
+          </span>
+        </div>
       </div>
+      <span class="palette-label" id="toolHint" hidden>
+        Stift Blau · schreiben und Linien ziehen
+      </span>
     </header>
     <main class="workspace">
       <div id="spread" class="spread">
@@ -420,6 +607,11 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         <h2 id="settingsTitle">Einstellungen</h2>
         <label>Haltezeit für Tastenkürzel (Millisekunden)<input id="holdDelay" type="number" min="200" max="3000" step="50" required></label>
         <p>200–3000 ms · Standard: 600 ms. Gilt auch für Shift und Strg.</p>
+        <label>Position der Werkzeugleiste<select id="toolbarPosition">
+          <option value="top">Oben</option><option value="bottom">Unten</option>
+          <option value="left">Links</option><option value="right">Rechts</option>
+        </select></label>
+        <p>Seitlich passt sich die Breite an die Fensterhöhe an. Die Werkzeuggruppen bleiben vollständig sichtbar.</p>
         <label>Schrift auf dem Papier<select id="writingFont"><option value="handwriting">Handschrift</option><option value="console">Konsole (Monospace)</option></select></label>
         <p id="settingsStorageNote"></p>
         <div class="dialog-actions"><button id="settingsCancel" type="button">Abbrechen</button><button type="submit">Übernehmen</button></div>

@@ -511,7 +511,6 @@ const LOCALE_FR = {
     "Alle Blätter als PDF exportieren (E halten)": "Exporter toutes les pages en PDF (maintenir E)",
     "Ein Blatt oder zwei Blätter nebeneinander anzeigen (D halten)": "Afficher une page ou deux côte à côte (maintenir D)",
     "Öffne den Bildschirm-Nummernblock über den gold markierten Button. Du kannst ihn an seiner Titelleiste verschieben und mit × wieder schließen. Ab jetzt darfst du bei allen passenden Eingaben wahlweise seine Tasten oder deine Tastatur verwenden. Die Tasten +, ·, : und = entsprechen den Rechentasten; = schreibt das Gleichzeichen. Der Fokus bleibt im Kästchen. Wenn du den Bildschirm-Nummernblock nicht brauchst, drücke N zum Überspringen. Optional kannst du T halten oder den Tastaturbutton vor Hilfe anklicken: Dann erscheinen die passenden Tasten über den Buttons. Ein … bedeutet halten; dieselbe Aktion blendet die Hinweise wieder aus.": "Ouvre le pavé numérique à l’écran avec le bouton doré. Déplace-le par sa barre de titre et ferme-le avec ×. Tu peux ensuite utiliser ses touches ou ton clavier pour chaque saisie demandée. Les touches +, ·, : et = correspondent aux touches de calcul ; = écrit le signe égal. Le focus reste dans la case. Si tu n’as pas besoin du pavé à l’écran, appuie sur N pour passer. Tu peux aussi maintenir T ou cliquer le clavier avant Aide pour afficher les touches au-dessus des boutons. Un … signifie maintenir ; répète pour masquer les indications.",
-    "Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten.": "La ligne 1, colonne 1 est active. Descends cinq fois et avance quatre fois à droite jusqu’à la case dorée, ligne 6, colonne 5. Le tutoriel continue automatiquement, sans Entrée. Tu peux aussi cliquer la cible. Nous calculons (12 + 8) · 3 = 60 puis écrivons une fraction. Ce document d’exercice est séparé ; ton travail reste intact.",
     "Logikzeichen (L halten)": "Symboles logiques (maintenir L)",
     "Logikzeichen": "Symboles logiques",
     "Logikzeichen auswählen (L halten)": "Choisir des symboles logiques (maintenir L)",
@@ -655,7 +654,25 @@ const LOCALE_FR = {
     "Erweiterte Tastaturbedienung und ein verständlicheres Tutorial.": "Commandes au clavier enrichies et tutoriel plus clair.",
     "Anfang": "Début",
     "Ende": "Fin",
-    "Einstellungen (F halten)": "Paramètres (maintenir F)"
+    "Einstellungen (F halten)": "Paramètres (maintenir F)",
+    "Position der Werkzeugleiste": "Position de la barre d’outils",
+    "Oben": "En haut",
+    "Unten": "En bas",
+    "Links": "À gauche",
+    "Rechts": "À droite",
+    "Seitlich passt sich die Breite an die Fensterhöhe an. Die Werkzeuggruppen bleiben vollständig sichtbar.": "Sur les côtés, la largeur s’adapte à la hauteur de la fenêtre. Tous les groupes d’outils restent visibles.",
+    "Seiten": "Pages",
+    "Bearbeiten": "Modifier",
+    "Datei": "Fichier",
+    "Ausgabe": "Exporter et imprimer",
+    "Ansicht und Hilfe": "Affichage et aide",
+    "Markieren und Radieren": "Barrer et effacer",
+    "Zeichenwerkzeuge": "Outils de dessin",
+    "Schrift und Beschriftung": "Texte et libellés",
+    "Rechenzeichen und Klammern": "Opérateurs et parenthèses",
+    "Weitere Symbole": "Autres symboles",
+    "Werkzeugleiste oben, unten, links oder rechts anordnen; seitlich passen sich Breite und Spalten an das Fenster an.": "Placer la barre d’outils en haut, en bas, à gauche ou à droite ; sur les côtés, largeur et colonnes s’adaptent à la fenêtre.",
+    "Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten. Die Werkzeugleiste bleibt an deiner gewählten Position. Die goldenen Hinweise zeigen dir auch dort den passenden Button.": "La ligne 1, colonne 1 est active. Descends cinq fois et avance quatre fois à droite jusqu’à la case dorée, ligne 6, colonne 5. Le tutoriel continue automatiquement, sans Entrée. Tu peux aussi cliquer la cible. Nous calculons (12 + 8) · 3 = 60 puis écrivons une fraction. Ce document d’exercice est séparé ; ton travail reste intact. La barre d’outils reste à la position choisie. Les repères dorés y indiquent aussi le bon bouton."
   },
   "helpInitial": [
     {
@@ -954,6 +971,11 @@ const LOCALE_FR = {
       "title": "Équerre : graduations au début et à la fin",
       "keywords": "équerre règle graduation début fin cm lecture",
       "html": "<p>Lors du tracé le long d’un bord extérieur, des indications rouges agrandies montrent les graduations du début et de la fin. Ce sont les valeurs de l’échelle imprimée, pas une longueur de trait calculée. L’hypoténuse a son zéro au centre et des nombres positifs de chaque côté. Les deux autres côtés commencent à zéro à l’angle droit et augmentent vers l’hypoténuse.</p><p>Au clavier, les indications restent visibles quand le crayon parcourt le bord ; les deux apparaissent après fixation du début. À la souris, elles apparaissent uniquement à proximité du bord (à moins de 3 mm) et disparaissent en le quittant. Elles ne calculent ni angle ni différence et ne sont ni enregistrées ni exportées en PDF/impression. L’aperçu rouge en pointillés reste visible.</p>"
+    },
+    {
+      "title": "Placer la barre d’outils sur chaque bord",
+      "keywords": "barre outils bandeau position haut bas gauche droite groupes paramètres",
+      "html": "<p>Ouvrir les paramètres avec la roue dentée ou en maintenant F. Position de la barre d’outils propose En haut (par défaut), En bas, À gauche et À droite. Appliquer active la position ; Annuler ou Échap conserve la disposition précédente.</p><p>À gauche ou à droite, la barre reste visible au bord de la fenêtre. Sa largeur dépend de la hauteur de la fenêtre, de la langue et de la place nécessaire aux commandes. Quand la hauteur diminue, les groupes se répartissent en plusieurs colonnes afin que tous les boutons restent accessibles sans faire défiler la barre. La taille des boutons est conservée. Redimensionner la fenêtre ou changer le zoom du navigateur recalcule la disposition.</p><p>Des traits et des titres latéraux séparent pages, zoom, édition, fichiers, export/impression, affichage/aide, stylos, surligneurs, gomme, outils de dessin et symboles mathématiques. Les boutons divisés restent réunis. Les menus s’ouvrent vers la zone de travail et restent dans la fenêtre. Papier et zoom automatique tiennent compte de la barre. Les indications de raccourcis, le pavé à l’écran et les repères du tutoriel suivent aussi sa position.</p><p>Comme les autres préférences, la position est enregistrée localement avec autorisation et dans les fichiers .schmier sauvegardés manuellement. Sans autorisation, rien n’est conservé dans le navigateur. Les anciens réglages sans position utilisent En haut. La barre n’apparaît ni en PDF ni à l’impression.</p><p>Quand l’espace est très limité, les titres supplémentaires sont masqués mais les traits restent. Les longs groupes peuvent continuer dans la colonne suivante sans réduire les boutons. L’ordre de navigation au clavier est conservé. Dans une petite fenêtre, une barre haute en haut ou en bas peut défiler ; les barres latérales ne nécessitent pas de défilement interne.</p><p>En haut et en bas, les outils d’écriture et de dessin commencent sur une nouvelle ligne juste après le tutoriel.</p>"
     }
   ],
   "consent": [

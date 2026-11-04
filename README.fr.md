@@ -16,18 +16,26 @@ Schmierpapier offre un espace pour calculer, essayer et dessiner directement dan
 
 L’application vise à favoriser le travail autonome en cours de mathématiques : le clavier et la souris permettent d’écrire les calculs dans des cases, de disposer clairement les fractions et de réaliser des constructions géométriques avec des outils numériques. De nombreuses fonctions sont accessibles par des boutons, sans devoir utiliser une combinaison de touches pour chaque action.
 
-Version **0.5 (développement)**
+Version **0.5.5 (développement)**
 
 Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l’en-tête de l’application l’ouvre dans un nouvel onglet.
 
-## Nouveautés de v0.5 (développement)
+## Nouveautés de v0.5.5 (développement)
+
+- Choisir le haut, le bas, la gauche ou la droite pour la barre d’outils dans les paramètres. En haut reste le réglage par défaut.
+- Les barres latérales adaptent leur largeur à la hauteur de la fenêtre, à la langue et au zoom du navigateur, avec plusieurs colonnes si nécessaire. Tous les boutons restent visibles sans défilement de la barre ; des traits séparent les groupes fonctionnels.
+- Papier, zoom automatique, menus de symboles, indications de raccourcis, pavé à l’écran et tutoriel tiennent compte de cette position. PDF et impression ne contiennent toujours que les pages.
+- La position fait partie des préférences : enregistrée localement avec autorisation et dans les fichiers .schmier. Les anciens réglages utilisent En haut.
+- v0.5.5 reste locale pour le moment. La version publiée reste v0.5 ; aucun envoi avant autorisation.
+
+## Nouveautés de v0.5
 
 - Les virgules et points apparaissent en bas à droite de leur carreau associé, laissant le carreau suivant libre pour le prochain chiffre. Les signes occupant un carreau sont disponibles dans Symboles divers.
 - Les libellés d’exercice tels que 1a) tiennent dans deux carreaux horizontaux, avec hauteur double en option ; les textes longs sont réduits automatiquement. Maintenir A ouvre le choix de taille.
 - Les paramètres (roue dentée ou maintenir F) proposent une durée de maintien de 200–3000 ms et l’écriture manuscrite ou une police de console intégrée. L’aide et le tutoriel affichent la durée choisie. Les deux polices fonctionnent hors ligne, y compris en PDF et à l’impression.
 - Les fichiers et sauvegardes locales conservent la version de l’application et les réglages de police/maintien. L’ouverture d’anciens documents affiche les résumés des versions suivantes ; les fichiers sans version restent lisibles. Le stockage local nécessite toujours une autorisation.
 - L’équerre agrandit les graduations de début et de fin : au clavier lors du déplacement sur le bord, à la souris près du bord. Elle ne calcule pas la longueur du trait.
-- v0.5 reste locale pour le moment ; la version publiée reste v0.4.4. Aucun envoi avant autorisation.
+- v0.5 est publiée et disponible sur le site du projet en application en ligne et en téléchargement.
 
 ## Nouveautés de la v0.4.4
 

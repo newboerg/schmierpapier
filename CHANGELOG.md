@@ -2,8 +2,18 @@
 
 **Deutsch** · [English](CHANGELOG.en.md) · [Français](CHANGELOG.fr.md)
 
+## v0.5.5
+
+- Oben und unten beginnt nach Tutorial immer eine neue Werkzeugzeile.
+- Werkzeugleiste in den Einstellungen oben, unten, links oder rechts anordnen. Oben bleibt der Standard.
+- Seitlich wird die Breite an Fensterhöhe, Sprache und Browserzoom angepasst; bei Bedarf entstehen mehrere Spalten. Alle Buttons bleiben ohne Scrollen der Leiste sichtbar und in funktionalen Gruppen durch Linien getrennt.
+- Papierbereich, automatische Zoomanpassung, Symbolmenüs, Tastenhinweise, Bildschirm-Nummernblock und Tutorial berücksichtigen die Position. PDF und Druck enthalten weiterhin nur die Seiten.
+- Die Leistenposition gehört zu den Einstellungen: mit Zustimmung lokal gespeichert und in .schmier-Dateien enthalten. Ältere Einstellungen verwenden Oben.
+- v0.5.5 bleibt vorerst lokal. Die veröffentlichte Version ist weiterhin v0.5; keine Uploads bis zur Freigabe.
+
 ## v0.5
 
+- v0.5 veröffentlicht. Homepage-Neuerungen in allen sechs Textfassungen kurz und nutzerorientiert aktualisiert; Live-App und Download verwenden denselben aktuellen Build.
 - Einstellungen per F halten (Feineinstellungen) öffnen, einschließlich Fortschrittsrahmen und Tastenhinweis. Kurzes F bleibt Texteingabe; Strg/⌘+F bleibt die Browsersuche.
 
 - Komma und Punkt etwas nach rechts versetzt, damit sie mehr Abstand zu tiefgestellten Zeichen haben; Bildschirm, PDF und Druck verwenden dieselbe Position.
@@ -13,7 +23,6 @@
 - Dateien und Browsersicherungen enthalten die speichernde App-Version sowie die Schrift-/Haltezeit-Einstellungen. Beim Öffnen älterer Stände erscheinen die neueren Versionsübersichten; alte Dateien ohne Versionsangabe bleiben lesbar. Browserspeicherung erfordert weiterhin Zustimmung.
 - Das Geodreieck zeigt Skalenwerte an Strichanfang und -ende vergrößert an: per Tastatur beim Fahren am Rand, per Maus nur in Kantennähe. Es berechnet keine Strichlänge.
 
-- Entwicklung von v0.5 begonnen. Veröffentlichte Version bleibt v0.4.4; keine Uploads bis zur erneuten Freigabe.
 
 ## v0.4.4
 

@@ -34,9 +34,7 @@ function openGreekMenu(modifiers = {}) {
   const menu = $('greekMenu');
   menu.hidden = false;
   $('greekMore').setAttribute('aria-expanded', 'true');
-  const rect = $('greekMore').getBoundingClientRect();
-  menu.style.left = Math.max(8, Math.min(rect.left, innerWidth - menu.offsetWidth - 8)) + 'px';
-  menu.style.top = Math.max(8, Math.min(rect.bottom + 5, innerHeight - menu.offsetHeight - 8)) + 'px';
+  positionToolbarMenu(menu, $('greekMore'));
   menu.querySelectorAll('button').forEach(button => button.classList.toggle('menu-current', button.dataset.symbol === 'π'));
   menu.querySelector('.menu-current')?.scrollIntoView({ block: 'nearest' });
 }

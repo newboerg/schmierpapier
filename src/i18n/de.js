@@ -511,7 +511,6 @@ const LOCALE_DE = {
     "Alle Blätter als PDF exportieren (E halten)": "Alle Blätter als PDF exportieren (E halten)",
     "Ein Blatt oder zwei Blätter nebeneinander anzeigen (D halten)": "Ein Blatt oder zwei Blätter nebeneinander anzeigen (D halten)",
     "Öffne den Bildschirm-Nummernblock über den gold markierten Button. Du kannst ihn an seiner Titelleiste verschieben und mit × wieder schließen. Ab jetzt darfst du bei allen passenden Eingaben wahlweise seine Tasten oder deine Tastatur verwenden. Die Tasten +, ·, : und = entsprechen den Rechentasten; = schreibt das Gleichzeichen. Der Fokus bleibt im Kästchen. Wenn du den Bildschirm-Nummernblock nicht brauchst, drücke N zum Überspringen. Optional kannst du T halten oder den Tastaturbutton vor Hilfe anklicken: Dann erscheinen die passenden Tasten über den Buttons. Ein … bedeutet halten; dieselbe Aktion blendet die Hinweise wieder aus.": "Öffne den Bildschirm-Nummernblock über den gold markierten Button. Du kannst ihn an seiner Titelleiste verschieben und mit × wieder schließen. Ab jetzt darfst du bei allen passenden Eingaben wahlweise seine Tasten oder deine Tastatur verwenden. Die Tasten +, ·, : und = entsprechen den Rechentasten; = schreibt das Gleichzeichen. Der Fokus bleibt im Kästchen. Wenn du den Bildschirm-Nummernblock nicht brauchst, drücke N zum Überspringen. Optional kannst du T halten oder den Tastaturbutton vor Hilfe anklicken: Dann erscheinen die passenden Tasten über den Buttons. Ein … bedeutet halten; dieselbe Aktion blendet die Hinweise wieder aus.",
-    "Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten.": "Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten.",
     "Logikzeichen (L halten)": "Logikzeichen (L halten)",
     "Logikzeichen": "Logikzeichen",
     "Logikzeichen auswählen (L halten)": "Logikzeichen auswählen (L halten)",
@@ -655,7 +654,25 @@ const LOCALE_DE = {
     "Erweiterte Tastaturbedienung und ein verständlicheres Tutorial.": "Erweiterte Tastaturbedienung und ein verständlicheres Tutorial.",
     "Anfang": "Anfang",
     "Ende": "Ende",
-    "Einstellungen (F halten)": "Einstellungen (F halten)"
+    "Einstellungen (F halten)": "Einstellungen (F halten)",
+    "Position der Werkzeugleiste": "Position der Werkzeugleiste",
+    "Oben": "Oben",
+    "Unten": "Unten",
+    "Links": "Links",
+    "Rechts": "Rechts",
+    "Seitlich passt sich die Breite an die Fensterhöhe an. Die Werkzeuggruppen bleiben vollständig sichtbar.": "Seitlich passt sich die Breite an die Fensterhöhe an. Die Werkzeuggruppen bleiben vollständig sichtbar.",
+    "Seiten": "Seiten",
+    "Bearbeiten": "Bearbeiten",
+    "Datei": "Datei",
+    "Ausgabe": "Ausgabe",
+    "Ansicht und Hilfe": "Ansicht und Hilfe",
+    "Markieren und Radieren": "Markieren und Radieren",
+    "Zeichenwerkzeuge": "Zeichenwerkzeuge",
+    "Schrift und Beschriftung": "Schrift und Beschriftung",
+    "Rechenzeichen und Klammern": "Rechenzeichen und Klammern",
+    "Weitere Symbole": "Weitere Symbole",
+    "Werkzeugleiste oben, unten, links oder rechts anordnen; seitlich passen sich Breite und Spalten an das Fenster an.": "Werkzeugleiste oben, unten, links oder rechts anordnen; seitlich passen sich Breite und Spalten an das Fenster an.",
+    "Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten. Die Werkzeugleiste bleibt an deiner gewählten Position. Die goldenen Hinweise zeigen dir auch dort den passenden Button.": "Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten. Die Werkzeugleiste bleibt an deiner gewählten Position. Die goldenen Hinweise zeigen dir auch dort den passenden Button."
   },
   "helpInitial": [
     {
@@ -954,6 +971,11 @@ const LOCALE_DE = {
       "title": "Geodreieck: Skalenwerte an Anfang und Ende",
       "keywords": "geodreieck skala skalenwert anfang ende cm ablesen",
       "html": "<p>Beim Zeichnen entlang einer Außenkante zeigen rote, vergrößerte Hinweise die Skalenposition von Anfang und Ende. Das sind die Werte der gedruckten Skala, keine berechnete Strichlänge. Die Hypotenuse hat 0 in der Mitte und positive Zahlen nach links und rechts. Die beiden Katheten beginnen am rechten Winkel mit 0 und zählen in Richtung der Hypotenuse.</p><p>Im Tastaturmodus erscheinen die Hinweise beim Fahren des Stifts entlang der Kante ständig; nach Festlegen des Anfangs stehen beide Werte da. Bei Mausbedienung werden sie nur in Kantennähe (bis 3 mm) eingeblendet. Beim Verlassen der Kante verschwinden sie. Die Hinweise messen keine Winkel oder Differenzen und werden weder gespeichert noch nach PDF oder Druck übernommen. Die rote gestrichelte Strichvorschau bleibt sichtbar.</p>"
+    },
+    {
+      "title": "Werkzeugleiste oben, unten, links oder rechts",
+      "keywords": "werkzeugleiste header kopfzeile position links rechts oben unten andocken gruppen einstellungen",
+      "html": "<p>Öffne die Einstellungen über das Zahnrad oder F halten. Unter Position der Werkzeugleiste stehen Oben (Standard), Unten, Links und Rechts zur Wahl. Übernehmen aktiviert die Position; Abbrechen oder Esc lässt die bisherige Anordnung unverändert.</p><p>Links und rechts bleibt die Leiste am Fensterrand sichtbar. Ihre Breite richtet sich nach Fensterhöhe, Sprache und Platzbedarf der Buttons. Bei geringer Höhe werden die Gruppen auf mehrere Spalten verteilt, damit die Buttons ohne Scrollen in der Leiste erreichbar sind. Die Buttongröße bleibt erhalten. Nach einer Fenstergrößenänderung oder Browserzoom wird die Anordnung neu berechnet.</p><p>Linien und seitliche Gruppenüberschriften trennen Seiten, Zoom, Bearbeiten, Dateien, Ausgabe, Ansicht/Hilfe, Stifte, Marker, Radierer, Zeichenwerkzeuge und mathematische Zeichen. Geteilte Buttons bleiben zusammen. Auswahlmenüs öffnen zur Arbeitsfläche und bleiben innerhalb des Fensters. Papier und automatische Zoomanpassung berücksichtigen den Platz der Leiste. Auch Tastenhinweise, Bildschirm-Nummernblock und Tutorial-Markierungen folgen der gewählten Position.</p><p>Die Position wird wie die übrigen Einstellungen mit Speicherzustimmung lokal im Browser und beim manuellen Speichern in der .schmier-Datei erhalten. Ohne Zustimmung wird nichts im Browser gespeichert. Alte Einstellungen ohne Positionsangabe verwenden Oben. Die Leiste erscheint nicht in PDF oder Druck.</p><p>Bei sehr wenig Platz entfallen zusätzliche Gruppenüberschriften; die Trennlinien bleiben. Lange Gruppen können in der nächsten Spalte weitergehen, ohne Buttons zu verkleinern. Die Reihenfolge der Tastatur-Navigation bleibt erhalten. Oben und unten kann eine sehr hohe Leiste in kleinen Fenstern gescrollt werden; seitlich ist kein Scrollen in der Leiste nötig.</p><p>Oben und unten beginnt direkt nach Tutorial eine neue Zeile für die Schreib- und Zeichenwerkzeuge.</p>"
     }
   ],
   "consent": [

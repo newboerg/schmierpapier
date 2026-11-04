@@ -45,9 +45,7 @@ function openRelationMenu(modifiers = {}) {
   const menu = $('relationMenu');
   menu.hidden = false;
   $('relationMore').setAttribute('aria-expanded', 'true');
-  const rect = $('relationMore').getBoundingClientRect();
-  menu.style.left = Math.max(8, Math.min(rect.left, innerWidth - menu.offsetWidth - 8)) + 'px';
-  menu.style.top = Math.max(8, Math.min(rect.bottom + 5, innerHeight - menu.offsetHeight - 8)) + 'px';
+  positionToolbarMenu(menu, $('relationMore'));
   menu.querySelectorAll('button').forEach((button, i) => button.classList.toggle('menu-current', i === 0));
 }
 

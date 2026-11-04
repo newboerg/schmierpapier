@@ -511,7 +511,6 @@ const LOCALE_EN = {
     "Alle Blätter als PDF exportieren (E halten)": "Export all pages as PDF (hold E)",
     "Ein Blatt oder zwei Blätter nebeneinander anzeigen (D halten)": "Show one page or two side by side (hold D)",
     "Öffne den Bildschirm-Nummernblock über den gold markierten Button. Du kannst ihn an seiner Titelleiste verschieben und mit × wieder schließen. Ab jetzt darfst du bei allen passenden Eingaben wahlweise seine Tasten oder deine Tastatur verwenden. Die Tasten +, ·, : und = entsprechen den Rechentasten; = schreibt das Gleichzeichen. Der Fokus bleibt im Kästchen. Wenn du den Bildschirm-Nummernblock nicht brauchst, drücke N zum Überspringen. Optional kannst du T halten oder den Tastaturbutton vor Hilfe anklicken: Dann erscheinen die passenden Tasten über den Buttons. Ein … bedeutet halten; dieselbe Aktion blendet die Hinweise wieder aus.": "Open the on-screen numeric keypad using the gold-highlighted button. Drag its title bar to move it and close it with ×. From now on, you may use its keys or your physical keyboard for each appropriate input. The +, ·, : and = keys match the arithmetic keys; = writes the equals sign. Input focus stays in the cell. If you do not need the on-screen keypad, press N to skip. Optionally hold T or click the keyboard button before Help to show key hints above buttons. An … means hold; repeat the action to hide the hints.",
-    "Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten.": "Row 1, column 1 is active. Move down five times and right four times to the gold cell at row 6, column 5. The tutorial advances there automatically, without Enter. You may also click the target. We will calculate (12 + 8) · 3 = 60 and then write a fraction. This is a separate practice document; your own work is preserved.",
     "Logikzeichen (L halten)": "Logic symbols (hold L)",
     "Logikzeichen": "Logic symbols",
     "Logikzeichen auswählen (L halten)": "Choose logic symbols (hold L)",
@@ -655,7 +654,25 @@ const LOCALE_EN = {
     "Erweiterte Tastaturbedienung und ein verständlicheres Tutorial.": "Expanded keyboard controls and a clearer tutorial.",
     "Anfang": "Start",
     "Ende": "End",
-    "Einstellungen (F halten)": "Settings (hold F)"
+    "Einstellungen (F halten)": "Settings (hold F)",
+    "Position der Werkzeugleiste": "Toolbar position",
+    "Oben": "Top",
+    "Unten": "Bottom",
+    "Links": "Left",
+    "Rechts": "Right",
+    "Seitlich passt sich die Breite an die Fensterhöhe an. Die Werkzeuggruppen bleiben vollständig sichtbar.": "At the sides, the width adapts to the window height. All tool groups remain visible.",
+    "Seiten": "Pages",
+    "Bearbeiten": "Edit",
+    "Datei": "File",
+    "Ausgabe": "Output",
+    "Ansicht und Hilfe": "View and help",
+    "Markieren und Radieren": "Mark and erase",
+    "Zeichenwerkzeuge": "Drawing tools",
+    "Schrift und Beschriftung": "Text and labels",
+    "Rechenzeichen und Klammern": "Operators and brackets",
+    "Weitere Symbole": "More symbols",
+    "Werkzeugleiste oben, unten, links oder rechts anordnen; seitlich passen sich Breite und Spalten an das Fenster an.": "Dock the toolbar at the top, bottom, left or right; side panels adapt their width and columns to the window.",
+    "Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten. Die Werkzeugleiste bleibt an deiner gewählten Position. Die goldenen Hinweise zeigen dir auch dort den passenden Button.": "Row 1, column 1 is active. Move down five times and right four times to the gold cell at row 6, column 5. The tutorial advances there automatically, without Enter. You may also click the target. We will calculate (12 + 8) · 3 = 60 and then write a fraction. This is a separate practice document; your own work is preserved. The toolbar stays at your chosen edge. The gold highlights still show you the correct button."
   },
   "helpInitial": [
     {
@@ -954,6 +971,11 @@ const LOCALE_EN = {
       "title": "Set square: start and end scale readings",
       "keywords": "set square ruler scale start end cm readout",
       "html": "<p>When drawing along an outer edge, larger red labels show the scale positions of the start and end. These are readings from the printed scale, not a calculated line length. The hypotenuse has zero in its centre and positive numbers on both sides. The two shorter edges start at zero at the right angle and count towards the hypotenuse.</p><p>With the keyboard, the readouts stay visible while moving the pencil along an edge; both appear after setting the start. With the mouse they appear only close to the edge (within 3 mm) and disappear when leaving it. They calculate neither angles nor differences and are excluded from saved documents, PDF and print. The dashed red line preview remains visible.</p>"
+    },
+    {
+      "title": "Dock the toolbar on any edge",
+      "keywords": "toolbar header position top bottom left right dock groups settings",
+      "html": "<p>Open settings with the gear button or by holding F. Toolbar position offers Top (default), Bottom, Left and Right. Apply activates the position; Cancel or Esc leaves the previous layout unchanged.</p><p>On the left or right, the toolbar stays visible at the window edge. Its width follows the window height, language and space needed by the controls. At lower heights, groups flow into additional columns so every button remains accessible without scrolling the toolbar. Button sizes are preserved. Resizing the window or changing browser zoom recalculates the layout.</p><p>Lines and side-panel group headings separate pages, zoom, editing, files, output, view/help, pens, markers, erasing, drawing tools and maths symbols. Split buttons stay together. Menus open towards the workspace and stay within the window. The paper and automatic zoom allow space for the toolbar. Shortcut hints, the on-screen keypad and tutorial highlights follow its position too.</p><p>Like other preferences, the position is saved locally with storage consent and included in manually saved .schmier files. Without consent nothing is stored in the browser. Older preferences without a position use Top. The toolbar is excluded from PDF and print.</p><p>When space is very limited, extra group headings are omitted but separators remain. Long groups can continue in the next column without shrinking buttons. Keyboard navigation keeps its order. On small windows a tall top or bottom toolbar can be scrolled; side toolbars need no internal scrolling.</p><p>At the top and bottom, the writing and drawing tools start on a new row immediately after Tutorial.</p>"
     }
   ],
   "consent": [

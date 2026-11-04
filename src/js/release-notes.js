@@ -3,6 +3,7 @@
 // @part part-01
 const APP_VERSION = '{{version}}';
 const RELEASE_NOTES = [
+  { version: '0.5.5', items: ['Werkzeugleiste oben, unten, links oder rechts anordnen; seitlich passen sich Breite und Spalten an das Fenster an.'] },
   { version: '0.5', items: [
     'Komma und Punkt sparen Kästchen; Aufgabenbezeichnungen passen in zwei Kästchen.',
     'Geodreieck: Skalenwerte an Strichanfang und Strichende besser sichtbar.',

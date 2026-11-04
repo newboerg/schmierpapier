@@ -487,6 +487,10 @@
       "part": "part-01"
     },
     {
+      "file": "js/toolbar-layout.js",
+      "part": "part-01"
+    },
+    {
       "file": "js/bootstrap.js",
       "part": "part-01"
     },

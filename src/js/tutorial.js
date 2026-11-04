@@ -71,7 +71,7 @@ function tutorialSteps() {
   }, (_, i) => doc.pages[0][start + i] || '').join('');
   return [
     cell(calc, 'Hier beginnt deine Rechnung',
-      'Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten.'
+      'Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten. Die Werkzeugleiste bleibt an deiner gewählten Position. Die goldenen Hinweise zeigen dir auch dort den passenden Button.'
       ),
     button('#keypadToggle', 'Der Bildschirm-Nummernblock',
       'Öffne den Bildschirm-Nummernblock über den gold markierten Button. Du kannst ihn an seiner Titelleiste verschieben und mit × wieder schließen. Ab jetzt darfst du bei allen passenden Eingaben wahlweise seine Tasten oder deine Tastatur verwenden. Die Tasten +, ·, : und = entsprechen den Rechentasten; = schreibt das Gleichzeichen. Der Fokus bleibt im Kästchen. Wenn du den Bildschirm-Nummernblock nicht brauchst, drücke N zum Überspringen. Optional kannst du T halten oder den Tastaturbutton vor Hilfe anklicken: Dann erscheinen die passenden Tasten über den Buttons. Ein … bedeutet halten; dieselbe Aktion blendet die Hinweise wieder aus.',

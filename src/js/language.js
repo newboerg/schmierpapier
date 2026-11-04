@@ -116,6 +116,7 @@ function setLanguage(next, remember = true) {
   }
   updateKeypadLanguage();
   localiseInterface();
+  scheduleToolbarLayout();
 }
 
 function initialiseLanguage() {

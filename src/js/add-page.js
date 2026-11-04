@@ -34,9 +34,9 @@ $('add').onclick = () => {
   addSheet()
 };
 $('addSheetArrow').addEventListener('click', () => {
-  const r = $('addSheetArrow').getBoundingClientRect();
-  $('addSheetMenu').style.left = Math.max(8, Math.min(r.right - 260, window.innerWidth - 280)) + 'px';
-  $('addSheetMenu').style.top = (r.bottom + 5) + 'px'
+  requestAnimationFrame(() => {
+    if ($('addSheetMenu').matches(':popover-open')) positionToolbarMenu($('addSheetMenu'), $('addSheetArrow'));
+  });
 });
 $('addMillimeter').onclick = () => {
   $('addSheetMenu').hidePopover();

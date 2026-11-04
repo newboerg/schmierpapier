@@ -2,8 +2,18 @@
 
 [Deutsch](CHANGELOG.md) · **English** · [Français](CHANGELOG.fr.md)
 
+## v0.5.5
+
+- At the top and bottom, a new toolbar row always starts after Tutorial.
+- Choose the top, bottom, left or right edge for the toolbar in settings. Top remains the default.
+- Side panels adapt their width to window height, language and browser zoom, adding columns as needed. All buttons remain visible without scrolling the toolbar; separator lines preserve functional groups.
+- The paper area, automatic zoom, symbol menus, shortcut hints, on-screen keypad and tutorial account for the position. PDF and print still contain only the pages.
+- The position is part of preferences: stored locally with consent and included in .schmier files. Older preferences use Top.
+- v0.5.5 remains local for now. The published version is still v0.5; no uploads until authorised.
+
 ## v0.5
 
+- Released v0.5. Updated homepage release copy in all six text variants with concise user benefits; the live app and download use the same current build.
 - Hold F to open settings, with a progress border and shortcut hint. A short F still types text; Ctrl/⌘+F still opens browser search.
 
 - Moved commas and full stops slightly to the right to leave more space for subscripts; screen, PDF and print use the same position.
@@ -13,7 +23,6 @@
 - Files and browser backups record the saving app version and font/hold settings. Opening older documents shows newer release summaries; old files without version information remain readable. Browser storage still requires consent.
 - The set square shows enlarged scale readings at line start and end: while moving along the edge by keyboard, or near the edge with the mouse. It does not calculate line length.
 
-- Started v0.5 development. The published version remains v0.4.4; uploads are suspended until explicitly authorised again.
 
 ## v0.4.4
 

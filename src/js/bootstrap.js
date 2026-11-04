@@ -14,6 +14,7 @@ try {
 } catch {
   status('Browserspeicher nicht verfügbar – bitte als .schmier speichern')
 }
+initialiseToolbarLayout();
 applySettings(settings);
 render();
 initialiseLanguage();

@@ -2,8 +2,18 @@
 
 [Deutsch](CHANGELOG.md) · [English](CHANGELOG.en.md) · **Français**
 
+## v0.5.5
+
+- En haut et en bas, une nouvelle ligne commence toujours après le tutoriel.
+- Choisir le haut, le bas, la gauche ou la droite pour la barre d’outils dans les paramètres. En haut reste le réglage par défaut.
+- Les barres latérales adaptent leur largeur à la hauteur de la fenêtre, à la langue et au zoom du navigateur, avec plusieurs colonnes si nécessaire. Tous les boutons restent visibles sans défilement de la barre ; des traits séparent les groupes fonctionnels.
+- Papier, zoom automatique, menus de symboles, indications de raccourcis, pavé à l’écran et tutoriel tiennent compte de cette position. PDF et impression ne contiennent toujours que les pages.
+- La position fait partie des préférences : enregistrée localement avec autorisation et dans les fichiers .schmier. Les anciens réglages utilisent En haut.
+- v0.5.5 reste locale pour le moment. La version publiée reste v0.5 ; aucun envoi avant autorisation.
+
 ## v0.5
 
+- Publication de v0.5. Nouveautés du site actualisées dans les six variantes avec des bénéfices concis ; l’application en ligne et le téléchargement utilisent le même fichier actuel.
 - Maintenir F ouvre les paramètres, avec cadre de progression et indication du raccourci. Un appui court écrit toujours du texte ; Ctrl/⌘+F reste la recherche du navigateur.
 
 - Virgules et points légèrement décalés à droite pour laisser davantage de place aux indices ; même position à l’écran, en PDF et à l’impression.
@@ -13,7 +23,6 @@
 - Les fichiers et sauvegardes locales conservent la version de l’application et les réglages de police/maintien. L’ouverture d’anciens documents affiche les résumés des versions suivantes ; les fichiers sans version restent lisibles. Le stockage local nécessite toujours une autorisation.
 - L’équerre agrandit les graduations de début et de fin : au clavier lors du déplacement sur le bord, à la souris près du bord. Elle ne calcule pas la longueur du trait.
 
-- Début du développement de v0.5. La version publiée reste v0.4.4 ; les envois sont suspendus jusqu’à une nouvelle autorisation explicite.
 
 ## v0.4.4
 

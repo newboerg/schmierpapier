@@ -127,9 +127,10 @@ function drawStretchBracketPreview() {
 
 function keepBracketCellVisible(index) {
   const rect = nodes[index].getBoundingClientRect();
-  const top = document.querySelector('header').getBoundingClientRect().bottom + 8;
+  const viewport = workspaceViewport();
+  const top = viewport.top + 8;
   if (rect.top < top) window.scrollBy(0, rect.top - top);
-  else if (rect.bottom > innerHeight - 12) window.scrollBy(0, rect.bottom - innerHeight + 12);
+  else if (rect.bottom > viewport.bottom - 12) window.scrollBy(0, rect.bottom - viewport.bottom + 12);
 }
 
 function cancelStretchBracket(restorePosition = true) {

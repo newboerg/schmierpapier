@@ -16,18 +16,26 @@ Schmierpapier provides a place to calculate, experiment and draw directly in the
 
 The application supports independent work in maths lessons: use the keyboard and mouse to write calculations in cells, arrange fractions clearly and draw geometric constructions with digital tools. Many features are available through buttons, so a keyboard shortcut is not required for every action.
 
-Version **0.5 (development)**
+Version **0.5.5 (development)**
 
 Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the app header opens it in a new tab.
 
-## New in v0.5 (development)
+## New in v0.5.5 (development)
+
+- Choose the top, bottom, left or right edge for the toolbar in settings. Top remains the default.
+- Side panels adapt their width to window height, language and browser zoom, adding columns as needed. All buttons remain visible without scrolling the toolbar; separator lines preserve functional groups.
+- The paper area, automatic zoom, symbol menus, shortcut hints, on-screen keypad and tutorial account for the position. PDF and print still contain only the pages.
+- The position is part of preferences: stored locally with consent and included in .schmier files. Older preferences use Top.
+- v0.5.5 remains local for now. The published version is still v0.5; no uploads until authorised.
+
+## New in v0.5
 
 - Commas and full stops appear at the bottom right of their owner cell, leaving adjacent cells available for the next digit. Punctuation that occupies a cell is available through Miscellaneous symbols.
 - Exercise labels such as 1a) fit across two cells, optionally double height; longer text shrinks automatically. Hold A to choose the size.
 - Settings (gear button or hold F) offer a 200–3000 ms key-hold duration and handwriting or an embedded console font. Help and tutorial show the configured duration. Both fonts work offline, including PDF and print.
 - Files and browser backups record the saving app version and font/hold settings. Opening older documents shows newer release summaries; old files without version information remain readable. Browser storage still requires consent.
 - The set square shows enlarged scale readings at line start and end: while moving along the edge by keyboard, or near the edge with the mouse. It does not calculate line length.
-- v0.5 remains local for now; the published version is still v0.4.4. No uploads until authorised.
+- v0.5 is released and available on the project website as a live app and download.
 
 ## New in v0.4.4
 

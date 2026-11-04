@@ -16,10 +16,11 @@ function scaleSpread() {
     pages = pageView === '2' ? 2 : 1;
   const width = $('paper').offsetWidth * pages + (pages - 1) * 24;
   const zoom = manualZoom ?? Math.min(1, Math.max(.2, available / width));
-  $('spread').style.zoom = String(zoom);
-  $('zoomReset').textContent = Math.round(zoom * 100) + ' %';
-  $('zoomReset').setAttribute('aria-label', 'Zoom ' + Math.round(zoom * 100) +
-    ' Prozent. An Fenster anpassen.');
+  if ($('spread').style.zoom !== String(zoom)) $('spread').style.zoom = String(zoom);
+  const label = Math.round(zoom * 100) + ' %';
+  if ($('zoomReset').textContent !== label) $('zoomReset').textContent = label;
+  const description = tr('Zoom ' + Math.round(zoom * 100) + ' Prozent. An Fenster anpassen.');
+  if ($('zoomReset').getAttribute('aria-label') !== description) $('zoomReset').setAttribute('aria-label', description);
   $('zoomOut').disabled = zoom <= .25;
   $('zoomIn').disabled = zoom >= 2;
   if (tutorial) positionTutorial()
@@ -34,8 +35,8 @@ function centerZoomOnSelection() {
   // Horizontal overflow belongs to the workspace, vertical scrolling to the page.
   workspace.scrollBy({ left: rect.left + rect.width / 2 - view.left - workspace.clientWidth / 2, behavior: 'instant' });
   rect = cell.getBoundingClientRect();
-  const headerBottom = Math.max(0, Math.min(innerHeight, document.querySelector('header').getBoundingClientRect().bottom));
-  const targetY = headerBottom + (innerHeight - headerBottom) / 2;
+  const viewport = workspaceViewport();
+  const targetY = viewport.top + (viewport.bottom - viewport.top) / 2;
   window.scrollBy({ top: rect.top + rect.height / 2 - targetY, behavior: 'instant' });
 }
 

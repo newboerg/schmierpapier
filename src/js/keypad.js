@@ -42,8 +42,9 @@ function toggleKeypad(force) {
   $('keypadToggle').setAttribute('aria-expanded', String(show));
   $('keypadToggle').setAttribute('aria-pressed', String(show));
   if (show) {
-    const left = panel.style.left ? parseFloat(panel.style.left) : innerWidth - panel.offsetWidth - 20;
-    const top = panel.style.top ? parseFloat(panel.style.top) : document.querySelector('header').getBoundingClientRect().bottom + 12;
+    const viewport = workspaceViewport();
+    const left = panel.style.left ? parseFloat(panel.style.left) : Math.max(viewport.left + 8, viewport.right - panel.offsetWidth - 20);
+    const top = panel.style.top ? parseFloat(panel.style.top) : viewport.top + 12;
     positionKeypad(left, top);
   }
 }
