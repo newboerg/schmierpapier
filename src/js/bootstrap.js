@@ -14,6 +14,7 @@ try {
 } catch {
   status('Browserspeicher nicht verfügbar – bitte als .schmier speichern')
 }
+initialiseImages();
 initialiseToolbarLayout();
 applySettings(settings);
 render();
@@ -22,6 +23,7 @@ initialiseLanguage();
 // @part part-02
 initialiseSettings();
 initialiseTaskLabels();
+initialiseFractions();
 showSavedReleaseNotes(doc);
 initialiseShortcutHints();
 initialiseKeypad();

@@ -229,6 +229,7 @@ function validateDocument(data) {
   if (data.paperType !== undefined && !['squared', 'millimeter'].includes(data.paperType)) throw Error(
     'Unbekannte Papierart.');
   return {
+    images: validateImages(data),
     version: 1,
     grid: 'inset-a4',
     paperTypes: data.pages.map((_, i) => {
@@ -277,9 +278,9 @@ $('openFile').onchange = async e => {
   const file = e.target.files[0];
   if (!file) return;
   try {
-    if (file.size > 10000000) throw Error('Die Datei ist zu groß.');
+    if (file.size > 64000000) throw Error('Die Datei ist zu groß.');
     const loaded = validate(JSON.parse(await file.text()));
-    if ((doc.pages.some(p => Object.keys(p).length) || doc.lines.some(lines => lines.length) || doc
+    if ((doc.images?.some(list => list.length) || doc.pages.some(p => Object.keys(p).length) || doc.lines.some(lines => lines.length) || doc
         .pencilLines.some(lines => lines.length) || doc.freehand.some(strokes => strokes.length) || doc.numberLines.some(lines => lines.length) || doc
         .decimalMarks.some(h => Object.keys(h).length) || doc.taskLabels.some(h => Object.keys(h).length) || doc.highlights.some(h => Object.keys(h).length) || doc.carries.some(c => Object.keys(c).length) ||
         doc.powers.some(c => Object.keys(c).length) || doc.fractionEquals.some(c => Object.keys(c)

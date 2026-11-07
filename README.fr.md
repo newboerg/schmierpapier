@@ -16,17 +16,28 @@ Schmierpapier offre un espace pour calculer, essayer et dessiner directement dan
 
 L’application vise à favoriser le travail autonome en cours de mathématiques : le clavier et la souris permettent d’écrire les calculs dans des cases, de disposer clairement les fractions et de réaliser des constructions géométriques avec des outils numériques. De nombreuses fonctions sont accessibles par des boutons, sans devoir utiliser une combinaison de touches pour chaque action.
 
-Version **0.5.5 (développement)**
+Version **0.6 (développement)**
 
 Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l’en-tête de l’application l’ouvre dans un nouvel onglet.
 
-## Nouveautés de v0.5.5 (développement)
+## Nouveautés de v0.6 (développement)
+
+- Bouton fraction et V maintenu : saisir numérateur et dénominateur en caractères ordinaires avec une barre adaptée. Centrage sur la grille, une seule annulation et aucun calcul automatique.
+- La gomme supprime entièrement les images touchées. Cela vaut aussi pour la zone choisie en maintenant R ; un chevauchement partiel suffit. Annuler restaure les images effacées.
+- Le zoom et le déplacement conservent la résolution originale. Seule la validation supprime les parties invisibles et redimensionne le cadrage final à la résolution DPI choisie.
+- Le thème sombre peut suivre le système/navigateur ; choisir Clair, Sombre ou Système dans les réglages. Papier, PDF et impression gardent des couleurs claires.
+- Symbole parallèle ∥ ajouté aux Symboles divers.
+- B maintenu insère désormais une image au lieu de Nouveau fichier, toujours accessible par son bouton et Ctrl+N. Sélectionner les cases à la souris ou avec les flèches, choisir une image puis ajuster avec molette/+− et glissement/flèches. Entrée valide, Échap annule. Double-clic pour réajuster ou supprimer.
+- Résolution réglable de 100 à 600 dpi, 300 par défaut. Remplissage initial proportionnel ; les ajustements ultérieurs peuvent laisser des espaces. Cadrages intégrés conservés dans .schmier, sauvegarde navigateur, historique, copies de zones entières, PDF et impression.
+- La version 0.6 reste locale pour le moment ; aucune publication dans cette mise à jour.
+
+## Nouveautés de v0.5.5
 
 - Choisir le haut, le bas, la gauche ou la droite pour la barre d’outils dans les paramètres. En haut reste le réglage par défaut.
 - Les barres latérales adaptent leur largeur à la hauteur de la fenêtre, à la langue et au zoom du navigateur, avec plusieurs colonnes si nécessaire. Tous les boutons restent visibles sans défilement de la barre ; des traits séparent les groupes fonctionnels.
 - Papier, zoom automatique, menus de symboles, indications de raccourcis, pavé à l’écran et tutoriel tiennent compte de cette position. PDF et impression ne contiennent toujours que les pages.
 - La position fait partie des préférences : enregistrée localement avec autorisation et dans les fichiers .schmier. Les anciens réglages utilisent En haut.
-- v0.5.5 reste locale pour le moment. La version publiée reste v0.5 ; aucun envoi avant autorisation.
+- Publication de v0.5.5. Le site résume la série 0.5 dans ses six variantes de texte ; l’application en ligne et le téléchargement utilisent la version actuelle.
 
 ## Nouveautés de v0.5
 
@@ -260,3 +271,9 @@ Les changements importants gardent les trois README, journaux et textes d’aide
 Le code de l’application est distribué sous la **GNU General Public License, version 3 (GPL-3.0-only)**. Le texte intégral figure dans [LICENSE](LICENSE).
 
 Les polices intégrées conservent leurs propres licences : la version modifiée de [Caveat](https://github.com/googlefonts/caveat) sous SIL Open Font License 1.1, et la [police DejaVu](https://dejavu-fonts.github.io/) selon ses conditions de licence applicables. Les mentions de copyright et de licence sont conservées dans les métadonnées des polices intégrées.
+
+## En option : thème Linux Mint
+
+Le dossier séparé [linux-mint-theme](linux-mint-theme/README.md) contient **Schmierpapier-Dark** pour Linux Mint Cinnamon avec la même palette sombre. Le guide en allemand explique l’installation et le choix du thème ; le script ne change pas le thème actif.
+
+Un script pour GNOME Terminal applique aussi la palette de façon persistante, avec sauvegarde et restauration.

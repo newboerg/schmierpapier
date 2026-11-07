@@ -2,7 +2,6 @@
 const LOCALE_EN = {
   "ui": {
     "Für diese Rechnung brauchst du die normale runde Klammer in der mittleren Zeile, ganz links. Hoch/Runter wechselt die Größe, Links/Rechts die Form. Bestätige ohne Strg oder Shift; die großen Formen gehören nicht zu diesem Schritt.": "This calculation needs the normal round bracket in the middle row, at the far left. Up/Down change size, Left/Right shape. Confirm without Ctrl or Shift; large forms are not part of this step.",
-    "Neue Datei (Strg+N oder B halten)": "New file (Ctrl+N or hold B)",
     "Datei laden (Strg+O oder O halten)": "Load file (Ctrl+O or hold O)",
     "Durchstreichen (S halten)": "Strike through (hold S)",
     "Tastenhinweise ein-/ausblenden (T halten)": "Toggle key hints (hold T)",
@@ -672,7 +671,44 @@ const LOCALE_EN = {
     "Rechenzeichen und Klammern": "Operators and brackets",
     "Weitere Symbole": "More symbols",
     "Werkzeugleiste oben, unten, links oder rechts anordnen; seitlich passen sich Breite und Spalten an das Fenster an.": "Dock the toolbar at the top, bottom, left or right; side panels adapt their width and columns to the window.",
-    "Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten. Die Werkzeugleiste bleibt an deiner gewählten Position. Die goldenen Hinweise zeigen dir auch dort den passenden Button.": "Row 1, column 1 is active. Move down five times and right four times to the gold cell at row 6, column 5. The tutorial advances there automatically, without Enter. You may also click the target. We will calculate (12 + 8) · 3 = 60 and then write a fraction. This is a separate practice document; your own work is preserved. The toolbar stays at your chosen edge. The gold highlights still show you the correct button."
+    "Aktiv ist Zeile 1 · Spalte 1. Gehe fünfmal nach unten und viermal nach rechts zum gold markierten Kästchen in Zeile 6 · Spalte 5. Dort geht es automatisch weiter, ohne Enter. Du kannst das Ziel auch anklicken. Wir rechnen (12 + 8) · 3 = 60 und schreiben danach einen Bruch. Dies ist ein separates Übungsblatt; dein Dokument bleibt erhalten. Die Werkzeugleiste bleibt an deiner gewählten Position. Die goldenen Hinweise zeigen dir auch dort den passenden Button.": "Row 1, column 1 is active. Move down five times and right four times to the gold cell at row 6, column 5. The tutorial advances there automatically, without Enter. You may also click the target. We will calculate (12 + 8) · 3 = 60 and then write a fraction. This is a separate practice document; your own work is preserved. The toolbar stays at your chosen edge. The gold highlights still show you the correct button.",
+    "Farbschema": "Colour theme",
+    "Systemeinstellung": "System preference",
+    "Hell": "Light",
+    "Dunkel": "Dark",
+    "Bildauflösung": "Image resolution",
+    "Parallel zu": "Parallel to",
+    "Neue Datei (Strg+N)": "New file (Ctrl+N)",
+    "Strg+N": "Ctrl+N",
+    "Bild einfügen": "Insert image",
+    "Bild einfügen (B halten): Bereich markieren, Bild auswählen": "Insert image (hold B): select an area, choose an image",
+    "Bild auswählen": "Choose image",
+    "Bilddatei auswählen": "Choose image file",
+    "Bildausschnitt verkleinern": "Zoom image out",
+    "Bildausschnitt vergrößern": "Zoom image in",
+    "Bildausschnitt übernehmen (Enter)": "Apply image crop (Enter)",
+    "Bild löschen": "Delete image",
+    "Ausgewähltes Bild löschen": "Delete selected image",
+    "Bildeinfügen abbrechen (Esc)": "Cancel image insertion (Esc)",
+    "Bild anpassen: Mausrad oder +/− zum Zoomen, Ziehen oder Pfeiltasten zum Verschieben. Enter übernimmt, Esc bricht ab.": "Adjust image: wheel or +/− to zoom, drag or arrows to move. Enter applies, Esc cancels.",
+    "Bildbereich markieren: Ziehen oder Pfeiltasten, dann Enter oder Bild auswählen. Esc bricht ab.": "Select image area: drag or use arrows, then Enter or Choose image. Esc cancels.",
+    "Ungültige Bilddaten.": "Invalid image data.",
+    "Bild konnte nicht geladen werden.": "Could not load image.",
+    "Bitte eine Bilddatei (PNG, JPEG, WebP, GIF oder BMP) bis 20 MB auswählen.": "Choose a PNG, JPEG, WebP, GIF or BMP image up to 20 MB.",
+    "Das Bild ist zu groß (maximal 64 Megapixel).": "The image is too large (maximum 64 megapixels).",
+    "Das Bild ist zu groß (maximal 36 Megapixel).": "The image is too large (maximum 36 megapixels).",
+    "Dunkles Farbschema nach Systemeinstellung oder eigener Wahl; Bilder in Kästchen einfügen und anpassen; Parallelzeichen.": "Dark theme following your system or your choice; insert and adjust images in cells; parallel symbol.",
+    "Maximal 100 Bilder pro Seite.": "Maximum 100 images per page.",
+    "Abbrechen": "Cancel",
+    "Radierer – Textmarker, gezeichnete Linien und Bilder entfernen": "Eraser – remove highlights, drawn lines and images",
+    "Bruch einfügen": "Insert fraction",
+    "Bruch einfügen (V halten): Zähler und Nenner eingeben": "Insert fraction (hold V): enter numerator and denominator",
+    "Zähler eingeben (zum Beispiel 12):": "Enter numerator (for example 12):",
+    "Nenner eingeben (zum Beispiel 25):": "Enter denominator (for example 25):",
+    "Für den Bruch fehlt unten eine zweite Kästchenzeile.": "There is no second cell row below for this fraction.",
+    "Bitte Zähler und Nenner jeweils in einer Zeile eingeben.": "Enter numerator and denominator on one line each.",
+    "Der Bruch passt hier nicht auf das Blatt. Wähle ein Kästchen weiter links oder kürzere Eingaben.": "The fraction does not fit here. Choose a cell further left or shorter entries.",
+    "Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).": "Insert fractions from numerator and denominator as normal cell text with a fraction bar (hold V)."
   },
   "helpInitial": [
     {
@@ -752,7 +788,7 @@ const LOCALE_EN = {
     },
     {
       "title": "New documents, names and .schmier files",
-      "html": "<p>New file starts an empty document with one squared page. If there is content, a confirmation is shown; save it first to keep a separate copy. Creating a new document can be undone. The document-name field supplies the filenames for .schmier and PDF downloads.</p><p>Save .schmier or Ctrl + S downloads an editable file containing all pages, their paper types, text, colours, highlights and drawings. The HTML application is a separate file. Load file opens a saved .schmier file and confirms replacement if the current document contains work. Imported files are validated; invalid files show an error. Limits are 200 pages and 10 MB.</p><p>Downloads go to the browser’s selected location, often Downloads. Saving again usually creates another download; the app does not silently overwrite an existing file.</p>",
+      "html": "<p>New file starts an empty document with one squared page. If there is content, a confirmation is shown; save it first to keep a separate copy. Creating a new document can be undone. The document-name field supplies the filenames for .schmier and PDF downloads.</p><p>Save .schmier or Ctrl + S downloads an editable file containing all pages, their paper types, text, colours, highlights and drawings. The HTML application is a separate file. Load file opens a saved .schmier file and confirms replacement if the current document contains work. Imported files are validated; invalid files show an error. Limits are 200 pages and 64 MB.</p><p>Downloads go to the browser’s selected location, often Downloads. Saving again usually creates another download; the app does not silently overwrite an existing file.</p>",
       "keywords": ""
     },
     {
@@ -899,12 +935,12 @@ const LOCALE_EN = {
     },
     {
       "title": "Key hints above buttons",
-      "html": "<p>The keyboard button immediately before Help toggles subtle red key hints above the corresponding buttons. Alternatively hold T in a writing cell for about 0.6 seconds, including during keyboard compass and set-square control. An … after a key means hold; Ctrl+Z and similar labels mean press together. Split buttons with a menu arrow have one shared hint centred above the whole group. The root menu is labelled Q. Hints show existing shortcuts, not invented keys for actions without one. They follow the header during scrolling and resizing, do not take focus and do not intercept clicks. The active button is lightly highlighted in red. The display is session-only and excluded from files, PDF and print. A short T remains a letter outside drawing modes. Names and searches keep normal input. Hints can also be used in the tutorial.</p>",
+      "html": "<p>The keyboard button immediately before Help toggles subtle red key hints above the corresponding buttons. Alternatively hold T in a writing cell for about 0.6 seconds, including during keyboard compass and set-square control. An … after a key means hold; Ctrl+Z and similar labels mean press together. Split buttons with a menu arrow have one shared hint centred above the whole group. The root menu is labelled Q. Hints show existing shortcuts, not invented keys for actions without one. They follow the header during scrolling and resizing, do not take focus and do not intercept clicks. The active button is lightly highlighted in red. The display is session-only and excluded from files, PDF and print. A short T remains a letter outside drawing modes. Names and searches keep normal input. Hints can also be used in the tutorial.</p><p>The T… hint above the shortcut-hints button stays visible even when the other hints are switched off.</p><p>The T… hint above the shortcut-hints button stays visible even when the other hints are switched off.</p>",
       "keywords": "T tastenhilfe tastatur hinweise key hints keyboard touches aide rouge rot halten"
     },
     {
       "title": "Highlighters, strike-through and file keys",
-      "html": "<p>Hold 5 for pink, 6 for neon yellow or 7 for neon green for about 0.6 seconds, on either number row. A red dashed rectangle starts at the current cell. Arrows resize it; release and hold the same digit again to apply highlighting. Hold S similarly starts strike-through; arrows select the region, holding S again draws a diagonal from bottom left to top right in the chosen pen colour. Esc discards the selection without changes. Text is preserved. Short 5/6/7 and s remain normal input. Ctrl+S still saves; Ctrl+Z undoes. The eraser removes highlights and strike-through as before. Ctrl+N creates a file and Ctrl+O opens the file picker if the browser delivers those events. Because browsers may reserve Ctrl+N, holding B (Blank) or O in a writing cell offers equivalent alternatives. The existing replacement confirmation remains. F11 toggles fullscreen if delivered; otherwise native browser fullscreen applies. Holds do not affect names or searches. Key hints show the new shortcuts.</p>",
+      "html": "<p>Hold 5 for pink, 6 for neon yellow or 7 for neon green for about 0.6 seconds, on either number row. A red dashed rectangle starts at the current cell. Arrows resize it; release and hold the same digit again to apply highlighting. Hold S similarly starts strike-through; arrows select the region, holding S again draws a diagonal from bottom left to top right in the chosen pen colour. Esc discards the selection without changes. Text is preserved. Short 5/6/7 and s remain normal input. Ctrl+S still saves; Ctrl+Z undoes. The eraser removes highlights and strike-through as before. Ctrl+N creates a file and Ctrl+O opens the file picker if the browser delivers those events. Because browsers may reserve Ctrl+N, holding O in a writing cell offers an alternative for opening; New file remains available via its button. The existing replacement confirmation remains. F11 toggles fullscreen if delivered; otherwise native browser fullscreen applies. Holds do not affect names or searches. Key hints show the new shortcuts.</p>",
       "keywords": "5 6 7 S B O F11 textmarker highlighter surligneur durchstreichen strike barrer neu öffnen fullscreen vollbild"
     },
     {
@@ -976,6 +1012,16 @@ const LOCALE_EN = {
       "title": "Dock the toolbar on any edge",
       "keywords": "toolbar header position top bottom left right dock groups settings",
       "html": "<p>Open settings with the gear button or by holding F. Toolbar position offers Top (default), Bottom, Left and Right. Apply activates the position; Cancel or Esc leaves the previous layout unchanged.</p><p>On the left or right, the toolbar stays visible at the window edge. Its width follows the window height, language and space needed by the controls. At lower heights, groups flow into additional columns so every button remains accessible without scrolling the toolbar. Button sizes are preserved. Resizing the window or changing browser zoom recalculates the layout.</p><p>Lines and side-panel group headings separate pages, zoom, editing, files, output, view/help, pens, markers, erasing, drawing tools and maths symbols. Split buttons stay together. Menus open towards the workspace and stay within the window. The paper and automatic zoom allow space for the toolbar. Shortcut hints, the on-screen keypad and tutorial highlights follow its position too.</p><p>Like other preferences, the position is saved locally with storage consent and included in manually saved .schmier files. Without consent nothing is stored in the browser. Older preferences without a position use Top. The toolbar is excluded from PDF and print.</p><p>When space is very limited, extra group headings are omitted but separators remain. Long groups can continue in the next column without shrinking buttons. Keyboard navigation keeps its order. On small windows a tall top or bottom toolbar can be scrolled; side toolbars need no internal scrolling.</p><p>At the top and bottom, the writing and drawing tools start on a new row immediately after Tutorial.</p>"
+    },
+    {
+      "title": "Colour theme and inserting images",
+      "keywords": "dark light system image photo dpi resolution parallel hold B",
+      "html": "<p>In settings choose System (default), Light or Dark under Colour theme. System also follows later changes in your browser or operating system. Paper and ink keep their light-page colours; PDF and print remain unchanged. Like other settings, this choice is saved in the browser with consent and in .schmier files.</p><p>The image button or holding B starts a red dashed selection at the current cell. Drag a rectangle with the left mouse button; releasing opens the file chooser. Alternatively, extend the rectangle with arrows and press Enter to choose a file. Choose image reopens the chooser after cancellation. A short B press still types b. New file remains available via its button or Ctrl+N if the browser passes it to the app.</p><p>PNG, JPEG, WebP, GIF (a still frame) and BMP are supported, up to 20 MB and 64 megapixels. Settings offer 100, 200, 300 (default), 400, 500 or 600 dpi. The image initially fills the entire area without distortion; excess edges are cropped when aspect ratios differ. Resolution refers to the physical area on A4 paper and cannot create extra image detail.</p><p>Before applying, zoom with the wheel or +/− and move with left-button dragging or arrows (1 mm per arrow step). Empty space is allowed after adjusting. Red borders show the saved crop. Enter or Apply inserts it; Esc or Cancel discards changes. Double-click an inserted image to adjust it again or Delete image. Cropped-away parts are not saved; choose the original file again to recover them.</p><p>Images sit behind writing. They are embedded for offline use and preserved in .schmier, browser backups with consent, undo/redo, PDF and print. Copy/cut must include the whole image rectangle; partially touched images are unchanged. Higher dpi means larger files. Each crop may have up to 36 megapixels, with about 50 MB of embedded image data per document. Older files without images still open.</p><p>The Miscellaneous symbols menu (hold Z) now includes ∥ for parallel to, for example a ∥ b. Insert it like other maths symbols.</p><p>Zooming and panning preserve the original resolution. Only Apply removes invisible parts and resamples the finished crop to the chosen DPI resolution.</p><p>The eraser removes touched images as a whole. This also applies to the erase area selected by holding R; partial overlap is enough. Undo restores erased images.</p><p>Clicking the active eraser again returns to the last pen and its colour. Any pending keyboard erase selection is cancelled. Holding R still starts an erase area; holding R again confirms it.</p><p>Pen, highlighter, eraser and Greek-symbol buttons also use dark backgrounds in dark mode, with readable icon colours. Actual ink colours are unchanged.</p><p>After confirming a keyboard erase area (hold R again), the last pen and its colour are restored automatically.</p>"
+    },
+    {
+      "title": "Insert fractions conveniently",
+      "keywords": "fraction numerator denominator hold V bar",
+      "html": "<p>The fraction button (two cells with a dividing line) or holding V (Verhältnis, German for ratio) asks for the numerator, then the denominator. A short V still types v; Ctrl+V remains Paste. Entries are neither calculated nor simplified.</p><p>The active cell is the top-left of the fraction. The numerator occupies that row and the denominator the row directly below. Each character occupies one cell; decimal commas and points attach to the previous cell as in normal writing. The longer entry determines the width. The shorter is centred on the cell grid, slightly left when spacing is odd. The bar lies on the shared cell edge across the full width.</p><p>Normal-size characters use the current pen colour even when superscript, subscript or double-height mode is active; those modes remain set for subsequent input. Existing writing in the rectangle is replaced. Overlapping exercise labels and tall characters are removed as whole objects. Other drawings, images and highlights remain. An existing bar is extended without duplication or removal.</p><p>The cursor moves to the right of the fraction, or the last upper cell at the page edge. A second row and enough horizontal room are required. Cancel or an empty entry changes nothing. One Undo removes the entire insertion. Characters and line remain individually editable and work with .schmier, region copies, PDF and print like manually written content.</p>"
     }
   ],
   "consent": [

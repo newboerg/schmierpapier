@@ -100,6 +100,7 @@ function snapshotRegion(sourcePage, r) {
     for (const [k, v] of Object.entries(doc[field][sourcePage]))
       if (inRegion(+k, r)) data[field][k] = JSON.parse(JSON.stringify(v))
   }
+  data.images = (doc.images?.[sourcePage] || []).filter(image => imageWithinRect(image, r)).map(image => ({ ...image }));
   data.taskLabels = Object.fromEntries(Object.entries(doc.taskLabels[sourcePage]).filter(([key, label]) =>
     inRegion(+key, r) && inRegion(+key + 1 + (label.height - 1) * COLS, r)).map(([key, label]) => [key, { ...label }]));
   data.fractionEquals = Object.fromEntries(Object.entries(doc.fractionEquals[sourcePage]).filter(([k]) =>
@@ -119,6 +120,7 @@ function snapshotRegion(sourcePage, r) {
 }
 
 function eraseRegion(targetPage, r) {
+  if (doc.images) doc.images[targetPage] = doc.images[targetPage].filter(image => !imageWithinRect(image, r));
   for (const field of REGION_FIELDS)
     for (const key of Object.keys(doc[field][targetPage]))
       if (inRegion(+key, r)) delete doc[field][targetPage][key];
@@ -155,6 +157,8 @@ function pasteRegion(point) {
   for (const field of REGION_FIELDS)
     for (const [k, v] of Object.entries(data[field])) doc[field][page][+k + offset] = JSON.parse(JSON
       .stringify(v));
+  doc.images ??= doc.pages.map(() => []);
+  doc.images[page].push(...(data.images || []).map(image => ({ ...image, x: image.x + dx, y: image.y + dy })));
   for (const [k, v] of Object.entries(data.taskLabels)) doc.taskLabels[page][+k + offset] = { ...v };
   for (const [k, v] of Object.entries(data.fractionEquals)) doc.fractionEquals[page][+k + offset] = v;
   doc.tallBrackets[page].push(...data.tallBrackets.map(b => ({
@@ -284,7 +288,10 @@ function beginKeyboardArea(mode) {
   cancelRegion(); cancelStrike(); cancelKeyboardLine();
   hideCompass(); cancelNumberLine(false); finishMark(); resetCorner();
   geo.visible = false; geo.placing = false; geo.gesture = null;
-  if (mode === 'erase') document.querySelector('[data-tool="eraser"]').click();
+  if (mode === 'erase') {
+    // Starting another erase rectangle must not toggle the active eraser off.
+    if (tool !== 'eraser') document.querySelector('[data-tool="eraser"]').click();
+  }
   else if (mode === 'strike') $('strikeToggle').click();
   else if (mode.startsWith('marker')) document.querySelectorAll('.swatch[data-tool="marker"]')[Number(mode.slice(-1)) - 5].click();
   else startRegion(mode);

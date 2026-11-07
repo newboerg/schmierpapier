@@ -16,17 +16,28 @@ Schmierpapier bietet einen Platz zum Rechnen, Ausprobieren und Zeichnen direkt i
 
 Die Anwendung soll das eigenständige Arbeiten im Mathematikunterricht unterstützen: Rechnungen lassen sich mit Tastatur und Maus in Kästchen schreiben, Brüche übersichtlich anordnen und geometrische Konstruktionen mit digitalen Werkzeugen zeichnen. Viele Funktionen sind über Buttons erreichbar, sodass nicht für jede Eingabe eine Tastenkombination nötig ist.
 
-Version **0.5.5 (Entwicklung)**
+Version **0.6 (Entwicklung)**
 
 Projektwebseite: [schmierpapier.org](https://schmierpapier.org). Das Logo im App-Header öffnet sie in einem neuen Tab.
 
-## Neu in v0.5.5 (Entwicklung)
+## Neu in v0.6 (Entwicklung)
+
+- Bruch-Button und V halten: Zähler und Nenner abfragen und als normale Kästchenschrift mit passendem Bruchstrich einsetzen. Zentrierung im Raster, ein Rückgängig-Schritt und keine automatische Berechnung.
+- Der Radierer löscht berührte Bilder als Ganzes. Das gilt auch für die mit R halten gewählte Radierfläche; eine teilweise Überlappung genügt. Rückgängig stellt gelöschte Bilder wieder her.
+- Beim Zoomen und Verschieben bleibt die Originalauflösung erhalten. Erst Übernehmen schneidet unsichtbare Bildteile ab und skaliert den fertigen Ausschnitt auf die gewählte DPI-Auflösung.
+- Darkmode folgt auf Wunsch System/Browser; Hell, Dunkel und System in den Einstellungen wählbar. Papier, PDF und Druck behalten ihre hellen Farben.
+- Parallelzeichen ∥ im Menü Verschiedene Symbole.
+- B halten öffnet Bild einfügen statt Neue Datei; diese bleibt per Button und Strg+N erreichbar. Kästchenbereich per Maus oder Pfeilen wählen, danach Rasterbild auswählen und mit Mausrad/+− sowie Ziehen/Pfeilen anpassen. Enter übernimmt, Esc verwirft. Doppelklick erlaubt erneutes Anpassen oder Löschen.
+- Bildauflösung in den Einstellungen: 100–600 dpi, Standard 300. Zunächst proportional und flächendeckend eingepasst; anschließende Anpassungen dürfen Leerraum lassen. Eingebettete Ausschnitte bleiben in .schmier, Browsersicherung, Historie, vollständiger Bereichskopie, PDF und Druck erhalten.
+- Version 0.6 ist zunächst lokal; keine Veröffentlichung im Rahmen dieser Umsetzung.
+
+## Neu in v0.5.5
 
 - Werkzeugleiste in den Einstellungen oben, unten, links oder rechts anordnen. Oben bleibt der Standard.
 - Seitlich wird die Breite an Fensterhöhe, Sprache und Browserzoom angepasst; bei Bedarf entstehen mehrere Spalten. Alle Buttons bleiben ohne Scrollen der Leiste sichtbar und in funktionalen Gruppen durch Linien getrennt.
 - Papierbereich, automatische Zoomanpassung, Symbolmenüs, Tastenhinweise, Bildschirm-Nummernblock und Tutorial berücksichtigen die Position. PDF und Druck enthalten weiterhin nur die Seiten.
 - Die Leistenposition gehört zu den Einstellungen: mit Zustimmung lokal gespeichert und in .schmier-Dateien enthalten. Ältere Einstellungen verwenden Oben.
-- v0.5.5 bleibt vorerst lokal. Die veröffentlichte Version ist weiterhin v0.5; keine Uploads bis zur Freigabe.
+- v0.5.5 veröffentlicht. Die Homepage fasst die Neuerungen der 0.5er-Reihe in allen sechs Textfassungen zusammen; Live-App und Download verwenden den aktuellen Build.
 
 ## Neu in v0.5
 
@@ -260,3 +271,9 @@ Bei wichtigen Änderungen werden alle drei READMEs, Changelogs und betroffenen H
 Der Anwendungscode steht unter der **GNU General Public License, Version 3 (GPL-3.0-only)**. Der vollständige Lizenztext steht in [LICENSE](LICENSE).
 
 Die eingebetteten Schriften behalten ihre eigenen Lizenzen: die angepasste [Caveat](https://github.com/googlefonts/caveat) unter der SIL Open Font License 1.1 sowie die verwendete [DejaVu-Schrift](https://dejavu-fonts.github.io/) unter ihren jeweiligen Lizenzbedingungen. Die Copyright- und Lizenzhinweise sind in den eingebetteten Schriftmetadaten erhalten.
+
+## Optional: Linux-Mint-Theme
+
+Im separaten Ordner [linux-mint-theme](linux-mint-theme/README.md) liegt **Schmierpapier-Dark** für Linux Mint Cinnamon mit derselben dunklen Farbpalette. Die Anleitung erklärt Installation und Auswahl; das Installationsskript verändert das aktive Theme nicht.
+
+Für GNOME Terminal liegt außerdem ein Skript zum dauerhaften Übernehmen der Palette mit Sicherung und Wiederherstellung bei.

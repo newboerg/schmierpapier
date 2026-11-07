@@ -132,6 +132,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
           <button id="cutRegion" title="Ausschneiden und verschieben: Bereich aufziehen, dann Ziel anklicken. Esc bricht ab." aria-label="Bereich ausschneiden" aria-pressed="false">
             ✂
           </button>
+          <button id="insertImage" title="Bild einfügen (B halten): Bereich markieren, Bild auswählen" aria-label="Bild einfügen" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><circle cx="8" cy="9" r="2"/><path d="m3 19 6-6 4 4 4-7 5 9"/></svg></button>
           <button id="copyRegion" title="Kopieren: Bereich aufziehen, dann Ziel anklicken. Esc bricht ab." aria-label="Bereich kopieren" aria-pressed="false">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <rect x="8" y="8" width="12" height="13" rx="1">
@@ -142,7 +143,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
           </button>
         </div>
         <div class="toolbar-group paging" data-toolbar-group="files" role="group" aria-label="Datei">
-          <button id="newFile" title="Neue Datei (Strg+N oder B halten)">
+          <button id="newFile" title="Neue Datei (Strg+N)">
             Neue Datei
           </button>
           <button id="open" title="Datei laden (Strg+O oder O halten)">
@@ -327,7 +328,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
               <path d="M2 22L26 2" fill="none" stroke="currentColor" stroke-width="1.7"/>
             </svg>
           </button>
-          <button class="swatch" data-tool="eraser" style="--swatch:#68776e" title="Radierer – Textmarker und alle gezeichneten Linien entfernen" aria-label="Radierer" aria-pressed="false">
+          <button class="swatch" data-tool="eraser" style="--swatch:#68776e" title="Radierer – Textmarker, gezeichnete Linien und Bilder entfernen" aria-label="Radierer" aria-pressed="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="m4 14 9-10a2 2 0 0 1 3 0l5 5a2 2 0 0 1 0 3L12 21H8l-4-4a2 2 0 0 1 0-3Z">
               </path>
@@ -404,6 +405,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
               </rect>
             </svg>
           </button>
+          <button id="fractionInsert" title="Bruch einfügen (V halten): Zähler und Nenner eingeben" aria-label="Bruch einfügen"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="2" width="8" height="6" rx="1"/><path d="M4 12h16"/><rect x="8" y="16" width="8" height="6" rx="1"/></svg></button>
         </div>
         <div class="toolbar-group paging" data-toolbar-group="expressions" role="group" aria-label="Rechenzeichen und Klammern">
           <span class="relation-buttons">
@@ -612,6 +614,8 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
           <option value="left">Links</option><option value="right">Rechts</option>
         </select></label>
         <p>Seitlich passt sich die Breite an die Fensterhöhe an. Die Werkzeuggruppen bleiben vollständig sichtbar.</p>
+        <label>Farbschema<select id="themeChoice"><option value="system">Systemeinstellung</option><option value="light">Hell</option><option value="dark">Dunkel</option></select></label>
+        <label>Bildauflösung<select id="imageDpi"><option value="100">100 dpi</option><option value="200">200 dpi</option><option value="300">300 dpi</option><option value="400">400 dpi</option><option value="500">500 dpi</option><option value="600">600 dpi</option></select></label>
         <label>Schrift auf dem Papier<select id="writingFont"><option value="handwriting">Handschrift</option><option value="console">Konsole (Monospace)</option></select></label>
         <p id="settingsStorageNote"></p>
         <div class="dialog-actions"><button id="settingsCancel" type="button">Abbrechen</button><button type="submit">Übernehmen</button></div>
@@ -643,6 +647,15 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         <div class="help-foot">F1: Hilfe öffnen · Strg + F: hier suchen · Esc: schließen</div>
       </div>
     </dialog>
+    <section id="imageControls" class="image-controls" aria-label="Bild einfügen" hidden>
+      <p id="imageInstruction" role="status"></p>
+      <button id="imageChoose" title="Bilddatei auswählen">Bild auswählen</button>
+      <button id="imageZoomOut" title="Bildausschnitt verkleinern">−</button><button id="imageZoomIn" title="Bildausschnitt vergrößern">+</button>
+      <button id="imageApply" title="Bildausschnitt übernehmen (Enter)">Übernehmen</button>
+      <button id="imageDelete" title="Ausgewähltes Bild löschen">Bild löschen</button>
+      <button id="imageCancel" title="Bildeinfügen abbrechen (Esc)">Abbrechen</button>
+    </section>
+    <input id="imageFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp" hidden>
     <input id="openFile" type="file" accept=".schmier,application/json">
     <script>
 {{scripts}}

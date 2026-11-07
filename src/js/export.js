@@ -40,6 +40,7 @@ async function pdfExport() {
       canvas.height = 297 * scale;
       const c = canvas.getContext('2d');
       paintPaperGrid(c, scale, paperTypeAt(p));
+      await paintImages(c, p, scale);
       c.globalAlpha = .5;
       for (const [k, color] of Object.entries(doc.highlights[p])) {
         c.fillStyle = color;
@@ -236,6 +237,7 @@ function preparePrint() {
   for (let p = 0; p < doc.pages.length; p++) {
     page = p;
     renderLines();
+    renderImages(true);
     const sheet = $('paper').cloneNode(true);
     sheet.removeAttribute('id');
     sheet.className = 'paper' + (paperTypeAt() === 'millimeter' ? ' millimeter' : '');

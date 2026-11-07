@@ -1,0 +1,17 @@
+{
+  "background": "#17201d",
+  "surface": "#222e28",
+  "control": "#2d3b33",
+  "hover": "#415448",
+  "selected": "#355e49",
+  "accent": "#36795e",
+  "border": "#708579",
+  "surface_border": "#647a6c",
+  "focus": "#a6d6b5",
+  "text": "#e1e9e4",
+  "control_text": "#edf3ef",
+  "muted_text": "#bacfc1",
+  "link": "#a8dbbf",
+  "error": "#ffb5a6",
+  "warning": "#e5aa22"
+}

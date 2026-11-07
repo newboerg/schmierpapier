@@ -2,6 +2,22 @@
 
 **Deutsch** · [English](CHANGELOG.en.md) · [Français](CHANGELOG.fr.md)
 
+## v0.6
+
+- Nach dem Bestätigen einer Tastatur-Radierfläche (erneut R halten) wird automatisch der letzte Stift mit seiner Farbe aktiviert.
+- Bruch-Button und V halten: Zähler und Nenner abfragen und als normale Kästchenschrift mit passendem Bruchstrich einsetzen. Zentrierung im Raster, ein Rückgängig-Schritt und keine automatische Berechnung.
+- Optionales Linux-Mint-Cinnamon-Theme mit der Schmierpapier-Darkmode-Palette im separaten Ordner linux-mint-theme, inklusive Installations- und Rückwechselanleitung.
+- Auch Stift-, Marker-, Radierer- und griechische Symbolbuttons haben im Darkmode dunkle Hintergründe; die Symbolfarben sind für gute Sichtbarkeit angepasst. Die tatsächlichen Schreibfarben bleiben gleich.
+- Wird der bereits aktive Radierer erneut angeklickt, wechselt die Anwendung zum zuletzt verwendeten Stift mit seiner Farbe zurück. Eine laufende Tastatur-Radierauswahl wird dabei abgebrochen. R halten startet weiterhin eine Radierfläche; erneutes R halten bestätigt sie.
+- Der Radierer löscht berührte Bilder als Ganzes. Das gilt auch für die mit R halten gewählte Radierfläche; eine teilweise Überlappung genügt. Rückgängig stellt gelöschte Bilder wieder her.
+- Beim Zoomen und Verschieben bleibt die Originalauflösung erhalten. Erst Übernehmen schneidet unsichtbare Bildteile ab und skaliert den fertigen Ausschnitt auf die gewählte DPI-Auflösung.
+- Der T…-Hinweis über dem Button für die Tastenhilfe bleibt immer sichtbar, auch wenn die übrigen Tastenhinweise ausgeschaltet sind.
+- Darkmode folgt auf Wunsch System/Browser; Hell, Dunkel und System in den Einstellungen wählbar. Papier, PDF und Druck behalten ihre hellen Farben.
+- Parallelzeichen ∥ im Menü Verschiedene Symbole.
+- B halten öffnet Bild einfügen statt Neue Datei; diese bleibt per Button und Strg+N erreichbar. Kästchenbereich per Maus oder Pfeilen wählen, danach Rasterbild auswählen und mit Mausrad/+− sowie Ziehen/Pfeilen anpassen. Enter übernimmt, Esc verwirft. Doppelklick erlaubt erneutes Anpassen oder Löschen.
+- Bildauflösung in den Einstellungen: 100–600 dpi, Standard 300. Zunächst proportional und flächendeckend eingepasst; anschließende Anpassungen dürfen Leerraum lassen. Eingebettete Ausschnitte bleiben in .schmier, Browsersicherung, Historie, vollständiger Bereichskopie, PDF und Druck erhalten.
+- Version 0.6 ist zunächst lokal; keine Veröffentlichung im Rahmen dieser Umsetzung.
+
 ## v0.5.5
 
 - Oben und unten beginnt nach Tutorial immer eine neue Werkzeugzeile.
@@ -9,7 +25,7 @@
 - Seitlich wird die Breite an Fensterhöhe, Sprache und Browserzoom angepasst; bei Bedarf entstehen mehrere Spalten. Alle Buttons bleiben ohne Scrollen der Leiste sichtbar und in funktionalen Gruppen durch Linien getrennt.
 - Papierbereich, automatische Zoomanpassung, Symbolmenüs, Tastenhinweise, Bildschirm-Nummernblock und Tutorial berücksichtigen die Position. PDF und Druck enthalten weiterhin nur die Seiten.
 - Die Leistenposition gehört zu den Einstellungen: mit Zustimmung lokal gespeichert und in .schmier-Dateien enthalten. Ältere Einstellungen verwenden Oben.
-- v0.5.5 bleibt vorerst lokal. Die veröffentlichte Version ist weiterhin v0.5; keine Uploads bis zur Freigabe.
+- v0.5.5 veröffentlicht. Die Homepage fasst die Neuerungen der 0.5er-Reihe in allen sechs Textfassungen zusammen; Live-App und Download verwenden den aktuellen Build.
 
 ## v0.5
 

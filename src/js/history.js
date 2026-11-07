@@ -8,7 +8,7 @@ function checkpoint() {
     pos,
     returnColumn
   }));
-  if (history.length > 150) history.shift();
+  trimHistory(history);
   future = []
 }
 
@@ -24,10 +24,17 @@ function restore(from, to) {
     pos,
     returnColumn
   }));
+  trimHistory(to);
   const state = JSON.parse(from.pop());
   doc = state.doc;
   page = state.page;
   pos = state.pos;
   returnColumn = state.returnColumn ?? pos % COLS;
   changed()
+}
+
+// Embedded pictures can make snapshots large; keep undo memory bounded.
+function trimHistory(stack) {
+  let bytes = stack.reduce((sum, snapshot) => sum + snapshot.length, 0);
+  while (stack.length > 1 && (stack.length > 150 || bytes > 50000000)) bytes -= stack.shift().length;
 }

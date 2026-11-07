@@ -2,6 +2,22 @@
 
 [Deutsch](CHANGELOG.md) · [English](CHANGELOG.en.md) · **Français**
 
+## v0.6
+
+- Après validation d’une zone d’effacement au clavier (maintenir R à nouveau), le dernier stylo et sa couleur sont réactivés automatiquement.
+- Bouton fraction et V maintenu : saisir numérateur et dénominateur en caractères ordinaires avec une barre adaptée. Centrage sur la grille, une seule annulation et aucun calcul automatique.
+- Thème Linux Mint Cinnamon facultatif avec la palette sombre de Schmierpapier dans le dossier séparé linux-mint-theme, avec instructions d’installation et de retour au thème précédent.
+- Les boutons des stylos, surligneurs, gomme et symboles grecs ont aussi un fond sombre, avec des couleurs d’icônes lisibles. Les couleurs d’écriture restent identiques.
+- Cliquer à nouveau sur la gomme active revient au dernier stylo avec sa couleur. Une sélection d’effacement au clavier en cours est annulée. Maintenir R lance toujours une zone ; maintenir R à nouveau la confirme.
+- La gomme supprime entièrement les images touchées. Cela vaut aussi pour la zone choisie en maintenant R ; un chevauchement partiel suffit. Annuler restaure les images effacées.
+- Le zoom et le déplacement conservent la résolution originale. Seule la validation supprime les parties invisibles et redimensionne le cadrage final à la résolution DPI choisie.
+- L’indication T… au-dessus du bouton d’aide des touches reste visible même si les autres indications sont masquées.
+- Le thème sombre peut suivre le système/navigateur ; choisir Clair, Sombre ou Système dans les réglages. Papier, PDF et impression gardent des couleurs claires.
+- Symbole parallèle ∥ ajouté aux Symboles divers.
+- B maintenu insère désormais une image au lieu de Nouveau fichier, toujours accessible par son bouton et Ctrl+N. Sélectionner les cases à la souris ou avec les flèches, choisir une image puis ajuster avec molette/+− et glissement/flèches. Entrée valide, Échap annule. Double-clic pour réajuster ou supprimer.
+- Résolution réglable de 100 à 600 dpi, 300 par défaut. Remplissage initial proportionnel ; les ajustements ultérieurs peuvent laisser des espaces. Cadrages intégrés conservés dans .schmier, sauvegarde navigateur, historique, copies de zones entières, PDF et impression.
+- La version 0.6 reste locale pour le moment ; aucune publication dans cette mise à jour.
+
 ## v0.5.5
 
 - En haut et en bas, une nouvelle ligne commence toujours après le tutoriel.
@@ -9,7 +25,7 @@
 - Les barres latérales adaptent leur largeur à la hauteur de la fenêtre, à la langue et au zoom du navigateur, avec plusieurs colonnes si nécessaire. Tous les boutons restent visibles sans défilement de la barre ; des traits séparent les groupes fonctionnels.
 - Papier, zoom automatique, menus de symboles, indications de raccourcis, pavé à l’écran et tutoriel tiennent compte de cette position. PDF et impression ne contiennent toujours que les pages.
 - La position fait partie des préférences : enregistrée localement avec autorisation et dans les fichiers .schmier. Les anciens réglages utilisent En haut.
-- v0.5.5 reste locale pour le moment. La version publiée reste v0.5 ; aucun envoi avant autorisation.
+- Publication de v0.5.5. Le site résume la série 0.5 dans ses six variantes de texte ; l’application en ligne et le téléchargement utilisent la version actuelle.
 
 ## v0.5
 

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Schmierpapier-Dark
+Comment=Schmierpapier dark green palette, based on Mint-Y-Dark
+
+[X-GNOME-Metatheme]
+GtkTheme=Schmierpapier-Dark
+MetacityTheme=Schmierpapier-Dark
+IconTheme=Mint-Y
+CursorTheme=Bibata-Modern-Classic
+ButtonLayout=:minimize,maximize,close

@@ -3,7 +3,7 @@
 // @part part-01
 $('newFile').onclick = () => {
   const hasContent = doc.pages.some(p => Object.keys(p).length) || ['lines', 'pencilLines', 'numberLines', 'freehand',
-      'tallBrackets'
+      'tallBrackets', 'images'
     ].some(field => doc[field].some(p => p.length)) || ['highlights', 'carries', 'powers', 'fractionEquals', 'decimalMarks', 'taskLabels']
     .some(field => doc[field].some(p => Object.keys(p).length));
   if (hasContent && !confirm(

@@ -405,7 +405,7 @@ function finishActionHold(code, short = false) {
     tourFeedback('Halte die angegebene Taste länger gedrückt, bis die Aktion startet.'); return;
   }
   if (['+', '-'].includes(held.key)) write(held.key);
-  else if (['KeyF', 'KeyA', 'KeyL', 'KeyM', 'KeyB', 'KeyO', 'KeyS', 'KeyG', 'KeyK', 'KeyI', 'KeyU', 'KeyZ', 'KeyQ', 'KeyW', 'KeyN', 'KeyR', 'KeyX', 'KeyC', 'KeyE', 'KeyD'].includes(code)) write(held.key);
+  else if (['KeyV', 'KeyF', 'KeyA', 'KeyL', 'KeyM', 'KeyB', 'KeyO', 'KeyS', 'KeyG', 'KeyK', 'KeyI', 'KeyU', 'KeyZ', 'KeyQ', 'KeyW', 'KeyN', 'KeyR', 'KeyX', 'KeyC', 'KeyE', 'KeyD'].includes(code)) write(held.key);
   else if (code === 'Delete') held.target.dispatchEvent(new KeyboardEvent('keydown', {key: 'Delete', code, bubbles: true, cancelable: true}));
   else if (['PageUp', 'PageDown'].includes(code)) window.scrollBy(0, (code === 'PageUp' ? -1 : 1) * innerHeight * .85);
 }
@@ -414,12 +414,14 @@ function runHeldAction(code) {
   const zoomKey = actionHolds.get(code)?.key;
   if (zoomKey === '+' || zoomKey === '-') holdZoom(code);
   else if (/^(?:Digit|Numpad)[89]$/.test(code)) holdBracketMenu(code);
-  else if (code === 'KeyB' || code === 'KeyO') holdFileAction(code);
+  else if (code === 'KeyB') startImageSession();
+  else if (code === 'KeyO') holdFileAction(code);
   else if (code === 'KeyS' || /^(?:Digit|Numpad)[5-7]$/.test(code)) holdPaintRegion(code);
   else if (['KeyR', 'KeyX', 'KeyC'].includes(code)) holdEditRegion(code);
   else if (code === 'PageUp' || code === 'PageDown') holdPageTravel(code);
   else if (code === 'KeyG') holdSetSquare(code);
   else if (code === 'KeyK') holdCompass(code);
+  else if (code === 'KeyV') insertFraction();
   else if (code === 'KeyF') $('settingsOpen').click();
   else if (code === 'KeyA') openExtraMenu('taskLabelMenu', $('taskLabel'));
   else if (code === 'KeyI') holdIntegralMenu(code);
@@ -592,7 +594,7 @@ function initialiseExtendedControls() {
     }
     const bracketKey = /^(?:Digit|Numpad)[89]$/.test(actionHoldCode(event));
     const zoomKey = event.key === '+' || event.key === '-';
-    const supported = /^(?:Digit|Numpad)[5-7]$/.test(actionHoldCode(event)) || zoomKey || bracketKey || ['KeyF', 'KeyA', 'KeyL', 'KeyM', 'KeyB', 'KeyO', 'KeyS', 'KeyG', 'KeyK', 'KeyI', 'KeyU', 'KeyZ', 'KeyQ', 'KeyW', 'KeyN', 'KeyR', 'KeyX', 'KeyC', 'KeyE', 'KeyD', 'PageUp', 'PageDown', 'Insert', 'Delete'].includes(actionHoldCode(event));
+    const supported = /^(?:Digit|Numpad)[5-7]$/.test(actionHoldCode(event)) || zoomKey || bracketKey || ['KeyV', 'KeyF', 'KeyA', 'KeyL', 'KeyM', 'KeyB', 'KeyO', 'KeyS', 'KeyG', 'KeyK', 'KeyI', 'KeyU', 'KeyZ', 'KeyQ', 'KeyW', 'KeyN', 'KeyR', 'KeyX', 'KeyC', 'KeyE', 'KeyD', 'PageUp', 'PageDown', 'Insert', 'Delete'].includes(actionHoldCode(event));
     if (keyboardArea && plain && !supported) {
       event.preventDefault(); event.stopImmediatePropagation(); return;
     }

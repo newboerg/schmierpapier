@@ -2246,3 +2246,130 @@
       flex: 0 0 100%;
       height: 0;
     }
+
+    /* UI themes keep the mathematical ink and paper colours suitable for printing. */
+    :root[data-theme="dark"] {
+      color: #e1e9e4;
+      background: #17201d;
+      --green: #36795e;
+    }
+    :root[data-theme="dark"] #toolbar,
+    :root[data-theme="dark"] dialog,
+    :root[data-theme="dark"] .virtual-keypad,
+    :root[data-theme="dark"] .extra-menu,
+    :root[data-theme="dark"] .greek-menu,
+    :root[data-theme="dark"] .relation-menu,
+    :root[data-theme="dark"] [popover],
+    :root[data-theme="dark"] .tutorial-coach,
+    :root[data-theme="dark"] .image-controls {
+      background: #222e28;
+      color: #e1e9e4;
+      border-color: #647a6c;
+    }
+    :root[data-theme="dark"] button,
+    :root[data-theme="dark"] select,
+    :root[data-theme="dark"] input:not(.editor),
+    :root[data-theme="dark"] textarea {
+      background: #2d3b33;
+      color: #edf3ef;
+      border-color: #708579;
+    }
+    :root[data-theme="dark"] button:hover { background: #415448; }
+    :root[data-theme="dark"] button[aria-pressed="true"] {
+      background: #355e49;
+      color: #fff;
+      border-color: #a6d6b5;
+    }
+    :root[data-theme="dark"] .brand,
+    :root[data-theme="dark"] #toolbar .brand-meta,
+    :root[data-theme="dark"] #toolbar .palette-label,
+    :root[data-theme="dark"] #toolbar .toolbar-group::before,
+    :root[data-theme="dark"] .footer,
+    :root[data-theme="dark"] .help-head,
+    :root[data-theme="dark"] .help-foot,
+    :root[data-theme="dark"] .help-searchbar,
+    :root[data-theme="dark"] #helpNav,
+    :root[data-theme="dark"] #helpContent {
+      color: #d5e3d9;
+      background-color: transparent;
+    }
+    :root[data-theme="dark"] .help-article,
+    :root[data-theme="dark"] .help-search-row,
+    :root[data-theme="dark"] .keypad-head { background: #222e28; color: #e1e9e4; }
+    :root[data-theme="dark"] a:not(.brand) { color: #a8dbbf; }
+    :root[data-theme="dark"] .paper a { color: inherit; }
+    :root[data-theme="dark"] .paper.blank-page { background: #a4ada7; }
+    :root[data-theme="dark"] .brand img { filter: brightness(1.5); }
+    .image-layer, .image-preview {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .image-layer { z-index: 1; }
+    .image-preview { z-index: 12; }
+    #paper.image-mode, #paper.image-mode * { cursor: crosshair !important; }
+    .image-controls {
+      position: fixed;
+      z-index: 50;
+      left: calc(var(--toolbar-left) + 12px);
+      bottom: calc(var(--toolbar-bottom) + 12px);
+      max-width: calc(100vw - var(--toolbar-left) - var(--toolbar-right) - 24px);
+      padding: 10px;
+      background: #f8faf7;
+      color: #25342f;
+      border: 1px solid #82988b;
+      border-radius: 10px;
+      box-shadow: 0 3px 18px #0003;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .image-controls[hidden] { display: none; }
+    .image-controls p { flex-basis: 100%; margin: 0 0 5px; max-width: 650px; }
+    @media print {
+      :root[data-theme="dark"], :root[data-theme="dark"] body { color: #25342f; background: white; color-scheme: light; }
+      .image-controls, .image-preview { display: none !important; }
+    }
+    .cells { z-index: 2; }
+    :root[data-theme="dark"] .help-article h3,
+    :root[data-theme="dark"] .help-article strong,
+    :root[data-theme="dark"] #helpCount { color: #b4e0c5; }
+    :root[data-theme="dark"] .help-article kbd,
+    :root[data-theme="dark"] .help-article th { color: #edf3ef; background: #35463b; }
+    :root[data-theme="dark"] :is(#helpDialog, #settingsDialog, #storageConsentDialog, #releaseDialog, #virtualKeypad, #greekMenu, #relationMenu, #addSheetMenu, #tutorialCoach) {
+      background: #222e28; color: #e1e9e4; border-color: #647a6c;
+    }
+    :root[data-theme="dark"] :is(#helpSearch, #name, #pageView, #language, #keypadDisplay) {
+      background: #2d3b33; color: #edf3ef; border-color: #708579;
+    }
+    :root[data-theme="dark"] #helpNav button:hover,
+    :root[data-theme="dark"] :is(#greekMenu, #relationMenu, .extra-menu) .menu-current {
+      background: #405d4b; color: #fff;
+    }
+    :root[data-theme="dark"] .help-head p,
+    :root[data-theme="dark"] #tutorialProgress { color: #bacfc1; }
+    :root[data-theme="dark"] #tutorialError { color: #ffb5a6; }
+
+    :root[data-theme="dark"] #toolbar button {
+      background: #2d3b33;
+      color: #edf3ef;
+      border-color: #708579;
+    }
+    :root[data-theme="dark"] #toolbar button:hover { background: #415448; }
+    :root[data-theme="dark"] #toolbar button[aria-pressed="true"] {
+      background: #355e49;
+      border-color: #a6d6b5;
+    }
+    :root[data-theme="dark"] #toolbar button.swatch {
+      color: var(--tool-icon, var(--swatch));
+    }
+    :root[data-theme="dark"] .swatch[data-color="#202124"] { --tool-icon: #e1e9e4; }
+    :root[data-theme="dark"] .swatch[data-color="#172e65"] { --tool-icon: #8faeff; }
+    :root[data-theme="dark"] .swatch[data-color="#19763b"] { --tool-icon: #6fd093; }
+    :root[data-theme="dark"] .swatch[data-color="#cc3030"] { --tool-icon: #ff8585; }
+    :root[data-theme="dark"] .swatch[data-tool="eraser"] { --tool-icon: #cad7ce; }
+    :root[data-theme="dark"] button.swatch[aria-pressed="true"] { outline-color: #a6d6b5; }
+    :root[data-theme="dark"] .brand img { filter: brightness(2.5); }
+    :root[data-theme="dark"] #tutorialError { color: #ffb5a6 !important; }

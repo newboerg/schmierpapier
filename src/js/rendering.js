@@ -2,6 +2,7 @@
 
 // @part part-01
 function renderLines() {
+  renderImages();
   const layer = $('lineLayer');
   layer.replaceChildren();
   renderFreehand();

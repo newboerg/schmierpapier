@@ -2,6 +2,11 @@
 
 // @part part-01
 document.querySelectorAll('.swatch').forEach(button => button.addEventListener('click', () => {
+  if (button.dataset.tool === 'eraser' && tool === 'eraser') {
+    cancelKeyboardArea();
+    document.querySelector('.swatch[data-tool="pen"][data-color="' + ink + '"]').click();
+    return;
+  }
   hideCompass();
   finishMark();
   cancelNumberLine(false);

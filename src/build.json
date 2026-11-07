@@ -79,6 +79,10 @@
       "part": "part-01"
     },
     {
+      "file": "js/images.js",
+      "part": "part-01"
+    },
+    {
       "file": "js/language.js",
       "part": "part-02"
     },
@@ -216,6 +220,10 @@
     },
     {
       "file": "js/task-labels.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/fractions.js",
       "part": "part-01"
     },
     {

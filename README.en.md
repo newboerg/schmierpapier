@@ -16,17 +16,28 @@ Schmierpapier provides a place to calculate, experiment and draw directly in the
 
 The application supports independent work in maths lessons: use the keyboard and mouse to write calculations in cells, arrange fractions clearly and draw geometric constructions with digital tools. Many features are available through buttons, so a keyboard shortcut is not required for every action.
 
-Version **0.5.5 (development)**
+Version **0.6 (development)**
 
 Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the app header opens it in a new tab.
 
-## New in v0.5.5 (development)
+## New in v0.6 (development)
+
+- Fraction button and hold V: enter numerator and denominator as ordinary cell characters with a matching fraction bar. Grid-based centring, one undo step and no automatic calculation.
+- The eraser removes touched images as a whole. This also applies to the erase area selected by holding R; partial overlap is enough. Undo restores erased images.
+- Zooming and panning preserve the original resolution. Only Apply removes invisible parts and resamples the finished crop to the chosen DPI resolution.
+- Dark mode can follow the system/browser; choose Light, Dark or System in settings. Paper, PDF and print keep light colours.
+- Parallel symbol ∥ added to Miscellaneous symbols.
+- Holding B now inserts an image instead of New file, which remains available via its button and Ctrl+N. Select cells by mouse or arrows, choose a raster image, then adjust with wheel/+− and dragging/arrows. Enter applies, Esc cancels. Double-click to adjust again or delete.
+- Settings offer 100–600 dpi, default 300. Images initially cover the area proportionally; later adjustments may leave space. Embedded crops are preserved in .schmier, browser backups, history, full-area copies, PDF and print.
+- Version 0.6 remains local for now; no publication as part of this implementation.
+
+## New in v0.5.5
 
 - Choose the top, bottom, left or right edge for the toolbar in settings. Top remains the default.
 - Side panels adapt their width to window height, language and browser zoom, adding columns as needed. All buttons remain visible without scrolling the toolbar; separator lines preserve functional groups.
 - The paper area, automatic zoom, symbol menus, shortcut hints, on-screen keypad and tutorial account for the position. PDF and print still contain only the pages.
 - The position is part of preferences: stored locally with consent and included in .schmier files. Older preferences use Top.
-- v0.5.5 remains local for now. The published version is still v0.5; no uploads until authorised.
+- Published v0.5.5. The homepage summarises the 0.5 series in all six text variants; the live app and download use the current build.
 
 ## New in v0.5
 
@@ -260,3 +271,9 @@ Important changes keep all three READMEs, changelogs and affected help/tutorial 
 The application code is licensed under the **GNU General Public License, version 3 (GPL-3.0-only)**. The full licence text is in [LICENSE](LICENSE).
 
 The embedded fonts retain their own licences: the modified [Caveat](https://github.com/googlefonts/caveat) under the SIL Open Font License 1.1, and the [DejaVu font](https://dejavu-fonts.github.io/) under its applicable font licence terms. Copyright and licence notices are preserved in the embedded font metadata.
+
+## Optional: Linux Mint theme
+
+The separate [linux-mint-theme](linux-mint-theme/README.md) folder contains **Schmierpapier-Dark** for Linux Mint Cinnamon using the same dark palette. The German guide explains installation and selection; the installer does not change the active theme.
+
+A GNOME Terminal script also applies the palette persistently, with backup and restore.

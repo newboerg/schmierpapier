@@ -1,0 +1,55 @@
+/* Exact colours from src/styles.css; GTK state/layout rules come from Mint-Y. */
+@define-color theme_bg_color #222e28;
+@define-color theme_fg_color #e1e9e4;
+@define-color theme_base_color #17201d;
+@define-color theme_text_color #edf3ef;
+@define-color theme_selected_bg_color #355e49;
+@define-color theme_selected_fg_color #edf3ef;
+@define-color bg_color #222e28;
+@define-color fg_color #e1e9e4;
+@define-color base_color #17201d;
+@define-color text_color #edf3ef;
+@define-color selected_bg_color #355e49;
+@define-color selected_fg_color #edf3ef;
+@define-color borders #708579;
+@define-color unfocused_borders #647a6c;
+@define-color theme_unfocused_bg_color #222e28;
+@define-color theme_unfocused_fg_color #bacfc1;
+@define-color theme_unfocused_base_color #17201d;
+@define-color theme_unfocused_text_color #e1e9e4;
+@define-color insensitive_bg_color #222e28;
+@define-color insensitive_fg_color #bacfc1;
+@define-color insensitive_base_color #17201d;
+@define-color warning_color #e5aa22;
+@define-color error_color #ffb5a6;
+@define-color success_color #a6d6b5;
+@define-color link_color #a8dbbf;
+window, dialog, .background { background-color: #222e28; color: #e1e9e4; }
+headerbar, toolbar, menubar, menu, .titlebar, popover, popover.background {
+  background-color: #222e28; background-image: none; color: #e1e9e4; border-color: #647a6c;
+}
+.view, textview text, treeview.view, iconview, viewport, list, .sidebar {
+  background-color: #17201d; color: #edf3ef;
+}
+button, entry, spinbutton, combobox button {
+  background-color: #2d3b33; background-image: none; color: #edf3ef;
+  border-color: #708579; box-shadow: none; text-shadow: none;
+}
+button:hover, combobox button:hover, menuitem:hover, row:hover {
+  background-color: #415448; background-image: none; color: #edf3ef;
+}
+button:active, button:checked, button.suggested-action, row:selected, .view:selected, menuitem:active {
+  background-color: #355e49; background-image: none; color: #edf3ef; border-color: #a6d6b5;
+}
+button:focus, entry:focus, spinbutton:focus { border-color: #a6d6b5; }
+button:disabled, entry:disabled { background-color: #222e28; color: #bacfc1; }
+selection { background-color: #355e49; color: #edf3ef; }
+check:checked, radio:checked, switch:checked, scale highlight, progressbar progress {
+  background-color: #36795e; border-color: #a6d6b5;
+}
+scrollbar slider { background-color: #647a6c; }
+scrollbar slider:hover { background-color: #708579; }
+separator { background-color: #647a6c; }
+a, label:link, button:link { color: #a8dbbf; }
+tooltip, tooltip.background { background-color: #2d3b33; color: #edf3ef; border-color: #708579; }
+headerbar:backdrop, .titlebar:backdrop { background-color: #222e28; color: #bacfc1; }

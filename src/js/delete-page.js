@@ -7,6 +7,7 @@ $('remove').onclick = () => {
     checkpoint();
     doc.paperTypes?.splice(page, 1);
     doc.pages.splice(page, 1);
+    doc.images?.splice(page, 1);
     doc.freehand.splice(page, 1);
     doc.lines.splice(page, 1);
     doc.pencilLines.splice(page, 1);

@@ -21,6 +21,7 @@ let doc = {
     name: 'Mein Rechenblatt',
     pages: [{}],
     freehand: [[]],
+    images: [[]],
     lines: [
       []
     ],
@@ -185,7 +186,9 @@ function render() {
   if (numberLabelSession) finishNumberLabels(false);
   if (numberLineTool.active && numberLineTool.page !== page) cancelNumberLine(false);
   resetCorner();
+  if (imageSession && (imageSession.page !== page || imageSession.document !== doc)) cancelImageSession(false);
   renderLines();
+  renderImageSession();
   renderRegion();
   renderKeyboardArea();
   nodes.forEach((el, i) => {

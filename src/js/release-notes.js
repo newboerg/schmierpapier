@@ -3,6 +3,7 @@
 // @part part-01
 const APP_VERSION = '{{version}}';
 const RELEASE_NOTES = [
+  { version: '0.6', items: ["Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).", "Dunkles Farbschema nach Systemeinstellung oder eigener Wahl; Bilder in Kästchen einfügen und anpassen; Parallelzeichen."] },
   { version: '0.5.5', items: ['Werkzeugleiste oben, unten, links oder rechts anordnen; seitlich passen sich Breite und Spalten an das Fenster an.'] },
   { version: '0.5', items: [
     'Komma und Punkt sparen Kästchen; Aufgabenbezeichnungen passen in zwei Kästchen.',

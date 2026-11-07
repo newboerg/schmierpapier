@@ -1,0 +1,10 @@
+gtk-color-scheme = "base_color:#415448\nfg_color:#e1e9e4\ntooltip_fg_color:#415448\nselected_bg_color:#36795e\nselected_fg_color:#edf3ef\ntext_color:#e1e9e4\nbg_color:#2d3b33\ninsensitive_bg_color:#2d3b33\ninsensitive_fg_color:#708579\nnotebook_bg:#415448\ndark_sidebar_bg:#2d3b33\ntooltip_bg_color:#fbeaa0\nlink_color:#5294E2\nmenu_bg:#2d3b33\nmenu_separator_color:#2d3b33"
+
+gtk-icon-sizes = "gtk-button=16,16" # This makes button icons smaller.
+gtk-auto-mnemonics = 1
+gtk-primary-button-warps-slider = 1
+
+include "main.rc"
+include "apps.rc"
+include "panel.rc"
+include "menubar-toolbar.rc"

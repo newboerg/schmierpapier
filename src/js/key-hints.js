@@ -15,15 +15,15 @@ let shortcutHintsVisible = false, shortcutHintHold = null, shortcutHintsFrame = 
 function updateShortcutHints() {
   shortcutHintsFrame = 0;
   const layer = $('shortcutHintsLayer');
-  if (!layer || !shortcutHintsVisible) return;
+  if (!layer) return;
   layer.replaceChildren();
   const bindings = [
     ['#settingsOpen', 'F…'], ['#shortcutHintsToggle', 'T…'], ['#helpOpen', 'F1'],
-    ['#newFile', 'B…'], ['#open', 'O…'], ['#fullscreen', 'F11'], ['#strikeToggle', 'S…'],
+    ['#newFile', 'Strg+N'], ['#insertImage', 'B…'], ['#open', 'O…'], ['#fullscreen', 'F11'], ['#strikeToggle', 'S…'],
     ['#prev', 'Bild↑…'], ['#next', 'Bild↓…'], ['#pageView', 'D…'],
     ['#add', 'Einfg…'], ['#remove', 'Entf…'], ['#zoomIn', '+…'], ['#zoomOut', '−…'],
     ['#undo', 'Strg+Z'], ['#redo', 'Strg+Y'], ['#save', 'Strg+S'], ['#pdf', 'E…'], ['#print', 'Strg+P'],
-    ['#taskLabel', 'A…'], ['#cutRegion', 'X…'], ['#copyRegion', 'C…'], ['#largeMode', 'U…'], ['#carryMode', 'Strg…'], ['#powerMode', 'Shift…'],
+    ['#fractionInsert', 'V…'], ['#taskLabel', 'A…'], ['#cutRegion', 'X…'], ['#copyRegion', 'C…'], ['#largeMode', 'U…'], ['#carryMode', 'Strg…'], ['#powerMode', 'Shift…'],
     ['.swatch[data-tool="eraser"]', 'R…'], ['#compassToggle', 'K…'], ['#geoToggle', 'G…'],
     ['#numberLineToggle', 'N…'], ['#integral', 'I…'],
     ['#greek', 'P…'], ['#parenOpen', '8…'],
@@ -37,6 +37,7 @@ function updateShortcutHints() {
     bindings.push(['.swatch[data-tool="marker"][data-color="' + button.dataset.color + '"]', (i + 5) + '…']);
   });
   for (const [selector, key] of bindings) {
+    if (!shortcutHintsVisible && selector !== '#shortcutHintsToggle') continue;
     const target = document.querySelector(selector);
     if (!target || !target.getClientRects().length) continue;
     const group = target.closest('.relation-buttons,.add-sheet-split');
@@ -54,14 +55,13 @@ function updateShortcutHints() {
 }
 
 function scheduleShortcutHints() {
-  if (shortcutHintsVisible && !shortcutHintsFrame) shortcutHintsFrame = requestAnimationFrame(updateShortcutHints);
+  if (!shortcutHintsFrame) shortcutHintsFrame = requestAnimationFrame(updateShortcutHints);
 }
 
 function toggleShortcutHints() {
   shortcutHintsVisible = !shortcutHintsVisible;
   $('shortcutHintsToggle').setAttribute('aria-pressed', String(shortcutHintsVisible));
-  $('shortcutHintsLayer').hidden = !shortcutHintsVisible;
-  if (shortcutHintsVisible) updateShortcutHints();
+  updateShortcutHints();
 }
 
 function finishShortcutHintHold(short = false) {
@@ -101,10 +101,11 @@ document.addEventListener('focusout', event => {
 
 function initialiseShortcutHints() {
   const layer = document.createElement('div');
-  layer.id = 'shortcutHintsLayer'; layer.hidden = true; layer.setAttribute('aria-hidden', 'true');
+  layer.id = 'shortcutHintsLayer'; layer.setAttribute('aria-hidden', 'true');
   document.body.append(layer);
   $('shortcutHintsToggle').addEventListener('pointerdown', event => event.preventDefault());
   $('shortcutHintsToggle').onclick = toggleShortcutHints;
+  updateShortcutHints();
   window.addEventListener('resize', scheduleShortcutHints);
   window.addEventListener('scroll', scheduleShortcutHints, true);
   $('language').addEventListener('change', scheduleShortcutHints);

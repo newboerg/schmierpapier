@@ -1,0 +1,43 @@
+/* Cinnamon shell, panel, menus, notifications and window overview. */
+stage { color: #e1e9e4; }
+#panel, .panel-top, .panel-bottom, .panel-left, .panel-right {
+  background-color: #222e28; color: #e1e9e4;
+  border-color: #647a6c;
+}
+.applet-box, .panel-button, .window-list-item-box, .grouped-window-list-item-box {
+  color: #e1e9e4; background-color: transparent; border-color: transparent;
+}
+.applet-box:hover, .panel-button:hover, .window-list-item-box:hover, .grouped-window-list-item-box:hover {
+  background-color: #415448; color: #edf3ef;
+}
+.applet-box:checked, .window-list-item-box:focus, .grouped-window-list-item-box:active {
+  background-color: #355e49; color: #edf3ef; border-color: #a6d6b5;
+}
+.popup-menu-content, .menu, .menu-favorites-box, .notification, .notification-banner,
+.modal-dialog, .run-dialog, .osd-window, .workspace-switcher-container {
+  background-color: #222e28; color: #e1e9e4; border-color: #647a6c;
+}
+.popup-menu-item { color: #e1e9e4; }
+.popup-menu-item:active, .popup-menu-item:hover, .popup-menu-item:selected,
+.menu-category-button-selected, .menu-application-button-selected {
+  background-color: #355e49; color: #edf3ef;
+}
+.popup-separator-menu-item .popup-separator-menu-item-separator { background-color: #647a6c; }
+StEntry, .menu-search-entry, .run-dialog-entry {
+  background-color: #2d3b33; color: #edf3ef;
+  border-color: #708579; caret-color: #edf3ef; selected-color: #edf3ef;
+  selection-background-color: #355e49;
+}
+StEntry:focus, .menu-search-entry:focus { border-color: #a6d6b5; }
+.button, .notification-button, .modal-dialog-button {
+  background-color: #2d3b33; color: #edf3ef; border-color: #708579;
+}
+.button:hover, .notification-button:hover, .modal-dialog-button:hover { background-color: #415448; }
+.button:active, .button:focus, .modal-dialog-button:focus { background-color: #355e49; border-color: #a6d6b5; }
+.slider {
+  color: #a6d6b5;
+  -slider-background-color: #2d3b33; -slider-active-background-color: #36795e;
+  -slider-border-color: #708579; -slider-active-border-color: #a6d6b5;
+}
+#Tooltip { background-color: #2d3b33; color: #edf3ef; border-color: #708579; }
+.overview-empty-placeholder, .expo-workspace-label { color: #bacfc1; }

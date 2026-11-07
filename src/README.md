@@ -59,3 +59,11 @@ Die Lizenzen und Herkunftshinweise der Caveat-/DejaVu-Schriften bleiben in HTML 
 Neue Release-Übersichten in `js/release-notes.js` pflegen, einschließlich aller UI-Übersetzungen. `savedWith` ist die speichernde App-Version; `version: 1` bleibt die Dateiformat-Version. `settings` enthält Haltezeit und Schrift; `decimalMarks` und `taskLabels` sind seitenparallele Kästchen-Maps. Neue Persistenzschlüssel immer in der Widerrufsliste von `storage-consent.js` führen.
 
 `settings.toolbarPosition` akzeptiert `top`, `bottom`, `left`, `right` (Standard: `top`). Die seitliche Packung misst die echten übersetzten Gruppen bei mehreren Breiten und wählt die schmalste passende Anordnung. Die CSS-Variablen `--toolbar-top/bottom/left/right` reservieren Platz; `workspaceViewport()` beschreibt die unverdeckte Fläche. Neue Button-Gruppen im Header als `.toolbar-group` mit übersetztem `aria-label` ergänzen. `positionToolbarMenu()` setzt Menüs zur Arbeitsfläche hin. Layoutbeobachter dürfen durch unveränderte Zoom-Beschriftungen keine weiteren Layouts auslösen.
+
+`js/images.js` verwaltet die transaktionale Bildauswahl, normalisierte PNG-Ausschnitte mit DPI-Metadaten und `doc.images` als parallele Seitenliste. Bereiche sind in Schreibkästchen gespeichert, Auflösung in dpi. Bilder werden vor der Schrift gerendert; `paintImages` übernimmt sie in PDF. Externe URLs und SVG-Bilder werden beim Import nicht akzeptiert. `settings.theme` ist `system`, `light` oder `dark`; `settings.imageDpi` liegt zwischen 100 und 600 in Hunderterschritten.
+
+Die eingebettete Symbolschrift enthält zusätzlich das Parallelzeichen U+2225 aus DejaVu Sans Oblique. Die Original-Lizenz- und Herkunftsmetadaten bleiben erhalten. Große Dokumente begrenzen den Umfang der Rückgängig-Historie auf einen Speicherrahmen.
+
+Die Bildsitzung hält das Original als dekodiertes Raster mit temporärer Blob-URL; kein DPI-Resampling beim Laden. Erst `applyImageSession` erzeugt den endgültigen Ausschnitt und seine DPI-Metadaten. Blob-URLs werden bei Ersetzen und Beenden der Sitzung freigegeben.
+
+`js/fractions.js`: Bruch-Komforteingabe (V halten), erzeugt normale Kästchenzeichen, Satzzeichen und deduplizierte Stiftlinien in einer Historienaktion; kein neues Speicherformat.

@@ -2,6 +2,23 @@
 
 [Deutsch](CHANGELOG.md) · **English** · [Français](CHANGELOG.fr.md)
 
+## v0.6
+
+- After confirming a keyboard erase area (hold R again), the last pen and its colour are restored automatically.
+- Fraction button and hold V: enter numerator and denominator as ordinary cell characters with a matching fraction bar. Grid-based centring, one undo step and no automatic calculation.
+- Optional Linux Mint Cinnamon theme using the Schmierpapier dark palette in the separate linux-mint-theme folder, with installation and switching-back instructions.
+- Pen, highlighter, eraser and Greek-symbol buttons also use dark backgrounds in dark mode, with readable icon colours. Actual ink colours are unchanged.
+- Clicking the active eraser again returns to the last pen and its colour. Any pending keyboard erase selection is cancelled. Holding R still starts an erase area; holding R again confirms it.
+- The eraser removes touched images as a whole. This also applies to the erase area selected by holding R; partial overlap is enough. Undo restores erased images.
+- Zooming and panning preserve the original resolution. Only Apply removes invisible parts and resamples the finished crop to the chosen DPI resolution.
+- The T… hint above the shortcut-hints button stays visible even when the other hints are switched off.
+- The T… hint above the shortcut-hints button stays visible even when the other hints are switched off.
+- Dark mode can follow the system/browser; choose Light, Dark or System in settings. Paper, PDF and print keep light colours.
+- Parallel symbol ∥ added to Miscellaneous symbols.
+- Holding B now inserts an image instead of New file, which remains available via its button and Ctrl+N. Select cells by mouse or arrows, choose a raster image, then adjust with wheel/+− and dragging/arrows. Enter applies, Esc cancels. Double-click to adjust again or delete.
+- Settings offer 100–600 dpi, default 300. Images initially cover the area proportionally; later adjustments may leave space. Embedded crops are preserved in .schmier, browser backups, history, full-area copies, PDF and print.
+- Version 0.6 remains local for now; no publication as part of this implementation.
+
 ## v0.5.5
 
 - At the top and bottom, a new toolbar row always starts after Tutorial.
@@ -9,7 +26,7 @@
 - Side panels adapt their width to window height, language and browser zoom, adding columns as needed. All buttons remain visible without scrolling the toolbar; separator lines preserve functional groups.
 - The paper area, automatic zoom, symbol menus, shortcut hints, on-screen keypad and tutorial account for the position. PDF and print still contain only the pages.
 - The position is part of preferences: stored locally with consent and included in .schmier files. Older preferences use Top.
-- v0.5.5 remains local for now. The published version is still v0.5; no uploads until authorised.
+- Published v0.5.5. The homepage summarises the 0.5 series in all six text variants; the live app and download use the current build.
 
 ## v0.5
 
