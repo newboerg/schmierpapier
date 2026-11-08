@@ -738,7 +738,49 @@ const LOCALE_EN = {
     "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.": "Root and integral menus use compact icons with separate size arrows; all symbols fit inside their buttons.",
     "Papier im Darkmode ebenfalls abdunkeln": "Darken the paper in dark mode too",
     "Standardmäßig aus. Nur die Bildschirmansicht wird angepasst; Bilder, PDF und Druck behalten ihre Farben.": "Off by default. Only the screen view changes; images, PDF and print keep their colours.",
-    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Optional dark paper in dark mode: enable it in settings; off by default. PDF and print stay light."
+    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Optional dark paper in dark mode: enable it in settings; off by default. PDF and print stay light.",
+    "Ein kurzer Hinweis zur Tastatur": "A quick note about the keyboard",
+    "Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.": "Schmierpapier reserves Shift for powers: Shift with a number writes that number as a superscript. In writing cells, the symbols above the number keys therefore cannot be entered with Shift as usual.",
+    "Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).": "You can still use these symbols: open Various symbols with the arrow next to % or hold Z. It contains punctuation, currency signs and more. Brackets have their own menus; the contradiction symbol is in Logic symbols (hold L).",
+    "In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.": "Use the arrow keys to choose a menu item and Enter to confirm. This note applies to writing cells; in text fields and dialogs, you can type special characters as usual.",
+    "Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.": "Keyboard: Tab moves between controls, Space checks the box, Enter or Esc closes this note.",
+    "Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.": "Without storage consent, this note will appear again next time.",
+    "Nicht mehr erinnern": "Do not remind me again",
+    "Verstanden": "Got it",
+    "Starthinweis zur Shift-Taste mit optionaler Erinnerungssperre; mehr Satz- und Währungszeichen sowie der Widerspruchsblitz in den Symbolmenüs.": "Startup note about Shift with an optional “do not remind me” choice; more punctuation and currency signs, plus the contradiction symbol in the symbol menus.",
+    "Euro": "Euro",
+    "Dollar": "Dollar",
+    "Pfund": "Pound",
+    "Yen / Yuan": "Yen / yuan",
+    "Cent": "Cent",
+    "Fragezeichen": "Question mark",
+    "Ausrufezeichen": "Exclamation mark",
+    "Paragraphenzeichen": "Section sign",
+    "Einfaches Anführungszeichen": "Single quotation mark",
+    "Doppeltes Anführungszeichen": "Double quotation mark",
+    "Schrägstrich": "Slash",
+    "Umgekehrter Schrägstrich": "Backslash",
+    "Semikolon": "Semicolon",
+    "Doppelpunkt": "Colon",
+    "Raute": "Number sign",
+    "At-Zeichen": "At sign",
+    "Unterstrich": "Underscore",
+    "Senkrechter Strich": "Vertical bar",
+    "Tilde": "Tilde",
+    "Gradzeichen": "Degree sign",
+    "Minutenzeichen / Strich": "Minute sign / prime",
+    "Sekundenzeichen / Doppelstrich": "Second sign / double prime",
+    "Auslassungspunkte": "Ellipsis",
+    "Doppeltes Anführungszeichen unten": "Low double quotation mark",
+    "Doppeltes Anführungszeichen oben": "High double quotation mark",
+    "Einfaches Anführungszeichen oben": "High single quotation mark",
+    "Apostroph": "Apostrophe",
+    "Anführungszeichen links": "Left guillemet",
+    "Anführungszeichen rechts": "Right guillemet",
+    "Widerspruch": "Contradiction",
+    "Unendlich": "Infinity",
+    "Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.": "Double-height writing applies to all symbols, including logic, sets, currencies, punctuation and ↯. Attached commas and dots remain small.",
+    "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Symbole über zwei Kästchen schreiben": "Double-height writing (hold U): write numbers, letters and symbols across two cells"
   },
   "helpInitial": [
     {
@@ -1006,7 +1048,7 @@ const LOCALE_EN = {
     {
       "title": "Double-height numbers and letters",
       "keywords": "U groß large double doppelhoch lettre mixed fraction gemischter bruch nombre fractionnaire ± % ‰ + - = rechnen arithmetic calcul vergleich comparison",
-      "html": "<p>The new Double-height text button, or holding U for about 0.6 seconds, toggles a persistent writing mode. A clockwise frame shows the hold time; the active button pulses, or stays outlined with reduced motion. A short U still writes u. Numbers and letters, including Greek letters, span two cells down from the current cell, one column per character. Writing advances right; Enter and automatic wrapping advance two rows while enabled. Hold U again or click the button to turn it off. For a mixed fraction, write the large whole-number 1, turn the mode off, then add the ordinary fraction beside it.</p><p>Arithmetic and comparison signs such as +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % and ‰ are also double-height; punctuation stays normal-height. Persistent sub/superscript and double-height modes are mutually exclusive; individual Ctrl/Shift digits still allow small annotations. No half character is written at the bottom edge: choose a cell higher up. Large letters/numbers can be deleted from either cell, fully copied/cut, undone and preserved in .schmier, PDF and printing. U replaces the former direct ampersand shortcut; & remains in Miscellaneous symbols (hold Z). Names, searches and labels retain ordinary text entry. The tutorial temporarily resets the mode and restores it afterwards.</p><p>Writing a large character replaces ordinary text in both occupied cells. Ordinary typing or Space in either occupied cell replaces or removes the whole large character. Undo restores the previous content.</p><p>The U writing mode now enlarges arithmetic, comparison, percent and per-mille signs too. This works with the keyboard, numeric keypad and symbol buttons; Ctrl/Shift+Enter keeps its fraction-equals function.</p>"
+      "html": "<p>The new Double-height text button, or holding U for about 0.6 seconds, toggles a persistent writing mode. A clockwise frame shows the hold time; the active button pulses, or stays outlined with reduced motion. A short U still writes u. Numbers and letters, including Greek letters, span two cells down from the current cell, one column per character. Writing advances right; Enter and automatic wrapping advance two rows while enabled. Hold U again or click the button to turn it off. For a mixed fraction, write the large whole-number 1, turn the mode off, then add the ordinary fraction beside it.</p><p>Arithmetic and comparison signs such as +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % and ‰ are also double-height; punctuation, currencies, logic and set symbols are also double-height. Attached commas and dots remain small; choose their standalone menu versions for double-height writing. Persistent sub/superscript and double-height modes are mutually exclusive; individual Ctrl/Shift digits still allow small annotations. No half character is written at the bottom edge: choose a cell higher up. Large letters/numbers can be deleted from either cell, fully copied/cut, undone and preserved in .schmier, PDF and printing. U replaces the former direct ampersand shortcut; & remains in Miscellaneous symbols (hold Z). Names, searches and labels retain ordinary text entry. The tutorial temporarily resets the mode and restores it afterwards.</p><p>Writing a large character replaces ordinary text in both occupied cells. Ordinary typing or Space in either occupied cell replaces or removes the whole large character. Undo restores the previous content.</p><p>The U writing mode now enlarges arithmetic, comparison, percent and per-mille signs too. This works with the keyboard, numeric keypad and symbol buttons; Ctrl/Shift+Enter keeps its fraction-equals function.</p>"
     },
     {
       "title": "Mixed fraction in the tutorial",
@@ -1067,6 +1109,11 @@ const LOCALE_EN = {
       "title": "Dark paper",
       "keywords": "darkmode dark paper papier dunkel sombre theme settings einstellungen",
       "html": "<p>Enable <strong>Darken the paper in dark mode too</strong> in settings to use dark paper when the dark theme is active, including a dark system theme. Off by default. Paper stays light in the light theme. Writing, lines and grids adapt for screen contrast on both pages and on squared and millimetre paper. Images keep their colours. Stored ink colours do not change; PDF and print keep light paper. The option is saved in .schmier files and, with consent, in the browser. Without consent it lasts for the session unless you save a file.</p>"
+    },
+    {
+      "title": "Startup note and more symbols",
+      "keywords": "shift umschalt symbole sonderzeichen z l widerspruch contradiction currency euro dollar quote tastatur keyboard notice rappel",
+      "html": "<p>A startup note explains that Shift with numbers writes superscripts in writing cells, rather than the symbols above the number row. Normal special-character typing still works in text fields and dialogs. The note waits until storage consent and any release notes have closed.</p><p>Tab moves between Do not remind me again and Got it; Space checks the box, Enter or Esc closes. Without the checkmark the note returns next start. With the checkmark and storage consent it is suppressed in this browser. Without consent this choice is not stored permanently. It is not part of .schmier files; withdrawing storage consent also removes the suppression.</p><p>Various symbols: the arrow next to % or hold Z. New entries include € $ £ ¥ ¢, ? ! §, single and double quotes, / and \\, ; and :, # @ _ | ~, °, ′ ″, … and typographic quotation marks. Standalone dots and commas remain available here. Logic (hold L) now includes ↯ for contradiction. Arrows choose, Enter or the menu’s key confirms; Esc closes without inserting. Clicking also works. These are ordinary characters with no calculation feature, preserved in .schmier, undo, PDF and print. Their fonts are embedded for offline use.</p><p>Double-height writing applies to all symbols, including logic, sets, currencies, punctuation and ↯. Attached commas and dots remain small.</p>"
     }
   ],
   "consent": [

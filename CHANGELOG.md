@@ -2,6 +2,12 @@
 
 **Deutsch** · [English](CHANGELOG.en.md) · [Français](CHANGELOG.fr.md)
 
+## Noch nicht veröffentlicht
+
+- Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.
+
+- Starthinweis zur Shift-Taste mit optionaler Erinnerungssperre; mehr Satz- und Währungszeichen sowie der Widerspruchsblitz in den Symbolmenüs.
+
 ## v0.6.5
 
 - Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.

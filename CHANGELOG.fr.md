@@ -2,6 +2,12 @@
 
 [Deutsch](CHANGELOG.md) · [English](CHANGELOG.en.md) · **Français**
 
+## Pas encore publié
+
+- L’écriture double hauteur s’applique à tous les symboles : logique, ensembles, monnaies, ponctuation et ↯. Les virgules et points attachés restent petits.
+
+- Conseil au démarrage sur Maj, avec option de ne plus le rappeler ; ajout de ponctuation, monnaies et du symbole de contradiction dans les menus.
+
 ## v0.6.5
 
 - Papier sombre en option dans les réglages, désactivé par défaut ; PDF et impression restent clairs.

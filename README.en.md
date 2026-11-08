@@ -20,6 +20,12 @@ Version **0.6.5**
 
 Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the app header opens it in a new tab.
 
+## Not yet released
+
+- Double-height writing applies to all symbols, including logic, sets, currencies, punctuation and ↯. Attached commas and dots remain small.
+
+- Startup note about Shift with an optional “do not remind me” choice; more punctuation and currency signs, plus the contradiction symbol in the symbol menus.
+
 ## New in v0.6.5
 
 - Optional dark paper in dark mode: enable it in settings; off by default. PDF and print stay light.

@@ -2035,7 +2035,7 @@
     #integralChoiceMenu { grid-template-columns: repeat(2, 42px); }
     #logic, #sets { width: 36px; min-width: 36px; padding: 0; font: 23px 'OfflineSymbols', sans-serif; }
     #logicMore, #setsMore, #miscMore { width: 23px; min-width: 23px; padding: 0; }
-    #logicMenu button, #setsMenu button, #miscMenu button { font-family: 'OfflineSymbols', sans-serif; }
+    #logicMenu button, #setsMenu button, #miscMenu button { font-family: 'OfflineSymbols', 'OfflineConsole', sans-serif; }
     #powerMode, #carryMode { position: relative; }
     #powerMode .mode-hold-progress, #carryMode .mode-hold-progress {
       display: none; position: absolute; inset: 0; width: 100%; height: 100%;
@@ -2068,7 +2068,7 @@
       font-style: normal;
       font-display: block;
     }
-    :root { --writing-font: OfflineHandschrift, OfflineSymbols, cursive; }
+    :root { --writing-font: OfflineHandschrift, OfflineSymbols, OfflineConsole, cursive; }
     .tall-character, .task-label, .decimal-mark { font-family: var(--writing-font); }
     #settingsDialog, #releaseDialog { width: min(560px, 94vw); max-height: 85vh; overflow: auto;
       border: 1px solid #b6c8bf; border-radius: 14px; padding: 24px; color: #25342f; }
@@ -2425,3 +2425,15 @@
       :root[data-dark-paper="true"] .paper:not(.blank-page) .grid-medium { stroke: #826347; }
       :root[data-dark-paper="true"] .paper:not(.blank-page) .grid-major { stroke: #b8875d; }
     }
+
+    #keyboardNoticeDialog {
+      width: min(620px, 94vw); max-height: 85dvh; overflow: auto;
+      padding: 24px; border: 1px solid #b6c9ba; border-radius: 14px;
+      background: #fffefa; color: #25342f; line-height: 1.55;
+    }
+    #keyboardNoticeDialog::backdrop { background: #152b2480; }
+    .keyboard-notice-choice { display: flex; align-items: center; gap: 8px; margin-top: 18px; }
+    .keyboard-notice-choice input { width: 16px; height: 16px; }
+    .keyboard-notice-keys, #keyboardNoticeStorageNote { font-size: 13px; }
+    :root[data-theme="dark"] #keyboardNoticeDialog { background: #222e28; color: #e1e9e4; border-color: #647a6c; }
+    @media print { #keyboardNoticeDialog { display: none !important; } }

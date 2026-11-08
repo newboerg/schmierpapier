@@ -15,6 +15,7 @@ async function pdfExport() {
   try {
     await document.fonts.load('16px ' + (settings.font === 'console' ? 'OfflineConsole' : 'OfflineHandschrift'));
     await document.fonts.load('16px OfflineSymbols');
+    await document.fonts.load('16px OfflineConsole');
     await document.fonts.ready;
     const encoder = new TextEncoder(),
       parts = [],

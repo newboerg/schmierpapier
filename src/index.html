@@ -379,7 +379,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
               ▾
             </button>
           </span>
-          <button id="largeMode" aria-pressed="false" title="Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen schreiben" aria-label="Doppelhohe Schrift">
+          <button id="largeMode" aria-pressed="false" title="Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Symbole über zwei Kästchen schreiben" aria-label="Doppelhohe Schrift">
             <svg width="25" height="25" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
               <rect x="2" y="2" width="12" height="11" rx=".5">
               </rect>
@@ -613,6 +613,18 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         <input id="inputDialogValue" type="text" autocomplete="off" spellcheck="false" aria-describedby="inputDialogHint inputDialogError">
         <p id="inputDialogHint" role="status"></p><p id="inputDialogError" role="alert"></p>
         <div class="dialog-actions"><button id="inputDialogCancel" type="button">Abbrechen</button><button id="inputDialogAccept" type="submit">Bestätigen</button></div>
+      </form>
+    </dialog>
+    <dialog id="keyboardNoticeDialog" aria-labelledby="keyboardNoticeTitle" aria-describedby="keyboardNoticeText">
+      <form id="keyboardNoticeForm">
+        <h2 id="keyboardNoticeTitle" tabindex="-1">Ein kurzer Hinweis zur Tastatur</h2>
+        <p id="keyboardNoticeText">Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.</p>
+        <p>Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).</p>
+        <p>In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.</p>
+        <label class="keyboard-notice-choice"><input id="keyboardNoticeForget" type="checkbox" title="Nicht mehr erinnern"><span>Nicht mehr erinnern</span></label>
+        <p id="keyboardNoticeStorageNote">Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.</p>
+        <p class="keyboard-notice-keys">Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.</p>
+        <div class="dialog-actions"><button id="keyboardNoticeContinue" type="submit" title="Verstanden">Verstanden</button></div>
       </form>
     </dialog>
     <dialog id="settingsDialog" aria-labelledby="settingsTitle">

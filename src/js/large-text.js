@@ -4,11 +4,9 @@
 let largeMode = false;
 const tallTextMeasure = document.createElement('canvas').getContext('2d');
 
-const tallMathSymbols = '+−-·:÷×/=%‰±∓≠<>≤≥≈≡∝';
-
 function isTallCharacter(text) {
   return typeof text === 'string' && Array.from(text).length === 1 &&
-    (/^[\p{L}\p{N}]$/u.test(text) || tallMathSymbols.includes(text));
+    /^[\p{L}\p{N}\p{P}\p{S}]$/u.test(text);
 }
 
 function tallCharacterWidth(text) {

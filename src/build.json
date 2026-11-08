@@ -43,6 +43,10 @@
       "part": "part-01"
     },
     {
+      "file": "js/keyboard-notice.js",
+      "part": "part-01"
+    },
+    {
       "file": "js/comparisons.js",
       "part": "part-01"
     },

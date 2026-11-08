@@ -36,7 +36,7 @@ function renderStorageConsent() {
 
 const STORAGE_CONSENT_KEY = 'schmierpapier.storageConsent';
 const APP_STORAGE_KEYS = [STORAGE_CONSENT_KEY, 'schmierpapier.v1', 'schmierpapier.language',
-  'schmierpapier.pageView', 'schmierpapier.zoom', 'schmierpapier.settings'];
+  'schmierpapier.pageView', 'schmierpapier.zoom', 'schmierpapier.settings', 'schmierpapier.keyboardNoticeDismissed'];
 let storageAllowed = false;
 let initialStoragePrompt = false;
 try { storageAllowed = localStorage.getItem(STORAGE_CONSENT_KEY) === 'accepted-v1'; } catch {}

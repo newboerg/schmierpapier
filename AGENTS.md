@@ -17,3 +17,5 @@
 - The homepage uses a SHA-256 hash in its Content-Security-Policy for the inline `site-i18n` script. Whenever its script content or translations change, recompute the hash from the exact UTF-8 text between the script tags before browser testing and deployment; keep the CSP in place.
 
 - Keep offline release summaries in `src/js/release-notes.js` and their DE/EN/FR UI translations aligned with new changelog entries. `savedWith` stores the app release, while `version: 1` remains the document schema.
+
+- The keyboard startup notice and expanded symbol menus are local, unreleased changes. Do not upload them until the user explicitly authorises publication.

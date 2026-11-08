@@ -16,7 +16,7 @@ function write(text, literalPunctuation = false) {
   }
   const chars = Array.from(text.replace(/÷/g, ':').replace(/\*/g, '·').replace(/\r/g, ''));
   if (!chars.length) return;
-  if (largeMode && isTallCharacter(chars[0]) && pos + COLS >= COUNT) {
+  if (largeMode && isTallCharacter(chars[0]) && (literalPunctuation || !/^[.,]$/.test(chars[0])) && pos + COLS >= COUNT) {
     status(tr('Für doppelhohe Schrift fehlt unten ein Kästchen.'));
     select(pos); return;
   }

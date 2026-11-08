@@ -20,6 +20,12 @@ Version **0.6.5**
 
 Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l’en-tête de l’application l’ouvre dans un nouvel onglet.
 
+## Pas encore publié
+
+- L’écriture double hauteur s’applique à tous les symboles : logique, ensembles, monnaies, ponctuation et ↯. Les virgules et points attachés restent petits.
+
+- Conseil au démarrage sur Maj, avec option de ne plus le rappeler ; ajout de ponctuation, monnaies et du symbole de contradiction dans les menus.
+
 ## Nouveautés de v0.6.5
 
 - Papier sombre en option dans les réglages, désactivé par défaut ; PDF et impression restent clairs.

@@ -2072,7 +2072,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     #integralChoiceMenu { grid-template-columns: repeat(2, 42px); }
     #logic, #sets { width: 36px; min-width: 36px; padding: 0; font: 23px 'OfflineSymbols', sans-serif; }
     #logicMore, #setsMore, #miscMore { width: 23px; min-width: 23px; padding: 0; }
-    #logicMenu button, #setsMenu button, #miscMenu button { font-family: 'OfflineSymbols', sans-serif; }
+    #logicMenu button, #setsMenu button, #miscMenu button { font-family: 'OfflineSymbols', 'OfflineConsole', sans-serif; }
     #powerMode, #carryMode { position: relative; }
     #powerMode .mode-hold-progress, #carryMode .mode-hold-progress {
       display: none; position: absolute; inset: 0; width: 100%; height: 100%;
@@ -2105,7 +2105,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       font-style: normal;
       font-display: block;
     }
-    :root { --writing-font: OfflineHandschrift, OfflineSymbols, cursive; }
+    :root { --writing-font: OfflineHandschrift, OfflineSymbols, OfflineConsole, cursive; }
     .tall-character, .task-label, .decimal-mark { font-family: var(--writing-font); }
     #settingsDialog, #releaseDialog { width: min(560px, 94vw); max-height: 85vh; overflow: auto;
       border: 1px solid #b6c8bf; border-radius: 14px; padding: 24px; color: #25342f; }
@@ -2463,6 +2463,18 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       :root[data-dark-paper="true"] .paper:not(.blank-page) .grid-major { stroke: #b8875d; }
     }
 
+    #keyboardNoticeDialog {
+      width: min(620px, 94vw); max-height: 85dvh; overflow: auto;
+      padding: 24px; border: 1px solid #b6c9ba; border-radius: 14px;
+      background: #fffefa; color: #25342f; line-height: 1.55;
+    }
+    #keyboardNoticeDialog::backdrop { background: #152b2480; }
+    .keyboard-notice-choice { display: flex; align-items: center; gap: 8px; margin-top: 18px; }
+    .keyboard-notice-choice input { width: 16px; height: 16px; }
+    .keyboard-notice-keys, #keyboardNoticeStorageNote { font-size: 13px; }
+    :root[data-theme="dark"] #keyboardNoticeDialog { background: #222e28; color: #e1e9e4; border-color: #647a6c; }
+    @media print { #keyboardNoticeDialog { display: none !important; } }
+
     </style>
   </head>
   <body>
@@ -2806,7 +2818,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
               ▾
             </button>
           </span>
-          <button id="largeMode" aria-pressed="false" title="Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Rechenzeichen über zwei Kästchen schreiben" aria-label="Doppelhohe Schrift">
+          <button id="largeMode" aria-pressed="false" title="Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Symbole über zwei Kästchen schreiben" aria-label="Doppelhohe Schrift">
             <svg width="25" height="25" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
               <rect x="2" y="2" width="12" height="11" rx=".5">
               </rect>
@@ -3040,6 +3052,18 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         <input id="inputDialogValue" type="text" autocomplete="off" spellcheck="false" aria-describedby="inputDialogHint inputDialogError">
         <p id="inputDialogHint" role="status"></p><p id="inputDialogError" role="alert"></p>
         <div class="dialog-actions"><button id="inputDialogCancel" type="button">Abbrechen</button><button id="inputDialogAccept" type="submit">Bestätigen</button></div>
+      </form>
+    </dialog>
+    <dialog id="keyboardNoticeDialog" aria-labelledby="keyboardNoticeTitle" aria-describedby="keyboardNoticeText">
+      <form id="keyboardNoticeForm">
+        <h2 id="keyboardNoticeTitle" tabindex="-1">Ein kurzer Hinweis zur Tastatur</h2>
+        <p id="keyboardNoticeText">Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.</p>
+        <p>Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).</p>
+        <p>In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.</p>
+        <label class="keyboard-notice-choice"><input id="keyboardNoticeForget" type="checkbox" title="Nicht mehr erinnern"><span>Nicht mehr erinnern</span></label>
+        <p id="keyboardNoticeStorageNote">Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.</p>
+        <p class="keyboard-notice-keys">Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.</p>
+        <div class="dialog-actions"><button id="keyboardNoticeContinue" type="submit" title="Verstanden">Verstanden</button></div>
       </form>
     </dialog>
     <dialog id="settingsDialog" aria-labelledby="settingsTitle">
@@ -3841,7 +3865,49 @@ const LOCALE_DE = {
     "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.": "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.",
     "Papier im Darkmode ebenfalls abdunkeln": "Papier im Darkmode ebenfalls abdunkeln",
     "Standardmäßig aus. Nur die Bildschirmansicht wird angepasst; Bilder, PDF und Druck behalten ihre Farben.": "Standardmäßig aus. Nur die Bildschirmansicht wird angepasst; Bilder, PDF und Druck behalten ihre Farben.",
-    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell."
+    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.",
+    "Ein kurzer Hinweis zur Tastatur": "Ein kurzer Hinweis zur Tastatur",
+    "Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.": "Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.",
+    "Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).": "Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).",
+    "In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.": "In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.",
+    "Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.": "Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.",
+    "Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.": "Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.",
+    "Nicht mehr erinnern": "Nicht mehr erinnern",
+    "Verstanden": "Verstanden",
+    "Starthinweis zur Shift-Taste mit optionaler Erinnerungssperre; mehr Satz- und Währungszeichen sowie der Widerspruchsblitz in den Symbolmenüs.": "Starthinweis zur Shift-Taste mit optionaler Erinnerungssperre; mehr Satz- und Währungszeichen sowie der Widerspruchsblitz in den Symbolmenüs.",
+    "Euro": "Euro",
+    "Dollar": "Dollar",
+    "Pfund": "Pfund",
+    "Yen / Yuan": "Yen / Yuan",
+    "Cent": "Cent",
+    "Fragezeichen": "Fragezeichen",
+    "Ausrufezeichen": "Ausrufezeichen",
+    "Paragraphenzeichen": "Paragraphenzeichen",
+    "Einfaches Anführungszeichen": "Einfaches Anführungszeichen",
+    "Doppeltes Anführungszeichen": "Doppeltes Anführungszeichen",
+    "Schrägstrich": "Schrägstrich",
+    "Umgekehrter Schrägstrich": "Umgekehrter Schrägstrich",
+    "Semikolon": "Semikolon",
+    "Doppelpunkt": "Doppelpunkt",
+    "Raute": "Raute",
+    "At-Zeichen": "At-Zeichen",
+    "Unterstrich": "Unterstrich",
+    "Senkrechter Strich": "Senkrechter Strich",
+    "Tilde": "Tilde",
+    "Gradzeichen": "Gradzeichen",
+    "Minutenzeichen / Strich": "Minutenzeichen / Strich",
+    "Sekundenzeichen / Doppelstrich": "Sekundenzeichen / Doppelstrich",
+    "Auslassungspunkte": "Auslassungspunkte",
+    "Doppeltes Anführungszeichen unten": "Doppeltes Anführungszeichen unten",
+    "Doppeltes Anführungszeichen oben": "Doppeltes Anführungszeichen oben",
+    "Einfaches Anführungszeichen oben": "Einfaches Anführungszeichen oben",
+    "Apostroph": "Apostroph",
+    "Anführungszeichen links": "Anführungszeichen links",
+    "Anführungszeichen rechts": "Anführungszeichen rechts",
+    "Widerspruch": "Widerspruch",
+    "Unendlich": "Unendlich",
+    "Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.": "Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.",
+    "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Symbole über zwei Kästchen schreiben": "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Symbole über zwei Kästchen schreiben"
   },
   "helpInitial": [
     {
@@ -4109,7 +4175,7 @@ const LOCALE_DE = {
     {
       "title": "Doppelhohe Zahlen und Buchstaben",
       "keywords": "U groß large double doppelhoch lettre mixed fraction gemischter bruch nombre fractionnaire ± % ‰ + - = rechnen arithmetic calcul vergleich comparison",
-      "html": "<p>Der neue Button Doppelhohe Schrift oder U etwa 0,6 Sekunden halten schaltet einen dauerhaften Schreibmodus ein und aus. Während des Haltens füllt sich der Fortschrittsrahmen im Uhrzeigersinn; der aktive Button pulsiert, bei reduzierten Animationen bleibt er deutlich umrandet. Ein kurzer U-Tastendruck schreibt weiter den Buchstaben u. Zahlen und Buchstaben, auch griechische, werden ab dem aktuellen Kästchen zwei Kästchen nach unten hoch geschrieben, eine Spalte pro Zeichen. Danach geht es nach rechts; Enter und automatischer Zeilenumbruch gehen im aktiven Modus zwei Zeilen weiter. U erneut halten oder den Button anklicken beendet den Modus. So lässt sich zum Beispiel die große 1 eines gemischten Bruchs schreiben und der Bruch daneben anschließend normal ergänzen.</p><p>Rechen- und Vergleichszeichen wie +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % und ‰ werden ebenfalls doppelhoch geschrieben; Satzzeichen bleiben normal hoch. Hoch-/Tiefstellen und doppelhohe Schrift sind als dauerhafte Modi gegenseitig ausschließend; einzelne Strg/Shift-Ziffern bleiben für kleine Anmerkungen verfügbar. Am unteren Seitenrand wird kein halbes Zeichen geschrieben: Wähle ein Kästchen weiter oben. Große Buchstaben/Zahlen lassen sich aus beiden Kästchen löschen, vollständig kopieren/ausschneiden, rückgängig machen und in .schmier, PDF und Druck erhalten. U ersetzt den früheren direkten Und-Shortcut; & bleibt im Menü Verschiedene Symbole (Z halten). Namen, Suchfelder und Beschriftungen behalten ihre normale Texteingabe. Das Tutorial setzt den Modus vorübergehend zurück und stellt ihn danach wieder her.</p><p>Beim Schreiben eines großen Zeichens werden vorhandene normale Zeichen in seinen beiden Kästchen ersetzt. Normales Schreiben oder Leertaste in einem der belegten Kästchen ersetzt bzw. entfernt das große Zeichen als Ganzes. Rückgängig stellt den vorherigen Inhalt wieder her.</p><p>Der U-Schreibmodus vergrößert jetzt auch Rechen-, Vergleichs-, Prozent- und Promillezeichen. Das gilt für Tastatur, Nummernblock und Symbolbuttons; Strg/Shift+Enter für Bruch-Gleichzeichen bleibt erhalten.</p>"
+      "html": "<p>Der neue Button Doppelhohe Schrift oder U etwa 0,6 Sekunden halten schaltet einen dauerhaften Schreibmodus ein und aus. Während des Haltens füllt sich der Fortschrittsrahmen im Uhrzeigersinn; der aktive Button pulsiert, bei reduzierten Animationen bleibt er deutlich umrandet. Ein kurzer U-Tastendruck schreibt weiter den Buchstaben u. Zahlen und Buchstaben, auch griechische, werden ab dem aktuellen Kästchen zwei Kästchen nach unten hoch geschrieben, eine Spalte pro Zeichen. Danach geht es nach rechts; Enter und automatischer Zeilenumbruch gehen im aktiven Modus zwei Zeilen weiter. U erneut halten oder den Button anklicken beendet den Modus. So lässt sich zum Beispiel die große 1 eines gemischten Bruchs schreiben und der Bruch daneben anschließend normal ergänzen.</p><p>Rechen- und Vergleichszeichen wie +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % und ‰ werden ebenfalls doppelhoch geschrieben; Auch Währungs-, Logik-, Mengen- und Satzzeichen werden doppelhoch geschrieben. Angeheftetes Komma und Punkt bleiben klein; wähle sie für doppelhohe Schrift im Menü Verschiedene Symbole. Hoch-/Tiefstellen und doppelhohe Schrift sind als dauerhafte Modi gegenseitig ausschließend; einzelne Strg/Shift-Ziffern bleiben für kleine Anmerkungen verfügbar. Am unteren Seitenrand wird kein halbes Zeichen geschrieben: Wähle ein Kästchen weiter oben. Große Buchstaben/Zahlen lassen sich aus beiden Kästchen löschen, vollständig kopieren/ausschneiden, rückgängig machen und in .schmier, PDF und Druck erhalten. U ersetzt den früheren direkten Und-Shortcut; & bleibt im Menü Verschiedene Symbole (Z halten). Namen, Suchfelder und Beschriftungen behalten ihre normale Texteingabe. Das Tutorial setzt den Modus vorübergehend zurück und stellt ihn danach wieder her.</p><p>Beim Schreiben eines großen Zeichens werden vorhandene normale Zeichen in seinen beiden Kästchen ersetzt. Normales Schreiben oder Leertaste in einem der belegten Kästchen ersetzt bzw. entfernt das große Zeichen als Ganzes. Rückgängig stellt den vorherigen Inhalt wieder her.</p><p>Der U-Schreibmodus vergrößert jetzt auch Rechen-, Vergleichs-, Prozent- und Promillezeichen. Das gilt für Tastatur, Nummernblock und Symbolbuttons; Strg/Shift+Enter für Bruch-Gleichzeichen bleibt erhalten.</p>"
     },
     {
       "title": "Gemischter Bruch im Tutorial",
@@ -4170,6 +4236,11 @@ const LOCALE_DE = {
       "title": "Dunkles Papier",
       "keywords": "darkmode dark paper papier dunkel sombre theme settings einstellungen",
       "html": "<p>Mit <strong>Papier im Darkmode ebenfalls abdunkeln</strong> in den Einstellungen wird auch das Papier dunkel, sobald das Farbschema Dunkel aktiv ist – ebenso bei dunkler Systemeinstellung. Standardmäßig ist die Option ausgeschaltet. Im hellen Farbschema bleibt das Papier immer hell. Schrift, Linien und Raster werden nur für die Bildschirmansicht kontrastreich angepasst, auf beiden Seiten sowie auf Karo- und Millimeterpapier. Bilder behalten ihre Farben. Gespeicherte Tintenfarben ändern sich nicht; PDF und Druck bleiben auf hellem Papier. Die Option wird in .schmier-Dateien und mit Speicherzustimmung im Browser gemerkt. Ohne Zustimmung gilt sie nur für die Sitzung, sofern du keine Datei speicherst.</p>"
+    },
+    {
+      "title": "Starthinweis und weitere Symbole",
+      "keywords": "shift umschalt symbole sonderzeichen z l widerspruch contradiction currency euro dollar quote tastatur keyboard notice rappel",
+      "html": "<p>Beim Start erscheint ein Hinweis: In Schreibkästchen dient Shift zusammen mit Zahlen zum Hochstellen, nicht zur üblichen Eingabe der Sonderzeichen über der Zahlenreihe. In Textfeldern und Dialogen funktioniert die normale Sonderzeicheneingabe weiterhin. Nach der Speicherabfrage und eventuellen Versionshinweisen erscheint der Tastaturhinweis, ohne andere Fenster zu überlagern.</p><p>Tab wechselt zwischen Nicht mehr erinnern und Verstanden; Leertaste setzt das Häkchen, Enter oder Esc schließt. Ohne Häkchen erscheint der Hinweis beim nächsten Start wieder. Mit Häkchen und Speicherzustimmung wird er in diesem Browser unterdrückt. Ohne Zustimmung wird diese Auswahl nicht dauerhaft gespeichert. Der Hinweis gehört nicht zur .schmier-Datei; ein Widerruf der Speicherzustimmung löscht auch die Erinnerungssperre.</p><p>Verschiedene Symbole: Pfeil neben % oder Z halten. Neu sind € $ £ ¥ ¢, ? ! §, einfache und doppelte Anführungszeichen, / und \\, ; und :, # @ _ | ~, ° sowie ′ ″ und … und typografische Anführungszeichen. Punkt und Komma im eigenen Kästchen bleiben hier verfügbar. Das Menü Logik (L halten) enthält zusätzlich ↯ für einen Widerspruch. Pfeile wählen, Enter oder die jeweilige Menütaste bestätigt; Esc schließt ohne Einfügen. Alle Zeichen lassen sich auch anklicken. Sie sind normale Zeichen ohne Berechnungsfunktion und bleiben in .schmier, Rückgängig, PDF und Druck erhalten. Die benötigten Schriften sind offline eingebettet.</p><p>Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.</p>"
     }
   ],
   "consent": [
@@ -4931,7 +5002,49 @@ const LOCALE_EN = {
     "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.": "Root and integral menus use compact icons with separate size arrows; all symbols fit inside their buttons.",
     "Papier im Darkmode ebenfalls abdunkeln": "Darken the paper in dark mode too",
     "Standardmäßig aus. Nur die Bildschirmansicht wird angepasst; Bilder, PDF und Druck behalten ihre Farben.": "Off by default. Only the screen view changes; images, PDF and print keep their colours.",
-    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Optional dark paper in dark mode: enable it in settings; off by default. PDF and print stay light."
+    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Optional dark paper in dark mode: enable it in settings; off by default. PDF and print stay light.",
+    "Ein kurzer Hinweis zur Tastatur": "A quick note about the keyboard",
+    "Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.": "Schmierpapier reserves Shift for powers: Shift with a number writes that number as a superscript. In writing cells, the symbols above the number keys therefore cannot be entered with Shift as usual.",
+    "Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).": "You can still use these symbols: open Various symbols with the arrow next to % or hold Z. It contains punctuation, currency signs and more. Brackets have their own menus; the contradiction symbol is in Logic symbols (hold L).",
+    "In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.": "Use the arrow keys to choose a menu item and Enter to confirm. This note applies to writing cells; in text fields and dialogs, you can type special characters as usual.",
+    "Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.": "Keyboard: Tab moves between controls, Space checks the box, Enter or Esc closes this note.",
+    "Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.": "Without storage consent, this note will appear again next time.",
+    "Nicht mehr erinnern": "Do not remind me again",
+    "Verstanden": "Got it",
+    "Starthinweis zur Shift-Taste mit optionaler Erinnerungssperre; mehr Satz- und Währungszeichen sowie der Widerspruchsblitz in den Symbolmenüs.": "Startup note about Shift with an optional “do not remind me” choice; more punctuation and currency signs, plus the contradiction symbol in the symbol menus.",
+    "Euro": "Euro",
+    "Dollar": "Dollar",
+    "Pfund": "Pound",
+    "Yen / Yuan": "Yen / yuan",
+    "Cent": "Cent",
+    "Fragezeichen": "Question mark",
+    "Ausrufezeichen": "Exclamation mark",
+    "Paragraphenzeichen": "Section sign",
+    "Einfaches Anführungszeichen": "Single quotation mark",
+    "Doppeltes Anführungszeichen": "Double quotation mark",
+    "Schrägstrich": "Slash",
+    "Umgekehrter Schrägstrich": "Backslash",
+    "Semikolon": "Semicolon",
+    "Doppelpunkt": "Colon",
+    "Raute": "Number sign",
+    "At-Zeichen": "At sign",
+    "Unterstrich": "Underscore",
+    "Senkrechter Strich": "Vertical bar",
+    "Tilde": "Tilde",
+    "Gradzeichen": "Degree sign",
+    "Minutenzeichen / Strich": "Minute sign / prime",
+    "Sekundenzeichen / Doppelstrich": "Second sign / double prime",
+    "Auslassungspunkte": "Ellipsis",
+    "Doppeltes Anführungszeichen unten": "Low double quotation mark",
+    "Doppeltes Anführungszeichen oben": "High double quotation mark",
+    "Einfaches Anführungszeichen oben": "High single quotation mark",
+    "Apostroph": "Apostrophe",
+    "Anführungszeichen links": "Left guillemet",
+    "Anführungszeichen rechts": "Right guillemet",
+    "Widerspruch": "Contradiction",
+    "Unendlich": "Infinity",
+    "Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.": "Double-height writing applies to all symbols, including logic, sets, currencies, punctuation and ↯. Attached commas and dots remain small.",
+    "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Symbole über zwei Kästchen schreiben": "Double-height writing (hold U): write numbers, letters and symbols across two cells"
   },
   "helpInitial": [
     {
@@ -5199,7 +5312,7 @@ const LOCALE_EN = {
     {
       "title": "Double-height numbers and letters",
       "keywords": "U groß large double doppelhoch lettre mixed fraction gemischter bruch nombre fractionnaire ± % ‰ + - = rechnen arithmetic calcul vergleich comparison",
-      "html": "<p>The new Double-height text button, or holding U for about 0.6 seconds, toggles a persistent writing mode. A clockwise frame shows the hold time; the active button pulses, or stays outlined with reduced motion. A short U still writes u. Numbers and letters, including Greek letters, span two cells down from the current cell, one column per character. Writing advances right; Enter and automatic wrapping advance two rows while enabled. Hold U again or click the button to turn it off. For a mixed fraction, write the large whole-number 1, turn the mode off, then add the ordinary fraction beside it.</p><p>Arithmetic and comparison signs such as +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % and ‰ are also double-height; punctuation stays normal-height. Persistent sub/superscript and double-height modes are mutually exclusive; individual Ctrl/Shift digits still allow small annotations. No half character is written at the bottom edge: choose a cell higher up. Large letters/numbers can be deleted from either cell, fully copied/cut, undone and preserved in .schmier, PDF and printing. U replaces the former direct ampersand shortcut; & remains in Miscellaneous symbols (hold Z). Names, searches and labels retain ordinary text entry. The tutorial temporarily resets the mode and restores it afterwards.</p><p>Writing a large character replaces ordinary text in both occupied cells. Ordinary typing or Space in either occupied cell replaces or removes the whole large character. Undo restores the previous content.</p><p>The U writing mode now enlarges arithmetic, comparison, percent and per-mille signs too. This works with the keyboard, numeric keypad and symbol buttons; Ctrl/Shift+Enter keeps its fraction-equals function.</p>"
+      "html": "<p>The new Double-height text button, or holding U for about 0.6 seconds, toggles a persistent writing mode. A clockwise frame shows the hold time; the active button pulses, or stays outlined with reduced motion. A short U still writes u. Numbers and letters, including Greek letters, span two cells down from the current cell, one column per character. Writing advances right; Enter and automatic wrapping advance two rows while enabled. Hold U again or click the button to turn it off. For a mixed fraction, write the large whole-number 1, turn the mode off, then add the ordinary fraction beside it.</p><p>Arithmetic and comparison signs such as +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % and ‰ are also double-height; punctuation, currencies, logic and set symbols are also double-height. Attached commas and dots remain small; choose their standalone menu versions for double-height writing. Persistent sub/superscript and double-height modes are mutually exclusive; individual Ctrl/Shift digits still allow small annotations. No half character is written at the bottom edge: choose a cell higher up. Large letters/numbers can be deleted from either cell, fully copied/cut, undone and preserved in .schmier, PDF and printing. U replaces the former direct ampersand shortcut; & remains in Miscellaneous symbols (hold Z). Names, searches and labels retain ordinary text entry. The tutorial temporarily resets the mode and restores it afterwards.</p><p>Writing a large character replaces ordinary text in both occupied cells. Ordinary typing or Space in either occupied cell replaces or removes the whole large character. Undo restores the previous content.</p><p>The U writing mode now enlarges arithmetic, comparison, percent and per-mille signs too. This works with the keyboard, numeric keypad and symbol buttons; Ctrl/Shift+Enter keeps its fraction-equals function.</p>"
     },
     {
       "title": "Mixed fraction in the tutorial",
@@ -5260,6 +5373,11 @@ const LOCALE_EN = {
       "title": "Dark paper",
       "keywords": "darkmode dark paper papier dunkel sombre theme settings einstellungen",
       "html": "<p>Enable <strong>Darken the paper in dark mode too</strong> in settings to use dark paper when the dark theme is active, including a dark system theme. Off by default. Paper stays light in the light theme. Writing, lines and grids adapt for screen contrast on both pages and on squared and millimetre paper. Images keep their colours. Stored ink colours do not change; PDF and print keep light paper. The option is saved in .schmier files and, with consent, in the browser. Without consent it lasts for the session unless you save a file.</p>"
+    },
+    {
+      "title": "Startup note and more symbols",
+      "keywords": "shift umschalt symbole sonderzeichen z l widerspruch contradiction currency euro dollar quote tastatur keyboard notice rappel",
+      "html": "<p>A startup note explains that Shift with numbers writes superscripts in writing cells, rather than the symbols above the number row. Normal special-character typing still works in text fields and dialogs. The note waits until storage consent and any release notes have closed.</p><p>Tab moves between Do not remind me again and Got it; Space checks the box, Enter or Esc closes. Without the checkmark the note returns next start. With the checkmark and storage consent it is suppressed in this browser. Without consent this choice is not stored permanently. It is not part of .schmier files; withdrawing storage consent also removes the suppression.</p><p>Various symbols: the arrow next to % or hold Z. New entries include € $ £ ¥ ¢, ? ! §, single and double quotes, / and \\, ; and :, # @ _ | ~, °, ′ ″, … and typographic quotation marks. Standalone dots and commas remain available here. Logic (hold L) now includes ↯ for contradiction. Arrows choose, Enter or the menu’s key confirms; Esc closes without inserting. Clicking also works. These are ordinary characters with no calculation feature, preserved in .schmier, undo, PDF and print. Their fonts are embedded for offline use.</p><p>Double-height writing applies to all symbols, including logic, sets, currencies, punctuation and ↯. Attached commas and dots remain small.</p>"
     }
   ],
   "consent": [
@@ -6042,7 +6160,49 @@ const LOCALE_FR = {
     "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.": "Les menus des racines et intégrales utilisent des icônes compactes avec des flèches de taille séparées ; tous les signes restent dans leurs boutons.",
     "Papier im Darkmode ebenfalls abdunkeln": "Assombrir aussi le papier en mode sombre",
     "Standardmäßig aus. Nur die Bildschirmansicht wird angepasst; Bilder, PDF und Druck behalten ihre Farben.": "Désactivé par défaut. Seul l’affichage change ; images, PDF et impression gardent leurs couleurs.",
-    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Papier sombre en option dans les réglages, désactivé par défaut ; PDF et impression restent clairs."
+    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Papier sombre en option dans les réglages, désactivé par défaut ; PDF et impression restent clairs.",
+    "Ein kurzer Hinweis zur Tastatur": "Un petit conseil pour le clavier",
+    "Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.": "Schmierpapier réserve la touche Maj aux puissances : Maj avec un chiffre écrit ce chiffre en exposant. Dans les cases, les symboles au-dessus des chiffres ne peuvent donc pas être saisis avec Maj comme d’habitude.",
+    "Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).": "Ces signes restent disponibles : ouvre Symboles divers avec la flèche à côté de % ou maintiens Z. Tu y trouveras la ponctuation, les monnaies et d’autres signes. Les parenthèses ont leurs propres menus ; le symbole de contradiction se trouve dans Logique (maintenir L).",
+    "In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.": "Dans les menus, choisis avec les flèches et valide avec Entrée. Ce conseil concerne les cases ; dans les champs de saisie et les boîtes de dialogue, tu peux taper les caractères spéciaux normalement.",
+    "Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.": "Clavier : Tab change de commande, Espace coche la case, Entrée ou Échap ferme ce conseil.",
+    "Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.": "Sans accord de stockage, ce conseil réapparaîtra au prochain démarrage.",
+    "Nicht mehr erinnern": "Ne plus me le rappeler",
+    "Verstanden": "Compris",
+    "Starthinweis zur Shift-Taste mit optionaler Erinnerungssperre; mehr Satz- und Währungszeichen sowie der Widerspruchsblitz in den Symbolmenüs.": "Conseil au démarrage sur Maj, avec option de ne plus le rappeler ; ajout de ponctuation, monnaies et du symbole de contradiction dans les menus.",
+    "Euro": "Euro",
+    "Dollar": "Dollar",
+    "Pfund": "Livre sterling",
+    "Yen / Yuan": "Yen / yuan",
+    "Cent": "Centime",
+    "Fragezeichen": "Point d’interrogation",
+    "Ausrufezeichen": "Point d’exclamation",
+    "Paragraphenzeichen": "Signe de paragraphe",
+    "Einfaches Anführungszeichen": "Guillemet simple",
+    "Doppeltes Anführungszeichen": "Guillemet double",
+    "Schrägstrich": "Barre oblique",
+    "Umgekehrter Schrägstrich": "Barre oblique inverse",
+    "Semikolon": "Point-virgule",
+    "Doppelpunkt": "Deux-points",
+    "Raute": "Croisillon",
+    "At-Zeichen": "Arobase",
+    "Unterstrich": "Tiret bas",
+    "Senkrechter Strich": "Barre verticale",
+    "Tilde": "Tilde",
+    "Gradzeichen": "Signe degré",
+    "Minutenzeichen / Strich": "Signe minute / prime",
+    "Sekundenzeichen / Doppelstrich": "Signe seconde / double prime",
+    "Auslassungspunkte": "Points de suspension",
+    "Doppeltes Anführungszeichen unten": "Guillemet double bas",
+    "Doppeltes Anführungszeichen oben": "Guillemet double haut",
+    "Einfaches Anführungszeichen oben": "Guillemet simple haut",
+    "Apostroph": "Apostrophe",
+    "Anführungszeichen links": "Guillemet ouvrant",
+    "Anführungszeichen rechts": "Guillemet fermant",
+    "Widerspruch": "Contradiction",
+    "Unendlich": "Infini",
+    "Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.": "L’écriture double hauteur s’applique à tous les symboles : logique, ensembles, monnaies, ponctuation et ↯. Les virgules et points attachés restent petits.",
+    "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Symbole über zwei Kästchen schreiben": "Écriture double hauteur (maintenir U) : nombres, lettres et symboles sur deux cases"
   },
   "helpInitial": [
     {
@@ -6310,7 +6470,7 @@ const LOCALE_FR = {
     {
       "title": "Chiffres et lettres de double hauteur",
       "keywords": "U groß large double doppelhoch lettre mixed fraction gemischter bruch nombre fractionnaire ± % ‰ + - = rechnen arithmetic calcul vergleich comparison",
-      "html": "<p>Le nouveau bouton Écriture de double hauteur, ou un appui sur U d’environ 0,6 seconde, active/désactive un mode permanent. Un cadre horaire montre l’attente ; le bouton actif pulse, ou reste entouré si les animations sont réduites. Un appui court écrit toujours u. Chiffres et lettres, grecques comprises, occupent deux cases vers le bas depuis la case active, une colonne par caractère. La saisie avance à droite ; Entrée et le retour automatique avancent de deux lignes dans ce mode. Maintenir U de nouveau ou cliquer sur le bouton pour l’arrêter. Pour un nombre fractionnaire, écrire le grand 1 entier, arrêter le mode, puis ajouter la fraction ordinaire à côté.</p><p>Les signes de calcul et comparaison comme +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % et ‰ sont aussi de double hauteur ; la ponctuation garde sa hauteur normale. Les modes permanents indice/exposant et double hauteur s’excluent ; Ctrl/Maj avec un chiffre permet toujours une petite annotation ponctuelle. Aucun demi-caractère n’est écrit au bord inférieur : choisir une case plus haute. Les grandes lettres/chiffres s’effacent depuis chacune des cases, se copient/coupent en entier, s’annulent et restent dans .schmier, PDF et impressions. U remplace l’ancien raccourci direct de l’esperluette ; & reste dans Symboles divers (maintenir Z). Noms, recherches et graduations gardent leur saisie normale. Le tutoriel désactive temporairement le mode puis le restaure.</p><p>Écrire un grand caractère remplace le texte ordinaire dans ses deux cases. Une saisie ordinaire ou Espace dans l’une des cases remplace ou efface le grand caractère entier. Annuler restaure le contenu précédent.</p><p>Le mode U agrandit désormais aussi les signes de calcul, comparaison, pourcentage et pour mille. Cela fonctionne au clavier, au pavé et avec les boutons ; Ctrl/Maj+Entrée conserve l’égalité pour fractions.</p>"
+      "html": "<p>Le nouveau bouton Écriture de double hauteur, ou un appui sur U d’environ 0,6 seconde, active/désactive un mode permanent. Un cadre horaire montre l’attente ; le bouton actif pulse, ou reste entouré si les animations sont réduites. Un appui court écrit toujours u. Chiffres et lettres, grecques comprises, occupent deux cases vers le bas depuis la case active, une colonne par caractère. La saisie avance à droite ; Entrée et le retour automatique avancent de deux lignes dans ce mode. Maintenir U de nouveau ou cliquer sur le bouton pour l’arrêter. Pour un nombre fractionnaire, écrire le grand 1 entier, arrêter le mode, puis ajouter la fraction ordinaire à côté.</p><p>Les signes de calcul et comparaison comme +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % et ‰ sont aussi de double hauteur ; la ponctuation, les monnaies, la logique et les ensembles sont aussi de double hauteur. Les points et virgules attachés restent petits ; choisis leurs versions autonomes dans le menu pour la double hauteur. Les modes permanents indice/exposant et double hauteur s’excluent ; Ctrl/Maj avec un chiffre permet toujours une petite annotation ponctuelle. Aucun demi-caractère n’est écrit au bord inférieur : choisir une case plus haute. Les grandes lettres/chiffres s’effacent depuis chacune des cases, se copient/coupent en entier, s’annulent et restent dans .schmier, PDF et impressions. U remplace l’ancien raccourci direct de l’esperluette ; & reste dans Symboles divers (maintenir Z). Noms, recherches et graduations gardent leur saisie normale. Le tutoriel désactive temporairement le mode puis le restaure.</p><p>Écrire un grand caractère remplace le texte ordinaire dans ses deux cases. Une saisie ordinaire ou Espace dans l’une des cases remplace ou efface le grand caractère entier. Annuler restaure le contenu précédent.</p><p>Le mode U agrandit désormais aussi les signes de calcul, comparaison, pourcentage et pour mille. Cela fonctionne au clavier, au pavé et avec les boutons ; Ctrl/Maj+Entrée conserve l’égalité pour fractions.</p>"
     },
     {
       "title": "Nombre fractionnaire dans le tutoriel",
@@ -6371,6 +6531,11 @@ const LOCALE_FR = {
       "title": "Papier sombre",
       "keywords": "darkmode dark paper papier dunkel sombre theme settings einstellungen",
       "html": "<p>Active <strong>Assombrir aussi le papier en mode sombre</strong> dans les réglages pour assombrir le papier lorsque le thème sombre est actif, y compris celui du système. L’option est désactivée par défaut. En thème clair, le papier reste clair. Écriture, traits et grilles s’adaptent pour rester lisibles à l’écran, sur les deux pages et sur les papiers quadrillé et millimétré. Les images gardent leurs couleurs. Les couleurs d’encre enregistrées ne changent pas ; PDF et impression gardent le papier clair. L’option est enregistrée dans les fichiers .schmier et dans le navigateur avec accord. Sans accord, elle dure seulement pendant la session, sauf si tu enregistres un fichier.</p>"
+    },
+    {
+      "title": "Conseil au démarrage et autres symboles",
+      "keywords": "shift umschalt symbole sonderzeichen z l widerspruch contradiction currency euro dollar quote tastatur keyboard notice rappel",
+      "html": "<p>Un conseil au démarrage explique que Maj avec un chiffre écrit un exposant dans les cases, au lieu des symboles au-dessus des chiffres. La saisie normale des caractères spéciaux fonctionne toujours dans les champs et dialogues. Le conseil attend la fermeture du choix de stockage et des éventuelles notes de version.</p><p>Tab passe de Ne plus me le rappeler à Compris ; Espace coche la case, Entrée ou Échap ferme. Sans coche, le conseil revient au prochain démarrage. Avec coche et accord de stockage, il est masqué dans ce navigateur. Sans accord, le choix n’est pas enregistré durablement. Il ne fait pas partie des fichiers .schmier ; retirer l’accord de stockage supprime aussi ce choix.</p><p>Symboles divers : flèche à côté de % ou maintenir Z. Nouveaux signes : € $ £ ¥ ¢, ? ! §, guillemets simples et doubles, / et \\, ; et :, # @ _ | ~, °, ′ ″, … et guillemets typographiques. Point et virgule occupant leur propre case restent disponibles ici. Logique (maintenir L) contient aussi ↯ pour une contradiction. Les flèches choisissent, Entrée ou la touche du menu confirme ; Échap ferme sans insertion. La souris fonctionne aussi. Ces caractères ne calculent rien et sont conservés dans .schmier, annuler, PDF et impression. Les polices nécessaires sont intégrées pour l’usage hors ligne.</p><p>L’écriture double hauteur s’applique à tous les symboles : logique, ensembles, monnaies, ponctuation et ↯. Les virgules et points attachés restent petits.</p>"
     }
   ],
   "consent": [
@@ -6744,6 +6909,63 @@ window.addEventListener('close',event=>{
   }
 },true);
 
+// Source: src/js/keyboard-notice.js [part-01]
+const KEYBOARD_NOTICE_KEY = 'schmierpapier.keyboardNoticeDismissed';
+let keyboardNoticeShown = false;
+
+function showKeyboardNoticeWhenReady() {
+  if (keyboardNoticeShown || document.querySelector('dialog[open]')) return;
+  try {
+    if (readAppStorage(KEYBOARD_NOTICE_KEY) === '1') return;
+  } catch { /* Without browser storage the notice remains available each start. */ }
+  keyboardNoticeShown = true;
+  $('keyboardNoticeForget').checked = false;
+  $('keyboardNoticeStorageNote').hidden = storageAllowed;
+  localiseInterface();
+  $('keyboardNoticeDialog').showModal();
+  // Focus the heading so small screens start at the explanation, not at the bottom.
+  $('keyboardNoticeTitle').focus({ preventScroll: true });
+  $('keyboardNoticeDialog').scrollTop = 0;
+}
+
+function closeKeyboardNotice() {
+  if ($('keyboardNoticeForget').checked) {
+    try { writeAppStorage(KEYBOARD_NOTICE_KEY, '1'); }
+    catch { status(tr('Browserspeicher nicht verfügbar – bitte als .schmier speichern')); }
+  }
+  $('keyboardNoticeDialog').close();
+  select(pos);
+}
+
+function initialiseKeyboardNotice() {
+  $('keyboardNoticeForm').addEventListener('submit', event => {
+    event.preventDefault();
+    closeKeyboardNotice();
+  });
+  $('keyboardNoticeDialog').addEventListener('cancel', event => {
+    event.preventDefault();
+    closeKeyboardNotice();
+  });
+  // Wait behind consent and release notes; never stack startup dialogs.
+  document.addEventListener('close', () => queueMicrotask(showKeyboardNoticeWhenReady), true);
+  showKeyboardNoticeWhenReady();
+}
+
+// Allow native Tab/Space controls, while protecting the modal from app shortcuts.
+window.addEventListener('keydown', event => {
+  if (!$('keyboardNoticeDialog')?.open) return;
+  event.stopImmediatePropagation();
+  if (event.key === 'Tab') {
+    event.preventDefault();
+    (document.activeElement === $('keyboardNoticeForget') ? $('keyboardNoticeContinue') : $('keyboardNoticeForget')).focus();
+    return;
+  }
+  if ((event.key === 'Enter' || event.key === 'Escape') && !event.isComposing) {
+    event.preventDefault();
+    if (!event.repeat) closeKeyboardNotice();
+  }
+}, true);
+
 // Source: src/js/comparisons.js [part-01]
 const relationSymbols = ['=', '≠', '<', '>', '≤', '≥', '≈', '≡', '∝'];
 let relationModifiers = {}, enterHold = null, relationMenuOpen = false;
@@ -6860,7 +7082,7 @@ function renderStorageConsent() {
 
 const STORAGE_CONSENT_KEY = 'schmierpapier.storageConsent';
 const APP_STORAGE_KEYS = [STORAGE_CONSENT_KEY, 'schmierpapier.v1', 'schmierpapier.language',
-  'schmierpapier.pageView', 'schmierpapier.zoom', 'schmierpapier.settings'];
+  'schmierpapier.pageView', 'schmierpapier.zoom', 'schmierpapier.settings', 'schmierpapier.keyboardNoticeDismissed'];
 let storageAllowed = false;
 let initialStoragePrompt = false;
 try { storageAllowed = localStorage.getItem(STORAGE_CONSENT_KEY) === 'accepted-v1'; } catch {}
@@ -6942,7 +7164,7 @@ function normaliseSettings(value) {
 try { settings = normaliseSettings(JSON.parse(readAppStorage(SETTINGS_KEY))); } catch {}
 function writingFont() {
   return settings.font === 'console' ? 'OfflineConsole, OfflineSymbols, monospace' :
-    'OfflineHandschrift, OfflineSymbols, cursive';
+    'OfflineHandschrift, OfflineSymbols, OfflineConsole, cursive';
 }
 function saveSettings() {
   try { writeAppStorage(SETTINGS_KEY, JSON.stringify(settings)); } catch {
@@ -8372,7 +8594,7 @@ function status(s) {
 // Source: src/js/release-notes.js [part-01]
 const APP_VERSION = '0.6.5';
 const RELEASE_NOTES = [
-  { version: '0.6.5', items: ["Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.", "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.", "Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.", "G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.", "Nach dem Setzen oder Bearbeiten eines Punkts schaltet sich das Punkt-Werkzeug automatisch aus. Für einen weiteren Punkt erneut aktivieren.", "Einheitliche Bestätigung per Enter oder Werkzeugtaste; Eingabedialoge warten auf das Loslassen gehaltener Tasten.", "Linien durchgezogen oder gestrichelt zeichnen (J halten) und beschriftete Konstruktionspunkte setzen (H halten)."] },
+  { version: '0.6.5', items: ["Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.", "Starthinweis zur Shift-Taste mit optionaler Erinnerungssperre; mehr Satz- und Währungszeichen sowie der Widerspruchsblitz in den Symbolmenüs.", "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.", "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.", "Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.", "G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.", "Nach dem Setzen oder Bearbeiten eines Punkts schaltet sich das Punkt-Werkzeug automatisch aus. Für einen weiteren Punkt erneut aktivieren.", "Einheitliche Bestätigung per Enter oder Werkzeugtaste; Eingabedialoge warten auf das Loslassen gehaltener Tasten.", "Linien durchgezogen oder gestrichelt zeichnen (J halten) und beschriftete Konstruktionspunkte setzen (H halten)."] },
   { version: '0.6', items: ["Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).", "Dunkles Farbschema nach Systemeinstellung oder eigener Wahl; Bilder in Kästchen einfügen und anpassen; Parallelzeichen."] },
   { version: '0.5.5', items: ['Werkzeugleiste oben, unten, links oder rechts anordnen; seitlich passen sich Breite und Spalten an das Fenster an.'] },
   { version: '0.5', items: [
@@ -8600,11 +8822,9 @@ function writePower(text) {
 let largeMode = false;
 const tallTextMeasure = document.createElement('canvas').getContext('2d');
 
-const tallMathSymbols = '+−-·:÷×/=%‰±∓≠<>≤≥≈≡∝';
-
 function isTallCharacter(text) {
   return typeof text === 'string' && Array.from(text).length === 1 &&
-    (/^[\p{L}\p{N}]$/u.test(text) || tallMathSymbols.includes(text));
+    /^[\p{L}\p{N}\p{P}\p{S}]$/u.test(text);
 }
 
 function tallCharacterWidth(text) {
@@ -8828,7 +9048,7 @@ function write(text, literalPunctuation = false) {
   }
   const chars = Array.from(text.replace(/÷/g, ':').replace(/\*/g, '·').replace(/\r/g, ''));
   if (!chars.length) return;
-  if (largeMode && isTallCharacter(chars[0]) && pos + COLS >= COUNT) {
+  if (largeMode && isTallCharacter(chars[0]) && (literalPunctuation || !/^[.,]$/.test(chars[0])) && pos + COLS >= COUNT) {
     status(tr('Für doppelhohe Schrift fehlt unten ein Kästchen.'));
     select(pos); return;
   }
@@ -8966,7 +9186,7 @@ function insertMathSymbol(symbol) {
 }
 
 // Source: src/js/logic.js [part-01]
-registerSymbolMenu('logic', 'logic', [["∧", "Logisches Und"], ["∨", "Logisches Oder"], ["¬", "Negation"], ["⇒", "Implikation"], ["⇔", "Äquivalenz"], ["⊕", "Exklusives Oder"], ["⊤", "Wahr"], ["⊥", "Falsch"]]);
+registerSymbolMenu('logic', 'logic', [["∧", "Logisches Und"], ["∨", "Logisches Oder"], ["¬", "Negation"], ["⇒", "Implikation"], ["⇔", "Äquivalenz"], ["⊕", "Exklusives Oder"], ["⊤", "Wahr"], ["⊥", "Falsch"], ["↯", "Widerspruch"]]);
 
 // Source: src/js/sets.js [part-01]
 registerSymbolMenu('sets', 'sets', [["∈", "Element von"], ["∉", "Kein Element von"], ["⊂", "Echte Teilmenge"], ["⊆", "Teilmenge"], ["⊄", "Keine echte Teilmenge"], ["⊈", "Keine Teilmenge"], ["∪", "Vereinigung"], ["∩", "Schnittmenge"], ["∅", "Leere Menge"], ["∖", "Mengendifferenz"], ["ℕ", "Natürliche Zahlen"], ["ℤ", "Ganze Zahlen"], ["ℚ", "Rationale Zahlen"], ["ℝ", "Reelle Zahlen"], ["ℂ", "Komplexe Zahlen"]]);
@@ -8975,7 +9195,7 @@ registerSymbolMenu('sets', 'sets', [["∈", "Element von"], ["∉", "Kein Elemen
 
 
 // Source: src/js/percent.js [part-01]
-registerSymbolMenu('misc', 'percent', [["%", "Prozent"], ["∥", "Parallel zu"], ["&", "Und-Zeichen"], ["∀", "Für alle"], ["∃", "Es existiert"], ["∄", "Es existiert nicht"], ["‰", "Promille"], ["±", "Plusminus"], [".", "Punkt im eigenen Kästchen"], [",", "Komma im eigenen Kästchen"]]);
+registerSymbolMenu('misc', 'percent', [["%", "Prozent"], ["∥", "Parallel zu"], ["&", "Und-Zeichen"], ["∀", "Für alle"], ["∃", "Es existiert"], ["∄", "Es existiert nicht"], ["‰", "Promille"], ["±", "Plusminus"], [".", "Punkt im eigenen Kästchen"], [",", "Komma im eigenen Kästchen"], ["€", "Euro"], ["$", "Dollar"], ["£", "Pfund"], ["¥", "Yen / Yuan"], ["¢", "Cent"], ["?", "Fragezeichen"], ["!", "Ausrufezeichen"], ["§", "Paragraphenzeichen"], ["'", "Einfaches Anführungszeichen"], ["\"", "Doppeltes Anführungszeichen"], ["/", "Schrägstrich"], ["\\", "Umgekehrter Schrägstrich"], [";", "Semikolon"], [":", "Doppelpunkt"], ["#", "Raute"], ["@", "At-Zeichen"], ["_", "Unterstrich"], ["|", "Senkrechter Strich"], ["~", "Tilde"], ["°", "Gradzeichen"], ["′", "Minutenzeichen / Strich"], ["″", "Sekundenzeichen / Doppelstrich"], ["…", "Auslassungspunkte"], ["„", "Doppeltes Anführungszeichen unten"], ["“", "Doppeltes Anführungszeichen oben"], ["‘", "Einfaches Anführungszeichen oben"], ["’", "Apostroph"], ["«", "Anführungszeichen links"], ["»", "Anführungszeichen rechts"], ["∞", "Unendlich"]]);
 
 // Source: src/js/brackets.js [part-02]
 $('braceOpen').onclick = e => insertBracket('{', e);
@@ -9823,6 +10043,7 @@ async function pdfExport() {
   try {
     await document.fonts.load('16px ' + (settings.font === 'console' ? 'OfflineConsole' : 'OfflineHandschrift'));
     await document.fonts.load('16px OfflineSymbols');
+    await document.fonts.load('16px OfflineConsole');
     await document.fonts.ready;
     const encoder = new TextEncoder(),
       parts = [],
@@ -15083,6 +15304,8 @@ $('storageAccept').onclick = () => chooseStorage(true);
 $('storageDecline').onclick = () => chooseStorage(false);
 $('storageConsentDialog').addEventListener('cancel', event => event.preventDefault());
 if (!storageAllowed) openStorageConsent(true);
+
+initialiseKeyboardNotice();
   </script>
   </body>
 </html>

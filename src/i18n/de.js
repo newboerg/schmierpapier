@@ -738,7 +738,49 @@ const LOCALE_DE = {
     "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.": "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.",
     "Papier im Darkmode ebenfalls abdunkeln": "Papier im Darkmode ebenfalls abdunkeln",
     "Standardmäßig aus. Nur die Bildschirmansicht wird angepasst; Bilder, PDF und Druck behalten ihre Farben.": "Standardmäßig aus. Nur die Bildschirmansicht wird angepasst; Bilder, PDF und Druck behalten ihre Farben.",
-    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell."
+    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.",
+    "Ein kurzer Hinweis zur Tastatur": "Ein kurzer Hinweis zur Tastatur",
+    "Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.": "Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.",
+    "Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).": "Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).",
+    "In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.": "In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.",
+    "Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.": "Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.",
+    "Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.": "Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.",
+    "Nicht mehr erinnern": "Nicht mehr erinnern",
+    "Verstanden": "Verstanden",
+    "Starthinweis zur Shift-Taste mit optionaler Erinnerungssperre; mehr Satz- und Währungszeichen sowie der Widerspruchsblitz in den Symbolmenüs.": "Starthinweis zur Shift-Taste mit optionaler Erinnerungssperre; mehr Satz- und Währungszeichen sowie der Widerspruchsblitz in den Symbolmenüs.",
+    "Euro": "Euro",
+    "Dollar": "Dollar",
+    "Pfund": "Pfund",
+    "Yen / Yuan": "Yen / Yuan",
+    "Cent": "Cent",
+    "Fragezeichen": "Fragezeichen",
+    "Ausrufezeichen": "Ausrufezeichen",
+    "Paragraphenzeichen": "Paragraphenzeichen",
+    "Einfaches Anführungszeichen": "Einfaches Anführungszeichen",
+    "Doppeltes Anführungszeichen": "Doppeltes Anführungszeichen",
+    "Schrägstrich": "Schrägstrich",
+    "Umgekehrter Schrägstrich": "Umgekehrter Schrägstrich",
+    "Semikolon": "Semikolon",
+    "Doppelpunkt": "Doppelpunkt",
+    "Raute": "Raute",
+    "At-Zeichen": "At-Zeichen",
+    "Unterstrich": "Unterstrich",
+    "Senkrechter Strich": "Senkrechter Strich",
+    "Tilde": "Tilde",
+    "Gradzeichen": "Gradzeichen",
+    "Minutenzeichen / Strich": "Minutenzeichen / Strich",
+    "Sekundenzeichen / Doppelstrich": "Sekundenzeichen / Doppelstrich",
+    "Auslassungspunkte": "Auslassungspunkte",
+    "Doppeltes Anführungszeichen unten": "Doppeltes Anführungszeichen unten",
+    "Doppeltes Anführungszeichen oben": "Doppeltes Anführungszeichen oben",
+    "Einfaches Anführungszeichen oben": "Einfaches Anführungszeichen oben",
+    "Apostroph": "Apostroph",
+    "Anführungszeichen links": "Anführungszeichen links",
+    "Anführungszeichen rechts": "Anführungszeichen rechts",
+    "Widerspruch": "Widerspruch",
+    "Unendlich": "Unendlich",
+    "Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.": "Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.",
+    "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Symbole über zwei Kästchen schreiben": "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Symbole über zwei Kästchen schreiben"
   },
   "helpInitial": [
     {
@@ -1006,7 +1048,7 @@ const LOCALE_DE = {
     {
       "title": "Doppelhohe Zahlen und Buchstaben",
       "keywords": "U groß large double doppelhoch lettre mixed fraction gemischter bruch nombre fractionnaire ± % ‰ + - = rechnen arithmetic calcul vergleich comparison",
-      "html": "<p>Der neue Button Doppelhohe Schrift oder U etwa 0,6 Sekunden halten schaltet einen dauerhaften Schreibmodus ein und aus. Während des Haltens füllt sich der Fortschrittsrahmen im Uhrzeigersinn; der aktive Button pulsiert, bei reduzierten Animationen bleibt er deutlich umrandet. Ein kurzer U-Tastendruck schreibt weiter den Buchstaben u. Zahlen und Buchstaben, auch griechische, werden ab dem aktuellen Kästchen zwei Kästchen nach unten hoch geschrieben, eine Spalte pro Zeichen. Danach geht es nach rechts; Enter und automatischer Zeilenumbruch gehen im aktiven Modus zwei Zeilen weiter. U erneut halten oder den Button anklicken beendet den Modus. So lässt sich zum Beispiel die große 1 eines gemischten Bruchs schreiben und der Bruch daneben anschließend normal ergänzen.</p><p>Rechen- und Vergleichszeichen wie +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % und ‰ werden ebenfalls doppelhoch geschrieben; Satzzeichen bleiben normal hoch. Hoch-/Tiefstellen und doppelhohe Schrift sind als dauerhafte Modi gegenseitig ausschließend; einzelne Strg/Shift-Ziffern bleiben für kleine Anmerkungen verfügbar. Am unteren Seitenrand wird kein halbes Zeichen geschrieben: Wähle ein Kästchen weiter oben. Große Buchstaben/Zahlen lassen sich aus beiden Kästchen löschen, vollständig kopieren/ausschneiden, rückgängig machen und in .schmier, PDF und Druck erhalten. U ersetzt den früheren direkten Und-Shortcut; & bleibt im Menü Verschiedene Symbole (Z halten). Namen, Suchfelder und Beschriftungen behalten ihre normale Texteingabe. Das Tutorial setzt den Modus vorübergehend zurück und stellt ihn danach wieder her.</p><p>Beim Schreiben eines großen Zeichens werden vorhandene normale Zeichen in seinen beiden Kästchen ersetzt. Normales Schreiben oder Leertaste in einem der belegten Kästchen ersetzt bzw. entfernt das große Zeichen als Ganzes. Rückgängig stellt den vorherigen Inhalt wieder her.</p><p>Der U-Schreibmodus vergrößert jetzt auch Rechen-, Vergleichs-, Prozent- und Promillezeichen. Das gilt für Tastatur, Nummernblock und Symbolbuttons; Strg/Shift+Enter für Bruch-Gleichzeichen bleibt erhalten.</p>"
+      "html": "<p>Der neue Button Doppelhohe Schrift oder U etwa 0,6 Sekunden halten schaltet einen dauerhaften Schreibmodus ein und aus. Während des Haltens füllt sich der Fortschrittsrahmen im Uhrzeigersinn; der aktive Button pulsiert, bei reduzierten Animationen bleibt er deutlich umrandet. Ein kurzer U-Tastendruck schreibt weiter den Buchstaben u. Zahlen und Buchstaben, auch griechische, werden ab dem aktuellen Kästchen zwei Kästchen nach unten hoch geschrieben, eine Spalte pro Zeichen. Danach geht es nach rechts; Enter und automatischer Zeilenumbruch gehen im aktiven Modus zwei Zeilen weiter. U erneut halten oder den Button anklicken beendet den Modus. So lässt sich zum Beispiel die große 1 eines gemischten Bruchs schreiben und der Bruch daneben anschließend normal ergänzen.</p><p>Rechen- und Vergleichszeichen wie +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % und ‰ werden ebenfalls doppelhoch geschrieben; Auch Währungs-, Logik-, Mengen- und Satzzeichen werden doppelhoch geschrieben. Angeheftetes Komma und Punkt bleiben klein; wähle sie für doppelhohe Schrift im Menü Verschiedene Symbole. Hoch-/Tiefstellen und doppelhohe Schrift sind als dauerhafte Modi gegenseitig ausschließend; einzelne Strg/Shift-Ziffern bleiben für kleine Anmerkungen verfügbar. Am unteren Seitenrand wird kein halbes Zeichen geschrieben: Wähle ein Kästchen weiter oben. Große Buchstaben/Zahlen lassen sich aus beiden Kästchen löschen, vollständig kopieren/ausschneiden, rückgängig machen und in .schmier, PDF und Druck erhalten. U ersetzt den früheren direkten Und-Shortcut; & bleibt im Menü Verschiedene Symbole (Z halten). Namen, Suchfelder und Beschriftungen behalten ihre normale Texteingabe. Das Tutorial setzt den Modus vorübergehend zurück und stellt ihn danach wieder her.</p><p>Beim Schreiben eines großen Zeichens werden vorhandene normale Zeichen in seinen beiden Kästchen ersetzt. Normales Schreiben oder Leertaste in einem der belegten Kästchen ersetzt bzw. entfernt das große Zeichen als Ganzes. Rückgängig stellt den vorherigen Inhalt wieder her.</p><p>Der U-Schreibmodus vergrößert jetzt auch Rechen-, Vergleichs-, Prozent- und Promillezeichen. Das gilt für Tastatur, Nummernblock und Symbolbuttons; Strg/Shift+Enter für Bruch-Gleichzeichen bleibt erhalten.</p>"
     },
     {
       "title": "Gemischter Bruch im Tutorial",
@@ -1067,6 +1109,11 @@ const LOCALE_DE = {
       "title": "Dunkles Papier",
       "keywords": "darkmode dark paper papier dunkel sombre theme settings einstellungen",
       "html": "<p>Mit <strong>Papier im Darkmode ebenfalls abdunkeln</strong> in den Einstellungen wird auch das Papier dunkel, sobald das Farbschema Dunkel aktiv ist – ebenso bei dunkler Systemeinstellung. Standardmäßig ist die Option ausgeschaltet. Im hellen Farbschema bleibt das Papier immer hell. Schrift, Linien und Raster werden nur für die Bildschirmansicht kontrastreich angepasst, auf beiden Seiten sowie auf Karo- und Millimeterpapier. Bilder behalten ihre Farben. Gespeicherte Tintenfarben ändern sich nicht; PDF und Druck bleiben auf hellem Papier. Die Option wird in .schmier-Dateien und mit Speicherzustimmung im Browser gemerkt. Ohne Zustimmung gilt sie nur für die Sitzung, sofern du keine Datei speicherst.</p>"
+    },
+    {
+      "title": "Starthinweis und weitere Symbole",
+      "keywords": "shift umschalt symbole sonderzeichen z l widerspruch contradiction currency euro dollar quote tastatur keyboard notice rappel",
+      "html": "<p>Beim Start erscheint ein Hinweis: In Schreibkästchen dient Shift zusammen mit Zahlen zum Hochstellen, nicht zur üblichen Eingabe der Sonderzeichen über der Zahlenreihe. In Textfeldern und Dialogen funktioniert die normale Sonderzeicheneingabe weiterhin. Nach der Speicherabfrage und eventuellen Versionshinweisen erscheint der Tastaturhinweis, ohne andere Fenster zu überlagern.</p><p>Tab wechselt zwischen Nicht mehr erinnern und Verstanden; Leertaste setzt das Häkchen, Enter oder Esc schließt. Ohne Häkchen erscheint der Hinweis beim nächsten Start wieder. Mit Häkchen und Speicherzustimmung wird er in diesem Browser unterdrückt. Ohne Zustimmung wird diese Auswahl nicht dauerhaft gespeichert. Der Hinweis gehört nicht zur .schmier-Datei; ein Widerruf der Speicherzustimmung löscht auch die Erinnerungssperre.</p><p>Verschiedene Symbole: Pfeil neben % oder Z halten. Neu sind € $ £ ¥ ¢, ? ! §, einfache und doppelte Anführungszeichen, / und \\, ; und :, # @ _ | ~, ° sowie ′ ″ und … und typografische Anführungszeichen. Punkt und Komma im eigenen Kästchen bleiben hier verfügbar. Das Menü Logik (L halten) enthält zusätzlich ↯ für einen Widerspruch. Pfeile wählen, Enter oder die jeweilige Menütaste bestätigt; Esc schließt ohne Einfügen. Alle Zeichen lassen sich auch anklicken. Sie sind normale Zeichen ohne Berechnungsfunktion und bleiben in .schmier, Rückgängig, PDF und Druck erhalten. Die benötigten Schriften sind offline eingebettet.</p><p>Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.</p>"
     }
   ],
   "consent": [

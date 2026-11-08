@@ -18,7 +18,7 @@ function normaliseSettings(value) {
 try { settings = normaliseSettings(JSON.parse(readAppStorage(SETTINGS_KEY))); } catch {}
 function writingFont() {
   return settings.font === 'console' ? 'OfflineConsole, OfflineSymbols, monospace' :
-    'OfflineHandschrift, OfflineSymbols, cursive';
+    'OfflineHandschrift, OfflineSymbols, OfflineConsole, cursive';
 }
 function saveSettings() {
   try { writeAppStorage(SETTINGS_KEY, JSON.stringify(settings)); } catch {

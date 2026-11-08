@@ -45,3 +45,5 @@ $('storageAccept').onclick = () => chooseStorage(true);
 $('storageDecline').onclick = () => chooseStorage(false);
 $('storageConsentDialog').addEventListener('cancel', event => event.preventDefault());
 if (!storageAllowed) openStorageConsent(true);
+
+initialiseKeyboardNotice();

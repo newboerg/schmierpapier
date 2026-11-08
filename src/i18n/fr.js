@@ -738,7 +738,49 @@ const LOCALE_FR = {
     "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.": "Les menus des racines et intégrales utilisent des icônes compactes avec des flèches de taille séparées ; tous les signes restent dans leurs boutons.",
     "Papier im Darkmode ebenfalls abdunkeln": "Assombrir aussi le papier en mode sombre",
     "Standardmäßig aus. Nur die Bildschirmansicht wird angepasst; Bilder, PDF und Druck behalten ihre Farben.": "Désactivé par défaut. Seul l’affichage change ; images, PDF et impression gardent leurs couleurs.",
-    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Papier sombre en option dans les réglages, désactivé par défaut ; PDF et impression restent clairs."
+    "Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.": "Papier sombre en option dans les réglages, désactivé par défaut ; PDF et impression restent clairs.",
+    "Ein kurzer Hinweis zur Tastatur": "Un petit conseil pour le clavier",
+    "Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.": "Schmierpapier réserve la touche Maj aux puissances : Maj avec un chiffre écrit ce chiffre en exposant. Dans les cases, les symboles au-dessus des chiffres ne peuvent donc pas être saisis avec Maj comme d’habitude.",
+    "Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).": "Ces signes restent disponibles : ouvre Symboles divers avec la flèche à côté de % ou maintiens Z. Tu y trouveras la ponctuation, les monnaies et d’autres signes. Les parenthèses ont leurs propres menus ; le symbole de contradiction se trouve dans Logique (maintenir L).",
+    "In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.": "Dans les menus, choisis avec les flèches et valide avec Entrée. Ce conseil concerne les cases ; dans les champs de saisie et les boîtes de dialogue, tu peux taper les caractères spéciaux normalement.",
+    "Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.": "Clavier : Tab change de commande, Espace coche la case, Entrée ou Échap ferme ce conseil.",
+    "Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.": "Sans accord de stockage, ce conseil réapparaîtra au prochain démarrage.",
+    "Nicht mehr erinnern": "Ne plus me le rappeler",
+    "Verstanden": "Compris",
+    "Starthinweis zur Shift-Taste mit optionaler Erinnerungssperre; mehr Satz- und Währungszeichen sowie der Widerspruchsblitz in den Symbolmenüs.": "Conseil au démarrage sur Maj, avec option de ne plus le rappeler ; ajout de ponctuation, monnaies et du symbole de contradiction dans les menus.",
+    "Euro": "Euro",
+    "Dollar": "Dollar",
+    "Pfund": "Livre sterling",
+    "Yen / Yuan": "Yen / yuan",
+    "Cent": "Centime",
+    "Fragezeichen": "Point d’interrogation",
+    "Ausrufezeichen": "Point d’exclamation",
+    "Paragraphenzeichen": "Signe de paragraphe",
+    "Einfaches Anführungszeichen": "Guillemet simple",
+    "Doppeltes Anführungszeichen": "Guillemet double",
+    "Schrägstrich": "Barre oblique",
+    "Umgekehrter Schrägstrich": "Barre oblique inverse",
+    "Semikolon": "Point-virgule",
+    "Doppelpunkt": "Deux-points",
+    "Raute": "Croisillon",
+    "At-Zeichen": "Arobase",
+    "Unterstrich": "Tiret bas",
+    "Senkrechter Strich": "Barre verticale",
+    "Tilde": "Tilde",
+    "Gradzeichen": "Signe degré",
+    "Minutenzeichen / Strich": "Signe minute / prime",
+    "Sekundenzeichen / Doppelstrich": "Signe seconde / double prime",
+    "Auslassungspunkte": "Points de suspension",
+    "Doppeltes Anführungszeichen unten": "Guillemet double bas",
+    "Doppeltes Anführungszeichen oben": "Guillemet double haut",
+    "Einfaches Anführungszeichen oben": "Guillemet simple haut",
+    "Apostroph": "Apostrophe",
+    "Anführungszeichen links": "Guillemet ouvrant",
+    "Anführungszeichen rechts": "Guillemet fermant",
+    "Widerspruch": "Contradiction",
+    "Unendlich": "Infini",
+    "Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.": "L’écriture double hauteur s’applique à tous les symboles : logique, ensembles, monnaies, ponctuation et ↯. Les virgules et points attachés restent petits.",
+    "Doppelhohe Schrift (U halten): Zahlen, Buchstaben und Symbole über zwei Kästchen schreiben": "Écriture double hauteur (maintenir U) : nombres, lettres et symboles sur deux cases"
   },
   "helpInitial": [
     {
@@ -1006,7 +1048,7 @@ const LOCALE_FR = {
     {
       "title": "Chiffres et lettres de double hauteur",
       "keywords": "U groß large double doppelhoch lettre mixed fraction gemischter bruch nombre fractionnaire ± % ‰ + - = rechnen arithmetic calcul vergleich comparison",
-      "html": "<p>Le nouveau bouton Écriture de double hauteur, ou un appui sur U d’environ 0,6 seconde, active/désactive un mode permanent. Un cadre horaire montre l’attente ; le bouton actif pulse, ou reste entouré si les animations sont réduites. Un appui court écrit toujours u. Chiffres et lettres, grecques comprises, occupent deux cases vers le bas depuis la case active, une colonne par caractère. La saisie avance à droite ; Entrée et le retour automatique avancent de deux lignes dans ce mode. Maintenir U de nouveau ou cliquer sur le bouton pour l’arrêter. Pour un nombre fractionnaire, écrire le grand 1 entier, arrêter le mode, puis ajouter la fraction ordinaire à côté.</p><p>Les signes de calcul et comparaison comme +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % et ‰ sont aussi de double hauteur ; la ponctuation garde sa hauteur normale. Les modes permanents indice/exposant et double hauteur s’excluent ; Ctrl/Maj avec un chiffre permet toujours une petite annotation ponctuelle. Aucun demi-caractère n’est écrit au bord inférieur : choisir une case plus haute. Les grandes lettres/chiffres s’effacent depuis chacune des cases, se copient/coupent en entier, s’annulent et restent dans .schmier, PDF et impressions. U remplace l’ancien raccourci direct de l’esperluette ; & reste dans Symboles divers (maintenir Z). Noms, recherches et graduations gardent leur saisie normale. Le tutoriel désactive temporairement le mode puis le restaure.</p><p>Écrire un grand caractère remplace le texte ordinaire dans ses deux cases. Une saisie ordinaire ou Espace dans l’une des cases remplace ou efface le grand caractère entier. Annuler restaure le contenu précédent.</p><p>Le mode U agrandit désormais aussi les signes de calcul, comparaison, pourcentage et pour mille. Cela fonctionne au clavier, au pavé et avec les boutons ; Ctrl/Maj+Entrée conserve l’égalité pour fractions.</p>"
+      "html": "<p>Le nouveau bouton Écriture de double hauteur, ou un appui sur U d’environ 0,6 seconde, active/désactive un mode permanent. Un cadre horaire montre l’attente ; le bouton actif pulse, ou reste entouré si les animations sont réduites. Un appui court écrit toujours u. Chiffres et lettres, grecques comprises, occupent deux cases vers le bas depuis la case active, une colonne par caractère. La saisie avance à droite ; Entrée et le retour automatique avancent de deux lignes dans ce mode. Maintenir U de nouveau ou cliquer sur le bouton pour l’arrêter. Pour un nombre fractionnaire, écrire le grand 1 entier, arrêter le mode, puis ajouter la fraction ordinaire à côté.</p><p>Les signes de calcul et comparaison comme +, −, ·, :, /, =, ≠, &lt;, &gt;, ≤, ≥, ≈, ≡, ∝, ±, ∓, % et ‰ sont aussi de double hauteur ; la ponctuation, les monnaies, la logique et les ensembles sont aussi de double hauteur. Les points et virgules attachés restent petits ; choisis leurs versions autonomes dans le menu pour la double hauteur. Les modes permanents indice/exposant et double hauteur s’excluent ; Ctrl/Maj avec un chiffre permet toujours une petite annotation ponctuelle. Aucun demi-caractère n’est écrit au bord inférieur : choisir une case plus haute. Les grandes lettres/chiffres s’effacent depuis chacune des cases, se copient/coupent en entier, s’annulent et restent dans .schmier, PDF et impressions. U remplace l’ancien raccourci direct de l’esperluette ; & reste dans Symboles divers (maintenir Z). Noms, recherches et graduations gardent leur saisie normale. Le tutoriel désactive temporairement le mode puis le restaure.</p><p>Écrire un grand caractère remplace le texte ordinaire dans ses deux cases. Une saisie ordinaire ou Espace dans l’une des cases remplace ou efface le grand caractère entier. Annuler restaure le contenu précédent.</p><p>Le mode U agrandit désormais aussi les signes de calcul, comparaison, pourcentage et pour mille. Cela fonctionne au clavier, au pavé et avec les boutons ; Ctrl/Maj+Entrée conserve l’égalité pour fractions.</p>"
     },
     {
       "title": "Nombre fractionnaire dans le tutoriel",
@@ -1067,6 +1109,11 @@ const LOCALE_FR = {
       "title": "Papier sombre",
       "keywords": "darkmode dark paper papier dunkel sombre theme settings einstellungen",
       "html": "<p>Active <strong>Assombrir aussi le papier en mode sombre</strong> dans les réglages pour assombrir le papier lorsque le thème sombre est actif, y compris celui du système. L’option est désactivée par défaut. En thème clair, le papier reste clair. Écriture, traits et grilles s’adaptent pour rester lisibles à l’écran, sur les deux pages et sur les papiers quadrillé et millimétré. Les images gardent leurs couleurs. Les couleurs d’encre enregistrées ne changent pas ; PDF et impression gardent le papier clair. L’option est enregistrée dans les fichiers .schmier et dans le navigateur avec accord. Sans accord, elle dure seulement pendant la session, sauf si tu enregistres un fichier.</p>"
+    },
+    {
+      "title": "Conseil au démarrage et autres symboles",
+      "keywords": "shift umschalt symbole sonderzeichen z l widerspruch contradiction currency euro dollar quote tastatur keyboard notice rappel",
+      "html": "<p>Un conseil au démarrage explique que Maj avec un chiffre écrit un exposant dans les cases, au lieu des symboles au-dessus des chiffres. La saisie normale des caractères spéciaux fonctionne toujours dans les champs et dialogues. Le conseil attend la fermeture du choix de stockage et des éventuelles notes de version.</p><p>Tab passe de Ne plus me le rappeler à Compris ; Espace coche la case, Entrée ou Échap ferme. Sans coche, le conseil revient au prochain démarrage. Avec coche et accord de stockage, il est masqué dans ce navigateur. Sans accord, le choix n’est pas enregistré durablement. Il ne fait pas partie des fichiers .schmier ; retirer l’accord de stockage supprime aussi ce choix.</p><p>Symboles divers : flèche à côté de % ou maintenir Z. Nouveaux signes : € $ £ ¥ ¢, ? ! §, guillemets simples et doubles, / et \\, ; et :, # @ _ | ~, °, ′ ″, … et guillemets typographiques. Point et virgule occupant leur propre case restent disponibles ici. Logique (maintenir L) contient aussi ↯ pour une contradiction. Les flèches choisissent, Entrée ou la touche du menu confirme ; Échap ferme sans insertion. La souris fonctionne aussi. Ces caractères ne calculent rien et sont conservés dans .schmier, annuler, PDF et impression. Les polices nécessaires sont intégrées pour l’usage hors ligne.</p><p>L’écriture double hauteur s’applique à tous les symboles : logique, ensembles, monnaies, ponctuation et ↯. Les virgules et points attachés restent petits.</p>"
     }
   ],
   "consent": [
