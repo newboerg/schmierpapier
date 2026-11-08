@@ -16,11 +16,13 @@ Schmierpapier offre un espace pour calculer, essayer et dessiner directement dan
 
 L’application vise à favoriser le travail autonome en cours de mathématiques : le clavier et la souris permettent d’écrire les calculs dans des cases, de disposer clairement les fractions et de réaliser des constructions géométriques avec des outils numériques. De nombreuses fonctions sont accessibles par des boutons, sans devoir utiliser une combinaison de touches pour chaque action.
 
-Version **0.6.5 (développement)**
+Version **0.6.5**
 
 Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l’en-tête de l’application l’ouvre dans un nouvel onglet.
 
-## Nouveautés de v0.6.5 (développement)
+## Nouveautés de v0.6.5
+
+- Papier sombre en option dans les réglages, désactivé par défaut ; PDF et impression restent clairs.
 
 - Maintenir G ou K désactive respectivement l’équerre ou le compas actif ; un appui bref confirme toujours l’étape.
 
@@ -31,7 +33,7 @@ Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l�
 - Un bouton et J maintenu alternent les nouveaux traits au stylo, à l’équerre, au compas et les lignes principales des axes entre continu et pointillé. Les traits enregistrés gardent leur type ; barres de fraction et symboles restent continus.
 - Placer des points de construction nommés par bouton ou H maintenu. Souris et clavier s’alignent sur 5 mm, ou 1 mm sur papier millimétré ; Entrée demande le nom. Replacer modifie le point existant.
 - Types et points fonctionnent avec .schmier, sauvegarde navigateur avec accord, copie de zones, gomme, annuler, PDF et impression. Aide et indications des touches actualisées en allemand, anglais et français. Les anciens documents restent lisibles.
-- v0.6.5 reste locale pour le moment ; la version publiée est v0.6.
+- v0.6.5 publiée. Site actualisé dans les six variantes ; l’application en ligne et le téléchargement contiennent la version actuelle.
 
 ## Nouveautés de v0.6
 

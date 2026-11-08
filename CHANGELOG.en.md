@@ -4,6 +4,8 @@
 
 ## v0.6.5
 
+- Optional dark paper in dark mode: enable it in settings; off by default. PDF and print stay light.
+
 - Root and integral menus use compact icons with separate size arrows; all symbols fit inside their buttons.
 
 - Number-line label fields use dark backgrounds and light text in dark mode; paper and stored label colours remain unchanged.
@@ -18,7 +20,7 @@
 - A line-style button and holding J switch new pen, ruler and compass strokes and number-line stems between solid and dashed. Stored strokes retain their style; fraction bars and maths symbols remain solid.
 - Place labelled construction points by button or holding H. Mouse and keyboard snap at 5 mm, or 1 mm on millimetre paper; Enter asks for the label. Placing again edits the existing point.
 - Styles and points work with .schmier, browser storage with consent, region copies, eraser, undo, PDF and print. Updated German, English and French help and key hints. Older documents still open.
-- v0.6.5 remains local for now; the published version is v0.6.
+- v0.6.5 released. Website updated in all six text variants; the live app and download contain the current release.
 
 ## v0.6
 

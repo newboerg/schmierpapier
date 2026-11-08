@@ -1,7 +1,7 @@
 // Preferences remain session-only unless local storage has been explicitly allowed.
 // @part part-01
 const SETTINGS_KEY = 'schmierpapier.settings';
-const DEFAULT_SETTINGS = Object.freeze({ holdDelay: 600, font: 'handwriting', toolbarPosition: 'top', theme: 'system', imageDpi: 300, lineStyle: 'solid' });
+const DEFAULT_SETTINGS = Object.freeze({ holdDelay: 600, font: 'handwriting', toolbarPosition: 'top', theme: 'system', darkPaper: false, imageDpi: 300, lineStyle: 'solid' });
 let settings = { ...DEFAULT_SETTINGS };
 function normaliseSettings(value) {
   return {
@@ -10,6 +10,7 @@ function normaliseSettings(value) {
     font: value?.font === 'console' ? 'console' : 'handwriting',
     lineStyle: value?.lineStyle === 'dashed' ? 'dashed' : 'solid',
     theme: ['system', 'light', 'dark'].includes(value?.theme) ? value.theme : 'system',
+    darkPaper: value?.darkPaper === true,
     imageDpi: [100, 200, 300, 400, 500, 600].includes(value?.imageDpi) ? value.imageDpi : 300,
     toolbarPosition: ['top', 'bottom', 'left', 'right'].includes(value?.toolbarPosition) ? value.toolbarPosition : 'top'
   };
@@ -40,6 +41,7 @@ function initialiseSettings() {
     $('writingFont').value = settings.font;
     $('toolbarPosition').value = settings.toolbarPosition;
     $('themeChoice').value = settings.theme;
+    $('darkPaper').checked = settings.darkPaper;
     $('imageDpi').value = settings.imageDpi;
     $('settingsStorageNote').textContent = tr(storageAllowed ?
       'Einstellungen werden in diesem Browser gespeichert.' : 'Ohne Speicherzustimmung gelten Einstellungen nur in dieser Sitzung.');
@@ -48,7 +50,7 @@ function initialiseSettings() {
   };
   $('settingsForm').addEventListener('submit', event => {
     event.preventDefault();
-    applySettings({ ...settings, holdDelay: Number($('holdDelay').value), font: $('writingFont').value, toolbarPosition: $('toolbarPosition').value, theme: $('themeChoice').value, imageDpi: Number($('imageDpi').value) }, true);
+    applySettings({ ...settings, holdDelay: Number($('holdDelay').value), font: $('writingFont').value, toolbarPosition: $('toolbarPosition').value, theme: $('themeChoice').value, darkPaper: $('darkPaper').checked, imageDpi: Number($('imageDpi').value) }, true);
     $('settingsDialog').close();
     render(); select(pos); persist();
     localiseInterface();
@@ -70,5 +72,6 @@ const systemDarkTheme = matchMedia('(prefers-color-scheme: dark)');
 function applyTheme() {
   document.documentElement.dataset.theme = settings.theme === 'system' ? (systemDarkTheme.matches ? 'dark' : 'light') : settings.theme;
   document.documentElement.style.colorScheme = document.documentElement.dataset.theme;
+  document.documentElement.dataset.darkPaper = String(settings.darkPaper && document.documentElement.dataset.theme === 'dark');
 }
 systemDarkTheme.addEventListener('change', () => { if (settings.theme === 'system') applyTheme(); });

@@ -4,6 +4,8 @@
 
 ## v0.6.5
 
+- Optional dunkles Papier im Darkmode: in den Einstellungen aktivierbar, standardmäßig aus; PDF und Druck bleiben hell.
+
 - Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.
 
 - Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.
@@ -18,7 +20,7 @@
 - Linientyp-Button und J halten schalten neue Stift-, Geodreieck- und Zirkelstriche sowie Zahlenstrahl-Hauptlinien zwischen durchgezogen und gestrichelt um. Gespeicherte Linien behalten ihren Typ; Bruchstriche und mathematische Zeichen bleiben durchgezogen.
 - Konstruktionspunkte mit Beschriftung per Button oder H halten setzen. Maus und Tastatur rasten auf 5 mm beziehungsweise 1 mm bei Millimeterpapier ein; Enter fragt die Beschriftung ab. Erneutes Setzen bearbeitet den vorhandenen Punkt.
 - Linientypen und Punkte funktionieren mit .schmier, Browserspeicherung bei Zustimmung, Bereichskopien, Radierer, Rückgängig, PDF und Druck. Hilfe und Tastenhinweise auf Deutsch, Englisch und Französisch aktualisiert. Ältere Dateien bleiben lesbar.
-- v0.6.5 bleibt vorerst lokal; die veröffentlichte Version ist v0.6.
+- v0.6.5 veröffentlicht. Webseite in allen sechs Textfassungen aktualisiert; Live-App und Download enthalten den aktuellen Stand.
 
 ## v0.6
 

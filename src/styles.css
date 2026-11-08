@@ -2410,3 +2410,18 @@
     .size-choice-icon { display: block; width: 32px; height: 34px; }
     button[data-size] > .size-choice-icon { margin-right: 8px; width: 30px; }
     .size-choice-icon .symbol-parameters { font: italic 10px 'OfflineSymbols', sans-serif; }
+
+    #settingsForm .settings-checkbox { display: flex; align-items: center; gap: 10px; }
+    #settingsForm .settings-checkbox input { width: 18px; height: 18px; flex: 0 0 auto; }
+    /* Screen-only colour adaptation: document inks and export remain unchanged.
+       Filter each writing layer once, leaving images and geometry tools intact. */
+    @media screen {
+      :root[data-dark-paper="true"] .paper:not(.blank-page) { background-color: #222e28; }
+      :root[data-dark-paper="true"] .paper:not(.blank-page) > :is(.cells, .line-layer, .freehand-layer, .editor) {
+        filter: invert(1) hue-rotate(180deg);
+      }
+      :root[data-dark-paper="true"] .paper:not(.blank-page) .grid-regular { stroke: #647f9980; }
+      :root[data-dark-paper="true"] .paper:not(.blank-page) .grid-fine { stroke: #594a3d; }
+      :root[data-dark-paper="true"] .paper:not(.blank-page) .grid-medium { stroke: #826347; }
+      :root[data-dark-paper="true"] .paper:not(.blank-page) .grid-major { stroke: #b8875d; }
+    }

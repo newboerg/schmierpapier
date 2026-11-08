@@ -4,6 +4,8 @@
 
 ## v0.6.5
 
+- Papier sombre en option dans les réglages, désactivé par défaut ; PDF et impression restent clairs.
+
 - Les menus des racines et intégrales utilisent des icônes compactes avec des flèches de taille séparées ; tous les signes restent dans leurs boutons.
 
 - Les champs des axes gradués ont un fond sombre et du texte clair en mode sombre ; le papier et les couleurs enregistrées restent inchangés.
@@ -18,7 +20,7 @@
 - Un bouton et J maintenu alternent les nouveaux traits au stylo, à l’équerre, au compas et les lignes principales des axes entre continu et pointillé. Les traits enregistrés gardent leur type ; barres de fraction et symboles restent continus.
 - Placer des points de construction nommés par bouton ou H maintenu. Souris et clavier s’alignent sur 5 mm, ou 1 mm sur papier millimétré ; Entrée demande le nom. Replacer modifie le point existant.
 - Types et points fonctionnent avec .schmier, sauvegarde navigateur avec accord, copie de zones, gomme, annuler, PDF et impression. Aide et indications des touches actualisées en allemand, anglais et français. Les anciens documents restent lisibles.
-- v0.6.5 reste locale pour le moment ; la version publiée est v0.6.
+- v0.6.5 publiée. Site actualisé dans les six variantes ; l’application en ligne et le téléchargement contiennent la version actuelle.
 
 ## v0.6
 

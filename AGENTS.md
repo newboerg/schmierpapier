@@ -8,18 +8,12 @@
 - Document new or changed features in the application's built-in help in German, English, and French. Update affected tutorial instructions in all three languages as well.
 - Preserve the single-file, offline operation of `schmierpapier.html` and the independent licence notices for its embedded fonts.
 
-- The published application release is v0.6. Keep all three changelogs aligned and preserve previous release history. Use the version requested by the user for future development.
+- The published application release is v0.6.5. Keep all three changelogs aligned and preserve previous release history. Use the version requested by the user for future development.
 
 - Application sources now live under `src/`. Edit those sources, never the generated root `schmierpapier.html`. After app changes run `python3 build.py` and `python3 build.py --check`; include the regenerated HTML with the source change. The build requires only Python 3.10+ standard-library modules. `python3 build.py --watch` rebuilds after saves.
 - Preserve `src/build.json` section order and the shared classic-script scope. New JS files/parts must be listed there. Keep locale keys/help coverage aligned in `src/i18n/de.js`, `en.js`, and `fr.js`. Read `src/README.md` for the source map and assembly rules. Font/logo assets under `src/assets/` must remain embedded in the generated output.
-- The user authorised publishing v0.6 and lifted the upload hold. Homepage updates follow the deployment workflow above; build/watch/check remain local-only.
+- The user authorised publishing v0.6.5. Homepage updates follow the deployment workflow above; build/watch/check remain local-only.
 
 - The homepage uses a SHA-256 hash in its Content-Security-Policy for the inline `site-i18n` script. Whenever its script content or translations change, recompute the hash from the exact UTF-8 text between the script tags before browser testing and deployment; keep the CSP in place.
 
 - Keep offline release summaries in `src/js/release-notes.js` and their DE/EN/FR UI translations aligned with new changelog entries. `savedWith` stores the app release, while `version: 1` remains the document schema.
-
-- Current published version is v0.6. Use the next version requested by the user for future development.
-
-- Version v0.6 is published; use the next version requested by the user for development.
-
-- Current local development version is v0.6.5. The published app remains v0.6; do not publish this development version without a new release request.

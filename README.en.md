@@ -16,11 +16,13 @@ Schmierpapier provides a place to calculate, experiment and draw directly in the
 
 The application supports independent work in maths lessons: use the keyboard and mouse to write calculations in cells, arrange fractions clearly and draw geometric constructions with digital tools. Many features are available through buttons, so a keyboard shortcut is not required for every action.
 
-Version **0.6.5 (development)**
+Version **0.6.5**
 
 Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the app header opens it in a new tab.
 
-## New in v0.6.5 (development)
+## New in v0.6.5
+
+- Optional dark paper in dark mode: enable it in settings; off by default. PDF and print stay light.
 
 - Holding G or K switches off the active set square or compass respectively; a short press still confirms the step.
 
@@ -31,7 +33,7 @@ Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the
 - A line-style button and holding J switch new pen, ruler and compass strokes and number-line stems between solid and dashed. Stored strokes retain their style; fraction bars and maths symbols remain solid.
 - Place labelled construction points by button or holding H. Mouse and keyboard snap at 5 mm, or 1 mm on millimetre paper; Enter asks for the label. Placing again edits the existing point.
 - Styles and points work with .schmier, browser storage with consent, region copies, eraser, undo, PDF and print. Updated German, English and French help and key hints. Older documents still open.
-- v0.6.5 remains local for now; the published version is v0.6.
+- v0.6.5 released. Website updated in all six text variants; the live app and download contain the current release.
 
 ## New in v0.6
 
