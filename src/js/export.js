@@ -51,32 +51,29 @@ async function pdfExport() {
       c.strokeStyle = '#172e65';
       c.lineWidth = .45 * scale;
       c.lineCap = 'round';
-      for (const [x1, y1, x2, y2, color] of doc.lines[p]) {
+      for (const [x1, y1, x2, y2, color, dashed] of doc.lines[p]) {
         c.strokeStyle = color || '#172e65';
+        c.setLineDash(dashed === true ? [1.5 * scale, scale] : []);
         c.beginPath();
         c.moveTo(x1 * 5 * scale, y1 * 5 * scale);
         c.lineTo(x2 * 5 * scale, y2 * 5 * scale);
         c.stroke()
       }
-      c.strokeStyle = '#555b60';
-      c.lineWidth = .2 * scale;
-      for (const [x1, y1, x2, y2] of doc.pencilLines[p]) {
-        c.beginPath();
-        c.moveTo(x1 * scale, y1 * scale);
-        c.lineTo(x2 * scale, y2 * scale);
-        c.stroke()
-      }
+      c.setLineDash([]);
+      paintPencilStrokes(c, scale, doc.pencilLines[p]);
       for (const axis of doc.numberLines[p]) {
         const shape = numberLineShape(axis, doc.numberLines[p], doc.lines[p], doc.pencilLines[p]);
         c.strokeStyle = axis[4];
         c.fillStyle = axis[4];
         c.lineWidth = .3 * scale;
         c.beginPath();
-        for (const [x1, y1, x2, y2] of shape.segments) {
+        shape.segments.forEach(([x1, y1, x2, y2], index) => {
+          c.setLineDash(index === 0 && axis[6] === true ? [1.5 * scale, scale] : []);
+          c.beginPath();
           c.moveTo(x1 * scale, y1 * scale);
-          c.lineTo(x2 * scale, y2 * scale)
-        }
-        c.stroke();
+          c.lineTo(x2 * scale, y2 * scale); c.stroke();
+        });
+        c.setLineDash([]);
         if (shape.arrow.length) {
           c.beginPath();
           shape.arrow.forEach(([x, y], i) => i ? c.lineTo(x * scale, y * scale) : c.moveTo(x * scale, y *
@@ -190,6 +187,7 @@ async function pdfExport() {
       }
       c.restore();
       paintFreehand(c, scale, doc.freehand[p]);
+      paintConstructionPoints(c, scale, p);
       const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', .95));
       if (!blob) throw Error('Bild konnte nicht erzeugt werden.');
       const bytes = new Uint8Array(await blob.arrayBuffer()),
@@ -246,7 +244,7 @@ function preparePrint() {
     sheet.querySelector('.geo-overlay')?.remove();
     sheet.querySelector('.compass-overlay')?.remove();
     sheet.querySelector('.axis-label-editor')?.remove();
-    sheet.querySelectorAll('.region-box,.paper-badge,.keyboard-line-preview,.keyboard-area,.stretch-bracket-preview').forEach(el => el.remove());
+    sheet.querySelectorAll('.region-box,.paper-badge,.keyboard-line-preview,.keyboard-area,.stretch-bracket-preview,.construction-point-preview').forEach(el => el.remove());
     sheet.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
     sheet.querySelectorAll('.cell').forEach((el, index) => {
       el.classList.remove('selected');

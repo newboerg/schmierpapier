@@ -37,7 +37,7 @@ function actionHoldButton(code, held) {
     return document.querySelectorAll('.swatch[data-tool="marker"]')[Number(code.slice(-1)) - 5];
   if (/^(?:Digit|Numpad)[89]$/.test(code)) return $(code.endsWith('8') ? 'parenOpen' : 'parenClose');
   const ids = {
-    KeyV: 'fractionInsert', KeyF: 'settingsOpen', KeyA: 'taskLabel', KeyB: 'insertImage', KeyO: 'open', KeyS: 'strikeToggle', KeyG: 'geoToggle', KeyK: 'compassToggle',
+    KeyJ: 'lineStyleToggle', KeyH: 'constructionPoint', KeyV: 'fractionInsert', KeyF: 'settingsOpen', KeyA: 'taskLabel', KeyB: 'insertImage', KeyO: 'open', KeyS: 'strikeToggle', KeyG: 'geoToggle', KeyK: 'compassToggle',
     KeyI: 'integral', KeyL: 'logic', KeyM: 'sets', KeyU: 'largeMode', KeyZ: 'percent',
     KeyQ: 'root', KeyW: 'root', KeyN: 'numberLineToggle', KeyR: null, KeyX: 'cutRegion',
     KeyC: 'copyRegion', KeyE: 'pdf', KeyD: 'pageView', PageUp: 'prev', PageDown: 'next',

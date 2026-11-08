@@ -605,7 +605,11 @@ window.addEventListener('keydown', e => {
 // Feature action called by the shared keyboard dispatcher.
 function holdSetSquare(code) {
   if (compass.active && compass.phase === 'radius') toggleGeo();
-  else beginKeyboardGeo();
+  else if (geo.visible) {
+    geo.keyboard = null; geo.edgeHover = null; geo.gesture = null;
+    geo.visible = false; geo.placing = false;
+    renderGeo(); select(pos);
+  } else beginKeyboardGeo();
 }
 
 $('paper').addEventListener('pointerleave', () => {

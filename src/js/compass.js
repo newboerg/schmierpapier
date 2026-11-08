@@ -20,7 +20,7 @@ function groupLegacyCompassArcs(lines) {
   const key = p => p.join(',');
   lines.forEach((line, i) => {
     const length = Math.hypot(line[2] - line[0], line[3] - line[1]);
-    if (line[4] || length < .002 || length > .75) return;
+    if (line.length !== 4 || line[4] || length < .002 || length > .75) return;
     eligible.push(i);
     for (const point of [line.slice(0, 2), line.slice(2, 4)]) {
       const k = key(point);
@@ -289,7 +289,7 @@ function finishCompassStroke(commit = true, redraw = true) {
         key = a < b ? a + '|' + b : b + '|' + a;
       if (!keys.has(key)) {
         keys.add(key);
-        added.push([...line, stroke.id])
+        added.push([...line, stroke.id, ...(stroke.dashed ? [true] : [])])
       }
     }
     if (added.length) {
@@ -408,7 +408,7 @@ window.addEventListener('keydown', event => {
       state.stage = 'end'; state.start = compass.angle; state.sweep = 0; state.preview = [];
     } else {
       if (!state.preview.length) return;
-      compass.stroke = { page, id: newPencilStrokeId(), points: state.preview };
+      compass.stroke = { page, id: newPencilStrokeId(), dashed: dashedLines(), points: state.preview };
       state.preview = [];
       finishCompassStroke();
       state.stage = 'start'; state.start = compass.angle; state.sweep = 0;
@@ -490,6 +490,7 @@ function compassCapture(e) {
       compass.stroke = {
         page,
         id: newPencilStrokeId(),
+        dashed: dashedLines(),
         points: [compassPoint()]
       };
       $('paper').setPointerCapture(e.pointerId);
@@ -569,5 +570,6 @@ window.addEventListener('keydown', e => {
 
 // Feature action called by the shared keyboard dispatcher.
 function holdCompass(code) {
+  if (compass.active) { hideCompass(false); select(pos); return; }
   beginKeyboardCompass();
 }

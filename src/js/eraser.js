@@ -54,12 +54,16 @@ function eraseLineSweep(point) {
         1) % shape.arrow.length]]);
     return segments.every(line => keep(line, 1, .3))
   });
+  const points = doc.constructionPoints?.[page] || [];
+  if (doc.constructionPoints) doc.constructionPoints[page] = points.filter(p =>
+    pointSegmentDistanceSquared([p.x,p.y],previous,point) > (radius+1) ** 2);
+  const erasedPoints = points.length !== (doc.constructionPoints?.[page]?.length || 0);
   const images = doc.images?.[page] || [];
   if (doc.images) doc.images[page] = images.filter(image => !imageTouchedByEraser(image, previous, point, radius));
   const erasedImages = images.length !== (doc.images?.[page]?.length || 0);
   const erasedNotes = eraseFreehand(page, previous, point, radius);
   markDrag.lastPaper = point;
-  if (erasedImages || erasedNotes || axes.length !== doc.numberLines[page].length || normal.length !== doc.lines[page].length || pencil
+  if (erasedPoints || erasedImages || erasedNotes || axes.length !== doc.numberLines[page].length || normal.length !== doc.lines[page].length || pencil
     .length !== doc.pencilLines[page].length) renderLines();
 }
 
@@ -73,6 +77,8 @@ function eraseKeyboardRectangle(r) {
   const touches = (a, b) => inside(a) || inside(b) || corners.some((p, i) =>
     segmentDistanceSquared(a, b, p, corners[(i + 1) % 4]) < 1e-8);
   checkpoint();
+  if (doc.constructionPoints) doc.constructionPoints[page] = doc.constructionPoints[page].filter(point =>
+    point.x+1<left || point.x-1>right || point.y+1<top || point.y-1>bottom);
   if (doc.images) doc.images[page] = doc.images[page].filter(image =>
     image.x >= r.x + r.w || image.x + image.w <= r.x || image.y >= r.y + r.h || image.y + image.h <= r.y);
   for (const key of Object.keys(doc.highlights[page])) if (inRegion(+key, r)) delete doc.highlights[page][key];

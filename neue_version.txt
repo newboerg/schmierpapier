@@ -1,7 +1,7 @@
 Umgesetzte Funktionen vorne mit "+" kennzeichnen.
-Webseite noch nicht aktualisieren und nichts hochladen. Die Freigabe erfolgt immer ausdrücklich per Prompt.
+Version 0.6 wurde ausdrücklich zur Veröffentlichung freigegeben. Weitere Uploads erfolgen nach dem vereinbarten Workflow.
 
-0.6 – aktueller lokaler Entwicklungsstand
+0.6 – veröffentlichter Stand
     + Darkmode folgt standardmäßig der System- oder Browsereinstellung. In den Einstellungen sind außerdem Hell und Dunkel wählbar. Das Papier bleibt hell; PDF und Druck behalten ihre bisherigen Farben.
     + Parallelzeichen ∥ (zum Beispiel a ∥ b) im Menü „Verschiedene Symbole“ ergänzt.
     + Der T…-Hinweis am Button für die Tastenhinweise bleibt immer sichtbar, auch wenn die übrigen Hinweise ausgeschaltet sind.
@@ -19,10 +19,31 @@ Webseite noch nicht aktualisieren und nichts hochladen. Die Freigabe erfolgt imm
     + Grenzen: 100 Bilder pro Seite, 36 Megapixel je fertigem Ausschnitt und etwa 50 MB eingebettete Bilddaten je Dokument. .schmier-Dateien können bis 64 MB geöffnet werden.
     + Einstellungen für Farbschema und Bildauflösung werden wie die übrigen Einstellungen mit Zustimmung im Browser sowie in .schmier-Dateien gespeichert.
     + Hilfe, Tooltips, READMEs, Changelogs und Offline-Versionsübersicht auf Deutsch, Englisch und Französisch aktualisiert.
-    + Einzeldatei und Offline-Betrieb bleiben erhalten. Build, Build-Prüfung und lokale Browsertests erfolgreich; noch keine Veröffentlichung von Version 0.6.
+    + Einzeldatei und Offline-Betrieb bleiben erhalten. Build, Build-Prüfung und lokale Browsertests erfolgreich; Version 0.6 veröffentlicht.
     + Erneutes Anklicken des aktiven Radierers wechselt zum letzten Stift mit dessen Farbe zurück. Eine laufende Tastatur-Radierauswahl wird abgebrochen; R halten behält die Bereichsauswahl mit anschließender Bestätigung bei.
     + Darkmode korrigiert: Stift-, Marker-, Radierer- und griechische Symbolbuttons haben dunkle Hintergründe und gut sichtbare Symbolfarben. Die tatsächlichen Schreibfarben bleiben unverändert.
     + Separates optionales Linux-Mint-Cinnamon-Theme „Schmierpapier-Dark“ mit derselben Farbpalette, Installationsskript und Anleitung im Ordner linux-mint-theme. Keine automatische Aktivierung.
     + Bruch-Komfortfunktion: eigener Button und V halten (Verhältnis). Zähler und Nenner werden nacheinander abgefragt, in zwei Zeilen als normale Kästchenzeichen mittig angeordnet und durch einen passenden normalen Strich getrennt. Einmal Rückgängig nimmt die gesamte Eingabe zurück; keine Berechnung.
     + GNOME-Terminal-Farbschema mit derselben Palette, dauerhafter Profilspeicherung und Sicherungs-/Wiederherstellungsskript im Ordner linux-mint-theme. Auf Wunsch im lokalen Standardprofil aktiviert und geprüft.
     + Nach bestätigter Tastatur-Radierung (erneut R halten) automatisch zum letzten Stift mit dessen Farbe zurückwechseln.
+    + Veröffentlichung abgeschlossen: Webseite in allen sechs Textfassungen aktualisiert, App und Webseite hochgeladen sowie Live-App und Download geprüft.
+
+0.6.5 – lokaler Entwicklungsstand, noch kein Upload
+
+    + Linientyp durchgezogen/gestrichelt per Button oder J halten umschalten. Gilt für neue Stift-, Geodreieck- und Zirkelstriche sowie die Hauptlinie von Zahlenstrahlen. Bestehende Linien behalten ihren Typ; Bruchstriche und mathematische Zeichen bleiben durchgezogen.
+    + Konstruktionspunkte mit Beschriftung per Kreuz-mit-A-Button oder H halten setzen. Pfeile positionieren mit 5-mm-Raster auf Karopapier beziehungsweise 1 mm auf Millimeterpapier; Enter fragt die Beschriftung ab. Alternativ eine Kreuzung anklicken. Leere Beschriftung ist möglich; Esc oder erneutes Anklicken beendet das Werkzeug.
+    + Erneutes Setzen auf dieselbe Position bearbeitet die Beschriftung ohne doppelte Punkte. Punkte und Beschriftung lassen sich gemeinsam kopieren, ausschneiden, radieren und mit Rückgängig wiederherstellen.
+    + Linientypen und Konstruktionspunkte bleiben in .schmier-Dateien, Browsersicherung mit Zustimmung, Doppelseitenansicht, PDF und Druck erhalten. Zirkel-Strichelungen laufen über die kurzen Bogensegmente durchgehend weiter.
+    + Hilfe, Tastenhinweise, READMEs, Changelogs und Offline-Versionsübersicht dreisprachig aktualisiert. Build und lokale Browserprüfungen erfolgreich; keine Veröffentlichung von v0.6.5.
+    + Der Linientyp-Button zeigt nur das aktuelle Format: durchgezogene Linie oder gestrichelte Linie.
+
+    + Tastaturbestätigung vereinheitlicht: Enter und, wo keine Texteingabe betroffen ist, die jeweilige Werkzeugtaste bestätigen Auswahl und Arbeitsschritte. Nach Aktivierung genügt ein erneuter kurzer Tastendruck.
+    + Gemeinsame eigene Eingabe- und Bestätigungsdialoge auf Deutsch, Englisch und Französisch: zunächst gehaltene Tasten loslassen; keine wiederholten Buchstaben oder übersprungenen Eingabeschritte durch gehaltenes Enter. Eingabeprüfung im Fenster, Esc verwirft. Hilfe und Tutorial angepasst.
+
+    + Punkt-Werkzeug nach erfolgreichem Setzen oder Bearbeiten eines Punkts automatisch deaktivieren und zum Schreiben zurückkehren.
+
+    + Aktives Geodreieck mit G halten und aktiven Zirkel mit K halten ausschalten. Kurzes G/K bestätigt beim Loslassen weiterhin einen Tastaturschritt, Enter bestätigt sofort. Die Halteanimation bleibt sichtbar; G schaltet während der Zirkel-Radiuswahl weiterhin die Messhilfe um.
+
+    + Zahlenstrahl-Beschriftungsfelder im Darkmode mit dunklem Hintergrund und heller Schrift, sichtbarer Einfügemarke und hervorgehobenem aktivem Feld darstellen; gespeicherte Schreibfarben unverändert lassen.
+
+    + Wurzel- und Integral-Auswahlsymbole als kompakte SVGs mit separat positionierten Größenpfeilen darstellen, damit Parameter und Pfeile nicht über die Buttonränder hinausragen.

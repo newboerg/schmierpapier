@@ -1,5 +1,6 @@
 /homepage/
-./neue_version.txt
+neue_version.txt
+verlauf.txt
 
 # Python build/test cache
 __pycache__/

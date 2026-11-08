@@ -128,7 +128,8 @@ function drawNumberLineSvg(layer, axis, preview = false) {
     y2,
     stroke: axis[4],
     'stroke-width': '.3',
-    'stroke-linecap': 'round'
+    'stroke-linecap': 'round',
+    'stroke-dasharray': axis[6] === true && x1 === shape.segments[0][0] && y1 === shape.segments[0][1] && x2 === shape.segments[0][2] && y2 === shape.segments[0][3] ? '1.5 1' : 'none'
   }, group);
   if (shape.arrow.length) geoSvg('polygon', {
     points: shape.arrow.map(point => point.join(',')).join(' '),
@@ -315,7 +316,7 @@ function numberLineCapture(e) {
 // Mouse and keyboard use the same insertion, crossing and label workflow.
 function commitNumberLine(start, end) {
   checkpoint();
-  doc.numberLines[page].push([...start, ...end, ink, {}]);
+  doc.numberLines[page].push([...start, ...end, ink, {}, ...(dashedLines() ? [true] : [])]);
   const index = doc.numberLines[page].length - 1,
     axis = doc.numberLines[page][index],
     affected = [];

@@ -15,12 +15,12 @@ function taskLabelFontSize(label) {
   tallTextMeasure.font = base + 'px ' + writingFont();
   return base * Math.min(1, 9.2 / Math.max(.01, tallTextMeasure.measureText(label.text).width));
 }
-function insertTaskLabel(height = 1) {
+async function insertTaskLabel(height = 1) {
   const index = pos;
   if (index % COLS >= COLS - 1 || index + (height - 1) * COLS >= COUNT) {
     status(tr('Für diese Aufgabenbezeichnung fehlen Kästchen am Seitenrand.')); select(pos); return;
   }
-  const value = prompt(tr('Aufgabenbezeichnung eingeben (zum Beispiel 1a):'), doc.taskLabels[page][index]?.text || '');
+  const value = await requestInput(tr('Aufgabenbezeichnung eingeben (zum Beispiel 1a):'), {value:doc.taskLabels[page][index]?.text || ''});
   if (value === null || !value.trim()) { select(pos); return; }
   const text = value.replace(/[\u0000-\u001f\u007f]/g, ' ').trim();
   if (text.length > 10000) { alert(tr('Die Aufgabenbezeichnung ist zu lang (maximal 10000 Zeichen).')); select(pos); return; }

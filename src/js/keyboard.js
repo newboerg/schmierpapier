@@ -114,7 +114,7 @@ function keyboardChord(horizontal) {
   keyboardLine = { horizontal, page, anchor: horizontal ? x : y, cursor: horizontal ? x : y,
     start: [x, horizontal ? y + 1 : y], end: horizontal ? [x + 1, y + 1] : [x, y + 1] };
   renderLines();
-  status('Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste bestätigt · Esc bricht ab');
+  status('Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste oder Enter bestätigt · Esc bricht ab');
 }
 
 function flushArrow() {
@@ -374,18 +374,18 @@ function openExtraMenu(id, anchor, modifiers = {}) {
   if (id === 'bracketCloseMenu') $('parenCloseMore').setAttribute('aria-expanded', 'true');
 }
 
-function chooseExtra(button, event = {}) {
+async function chooseExtra(button, event = {}) {
   const id = extraMenu;
   const modifiers = { ctrlKey: extraModifiers.ctrlKey || event.ctrlKey, shiftKey: extraModifiers.shiftKey || event.shiftKey };
   if (button.dataset.size === 'down') { modifiers.ctrlKey = true; modifiers.shiftKey = false; }
   if (button.dataset.size === 'up') { modifiers.ctrlKey = false; modifiers.shiftKey = true; }
   closeExtraMenu();
-  if (id === 'taskLabelMenu') insertTaskLabel(Number(button.dataset.taskHeight));
+  if (id === 'taskLabelMenu') await insertTaskLabel(Number(button.dataset.taskHeight));
   else if (id === 'paperChoiceMenu') addSheet(button.dataset.paper);
-  else if (button.dataset.stretch) beginStretchChoice(button);
+  else if (button.dataset.stretch) await beginStretchChoice(button);
   else if (button.dataset.textSymbol) insertMathSymbol(button.dataset.symbol);
-  else if (button.dataset.definite) insertDefiniteIntegral(modifiers);
-  else if (button.dataset.rootDegree) insertIndexedRoot(modifiers);
+  else if (button.dataset.definite) await insertDefiniteIntegral(modifiers);
+  else if (button.dataset.rootDegree) await insertIndexedRoot(modifiers);
   else insertBracket(button.dataset.symbol, modifiers);
   scheduleTutorialCheck();
 }
@@ -421,6 +421,8 @@ function runHeldAction(code) {
   else if (code === 'PageUp' || code === 'PageDown') holdPageTravel(code);
   else if (code === 'KeyG') holdSetSquare(code);
   else if (code === 'KeyK') holdCompass(code);
+  else if (code === 'KeyJ') toggleLineStyle();
+  else if (code === 'KeyH') toggleConstructionPoint();
   else if (code === 'KeyV') insertFraction();
   else if (code === 'KeyF') $('settingsOpen').click();
   else if (code === 'KeyA') openExtraMenu('taskLabelMenu', $('taskLabel'));

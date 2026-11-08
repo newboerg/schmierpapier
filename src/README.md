@@ -67,3 +67,9 @@ Die eingebettete Symbolschrift enthält zusätzlich das Parallelzeichen U+2225 a
 Die Bildsitzung hält das Original als dekodiertes Raster mit temporärer Blob-URL; kein DPI-Resampling beim Laden. Erst `applyImageSession` erzeugt den endgültigen Ausschnitt und seine DPI-Metadaten. Blob-URLs werden bei Ersetzen und Beenden der Sitzung freigegeben.
 
 `js/fractions.js`: Bruch-Komforteingabe (V halten), erzeugt normale Kästchenzeichen, Satzzeichen und deduplizierte Stiftlinien in einer Historienaktion; kein neues Speicherformat.
+
+`js/line-style.js` verwaltet `settings.lineStyle` (`solid`/`dashed`) und die gemeinsamen J/H-Langdruckaktionen vor der Geometrie-Ereignisbehandlung. Normale Linien und Bleistiftsegmente können an Index 5 `true` tragen; Bleistiftsegmente ohne Gruppen-ID verwenden dann `''` an Index 4. Zahlenstrahlen tragen optional `true` an Index 6. Bestehende Arrayformen bleiben gültig. Metadaten beim Teilen/Kopieren bewahren. Gruppierte Bleistiftpfade werden auch im PDF zusammen gezeichnet, damit Zirkel-Strichelungen nicht je Segment neu beginnen.
+
+`js/construction-points.js` speichert `doc.constructionPoints` als parallele Seitenliste aus `{x,y,label,color}` in Millimetern. Punkte sind keine Kästchenzeichen; Platzierung rastet am Papier-Zeichenraster ein. SVG/PDF-Darstellung, Importprüfung und transaktionale Platzierung liegen zusammen. Vorschaumarkierungen nicht in Druck und Begleitseite kopieren.
+
+`js/input-dialog.js` wird direkt nach dem Grundlagen-Start eingebunden. Der erste Capture-Handler merkt physisch gehaltene Tasten, schützt neue Eingabefelder bis zum Loslassen und vereinheitlicht Werkzeugbestätigungen. `requestInput` und `requestConfirmation` sind asynchron; Aufrufer müssen das Ergebnis abwarten. Die native Dateiauswahl bleibt erhalten. Tutorial-Prüfungen dürfen durch den gemeinsamen Dispatcher nicht umgangen werden.

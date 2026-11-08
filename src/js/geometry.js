@@ -77,7 +77,7 @@ function splitPencilRegion(lines, r) {
   };
 }
 
-function togglePencilCoverage(lines, a, b) {
+function togglePencilCoverage(lines, a, b, dashed = dashedLines()) {
   const length = Math.hypot(b[0] - a[0], b[1] - a[1]);
   if (length < .3) return lines;
   const ux = (b[0] - a[0]) / length,
@@ -120,9 +120,9 @@ function togglePencilCoverage(lines, a, b) {
   const result = lines.map(line => [...line]);
   let cursor = 0;
   for (const [lo, hi] of intervals) {
-    if (lo > cursor + tolerance) result.push([...point(cursor), ...point(lo)]);
+    if (lo > cursor + tolerance) result.push([...point(cursor), ...point(lo), ...(dashed ? ['', true] : [])]);
     cursor = Math.max(cursor, hi)
   }
-  if (cursor < length - tolerance) result.push([...point(cursor), ...point(length)]);
+  if (cursor < length - tolerance) result.push([...point(cursor), ...point(length), ...(dashed ? ['', true] : [])]);
   return result;
 }

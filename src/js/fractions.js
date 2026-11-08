@@ -10,16 +10,16 @@ function fractionCells(value) {
   }
   return cells;
 }
-function insertFraction() {
+async function insertFraction() {
   if (tutorial || imageSession || document.querySelector('dialog[open]')) return;
   finishActionHold('KeyV');
   const start = pos, col = start % COLS, row = Math.floor(start / COLS);
   if (row >= ROWS - 1) {
     alert(tr('Für den Bruch fehlt unten eine zweite Kästchenzeile.')); select(start); return;
   }
-  const numerator = prompt(tr('Zähler eingeben (zum Beispiel 12):'), '');
+  const numerator = await requestInput(tr('Zähler eingeben (zum Beispiel 12):'), {value:''});
   if (numerator === null || !numerator.trim()) { select(start); return; }
-  const denominator = prompt(tr('Nenner eingeben (zum Beispiel 25):'), '');
+  const denominator = await requestInput(tr('Nenner eingeben (zum Beispiel 25):'), {value:''});
   if (denominator === null || !denominator.trim()) { select(start); return; }
   if (/[\u0000-\u001f\u007f]/.test(numerator + denominator)) {
     alert(tr('Bitte Zähler und Nenner jeweils in einer Zeile eingeben.')); select(start); return;
@@ -63,7 +63,7 @@ function insertFraction() {
     if (left > covered + 1e-7) break;
     covered = Math.max(covered, right);
   }
-  if (covered < x2 - 1e-7) doc.lines[page] = toggleLineCoverage(doc.lines[page], [x1,y], [x2,y], ink);
+  if (covered < x2 - 1e-7) doc.lines[page] = toggleLineCoverage(doc.lines[page], [x1,y], [x2,y], ink, false);
   decimalInput = null;
   changed(); select(row * COLS + Math.min(COLS - 1, col + width), true, true);
 }

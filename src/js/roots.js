@@ -11,22 +11,18 @@ function rootPath(index, height = 5) {
 }
 
 // @part part-02
-function askRootDegree() {
-  let degree;
-  for (;;) {
-    degree = prompt(tr('Wurzelexponent eingeben (2–9999), zum Beispiel 3 für die dritte Wurzel:'), '');
-    if (degree === null) return null;
-    degree = degree.trim();
-    if (/^[1-9][0-9]{0,3}$/.test(degree) && Number(degree) >= 2) break;
-    alert(tr('Bitte eine ganze Zahl von 2 bis 9999 eingeben.'));
-  }
-  return degree;
+async function askRootDegree() {
+  const value=await requestInput(tr('Wurzelexponent eingeben (2–9999), zum Beispiel 3 für die dritte Wurzel:'), {
+    value:'',maxLength:4,
+    validate:value=>/^[1-9][0-9]{0,3}$/.test(value.trim())&&Number(value.trim())>=2?null:'Bitte eine ganze Zahl von 2 bis 9999 eingeben.'
+  });
+  return value===null?null:value.trim();
 }
 
-function insertIndexedRoot(modifiers) {
+async function insertIndexedRoot(modifiers) {
   const index = modifiers.ctrlKey ? pos : modifiers.shiftKey ? pos - COLS : pos;
   if (index < 0 || (modifiers.ctrlKey || modifiers.shiftKey) && index + COLS >= COUNT) return;
-  const degree = askRootDegree();
+  const degree = await askRootDegree();
   if (degree === null) { select(pos); return; }
   const previous = smallMode;
   smallMode = null;

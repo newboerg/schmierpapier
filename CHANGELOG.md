@@ -2,6 +2,24 @@
 
 **Deutsch** · [English](CHANGELOG.en.md) · [Français](CHANGELOG.fr.md)
 
+## v0.6.5
+
+- Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.
+
+- Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.
+
+- G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.
+
+- Nach dem Setzen oder Bearbeiten eines Punkts schaltet sich das Punkt-Werkzeug automatisch aus. Für einen weiteren Punkt erneut aktivieren.
+
+- Einheitliche Bestätigung per Enter oder Werkzeugtaste; Eingabedialoge warten auf das Loslassen gehaltener Tasten.
+
+- Der Linientyp-Button zeigt immer nur das aktive Format als Symbol: eine durchgezogene oder eine gestrichelte Linie.
+- Linientyp-Button und J halten schalten neue Stift-, Geodreieck- und Zirkelstriche sowie Zahlenstrahl-Hauptlinien zwischen durchgezogen und gestrichelt um. Gespeicherte Linien behalten ihren Typ; Bruchstriche und mathematische Zeichen bleiben durchgezogen.
+- Konstruktionspunkte mit Beschriftung per Button oder H halten setzen. Maus und Tastatur rasten auf 5 mm beziehungsweise 1 mm bei Millimeterpapier ein; Enter fragt die Beschriftung ab. Erneutes Setzen bearbeitet den vorhandenen Punkt.
+- Linientypen und Punkte funktionieren mit .schmier, Browserspeicherung bei Zustimmung, Bereichskopien, Radierer, Rückgängig, PDF und Druck. Hilfe und Tastenhinweise auf Deutsch, Englisch und Französisch aktualisiert. Ältere Dateien bleiben lesbar.
+- v0.6.5 bleibt vorerst lokal; die veröffentlichte Version ist v0.6.
+
 ## v0.6
 
 - Nach dem Bestätigen einer Tastatur-Radierfläche (erneut R halten) wird automatisch der letzte Stift mit seiner Farbe aktiviert.
@@ -16,7 +34,7 @@
 - Parallelzeichen ∥ im Menü Verschiedene Symbole.
 - B halten öffnet Bild einfügen statt Neue Datei; diese bleibt per Button und Strg+N erreichbar. Kästchenbereich per Maus oder Pfeilen wählen, danach Rasterbild auswählen und mit Mausrad/+− sowie Ziehen/Pfeilen anpassen. Enter übernimmt, Esc verwirft. Doppelklick erlaubt erneutes Anpassen oder Löschen.
 - Bildauflösung in den Einstellungen: 100–600 dpi, Standard 300. Zunächst proportional und flächendeckend eingepasst; anschließende Anpassungen dürfen Leerraum lassen. Eingebettete Ausschnitte bleiben in .schmier, Browsersicherung, Historie, vollständiger Bereichskopie, PDF und Druck erhalten.
-- Version 0.6 ist zunächst lokal; keine Veröffentlichung im Rahmen dieser Umsetzung.
+- v0.6 veröffentlicht. Homepage in allen sechs Textfassungen aktualisiert; Live-App und Download verwenden denselben aktuellen Build.
 
 ## v0.5.5
 

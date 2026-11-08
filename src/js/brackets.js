@@ -153,23 +153,8 @@ function beginStretchBracket(side, direction, parameters = {}) {
   cancelNumberLine(false); cancelKeyboardLine(); cancelKeyboardArea(); cancelRegion(); cancelStrike(); finishMark(); resetCorner();
   const row = Math.floor(pos / COLS), targetRow = Math.max(0, Math.min(ROWS - 1, row + direction));
   stretchBracket = { anchor: pos, end: targetRow * COLS + pos % COLS, page, document: doc, side, direction, color: ink, parameters,
-    pendingInput: !!(parameters.degree || parameters.limits), inputAfter: performance.now() };
-  if (stretchBracket.pendingInput) {
-    const state = stretchBracket;
-    // Native prompts may deliver their final key/focus events after returning.
-    // Keep the preview alive through that handoff; accept only a fresh input afterwards.
-    const activate = () => {
-      if (stretchBracket !== state) return;
-      if (!document.hasFocus()) { requestAnimationFrame(activate); return; }
-      requestAnimationFrame(() => {
-        if (stretchBracket !== state) return;
-        if (!document.hasFocus()) { requestAnimationFrame(activate); return; }
-        state.inputAfter = performance.now();
-        state.pendingInput = false;
-      });
-    };
-    requestAnimationFrame(activate);
-  }
+    pendingInput: false, inputAfter: 0 };
+  // The shared dialog guard consumes its final held key through keyup.
   status(tr('Höhe wählen: Hoch/Runter oder Zielkästchen anklicken · Enter bestätigt · Esc bricht ab'));
   select(stretchBracket.end);
   renderLines();
@@ -255,14 +240,14 @@ function initialiseStretchBrackets() {
 }
 
 // Parameter entry finishes before placement starts; cancelling never changes the document.
-function beginStretchChoice(button) {
+async function beginStretchChoice(button) {
   const parameters = {};
   if (button.dataset.rootDegree) {
-    parameters.degree = askRootDegree();
+    parameters.degree = await askRootDegree();
     if (parameters.degree === null) { select(pos); return; }
   }
   if (button.dataset.definite) {
-    parameters.limits = askIntegralLimits();
+    parameters.limits = await askIntegralLimits();
     if (parameters.limits === null) { select(pos); return; }
   }
   beginStretchBracket(button.dataset.symbol, button.dataset.stretch === 'up' ? -1 : 1, parameters);

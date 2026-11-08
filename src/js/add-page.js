@@ -12,6 +12,7 @@ function addSheet(type = 'squared') {
   doc.paperTypes.splice(page + 1, 0, type);
   doc.pages.splice(page + 1, 0, {});
   (doc.images ??= doc.pages.slice(0, -1).map(() => [])).splice(page + 1, 0, []);
+  (doc.constructionPoints ??= doc.pages.slice(0, -1).map(() => [])).splice(page + 1, 0, []);
   doc.freehand.splice(page + 1, 0, []);
   doc.lines.splice(page + 1, 0, []);
   doc.pencilLines.splice(page + 1, 0, []);

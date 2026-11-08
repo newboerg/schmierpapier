@@ -7,6 +7,7 @@ document.querySelectorAll('.swatch').forEach(button => button.addEventListener('
     document.querySelector('.swatch[data-tool="pen"][data-color="' + ink + '"]').click();
     return;
   }
+  cancelConstructionPoint(false);
   hideCompass();
   finishMark();
   cancelNumberLine(false);

@@ -1,12 +1,12 @@
 // new-document — assembled in src/build.json order; shared classic-script scope.
 
 // @part part-01
-$('newFile').onclick = () => {
+$('newFile').onclick = async () => {
   const hasContent = doc.pages.some(p => Object.keys(p).length) || ['lines', 'pencilLines', 'numberLines', 'freehand',
-      'tallBrackets', 'images'
+      'tallBrackets', 'images', 'constructionPoints'
     ].some(field => doc[field].some(p => p.length)) || ['highlights', 'carries', 'powers', 'fractionEquals', 'decimalMarks', 'taskLabels']
     .some(field => doc[field].some(p => Object.keys(p).length));
-  if (hasContent && !confirm(
+  if (hasContent && !await requestConfirmation(
       'Neue Datei erstellen? Das aktuelle Dokument wird ersetzt. Speichere es vorher bei Bedarf als .schmier-Datei.'
       )) return;
   cancelKeyboardArea(); cancelKeyboardLine(); cancelStrike();

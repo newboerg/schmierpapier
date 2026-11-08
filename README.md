@@ -16,11 +16,24 @@ Schmierpapier bietet einen Platz zum Rechnen, Ausprobieren und Zeichnen direkt i
 
 Die Anwendung soll das eigenständige Arbeiten im Mathematikunterricht unterstützen: Rechnungen lassen sich mit Tastatur und Maus in Kästchen schreiben, Brüche übersichtlich anordnen und geometrische Konstruktionen mit digitalen Werkzeugen zeichnen. Viele Funktionen sind über Buttons erreichbar, sodass nicht für jede Eingabe eine Tastenkombination nötig ist.
 
-Version **0.6 (Entwicklung)**
+Version **0.6.5 (Entwicklung)**
 
 Projektwebseite: [schmierpapier.org](https://schmierpapier.org). Das Logo im App-Header öffnet sie in einem neuen Tab.
 
-## Neu in v0.6 (Entwicklung)
+## Neu in v0.6.5 (Entwicklung)
+
+- G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.
+
+- Nach dem Setzen oder Bearbeiten eines Punkts schaltet sich das Punkt-Werkzeug automatisch aus. Für einen weiteren Punkt erneut aktivieren.
+
+- Einheitliche Bestätigung per Enter oder Werkzeugtaste; Eingabedialoge warten auf das Loslassen gehaltener Tasten.
+
+- Linientyp-Button und J halten schalten neue Stift-, Geodreieck- und Zirkelstriche sowie Zahlenstrahl-Hauptlinien zwischen durchgezogen und gestrichelt um. Gespeicherte Linien behalten ihren Typ; Bruchstriche und mathematische Zeichen bleiben durchgezogen.
+- Konstruktionspunkte mit Beschriftung per Button oder H halten setzen. Maus und Tastatur rasten auf 5 mm beziehungsweise 1 mm bei Millimeterpapier ein; Enter fragt die Beschriftung ab. Erneutes Setzen bearbeitet den vorhandenen Punkt.
+- Linientypen und Punkte funktionieren mit .schmier, Browserspeicherung bei Zustimmung, Bereichskopien, Radierer, Rückgängig, PDF und Druck. Hilfe und Tastenhinweise auf Deutsch, Englisch und Französisch aktualisiert. Ältere Dateien bleiben lesbar.
+- v0.6.5 bleibt vorerst lokal; die veröffentlichte Version ist v0.6.
+
+## Neu in v0.6
 
 - Bruch-Button und V halten: Zähler und Nenner abfragen und als normale Kästchenschrift mit passendem Bruchstrich einsetzen. Zentrierung im Raster, ein Rückgängig-Schritt und keine automatische Berechnung.
 - Der Radierer löscht berührte Bilder als Ganzes. Das gilt auch für die mit R halten gewählte Radierfläche; eine teilweise Überlappung genügt. Rückgängig stellt gelöschte Bilder wieder her.
@@ -29,7 +42,7 @@ Projektwebseite: [schmierpapier.org](https://schmierpapier.org). Das Logo im App
 - Parallelzeichen ∥ im Menü Verschiedene Symbole.
 - B halten öffnet Bild einfügen statt Neue Datei; diese bleibt per Button und Strg+N erreichbar. Kästchenbereich per Maus oder Pfeilen wählen, danach Rasterbild auswählen und mit Mausrad/+− sowie Ziehen/Pfeilen anpassen. Enter übernimmt, Esc verwirft. Doppelklick erlaubt erneutes Anpassen oder Löschen.
 - Bildauflösung in den Einstellungen: 100–600 dpi, Standard 300. Zunächst proportional und flächendeckend eingepasst; anschließende Anpassungen dürfen Leerraum lassen. Eingebettete Ausschnitte bleiben in .schmier, Browsersicherung, Historie, vollständiger Bereichskopie, PDF und Druck erhalten.
-- Version 0.6 ist zunächst lokal; keine Veröffentlichung im Rahmen dieser Umsetzung.
+- v0.6 veröffentlicht. Homepage in allen sechs Textfassungen aktualisiert; Live-App und Download verwenden denselben aktuellen Build.
 
 ## Neu in v0.5.5
 

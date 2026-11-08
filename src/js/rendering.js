@@ -14,6 +14,7 @@ function renderLines() {
     ['x1', 'y1', 'x2', 'y2'].forEach((key, i) => el.setAttribute(key, coords[i] * 5));
     el.setAttribute('class', 'drawn-line' + (preview ? ' line-preview' : ''));
     el.style.stroke = preview ? ink : (coords[4] || '#172e65');
+    if (preview ? dashedLines() : coords[5] === true) el.setAttribute('stroke-dasharray', '1.5 1');
     layer.append(el)
   }
   for (const coords of doc.lines[page]) line(coords);
@@ -74,6 +75,7 @@ function renderLines() {
     layer.append(path);
   }
   if (drag) line([...drag.start, ...drag.end], true);
+  drawConstructionPoints(layer);
   drawKeyboardLine();
   drawStretchBracketPreview();
   if (armed && corner) {
@@ -99,7 +101,8 @@ function drawPencilStrokes(layer, lines) {
         y1: line[1],
         x2: line[2],
         y2: line[3],
-        class: 'pencil-line'
+        class: 'pencil-line',
+        'stroke-dasharray': line[5] === true ? '1.5 1' : 'none'
       }, layer)
     }
   }
@@ -115,6 +118,7 @@ function drawPencilStrokes(layer, lines) {
       d: path,
       class: 'pencil-line',
       'data-pencil-stroke': id,
+      'stroke-dasharray': segments[0][5] === true ? '1.5 1' : 'none',
       'stroke-linejoin': 'round'
     }, layer)
   }

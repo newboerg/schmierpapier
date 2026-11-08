@@ -16,11 +16,24 @@ Schmierpapier provides a place to calculate, experiment and draw directly in the
 
 The application supports independent work in maths lessons: use the keyboard and mouse to write calculations in cells, arrange fractions clearly and draw geometric constructions with digital tools. Many features are available through buttons, so a keyboard shortcut is not required for every action.
 
-Version **0.6 (development)**
+Version **0.6.5 (development)**
 
 Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the app header opens it in a new tab.
 
-## New in v0.6 (development)
+## New in v0.6.5 (development)
+
+- Holding G or K switches off the active set square or compass respectively; a short press still confirms the step.
+
+- The point tool automatically switches off after placing or editing a point. Activate it again for another point.
+
+- Consistent confirmation with Enter or the tool key; text dialogs wait for held keys to be released.
+
+- A line-style button and holding J switch new pen, ruler and compass strokes and number-line stems between solid and dashed. Stored strokes retain their style; fraction bars and maths symbols remain solid.
+- Place labelled construction points by button or holding H. Mouse and keyboard snap at 5 mm, or 1 mm on millimetre paper; Enter asks for the label. Placing again edits the existing point.
+- Styles and points work with .schmier, browser storage with consent, region copies, eraser, undo, PDF and print. Updated German, English and French help and key hints. Older documents still open.
+- v0.6.5 remains local for now; the published version is v0.6.
+
+## New in v0.6
 
 - Fraction button and hold V: enter numerator and denominator as ordinary cell characters with a matching fraction bar. Grid-based centring, one undo step and no automatic calculation.
 - The eraser removes touched images as a whole. This also applies to the erase area selected by holding R; partial overlap is enough. Undo restores erased images.
@@ -29,7 +42,7 @@ Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the
 - Parallel symbol ∥ added to Miscellaneous symbols.
 - Holding B now inserts an image instead of New file, which remains available via its button and Ctrl+N. Select cells by mouse or arrows, choose a raster image, then adjust with wheel/+− and dragging/arrows. Enter applies, Esc cancels. Double-click to adjust again or delete.
 - Settings offer 100–600 dpi, default 300. Images initially cover the area proportionally; later adjustments may leave space. Embedded crops are preserved in .schmier, browser backups, history, full-area copies, PDF and print.
-- Version 0.6 remains local for now; no publication as part of this implementation.
+- Published v0.6. Updated all six homepage text variants; the live app and download use the same current build.
 
 ## New in v0.5.5
 

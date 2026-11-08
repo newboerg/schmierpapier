@@ -2411,6 +2411,43 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
     :root[data-theme="dark"] .brand img { filter: brightness(2.5); }
     :root[data-theme="dark"] #tutorialError { color: #ffb5a6 !important; }
 
+    #paper.construction-point-mode, #paper.construction-point-mode * { cursor: crosshair !important; }
+    @media print { .construction-point-preview { display: none !important; } }
+    #inputDialog { width: min(560px,94vw); max-height: 85dvh; overflow: auto; padding: 24px; border: 1px solid #b6c9ba; border-radius: 14px; background: #fffefa; color: #25342f; }
+    #inputDialog::backdrop { background: #152b2480; }
+    #inputDialogLabel { display: block; margin-bottom: 12px; line-height: 1.5; }
+    #inputDialogValue { width: 100%; padding: 10px; font: inherit; border: 1px solid #708579; border-radius: 8px; }
+    #inputDialogHint { font-size: 13px; min-height: 1.5em; }
+    #inputDialogError { min-height: 1.5em; color: #a32e2e; }
+    :root[data-theme="dark"] #inputDialog { background: #222e28; color: #e1e9e4; border-color: #647a6c; }
+    :root[data-theme="dark"] #inputDialogError { color: #ffb5a6; }
+    @media print { #inputDialog { display:none!important; } }
+
+    :root[data-theme="dark"] .axis-label-input {
+      color: #edf3ef !important; /* Override the inline writing colour only in the editor. */
+      background: #2d3b33;
+      border-color: #708579;
+      caret-color: #edf3ef;
+    }
+    :root[data-theme="dark"] .axis-label-input.current {
+      background: #35463b;
+      border-color: #e3bf63;
+      box-shadow: 0 0 0 2px #e3bf6330;
+    }
+    :root[data-theme="dark"] .axis-label-input::placeholder { color: #b4c6bb; }
+
+    /* Keep parameters and direction markers inside each symbol-menu button. */
+    #rootChoiceMenu button, #integralChoiceMenu button {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .size-choice-icon { display: block; width: 32px; height: 34px; }
+    button[data-size] > .size-choice-icon { margin-right: 8px; width: 30px; }
+    .size-choice-icon .symbol-parameters { font: italic 10px 'OfflineSymbols', sans-serif; }
+
     </style>
   </head>
   <body>
@@ -2420,7 +2457,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
           <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMTM2IiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+PHRpdGxlIGlkPSJ0aXRsZSI+U2NobWllcnBhcGllciAtIEhlbGwgLyBTdGFuZGFyZDwvdGl0bGU+PGRlc2MgaWQ9ImRlc2MiPlNjaG1pZXJwYXBpZXI6IGhhbmRzY2hyaWZ0bGljaGVzIHggbWl0IHRpZWZnZXN0ZWxsdGVyIDEgaW0gbWl0dGxlcmVuIEZlbGQgZWluZXMgM3gzLVJhc3RlcnMuPC9kZXNjPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQgNCkiPjxyZWN0IHg9IjQ4IiB5PSI0OCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjZWFmM2U3IiAvPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2IiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjQ2NDRlIiBzdHJva2Utd2lkdGg9IjIuMCIgLz48cGF0aCBkPSJNNDggMTZWMTEyIE04MCAxNlYxMTIgTTE2IDQ4SDExMiBNMTYgODBIMTEyIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNDY0NGUiIHN0cm9rZS13aWR0aD0iMS40NSIgLz48cmVjdCB4PSI0OCIgeT0iNDgiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjQ2NDRlIiBzdHJva2Utd2lkdGg9IjIuOSIgLz48Zz48cGF0aCBkPSJNNzAuNDAwNiA3My4xUTcwLjE2NDMgNzMuMSA2OS43ODAzIDczLjA0MDlRNjkuMzk2MyA3Mi45ODE5IDY5LjE2IDcyLjc0NTZRNjguOTIzNyA3Mi43NDU2IDY4LjMzMyA3Mi41NjgzUTY3Ljc0MjIgNzIuMzkxMSA2Ny4yNjk2IDcyLjE1NDhRNjYuNjc4OSA3MS45MTg1IDY1LjY3NDYgNzEuMTgwMVE2NC42NzAzIDcwLjQ0MTYgNjMuNjY2IDY5LjU1NTVRNjIuNjYxOCA2OC42Njk0IDYxLjk4MjQgNjcuOTAxNFE2MS4zMDMxIDY3LjEzMzQgNjEuMzAzMSA2Ni43NzlRNjEuMzAzMSA2Ni40ODM2IDYxLjAwNzcgNjYuNDgzNlE2MS4wMDc3IDY2LjQ4MzYgNjAuODMwNSA2Ni4yNzY4UTYwLjY1MzIgNjYuMDcwMSA2MC42NTMyIDY1LjgzMzhRNjAuNjUzMiA2NS4yNDMgNjAuMDYyNSA2NS4yNDNRNjAuMDYyNSA2NS4yNDMgNTkuMDU4MiA2Ni4wNzAxUTU4LjA1MzkgNjYuODk3MSA1Ni44NzI0IDY4LjA3ODZRNTUuMjE4MyA2OS43MzI3IDU0LjQyMDggNzAuNDcxMlE1My42MjMzIDcxLjIwOTYgNTMuMTUwNyA3MS4yMDk2UTUyLjY3ODEgNzEuMjA5NiA1Mi4wODc0IDcwLjg1NTJRNTEuNDk2NiA3MC41MDA3IDUxLjA1MzYgNjkuOTk4NlE1MC42MTA1IDY5LjQ5NjQgNTAuNjEwNSA2OS4wMjM4UTUwLjYxMDUgNjkuMDIzOCA1MS44MjE1IDY3LjY2NTFRNTMuMDMyNiA2Ni4zMDY0IDU0LjY4NjcgNjQuODg4Nkw1OC40Njc1IDYxLjE2NjlMNTcuODE3NiA1OC45MjJRNTcuNDA0MSA1Ny45NzY4IDU2Ljk2MSA1Ni45NDNRNTYuNTE4IDU1LjkwOTIgNTYuMjgxNyA1NS4yMDAzUTU1LjU3MjggNTQuMTk2IDU1LjU0MzIgNTMuOTMwMlE1NS41MTM3IDUzLjY2NDMgNTUuOTg2MyA1Mi45NTU1UTU2LjQ1ODkgNTIuNDgyOSA1Ni43ODM4IDUyLjMzNTJRNTcuMTA4NyA1Mi4xODc1IDU3LjgxNzYgNTIuNjYwMVE1OC4xNzIxIDUyLjY2MDEgNTguNzYyOCA1My42MzQ4UTU5LjM1MzYgNTQuNjA5NSA1OS44NTU3IDU1Ljc2MTVRNjAuMzU3OSA1Ni45MTM1IDYwLjM1NzkgNTcuMzg2MVE2MC4zNTc5IDU4LjMzMTMgNjEuMDY2OCA1OC4xNTRRNjEuNzc1NyA1Ny45NzY4IDYzLjE5MzUgNTcuMDMxNlE2My45MDIzIDU2LjM4MTggNjQuMzE1OSA1NS45Mzg3UTY0LjcyOTQgNTUuNDk1NyA2NC43Mjk0IDU1LjQ5NTdRNjQuOTA2NiA1NS4zMTg0IDY1Ljc5MjcgNTQuNjk4MlE2Ni42Nzg5IDU0LjA3NzkgNjcuNjI0MSA1My40MjhRNjguNTY5MyA1Mi43NzgyIDY4Ljg2NDYgNTIuNjYwMVE2OS4zMzcyIDUyLjMwNTYgNjkuOTI4IDUyLjYzMDVRNzAuNTE4NyA1Mi45NTU1IDcwLjkzMjMgNTMuNTc1N1E3MS4zNDU4IDU0LjE5NiA3MS4zNDU4IDU0Ljg0NThRNzEuMzQ1OCA1NS41NTQ3IDcwLjk5MTMgNTUuOTY4M1E3MC42MzY5IDU2LjM4MTggNjkuNDU1NCA1Ny4wMzE2UTY4LjM5MiA1Ny43OTk2IDY3LjU5NDUgNTguMzkwM1E2Ni43OTcgNTguOTgxMSA2NS45NDA0IDU5LjY2MDVRNjUuMDgzOCA2MC4zMzk4IDYzLjc4NDIgNjEuNDYyMkw2Mi4yNDgzIDYyLjcwMjhMNjMuMTkzNSA2NC4yOTc4UTYzLjQyOTcgNjQuNzExNCA2My44NzI4IDY1LjQ3OTNRNjQuMzE1OSA2Ni4yNDczIDY0LjcyOTQgNjYuNDgzNlE2NS4wODM4IDY2Ljk1NjIgNjYuMDg4MSA2Ny43ODMzUTY3LjA5MjQgNjguNjEwMyA2OC4wNjcxIDY5LjI4OTdRNjkuMDQxOSA2OS45NjkgNjkuMTYgNjkuOTY5UTY5LjM5NjMgNjkuOTY5IDY5LjY5MTcgNzAuMTQ2M1E2OS45ODcxIDcwLjMyMzUgNzAuNDAwNiA3MC41NTk4UTcwLjg3MzIgNzEuMDMyNCA3MS4wMjA5IDcxLjYyMzFRNzEuMTY4NiA3Mi4yMTM5IDcxLjAyMDkgNzIuNjU2OVE3MC44NzMyIDczLjEgNzAuNDAwNiA3My4xWiIgZmlsbD0iIzI0NjQ0ZSIgLz48L2c+PGc+PHBhdGggZD0iTTc0LjUxNTEgNzcuMzgxMlE3NC40NjU5IDc3LjQxNDEgNzQuMzgzNyA3Ny4zODk0UTc0LjMwMTYgNzcuMzY0OCA3NC4yMDMxIDc3LjI5MDlRNzQuMTA0NSA3Ny4yMTcgNzMuOTg5NSA3Ny4xMTg0UTczLjkyMzggNzcuMDUyNyA3My45MDc0IDc2Ljk2MjRRNzMuODkxIDc2Ljg3MjEgNzMuOTQwMyA3Ni42NDIxUTczLjk4OTUgNzYuNDEyMiA3NC4wODgxIDc1LjkwM1E3NC4xNTM4IDc1LjU3NDUgNzQuMjM1OSA3NS4yNDZRNzQuMzE4IDc0LjkxNzUgNzQuMzgzNyA3NC42OTU3UTc0LjQ0OTQgNzQuNDc0IDc0LjQ0OTQgNzQuNDc0UTc0LjUzMTYgNzQuNDQxMiA3NC42ODc2IDczLjk4MTNRNzQuODQzNiA3My41MjEzIDc1LjA0MDcgNzIuODY0M1E3NS4xMDY0IDcyLjYzNDQgNzUuMjcwNyA3Mi4wOTI0UTc1LjQzNDkgNzEuNTUwMyA3NS41OTkyIDcxLjA0MTJRNzUuNzQ3IDcwLjU2NDggNzUuODQ1NiA3MC4xNzg5UTc1Ljk0NDEgNjkuNzkyOSA3NS45NDQxIDY5Ljc5MjlRNzUuOTQ0MSA2OS43OTI5IDc1LjcwNTkgNjkuOTMyNVE3NS40Njc4IDcwLjA3MjEgNzUuMTA2NCA3MC4yOTM4UTc0Ljc0NTEgNzAuNTE1NiA3NC40MDAyIDcwLjc3ODRRNzQuMTIwOSA3MC45NDI2IDczLjczNDkgNzEuMjM4M1E3My4zNDkgNzEuNTMzOSA3My4wNTMzIDcxLjcxNDZRNzIuNjA5OCA3Mi4wNTk1IDcyLjUxMTMgNzIuMTAwNlE3Mi40MTI3IDcyLjE0MTYgNzIuMjY0OSA3Mi4wNTk1UTcyLjA1MTQgNzEuODc4OCA3MS45Nzc1IDcxLjY4MTdRNzEuOTAzNiA3MS40ODQ2IDcyLjAwMjEgNzEuMzIwNFE3Mi4wMzUgNzEuMzA0IDcyLjIwNzQgNzEuMTg5UTcyLjM3OTkgNzEuMDc0IDcyLjU5MzQgNzAuOTI2MlE3Mi44MDY5IDcwLjc3ODQgNzIuOTk1OCA3MC42NDdRNzMuMTg0NyA3MC41MTU2IDczLjI2NjggNzAuNDY2M1E3My4zMTYxIDcwLjQ2NjMgNzMuNDQ3NSA3MC4zNTEzUTczLjU3ODkgNzAuMjM2MyA3My43MjY3IDcwLjEzNzhRNzMuODA4OSA3MC4wMzkyIDc0LjMwMTYgNjkuNjk0M1E3NC43OTQ0IDY5LjM0OTQgNzUuMzY5MiA2OC45MjIzUTc1Ljk3NyA2OC41NDQ2IDc2LjM5NTggNjguMzE0NlE3Ni44MTQ2IDY4LjA4NDcgNzYuODgwMyA2OC4xMDExUTc2LjkyOTYgNjguMTAxMSA3Ny4wMzY0IDY4LjE2NjhRNzcuMTQzMSA2OC4yMzI1IDc3LjI0MTcgNjguMzMxUTc3LjM0MDIgNjguNDI5NiA3Ny4zNTY3IDY4LjUyODFRNzcuNDU1MiA2OC42NDMxIDc3LjI1ODEgNjkuMDUzN1E3Ny4xOTI0IDY5LjIwMTYgNzcuMDQ0NiA2OS41ODc2UTc2Ljg5NjggNjkuOTczNSA3Ni43MjQzIDcwLjQ3NDVRNzYuNTUxOCA3MC45NzU1IDc2LjM5NTggNzEuNDZRNzYuMjM5OCA3MS45NDQ1IDc2LjE0MTIgNzIuMjg5NVE3Ni4wMDk4IDcyLjc5ODYgNzUuOTAzIDczLjA3NzlRNzUuNzk2MyA3My4zNTcxIDc1LjcwNTkgNzMuNjExN1E3NS42MTU2IDczLjg2NjMgNzUuNTAwNiA3NC4zMDk4UTc1LjM4NTcgNzQuNTcyNiA3NS4yNjI1IDc0Ljk3NVE3NS4xMzkzIDc1LjM3NzQgNzUuMDQwNyA3NS43NjM0UTc0Ljk0MjIgNzYuMTQ5NCA3NC44OTI5IDc2LjM5NTdRNzQuNzYxNSA3Ni43NTcxIDc0LjY3OTQgNzcuMDM2M1E3NC41OTczIDc3LjMxNTUgNzQuNTE1MSA3Ny4zODEyWiIgZmlsbD0iIzI0NjQ0ZSIgLz48L2c+PC9nPjxnPjxwYXRoIGQ9Ik0xODIuMzU2OSA1MC40MDMzVjU3Ljk2MzlRMTc5LjQxNDEgNTYuNjQ3OSAxNzYuNjE0NyA1NS45NzhRMTczLjgxNTQgNTUuMzA4MSAxNzEuMzI3MSA1NS4zMDgxUTE2OC4wMjU0IDU1LjMwODEgMTY2LjQ0NjMgNTYuMjE3M1ExNjQuODY3MiA1Ny4xMjY1IDE2NC44NjcyIDU5LjA0MDVRMTY0Ljg2NzIgNjAuNDc2MSAxNjUuOTMxOSA2MS4yNzc2UTE2Ni45OTY2IDYyLjA3OTEgMTY5Ljc5NTkgNjIuNjUzM0wxNzMuNzE5NyA2My40NDI5UTE3OS42NzcyIDY0LjYzOTIgMTgyLjE4OTUgNjcuMDc5NlExODQuNzAxNyA2OS41MiAxODQuNzAxNyA3NC4wMTgxUTE4NC43MDE3IDc5LjkyNzcgMTgxLjE5NjUgODIuODEwOFExNzcuNjkxNCA4NS42OTM4IDE3MC40ODk3IDg1LjY5MzhRMTY3LjA5MjMgODUuNjkzOCAxNjMuNjcwOSA4NS4wNDc5UTE2MC4yNDk1IDg0LjQwMTkgMTU2LjgyODEgODMuMTMzOFY3NS4zNTc5UTE2MC4yNDk1IDc3LjE3NjMgMTYzLjQ0MzYgNzguMDk3NFExNjYuNjM3NyA3OS4wMTg2IDE2OS42MDQ1IDc5LjAxODZRMTcyLjYxOTEgNzkuMDE4NiAxNzQuMjIyMiA3OC4wMTM3UTE3NS44MjUyIDc3LjAwODggMTc1LjgyNTIgNzUuMTQyNlExNzUuODI1MiA3My40Njc4IDE3NC43MzY2IDcyLjU1ODZRMTczLjY0NzkgNzEuNjQ5NCAxNzAuMzk0IDcwLjkzMTZMMTY2LjgyOTEgNzAuMTQyMVExNjEuNDY5NyA2OC45OTM3IDE1OC45OTM0IDY2LjQ4MTRRMTU2LjUxNzEgNjMuOTY5MiAxNTYuNTE3MSA1OS43MTA0UTE1Ni41MTcxIDU0LjM3NSAxNTkuOTYyNCA1MS41MDM5UTE2My40MDc3IDQ4LjYzMjggMTY5Ljg2NzcgNDguNjMyOFExNzIuODEwNSA0OC42MzI4IDE3NS45MjA5IDQ5LjA3NTRRMTc5LjAzMTIgNDkuNTE4MSAxODIuMzU2OSA1MC40MDMzWiIgZmlsbD0iIzI0NjQ0ZSIgLz48cGF0aCBkPSJNMjEyLjcwODYgNTkuMDQwNVY2Ni4wMjY5UTIxMC45NjIgNjQuODMwNiAyMDkuMjAzNSA2NC4yNTYzUTIwNy40NDQ5IDYzLjY4MjEgMjA1LjU1NDggNjMuNjgyMVEyMDEuOTY1OSA2My42ODIxIDE5OS45NjgxIDY1Ljc3NTZRMTk3Ljk3MDMgNjcuODY5MSAxOTcuOTcwMyA3MS42MjU1UTE5Ny45NzAzIDc1LjM4MTggMTk5Ljk2ODEgNzcuNDc1M1EyMDEuOTY1OSA3OS41Njg4IDIwNS41NTQ4IDc5LjU2ODhRMjA3LjU2NDYgNzkuNTY4OCAyMDkuMzcwOSA3OC45NzA3UTIxMS4xNzczIDc4LjM3MjYgMjEyLjcwODYgNzcuMjAwMlY4NC4yMTA0UTIxMC42OTg4IDg0Ljk1MjEgMjA4LjYyOTIgODUuMzIzUTIwNi41NTk3IDg1LjY5MzggMjA0LjQ3ODEgODUuNjkzOFExOTcuMjI4NiA4NS42OTM4IDE5My4xMzczIDgxLjk3MzRRMTg5LjA0NiA3OC4yNTI5IDE4OS4wNDYgNzEuNjI1NVExODkuMDQ2IDY0Ljk5OCAxOTMuMTM3MyA2MS4yNzc2UTE5Ny4yMjg2IDU3LjU1NzEgMjA0LjQ3ODEgNTcuNTU3MVEyMDYuNTgzNiA1Ny41NTcxIDIwOC42MjkyIDU3LjkyOFEyMTAuNjc0OSA1OC4yOTg4IDIxMi43MDg2IDU5LjA0MDVaIiBmaWxsPSIjMjQ2NDRlIiAvPjxwYXRoIGQ9Ik0yNDUuNjkyMSA2OC42ODI2Vjg1SDIzNy4wNzg4VjgyLjM0NDJWNzIuNTU4NlEyMzcuMDc4OCA2OS4wNDE1IDIzNi45MjMzIDY3LjcyNTZRMjM2Ljc2NzggNjYuNDA5NyAyMzYuMzg1IDY1Ljc4NzZRMjM1Ljg4MjUgNjQuOTUwMiAyMzUuMDIxMiA2NC40ODM2UTIzNC4xNTk5IDY0LjAxNzEgMjMzLjA1OTMgNjQuMDE3MVEyMzAuMzc5NiA2NC4wMTcxIDIyOC44NDgzIDY2LjA4NjdRMjI3LjMxNzEgNjguMTU2MiAyMjcuMzE3MSA3MS44MTY5Vjg1SDIxOC43NTE3VjQ3Ljc3MTVIMjI3LjMxNzFWNjIuMTI3UTIyOS4yNTUxIDU5Ljc4MjIgMjMxLjQzMjMgNTguNjY5N1EyMzMuNjA5NiA1Ny41NTcxIDIzNi4yNDE0IDU3LjU1NzFRMjQwLjg4MyA1Ny41NTcxIDI0My4yODc1IDYwLjQwNDNRMjQ1LjY5MjEgNjMuMjUxNSAyNDUuNjkyMSA2OC42ODI2WiIgZmlsbD0iIzI0NjQ0ZSIgLz48cGF0aCBkPSJNMjc3LjEyMDQgNjIuNjUzM1EyNzguNzQ3NCA2MC4xNjUgMjgwLjk4NDQgNTguODYxMVEyODMuMjIxNSA1Ny41NTcxIDI4NS45MDEyIDU3LjU1NzFRMjkwLjUxODggNTcuNTU3MSAyOTIuOTM1NCA2MC40MDQzUTI5NS4zNTE5IDYzLjI1MTUgMjk1LjM1MTkgNjguNjgyNlY4NUgyODYuNzM4NlY3MS4wMjczUTI4Ni43NjI1IDcwLjcxNjMgMjg2Ljc3NDUgNzAuMzgxM1EyODYuNzg2NCA3MC4wNDY0IDI4Ni43ODY0IDY5LjQyNDNRMjg2Ljc4NjQgNjYuNTc3MSAyODUuOTQ5IDY1LjI5NzFRMjg1LjExMTYgNjQuMDE3MSAyODMuMjQ1NCA2NC4wMTcxUTI4MC44MDUgNjQuMDE3MSAyNzkuNDc3MSA2Ni4wMjY5UTI3OC4xNDkyIDY4LjAzNjYgMjc4LjEwMTQgNzEuODQwOFY4NUgyNjkuNDg4MVY3MS4wMjczUTI2OS40ODgxIDY2LjU3NzEgMjY4LjcyMjUgNjUuMjk3MVEyNjcuOTU2OCA2NC4wMTcxIDI2NS45OTQ5IDY0LjAxNzFRMjYzLjUzMDYgNjQuMDE3MSAyNjIuMTkwNyA2Ni4wMzg4UTI2MC44NTA5IDY4LjA2MDUgMjYwLjg1MDkgNzEuODE2OVY4NUgyNTIuMjM3NlY1OC4yMDMxSDI2MC44NTA5VjYyLjEyN1EyNjIuNDMgNTkuODU0IDI2NC40NzU2IDU4LjcwNTZRMjY2LjUyMTMgNTcuNTU3MSAyNjguOTg1NiA1Ny41NTcxUTI3MS43NjEgNTcuNTU3MSAyNzMuODkwNCA1OC44OTdRMjc2LjAxOTggNjAuMjM2OCAyNzcuMTIwNCA2Mi42NTMzWiIgZmlsbD0iIzI0NjQ0ZSIgLz48cGF0aCBkPSJNMzAxLjk5MzEgNTguMjAzMUgzMTAuNTU4NVY4NUgzMDEuOTkzMVpNMzAxLjk5MzEgNDcuNzcxNUgzMTAuNTU4NVY1NC43NTc4SDMwMS45OTMxWiIgZmlsbD0iIzI0NjQ0ZSIgLz48cGF0aCBkPSJNMzQ0LjE4OCA3MS41Mjk4VjczLjk3MDJIMzI0LjE2MjFRMzI0LjQ3MzEgNzYuOTg0OSAzMjYuMzM5NCA3OC40OTIyUTMyOC4yMDU2IDc5Ljk5OTUgMzMxLjU1NTIgNzkuOTk5NVEzMzQuMjU4OCA3OS45OTk1IDMzNy4wOTQgNzkuMTk4UTMzOS45MjkyIDc4LjM5NjUgMzQyLjkxOTkgNzYuNzY5NVY4My4zNzNRMzM5Ljg4MTMgODQuNTIxNSAzMzYuODQyOCA4NS4xMDc3UTMzMy44MDQyIDg1LjY5MzggMzMwLjc2NTYgODUuNjkzOFEzMjMuNDkyMiA4NS42OTM4IDMxOS40NjA3IDgxLjk5NzNRMzE1LjQyOTIgNzguMzAwOCAzMTUuNDI5MiA3MS42MjU1UTMxNS40MjkyIDY1LjA2OTggMzE5LjM4ODkgNjEuMzEzNVEzMjMuMzQ4NiA1Ny41NTcxIDMzMC4yODcxIDU3LjU1NzFRMzM2LjYwMzUgNTcuNTU3MSAzNDAuMzk1OCA2MS4zNjEzUTM0NC4xODggNjUuMTY1NSAzNDQuMTg4IDcxLjUyOThaTTMzNS4zODMzIDY4LjY4MjZRMzM1LjM4MzMgNjYuMjQyMiAzMzMuOTU5NyA2NC43NDY4UTMzMi41MzYxIDYzLjI1MTUgMzMwLjIzOTMgNjMuMjUxNVEzMjcuNzUxIDYzLjI1MTUgMzI2LjE5NTggNjQuNjUxMVEzMjQuNjQwNiA2Ni4wNTA4IDMyNC4yNTc4IDY4LjY4MjZaIiBmaWxsPSIjMjQ2NDRlIiAvPjxwYXRoIGQ9Ik0zNjkuMjI4MSA2NS41MDA1UTM2OC4xMDM2IDY0Ljk3NDEgMzY2Ljk5MTEgNjQuNzIyOVEzNjUuODc4NSA2NC40NzE3IDM2NC43NTQgNjQuNDcxN1EzNjEuNDUyMiA2NC40NzE3IDM1OS42Njk4IDY2LjU4OTFRMzU3Ljg4NzMgNjguNzA2NSAzNTcuODg3MyA3Mi42NTQzVjg1SDM0OS4zMjE5VjU4LjIwMzFIMzU3Ljg4NzNWNjIuNjA1NVEzNTkuNTM4MiA1OS45NzM2IDM2MS42Nzk1IDU4Ljc2NTRRMzYzLjgyMDkgNTcuNTU3MSAzNjYuODExNiA1Ny41NTcxUTM2Ny4yNDIzIDU3LjU1NzEgMzY3Ljc0NDcgNTcuNTkzUTM2OC4yNDcyIDU3LjYyODkgMzY5LjIwNDIgNTcuNzQ4NVoiIGZpbGw9IiMyNDY0NGUiIC8+PHBhdGggZD0iTTM4MC43MDIzIDgxLjEyNFY5NS4xOTI0SDM3Mi4xMzY5VjU4LjIwMzFIMzgwLjcwMjNWNjIuMTI3UTM4Mi40NzI5IDU5Ljc4MjIgMzg0LjYyNjIgNTguNjY5N1EzODYuNzc5NSA1Ny41NTcxIDM4OS41Nzg4IDU3LjU1NzFRMzk0LjUzMTQgNTcuNTU3MSAzOTcuNzEzNiA2MS40OTI5UTQwMC44OTU3IDY1LjQyODcgNDAwLjg5NTcgNzEuNjI1NVE0MDAuODk1NyA3Ny44MjIzIDM5Ny43MTM2IDgxLjc1ODFRMzk0LjUzMTQgODUuNjkzOCAzODkuNTc4OCA4NS42OTM4UTM4Ni43Nzk1IDg1LjY5MzggMzg0LjYyNjIgODQuNTgxM1EzODIuNDcyOSA4My40Njg4IDM4MC43MDIzIDgxLjEyNFpNMzg2LjM5NjcgNjMuNzc3OFEzODMuNjQ1MiA2My43Nzc4IDM4Mi4xNzM4IDY1Ljc5OTZRMzgwLjcwMjMgNjcuODIxMyAzODAuNzAyMyA3MS42MjU1UTM4MC43MDIzIDc1LjQyOTcgMzgyLjE3MzggNzcuNDUxNFEzODMuNjQ1MiA3OS40NzMxIDM4Ni4zOTY3IDc5LjQ3MzFRMzg5LjE0ODEgNzkuNDczMSAzOTAuNTk1NyA3Ny40NjM0UTM5Mi4wNDMyIDc1LjQ1MzYgMzkyLjA0MzIgNzEuNjI1NVEzOTIuMDQzMiA2Ny43OTc0IDM5MC41OTU3IDY1Ljc4NzZRMzg5LjE0ODEgNjMuNzc3OCAzODYuMzk2NyA2My43Nzc4WiIgZmlsbD0iIzIzMzUyYyIgLz48cGF0aCBkPSJNNDE3Ljg3MjkgNzIuOTQxNFE0MTUuMTkzMiA3Mi45NDE0IDQxMy44NDE0IDczLjg1MDZRNDEyLjQ4OTYgNzQuNzU5OCA0MTIuNDg5NiA3Ni41MzAzUTQxMi40ODk2IDc4LjE1NzIgNDEzLjU3ODIgNzkuMDc4NFE0MTQuNjY2OCA3OS45OTk1IDQxNi42MDQ4IDc5Ljk5OTVRNDE5LjAyMTMgNzkuOTk5NSA0MjAuNjcyMiA3OC4yNjQ5UTQyMi4zMjMgNzYuNTMwMyA0MjIuMzIzIDczLjkyMjRWNzIuOTQxNFpNNDMwLjk2MDMgNjkuNzExNFY4NUg0MjIuMzIzVjgxLjAyODNRNDIwLjYwMDQgODMuNDY4OCA0MTguNDQ3MSA4NC41ODEzUTQxNi4yOTM3IDg1LjY5MzggNDEzLjIwNzMgODUuNjkzOFE0MDkuMDQ0MiA4NS42OTM4IDQwNi40NDgzIDgzLjI2NTRRNDAzLjg1MjMgODAuODM2OSA0MDMuODUyMyA3Ni45NjA5UTQwMy44NTIzIDcyLjI0NzYgNDA3LjA5NDMgNzAuMDQ2NFE0MTAuMzM2MiA2Ny44NDUyIDQxNy4yNzQ3IDY3Ljg0NTJINDIyLjMyM1Y2Ny4xNzUzUTQyMi4zMjMgNjUuMTQxNiA0MjAuNzIgNjQuMTk2NVE0MTkuMTE3IDYzLjI1MTUgNDE1LjcxOTUgNjMuMjUxNVE0MTIuOTY4MSA2My4yNTE1IDQxMC41OTk0IDYzLjgwMThRNDA4LjIzMDggNjQuMzUyMSA0MDYuMTk3MSA2NS40NTI2VjU4LjkyMDlRNDA4Ljk0ODUgNTguMjUxIDQxMS43MjM5IDU3LjkwNDFRNDE0LjQ5OTMgNTcuNTU3MSA0MTcuMjc0NyA1Ny41NTcxUTQyNC41MjQyIDU3LjU1NzEgNDI3Ljc0MjIgNjAuNDE2M1E0MzAuOTYwMyA2My4yNzU0IDQzMC45NjAzIDY5LjcxMTRaIiBmaWxsPSIjMjMzNTJjIiAvPjxwYXRoIGQ9Ik00NDYuMTQzIDgxLjEyNFY5NS4xOTI0SDQzNy41Nzc1VjU4LjIwMzFINDQ2LjE0M1Y2Mi4xMjdRNDQ3LjkxMzUgNTkuNzgyMiA0NTAuMDY2OCA1OC42Njk3UTQ1Mi4yMjAxIDU3LjU1NzEgNDU1LjAxOTQgNTcuNTU3MVE0NTkuOTcyMSA1Ny41NTcxIDQ2My4xNTQyIDYxLjQ5MjlRNDY2LjMzNjMgNjUuNDI4NyA0NjYuMzM2MyA3MS42MjU1UTQ2Ni4zMzYzIDc3LjgyMjMgNDYzLjE1NDIgODEuNzU4MVE0NTkuOTcyMSA4NS42OTM4IDQ1NS4wMTk0IDg1LjY5MzhRNDUyLjIyMDEgODUuNjkzOCA0NTAuMDY2OCA4NC41ODEzUTQ0Ny45MTM1IDgzLjQ2ODggNDQ2LjE0MyA4MS4xMjRaTTQ1MS44MzczIDYzLjc3NzhRNDQ5LjA4NTggNjMuNzc3OCA0NDcuNjE0NCA2NS43OTk2UTQ0Ni4xNDMgNjcuODIxMyA0NDYuMTQzIDcxLjYyNTVRNDQ2LjE0MyA3NS40Mjk3IDQ0Ny42MTQ0IDc3LjQ1MTRRNDQ5LjA4NTggNzkuNDczMSA0NTEuODM3MyA3OS40NzMxUTQ1NC41ODg4IDc5LjQ3MzEgNDU2LjAzNjMgNzcuNDYzNFE0NTcuNDgzOCA3NS40NTM2IDQ1Ny40ODM4IDcxLjYyNTVRNDU3LjQ4MzggNjcuNzk3NCA0NTYuMDM2MyA2NS43ODc2UTQ1NC41ODg4IDYzLjc3NzggNDUxLjgzNzMgNjMuNzc3OFoiIGZpbGw9IiMyMzM1MmMiIC8+PHBhdGggZD0iTTQ3MS4zMDI3IDU4LjIwMzFINDc5Ljg2ODJWODVINDcxLjMwMjdaTTQ3MS4zMDI3IDQ3Ljc3MTVINDc5Ljg2ODJWNTQuNzU3OEg0NzEuMzAyN1oiIGZpbGw9IiMyMzM1MmMiIC8+PHBhdGggZD0iTTUxMy40OTc3IDcxLjUyOThWNzMuOTcwMkg0OTMuNDcxOFE0OTMuNzgyOCA3Ni45ODQ5IDQ5NS42NDkgNzguNDkyMlE0OTcuNTE1MiA3OS45OTk1IDUwMC44NjQ4IDc5Ljk5OTVRNTAzLjU2ODUgNzkuOTk5NSA1MDYuNDAzNyA3OS4xOThRNTA5LjIzODkgNzguMzk2NSA1MTIuMjI5NiA3Ni43Njk1VjgzLjM3M1E1MDkuMTkxIDg0LjUyMTUgNTA2LjE1MjQgODUuMTA3N1E1MDMuMTEzOSA4NS42OTM4IDUwMC4wNzUzIDg1LjY5MzhRNDkyLjgwMTkgODUuNjkzOCA0ODguNzcwNCA4MS45OTczUTQ4NC43Mzg5IDc4LjMwMDggNDg0LjczODkgNzEuNjI1NVE0ODQuNzM4OSA2NS4wNjk4IDQ4OC42OTg2IDYxLjMxMzVRNDkyLjY1ODMgNTcuNTU3MSA0OTkuNTk2OCA1Ny41NTcxUTUwNS45MTMyIDU3LjU1NzEgNTA5LjcwNTQgNjEuMzYxM1E1MTMuNDk3NyA2NS4xNjU1IDUxMy40OTc3IDcxLjUyOThaTTUwNC42OTMgNjguNjgyNlE1MDQuNjkzIDY2LjI0MjIgNTAzLjI2OTQgNjQuNzQ2OFE1MDEuODQ1OCA2My4yNTE1IDQ5OS41NDg5IDYzLjI1MTVRNDk3LjA2MDYgNjMuMjUxNSA0OTUuNTA1NSA2NC42NTExUTQ5My45NTAzIDY2LjA1MDggNDkzLjU2NzUgNjguNjgyNloiIGZpbGw9IiMyMzM1MmMiIC8+PHBhdGggZD0iTTUzOC41Mzc4IDY1LjUwMDVRNTM3LjQxMzMgNjQuOTc0MSA1MzYuMzAwNyA2NC43MjI5UTUzNS4xODgyIDY0LjQ3MTcgNTM0LjA2MzcgNjQuNDcxN1E1MzAuNzYxOSA2NC40NzE3IDUyOC45Nzk0IDY2LjU4OTFRNTI3LjE5NyA2OC43MDY1IDUyNy4xOTcgNzIuNjU0M1Y4NUg1MTguNjMxNVY1OC4yMDMxSDUyNy4xOTdWNjIuNjA1NVE1MjguODQ3OSA1OS45NzM2IDUzMC45ODkyIDU4Ljc2NTRRNTMzLjEzMDYgNTcuNTU3MSA1MzYuMTIxMyA1Ny41NTcxUTUzNi41NTIgNTcuNTU3MSA1MzcuMDU0NCA1Ny41OTNRNTM3LjU1NjggNTcuNjI4OSA1MzguNTEzOSA1Ny43NDg1WiIgZmlsbD0iIzIzMzUyYyIgLz48L2c+PC9zdmc+Cg==" alt="Schmierpapier" width="600" height="136">
         </a>
         <span class="version">
-          v 0.6
+          v 0.6.5
         </span>
       </div>
       <div class="toolbar-groups" id="toolbarGroups">
@@ -2713,6 +2750,8 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
           </button>
         </div>
         <div class="toolbar-group paging" data-toolbar-group="geometry" role="group" aria-label="Zeichenwerkzeuge">
+          <button id="lineStyleToggle" title="Durchgezogen oder gestrichelt zeichnen (J halten)" aria-label="Linientyp: durchgezogen" aria-pressed="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path id="lineStyleIcon" d="M2 12h20"/></svg></button>
+          <button id="constructionPoint" title="Konstruktionspunkte setzen und beschriften (H halten)" aria-label="Konstruktionspunkte" aria-pressed="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 16h12M9 10v12"/><text x="15" y="10" font-size="10" stroke="none" fill="currentColor">A</text></svg></button>
           <button id="numberLineToggle" title="Zahlenstrahl: Start und Ziel anklicken oder N halten und mit Pfeiltasten zeichnen. Nach zwei Strahlen zurück zum vorherigen Werkzeug; Esc beendet früher." aria-label="Zahlenstrahl zeichnen" aria-pressed="false">
             <svg width="29" height="20" viewBox="0 0 32 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
               <path d="M2 12h27M25 8l4 4-4 4M4 7v10M10 9v6M16 7v10M22 9v6">
@@ -2936,28 +2975,28 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       <button data-stretch="down" data-size="stretch-down" data-symbol="&gt;" title="Beliebig hoch nach unten">&gt;<small aria-hidden="true">↡</small></button>
     </div>
     <div id="integralChoiceMenu" class="extra-menu" role="group" aria-label="Integrale auswählen" hidden>
-      <button data-symbol="∫" data-stretch="up" data-size="stretch-up" title="Beliebig hoch nach oben">∫↟</button>
-      <button data-symbol="∫" data-definite="true" data-stretch="up" data-size="stretch-up" title="Bestimmtes Integral: Beliebig hoch nach oben">∫ₐᵇ↟</button>
-      <button data-symbol="∫" data-size="up" title="Doppelhoch nach oben">∫↑</button>
-      <button data-symbol="∫" data-definite="true" data-size="up" title="Bestimmtes Integral nach oben">∫ₐᵇ↑</button>
-      <button data-symbol="∫" title="Normal · auch Index/Potenz">∫</button>
-      <button data-symbol="∫" data-definite="true" title="Bestimmtes Integral normal">∫ₐᵇ</button>
-      <button data-symbol="∫" data-size="down" title="Doppelhoch nach unten">∫↓</button>
-      <button data-symbol="∫" data-definite="true" data-size="down" title="Bestimmtes Integral nach unten">∫ₐᵇ↓</button>
-      <button data-symbol="∫" data-stretch="down" data-size="stretch-down" title="Beliebig hoch nach unten">∫↡</button>
-      <button data-symbol="∫" data-definite="true" data-stretch="down" data-size="stretch-down" title="Bestimmtes Integral: Beliebig hoch nach unten">∫ₐᵇ↡</button>
+      <button data-symbol="∫" data-stretch="up" data-size="stretch-up" title="Beliebig hoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/></svg><small aria-hidden="true">↟</small></button>
+      <button data-symbol="∫" data-definite="true" data-stretch="up" data-size="stretch-up" title="Bestimmtes Integral: Beliebig hoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/><g class="symbol-parameters" fill="currentColor" stroke="none"><text x="23" y="10">b</text><text x="18" y="33">a</text></g></svg><small aria-hidden="true">↟</small></button>
+      <button data-symbol="∫" data-size="up" title="Doppelhoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/></svg><small aria-hidden="true">↑</small></button>
+      <button data-symbol="∫" data-definite="true" data-size="up" title="Bestimmtes Integral nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/><g class="symbol-parameters" fill="currentColor" stroke="none"><text x="23" y="10">b</text><text x="18" y="33">a</text></g></svg><small aria-hidden="true">↑</small></button>
+      <button data-symbol="∫" title="Normal · auch Index/Potenz"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/></svg></button>
+      <button data-symbol="∫" data-definite="true" title="Bestimmtes Integral normal"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/><g class="symbol-parameters" fill="currentColor" stroke="none"><text x="23" y="10">b</text><text x="18" y="33">a</text></g></svg></button>
+      <button data-symbol="∫" data-size="down" title="Doppelhoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/></svg><small aria-hidden="true">↓</small></button>
+      <button data-symbol="∫" data-definite="true" data-size="down" title="Bestimmtes Integral nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/><g class="symbol-parameters" fill="currentColor" stroke="none"><text x="23" y="10">b</text><text x="18" y="33">a</text></g></svg><small aria-hidden="true">↓</small></button>
+      <button data-symbol="∫" data-stretch="down" data-size="stretch-down" title="Beliebig hoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/></svg><small aria-hidden="true">↡</small></button>
+      <button data-symbol="∫" data-definite="true" data-stretch="down" data-size="stretch-down" title="Bestimmtes Integral: Beliebig hoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/><g class="symbol-parameters" fill="currentColor" stroke="none"><text x="23" y="10">b</text><text x="18" y="33">a</text></g></svg><small aria-hidden="true">↡</small></button>
     </div>
     <div id="rootChoiceMenu" class="extra-menu" role="group" aria-label="Wurzelgröße auswählen" hidden>
-      <button data-symbol="√" data-stretch="up" data-size="stretch-up" title="Beliebig hoch nach oben">√↟</button>
-      <button data-symbol="√" data-root-degree="true" data-stretch="up" data-size="stretch-up" title="Beliebige Wurzel: Beliebig hoch nach oben">ⁿ√↟</button>
-      <button data-symbol="√" data-size="up" title="Doppelhoch nach oben">√↑</button>
-      <button data-symbol="√" data-root-degree="true" data-size="up" title="Andere Wurzel nach oben">ⁿ√↑</button>
-      <button data-symbol="√" title="Normal · auch Index/Potenz">√</button>
-      <button data-symbol="√" data-root-degree="true" title="Andere Wurzel normal">ⁿ√</button>
-      <button data-symbol="√" data-size="down" title="Doppelhoch nach unten">√↓</button>
-      <button data-symbol="√" data-root-degree="true" data-size="down" title="Andere Wurzel nach unten">ⁿ√↓</button>
-      <button data-symbol="√" data-stretch="down" data-size="stretch-down" title="Beliebig hoch nach unten">√↡</button>
-      <button data-symbol="√" data-root-degree="true" data-stretch="down" data-size="stretch-down" title="Beliebige Wurzel: Beliebig hoch nach unten">ⁿ√↡</button>
+      <button data-symbol="√" data-stretch="up" data-size="stretch-up" title="Beliebig hoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/></svg><small aria-hidden="true">↟</small></button>
+      <button data-symbol="√" data-root-degree="true" data-stretch="up" data-size="stretch-up" title="Beliebige Wurzel: Beliebig hoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/><text class="symbol-parameters" x="9" y="11" fill="currentColor" stroke="none">n</text></svg><small aria-hidden="true">↟</small></button>
+      <button data-symbol="√" data-size="up" title="Doppelhoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/></svg><small aria-hidden="true">↑</small></button>
+      <button data-symbol="√" data-root-degree="true" data-size="up" title="Andere Wurzel nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/><text class="symbol-parameters" x="9" y="11" fill="currentColor" stroke="none">n</text></svg><small aria-hidden="true">↑</small></button>
+      <button data-symbol="√" title="Normal · auch Index/Potenz"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/></svg></button>
+      <button data-symbol="√" data-root-degree="true" title="Andere Wurzel normal"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/><text class="symbol-parameters" x="9" y="11" fill="currentColor" stroke="none">n</text></svg></button>
+      <button data-symbol="√" data-size="down" title="Doppelhoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/></svg><small aria-hidden="true">↓</small></button>
+      <button data-symbol="√" data-root-degree="true" data-size="down" title="Andere Wurzel nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/><text class="symbol-parameters" x="9" y="11" fill="currentColor" stroke="none">n</text></svg><small aria-hidden="true">↓</small></button>
+      <button data-symbol="√" data-stretch="down" data-size="stretch-down" title="Beliebig hoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/></svg><small aria-hidden="true">↡</small></button>
+      <button data-symbol="√" data-root-degree="true" data-stretch="down" data-size="stretch-down" title="Beliebige Wurzel: Beliebig hoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/><text class="symbol-parameters" x="9" y="11" fill="currentColor" stroke="none">n</text></svg><small aria-hidden="true">↡</small></button>
     </div>
     <div id="logicMenu" class="extra-menu" role="group" aria-label="Logikzeichen auswählen" hidden></div>
     <div id="setsMenu" class="extra-menu" role="group" aria-label="Mengenzeichen auswählen" hidden></div>
@@ -2979,6 +3018,15 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       <button data-task-height="1" title="Aufgabenbezeichnung: normale Höhe">1a) · 1 × 2</button>
       <button data-task-height="2" title="Aufgabenbezeichnung: doppelte Höhe">1a) · 2 × 2</button>
     </div>
+    <dialog id="inputDialog" tabindex="-1" aria-labelledby="inputDialogTitle" aria-describedby="inputDialogLabel inputDialogHint">
+      <form id="inputDialogForm">
+        <h2 id="inputDialogTitle">Eingabe</h2>
+        <label id="inputDialogLabel" for="inputDialogValue"></label>
+        <input id="inputDialogValue" type="text" autocomplete="off" spellcheck="false" aria-describedby="inputDialogHint inputDialogError">
+        <p id="inputDialogHint" role="status"></p><p id="inputDialogError" role="alert"></p>
+        <div class="dialog-actions"><button id="inputDialogCancel" type="button">Abbrechen</button><button id="inputDialogAccept" type="submit">Bestätigen</button></div>
+      </form>
+    </dialog>
     <dialog id="settingsDialog" aria-labelledby="settingsTitle">
       <form id="settingsForm">
         <h2 id="settingsTitle">Einstellungen</h2>
@@ -3003,7 +3051,7 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         <div class="help-head">
           <div>
             <h2 id="helpTitle">Schmierpapier · Hilfe</h2>
-            <p>Alle Werkzeuge und Tastenkürzel · v 0.6</p>
+            <p>Alle Werkzeuge und Tastenkürzel · v 0.6.5</p>
           </div>
           <button id="helpClose" title="Hilfe schließen (Esc)" aria-label="Hilfe schließen">✕</button>
         </div>
@@ -3168,7 +3216,7 @@ const LOCALE_DE = {
     "DIN A4 · 5 mm kariert · 1 Zeichen pro Kästchen": "DIN A4 · 5 mm kariert · 1 Zeichen pro Kästchen",
     "DIN A4 · Millimeterpapier · Zeichnen: 1 mm · Schrift: 5 mm": "DIN A4 · Millimeterpapier · Zeichnen: 1 mm · Schrift: 5 mm",
     "Schmierpapier · Hilfe": "Schmierpapier · Hilfe",
-    "Alle Werkzeuge und Tastenkürzel · v 0.6": "Alle Werkzeuge und Tastenkürzel · v 0.6",
+    "Alle Werkzeuge und Tastenkürzel · v 0.6.5": "Alle Werkzeuge und Tastenkürzel · v 0.6.5",
     "Hilfe schließen (Esc)": "Hilfe schließen (Esc)",
     "Hilfe schließen": "Hilfe schließen",
     "Hilfe durchsuchen": "Hilfe durchsuchen",
@@ -3469,7 +3517,7 @@ const LOCALE_DE = {
     "Weitere Vergleichszeichen": "Weitere Vergleichszeichen",
     "Vergleichszeichen auswählen": "Vergleichszeichen auswählen",
     "Strg: doppelhoch nach unten · Shift: nach oben": "Strg: doppelhoch nach unten · Shift: nach oben",
-    "Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste bestätigt · Esc bricht ab": "Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste bestätigt · Esc bricht ab",
+    "Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste bestätigt · Esc bricht ab": "Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste oder Enter bestätigt · Esc bricht ab",
     "Von Benni": "Von Benni",
     "und mit Herz": "und mit Herz",
     "= · Strg: doppelhoch nach unten · Shift: nach oben": "= · Strg: doppelhoch nach unten · Shift: nach oben",
@@ -3516,8 +3564,8 @@ const LOCALE_DE = {
     "Klicke auf „＋ Seite“ oder halte Einfügen etwa 0,6 Sekunden. Im Papiermenü ist Karo vorausgewählt: Bestätige mit Enter. Die neue Seite wird aktiviert. Außerhalb dieser Übung kannst du dort auch Millimeterpapier wählen.": "Klicke auf „＋ Seite“ oder halte Einfügen etwa 0,6 Sekunden. Im Papiermenü ist Karo vorausgewählt: Bestätige mit Enter. Die neue Seite wird aktiviert. Außerhalb dieser Übung kannst du dort auch Millimeterpapier wählen.",
     "Klicke auf „Zurück“ oder halte PageUp (Bild ↑), um zur ersten Seite zurückzublättern.": "Klicke auf „Zurück“ oder halte PageUp (Bild ↑), um zur ersten Seite zurückzublättern.",
     "Klicke auf „Vor“ oder halte PageDown (Bild ↓), um zur zweiten Seite zu blättern.": "Klicke auf „Vor“ oder halte PageDown (Bild ↓), um zur zweiten Seite zu blättern.",
-    "Pfeiltasten markieren den Bereich · gleiche Taste länger halten bestätigt · Esc bricht ab": "Pfeiltasten markieren den Bereich · gleiche Taste länger halten bestätigt · Esc bricht ab",
-    "Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste länger halten fügt ein · Esc bricht ab": "Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste länger halten fügt ein · Esc bricht ab",
+    "Pfeiltasten markieren den Bereich · gleiche Taste länger halten bestätigt · Esc bricht ab": "Pfeiltasten markieren den Bereich · gleiche Taste oder Enter bestätigt · Esc bricht ab",
+    "Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste länger halten fügt ein · Esc bricht ab": "Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste oder Enter fügt ein · Esc bricht ab",
     "Gehe mit den Pfeiltasten zum gold markierten Zielkästchen.": "Gehe mit den Pfeiltasten zum gold markierten Zielkästchen.",
     "Markiere genau den gold hervorgehobenen Bereich mit den Pfeiltasten.": "Markiere genau den gold hervorgehobenen Bereich mit den Pfeiltasten.",
     "Halte die angegebene Taste länger gedrückt, bis die Aktion startet.": "Halte die angegebene Taste länger gedrückt, bis die Aktion startet.",
@@ -3746,7 +3794,34 @@ const LOCALE_DE = {
     "Für den Bruch fehlt unten eine zweite Kästchenzeile.": "Für den Bruch fehlt unten eine zweite Kästchenzeile.",
     "Bitte Zähler und Nenner jeweils in einer Zeile eingeben.": "Bitte Zähler und Nenner jeweils in einer Zeile eingeben.",
     "Der Bruch passt hier nicht auf das Blatt. Wähle ein Kästchen weiter links oder kürzere Eingaben.": "Der Bruch passt hier nicht auf das Blatt. Wähle ein Kästchen weiter links oder kürzere Eingaben.",
-    "Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).": "Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten)."
+    "Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).": "Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).",
+    "Durchgezogen oder gestrichelt zeichnen (J halten)": "Durchgezogen oder gestrichelt zeichnen (J halten)",
+    "Linientyp: durchgezogen": "Linientyp: durchgezogen",
+    "Linientyp: gestrichelt": "Linientyp: gestrichelt",
+    "Neue Linien werden gestrichelt gezeichnet": "Neue Linien werden gestrichelt gezeichnet",
+    "Neue Linien werden durchgezogen gezeichnet": "Neue Linien werden durchgezogen gezeichnet",
+    "Konstruktionspunkte setzen und beschriften (H halten)": "Konstruktionspunkte setzen und beschriften (H halten)",
+    "Konstruktionspunkte": "Konstruktionspunkte",
+    "Konstruktionspunkt: klicken oder Pfeile zum Positionieren · Enter beschriftet · Esc beendet": "Konstruktionspunkt: klicken oder Pfeile zum Positionieren · Enter beschriftet · Esc beendet",
+    "Punkt beschriften (zum Beispiel A, leer lassen für einen unbeschrifteten Punkt):": "Punkt beschriften (zum Beispiel A, leer lassen für einen unbeschrifteten Punkt):",
+    "Die Punktbeschriftung darf höchstens 40 Zeichen in einer Zeile enthalten.": "Die Punktbeschriftung darf höchstens 40 Zeichen in einer Zeile enthalten.",
+    "Maximal 10000 Konstruktionspunkte pro Seite.": "Maximal 10000 Konstruktionspunkte pro Seite.",
+    "Ungültige Konstruktionspunkte.": "Ungültige Konstruktionspunkte.",
+    "Linien durchgezogen oder gestrichelt zeichnen (J halten) und beschriftete Konstruktionspunkte setzen (H halten).": "Linien durchgezogen oder gestrichelt zeichnen (J halten) und beschriftete Konstruktionspunkte setzen (H halten).",
+    "Eingabe": "Eingabe",
+    "Bestätigung": "Bestätigung",
+    "Bestätigen": "Bestätigen",
+    "Aktivierungstaste loslassen, dann eingeben.": "Aktivierungstaste loslassen, dann eingeben.",
+    "Enter bestätigt · Esc bricht ab": "Enter bestätigt · Esc bricht ab",
+    "Einheitliche Bestätigung per Enter oder Werkzeugtaste; Eingabedialoge warten auf das Loslassen gehaltener Tasten.": "Einheitliche Bestätigung per Enter oder Werkzeugtaste; Eingabedialoge warten auf das Loslassen gehaltener Tasten.",
+    "Alternativ bestätigt Enter den aktuellen Schritt. Die Aktivierungstaste nach dem Loslassen einmal drücken bestätigt ebenfalls, sofern sie nicht zur Texteingabe dient.": "Alternativ bestätigt Enter den aktuellen Schritt. Die Aktivierungstaste nach dem Loslassen einmal drücken bestätigt ebenfalls, sofern sie nicht zur Texteingabe dient.",
+    "Pfeiltasten markieren den Bereich · gleiche Taste oder Enter bestätigt · Esc bricht ab": "Pfeiltasten markieren den Bereich · gleiche Taste oder Enter bestätigt · Esc bricht ab",
+    "Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste fügt ein · Esc bricht ab": "Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste fügt ein · Esc bricht ab",
+    "Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste oder Enter bestätigt · Esc bricht ab": "Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste oder Enter bestätigt · Esc bricht ab",
+    "Nach dem Setzen oder Bearbeiten eines Punkts schaltet sich das Punkt-Werkzeug automatisch aus. Für einen weiteren Punkt erneut aktivieren.": "Nach dem Setzen oder Bearbeiten eines Punkts schaltet sich das Punkt-Werkzeug automatisch aus. Für einen weiteren Punkt erneut aktivieren.",
+    "G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.": "G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.",
+    "Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.": "Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.",
+    "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.": "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons."
   },
   "helpInitial": [
     {
@@ -3908,7 +3983,7 @@ const LOCALE_DE = {
     },
     {
       "title": "Tastaturbereiche: Radieren, Kopieren und Ausschneiden",
-      "html": "<p>Im aktiven Schreibkästchen ohne Strg/Shift: Halte R, C oder X etwa 0,6 Sekunden. R startet den Bereichsradierer, C Kopieren, X Ausschneiden. Das aktuelle Kästchen ist der Startpunkt. Erweitere oder verkleinere das rote gestrichelte Rechteck mit den Pfeiltasten in alle Richtungen. Halte dieselbe Taste nach dem Loslassen erneut, um die Auswahl zu bestätigen. Esc verwirft die Auswahl ohne Änderung.</p><p>R entfernt im bestätigten Bereich Textmarker und berührte normale Linien, Bleistiftstriche, Kreisbögen, Freihandstriche und Zahlenstrahlen. Schrift, Indizes, Potenzen und große Schriftzeichen bleiben erhalten. Berührte Striche werden als Ganzes entfernt; ein Zirkelbogen bleibt eine Radier-Einheit. Linien genau auf dem äußeren Kästchenrand werden nicht allein durch das Markieren angrenzender Kästchen radiert.</p><p>Bei C/X bleibt der Ursprung gestrichelt markiert. Wähle mit den Pfeiltasten die linke obere Ecke des Ziels und bestätige mit Enter oder erneut langem C/X. Du kannst auch das Ziel anklicken oder mit langem PageUp/PageDown die Seite wechseln. Ausschneiden entfernt die Quelle erst beim Einfügen. Das Ziel wird wie beim Kopieren per Maus vollständig ersetzt, einschließlich leerer Quellkästchen. Esc bricht auch vor dem Einfügen ohne Änderung ab. Rückgängig macht die fertige Aktion rückgängig.</p><p>Ein kurzer Tastendruck schreibt weiterhin r, c oder x. Strg+C/X behalten ihre normalen Funktionen. Die neuen Aktionen gelten im Schreibkästchen, nicht in Dokumentnamen, Such- oder Achsenbeschriftungsfeldern. Das Tutorial erklärt und erlaubt Maus oder Tastatur für Kopieren und Ausschneiden; eine Radierübung ist dort nicht enthalten.</p>",
+      "html": "<p>Im aktiven Schreibkästchen ohne Strg/Shift: Halte R, C oder X etwa 0,6 Sekunden. R startet den Bereichsradierer, C Kopieren, X Ausschneiden. Das aktuelle Kästchen ist der Startpunkt. Erweitere oder verkleinere das rote gestrichelte Rechteck mit den Pfeiltasten in alle Richtungen. Drücke nach dem Loslassen dieselbe Taste oder Enter, um die Auswahl zu bestätigen. Esc verwirft die Auswahl ohne Änderung.</p><p>R entfernt im bestätigten Bereich Textmarker und berührte normale Linien, Bleistiftstriche, Kreisbögen, Freihandstriche und Zahlenstrahlen. Schrift, Indizes, Potenzen und große Schriftzeichen bleiben erhalten. Berührte Striche werden als Ganzes entfernt; ein Zirkelbogen bleibt eine Radier-Einheit. Linien genau auf dem äußeren Kästchenrand werden nicht allein durch das Markieren angrenzender Kästchen radiert.</p><p>Bei C/X bleibt der Ursprung gestrichelt markiert. Wähle mit den Pfeiltasten die linke obere Ecke des Ziels und bestätige mit Enter oder C/X. Du kannst auch das Ziel anklicken oder mit langem PageUp/PageDown die Seite wechseln. Ausschneiden entfernt die Quelle erst beim Einfügen. Das Ziel wird wie beim Kopieren per Maus vollständig ersetzt, einschließlich leerer Quellkästchen. Esc bricht auch vor dem Einfügen ohne Änderung ab. Rückgängig macht die fertige Aktion rückgängig.</p><p>Ein kurzer Tastendruck schreibt weiterhin r, c oder x. Strg+C/X behalten ihre normalen Funktionen. Die neuen Aktionen gelten im Schreibkästchen, nicht in Dokumentnamen, Such- oder Achsenbeschriftungsfeldern. Das Tutorial erklärt und erlaubt Maus oder Tastatur für Kopieren und Ausschneiden; eine Radierübung ist dort nicht enthalten.</p>",
       "keywords": "halten hold maintenir r c x radieren kopieren ausschneiden copy cut erase gomme copier couper pageup pagedown insert delete einfügen entf klammer F8 F9"
     },
     {
@@ -3933,7 +4008,7 @@ const LOCALE_DE = {
     },
     {
       "title": "Zahlenstrahl per Tastatur",
-      "html": "<p>Halte N (Number line) im Schreibkästchen etwa 0,6 Sekunden. Zunächst erscheint ein roter Startpunkt. Die erste Pfeiltaste legt Orientierung und Pfeilrichtung fest: Links/Rechts waagerecht, Hoch/Runter senkrecht. Danach erscheint die rote gestrichelte Pfeilvorschau. Waagerecht beginnt sie am unteren Kästchenrand. Links/Rechts ändern die Länge und Pfeilrichtung; Hoch/Runter wählen oben oder unten. Hoch+Runter zusammen wechselt zur senkrechten Richtung, Links+Rechts zur waagerechten. Senkrecht ändern Hoch/Runter die Länge und Links/Rechts die Kante. Die zur aktuellen Richtung passende Kombination bestätigt; alternativ N loslassen und erneut halten. Das aktuelle Kästchen bleibt enthalten. Esc verwirft die Vorschau und beendet das Werkzeug. Die Beschriftung erfolgt wie mit der Maus: Marken selbst eingeben, Enter weiter, Esc leer lassen. Danach kannst du zum nächsten Startkästchen navigieren und N erneut halten. Nach zwei Strahlen geht es zum vorherigen Werkzeug zurück. Kreuzende Achsen verwenden denselben unbeschrifteten Nullpunkt; beide werden händisch neu beschriftet. Kurzes N schreibt weiterhin n. Im Tutorial bleibt N beim Nummernblock-Schritt die Überspringen-Taste.</p>",
+      "html": "<p>Halte N (Number line) im Schreibkästchen etwa 0,6 Sekunden. Zunächst erscheint ein roter Startpunkt. Die erste Pfeiltaste legt Orientierung und Pfeilrichtung fest: Links/Rechts waagerecht, Hoch/Runter senkrecht. Danach erscheint die rote gestrichelte Pfeilvorschau. Waagerecht beginnt sie am unteren Kästchenrand. Links/Rechts ändern die Länge und Pfeilrichtung; Hoch/Runter wählen oben oder unten. Hoch+Runter zusammen wechselt zur senkrechten Richtung, Links+Rechts zur waagerechten. Senkrecht ändern Hoch/Runter die Länge und Links/Rechts die Kante. Die zur aktuellen Richtung passende Kombination bestätigt; alternativ N loslassen und erneut drücken oder Enter. Das aktuelle Kästchen bleibt enthalten. Esc verwirft die Vorschau und beendet das Werkzeug. Die Beschriftung erfolgt wie mit der Maus: Marken selbst eingeben, Enter weiter, Esc leer lassen. Danach kannst du zum nächsten Startkästchen navigieren und N erneut halten. Nach zwei Strahlen geht es zum vorherigen Werkzeug zurück. Kreuzende Achsen verwenden denselben unbeschrifteten Nullpunkt; beide werden händisch neu beschriftet. Kurzes N schreibt weiterhin n. Im Tutorial bleibt N beim Nummernblock-Schritt die Überspringen-Taste.</p>",
       "keywords": "zahlenstrahl number line axe gradué N halten keyboard tastatur clavier"
     },
     {
@@ -3978,7 +4053,7 @@ const LOCALE_DE = {
     },
     {
       "title": "Textmarker, Durchstreichen und Dateitasten",
-      "html": "<p>Halte 5 für Pink, 6 für Neongelb oder 7 für Neongrün etwa 0,6 Sekunden. Obere Zahlenreihe und Nummernblock funktionieren. Ein rotes gestricheltes Rechteck startet am aktuellen Kästchen. Pfeile erweitern/verkleinern die Auswahl; dieselbe Ziffer nach dem Loslassen erneut halten bestätigt die Markierung. S halten startet entsprechend Durchstreichen; Pfeile wählen den Bereich, erneut S halten zeichnet einen Strich von links unten nach rechts oben in der gewählten Stiftfarbe. Esc verwirft eine Auswahl ohne Änderung. Text bleibt erhalten. Kurze 5/6/7- und s-Eingaben bleiben normale Zeichen. Strg+S bleibt Speichern, Strg+Z Rückgängig. Der Radierer entfernt Markierungen und Durchstreichungen wie bisher. Strg+N erstellt eine neue Datei, Strg+O öffnet die Dateiauswahl, sofern der Browser die Tastendrücke an die Seite weitergibt. Da insbesondere Strg+N vom Browser belegt sein kann, sind O halten eine Alternative zum Öffnen im Schreibkästchen; Neue Datei bleibt über den Button erreichbar. Die vorhandene Rückfrage vor dem Ersetzen bleibt. F11 schaltet Vollbild, sofern die Seite das Ereignis erhält; andernfalls gilt das browserseitige Vollbildverhalten. Halte-Aktionen betreffen keine Namen oder Suchfelder. Die Tastenhilfe zeigt die neuen Kürzel.</p>",
+      "html": "<p>Halte 5 für Pink, 6 für Neongelb oder 7 für Neongrün etwa 0,6 Sekunden. Obere Zahlenreihe und Nummernblock funktionieren. Ein rotes gestricheltes Rechteck startet am aktuellen Kästchen. Pfeile erweitern/verkleinern die Auswahl; dieselbe Ziffer nach dem Loslassen einmal drücken oder Enter bestätigt die Markierung. S halten startet entsprechend Durchstreichen; Pfeile wählen den Bereich, S oder Enter zeichnet einen Strich von links unten nach rechts oben in der gewählten Stiftfarbe. Esc verwirft eine Auswahl ohne Änderung. Text bleibt erhalten. Kurze 5/6/7- und s-Eingaben bleiben normale Zeichen. Strg+S bleibt Speichern, Strg+Z Rückgängig. Der Radierer entfernt Markierungen und Durchstreichungen wie bisher. Strg+N erstellt eine neue Datei, Strg+O öffnet die Dateiauswahl, sofern der Browser die Tastendrücke an die Seite weitergibt. Da insbesondere Strg+N vom Browser belegt sein kann, sind O halten eine Alternative zum Öffnen im Schreibkästchen; Neue Datei bleibt über den Button erreichbar. Die vorhandene Rückfrage vor dem Ersetzen bleibt. F11 schaltet Vollbild, sofern die Seite das Ereignis erhält; andernfalls gilt das browserseitige Vollbildverhalten. Halte-Aktionen betreffen keine Namen oder Suchfelder. Die Tastenhilfe zeigt die neuen Kürzel.</p>",
       "keywords": "5 6 7 S B O F11 textmarker highlighter surligneur durchstreichen strike barrer neu öffnen fullscreen vollbild"
     },
     {
@@ -4054,12 +4129,22 @@ const LOCALE_DE = {
     {
       "title": "Farbschema und Bilder einfügen",
       "keywords": "dark dunkel hell system bild foto dpi auflösung parallel B halten",
-      "html": "<p>In den Einstellungen wählst du unter Farbschema System (Standard), Hell oder Dunkel. System folgt auch späteren Änderungen des Betriebssystems oder Browsers. Das Papier behält seine hellen Farben und die gewählten Tintenfarben; PDF und Druck bleiben unverändert. Die Auswahl wird wie die übrigen Einstellungen mit Zustimmung im Browser und in .schmier-Dateien gespeichert.</p><p>Der Bild-Button oder B halten startet eine rote gestrichelte Bereichsauswahl am aktuellen Kästchen. Ziehe mit der linken Maustaste ein Rechteck auf; beim Loslassen öffnet sich die Dateiauswahl. Alternativ erweitern die Pfeiltasten den Bereich und Enter öffnet die Dateiauswahl. Bild auswählen öffnet sie erneut, etwa nach einem Abbruch. Ein kurzer B-Druck schreibt weiterhin b. Neue Datei erreichst du mit dem Button oder Strg+N, sofern der Browser die Kombination weitergibt.</p><p>PNG, JPEG, WebP, GIF (als Standbild) und BMP sind möglich, bis 20 MB und 64 Megapixel. In den Einstellungen wählst du 100, 200, 300 (Standard), 400, 500 oder 600 dpi. Der Bereich wird zuerst ohne Verzerrung vollständig ausgefüllt: Bei unterschiedlichem Seitenverhältnis werden die überstehenden Ränder beschnitten. Die Auflösung bezieht sich auf die spätere Größe auf dem A4-Papier; sie erzeugt keine neuen Bilddetails.</p><p>Vor Übernehmen kannst du mit Mausrad oder +/− zoomen und mit gedrückter linker Maustaste oder Pfeiltasten verschieben (1 mm je Pfeilschritt). Dabei darf freier Platz entstehen. Die roten Grenzen zeigen den später gespeicherten Ausschnitt. Enter oder Übernehmen fügt ihn ein; Esc oder Abbrechen verwirft alle Änderungen. Ein Doppelklick auf ein eingefügtes Bild öffnet erneut die Anpassung mit Bild löschen. Bereits abgeschnittene Bildteile werden nicht gespeichert und sind später nur durch erneute Dateiauswahl wieder verfügbar.</p><p>Bilder liegen hinter der Schrift. Sie sind offline im Dokument eingebettet und werden mit .schmier, Browsersicherung bei Zustimmung, Rückgängig/Wiederholen, PDF und Druck erhalten. Bei Kopieren/Ausschneiden muss der gesamte Bildbereich ausgewählt sein; teilweise berührte Bilder bleiben unverändert. Höhere dpi ergeben größere Dateien. Ein Ausschnitt darf bis 36 Megapixel haben; insgesamt sind etwa 50 MB eingebettete Bilddaten pro Dokument erlaubt. Alte Dateien ohne Bilder bleiben lesbar.</p><p>Im Menü Verschiedene Symbole (Z halten) findest du ∥ für parallel zu, zum Beispiel a ∥ b. Es wird wie die anderen mathematischen Zeichen eingegeben.</p><p>Beim Zoomen und Verschieben bleibt die Originalauflösung erhalten. Erst Übernehmen schneidet unsichtbare Bildteile ab und skaliert den fertigen Ausschnitt auf die gewählte DPI-Auflösung.</p><p>Der Radierer löscht berührte Bilder als Ganzes. Das gilt auch für die mit R halten gewählte Radierfläche; eine teilweise Überlappung genügt. Rückgängig stellt gelöschte Bilder wieder her.</p><p>Wird der bereits aktive Radierer erneut angeklickt, wechselt die Anwendung zum zuletzt verwendeten Stift mit seiner Farbe zurück. Eine laufende Tastatur-Radierauswahl wird dabei abgebrochen. R halten startet weiterhin eine Radierfläche; erneutes R halten bestätigt sie.</p><p>Auch Stift-, Marker-, Radierer- und griechische Symbolbuttons haben im Darkmode dunkle Hintergründe; die Symbolfarben sind für gute Sichtbarkeit angepasst. Die tatsächlichen Schreibfarben bleiben gleich.</p><p>Nach dem Bestätigen einer Tastatur-Radierfläche (erneut R halten) wird automatisch der letzte Stift mit seiner Farbe aktiviert.</p>"
+      "html": "<p>In den Einstellungen wählst du unter Farbschema System (Standard), Hell oder Dunkel. System folgt auch späteren Änderungen des Betriebssystems oder Browsers. Das Papier behält seine hellen Farben und die gewählten Tintenfarben; PDF und Druck bleiben unverändert. Die Auswahl wird wie die übrigen Einstellungen mit Zustimmung im Browser und in .schmier-Dateien gespeichert.</p><p>Der Bild-Button oder B halten startet eine rote gestrichelte Bereichsauswahl am aktuellen Kästchen. Ziehe mit der linken Maustaste ein Rechteck auf; beim Loslassen öffnet sich die Dateiauswahl. Alternativ erweitern die Pfeiltasten den Bereich und Enter öffnet die Dateiauswahl. Bild auswählen öffnet sie erneut, etwa nach einem Abbruch. Ein kurzer B-Druck schreibt weiterhin b. Neue Datei erreichst du mit dem Button oder Strg+N, sofern der Browser die Kombination weitergibt.</p><p>PNG, JPEG, WebP, GIF (als Standbild) und BMP sind möglich, bis 20 MB und 64 Megapixel. In den Einstellungen wählst du 100, 200, 300 (Standard), 400, 500 oder 600 dpi. Der Bereich wird zuerst ohne Verzerrung vollständig ausgefüllt: Bei unterschiedlichem Seitenverhältnis werden die überstehenden Ränder beschnitten. Die Auflösung bezieht sich auf die spätere Größe auf dem A4-Papier; sie erzeugt keine neuen Bilddetails.</p><p>Vor Übernehmen kannst du mit Mausrad oder +/− zoomen und mit gedrückter linker Maustaste oder Pfeiltasten verschieben (1 mm je Pfeilschritt). Dabei darf freier Platz entstehen. Die roten Grenzen zeigen den später gespeicherten Ausschnitt. Enter oder Übernehmen fügt ihn ein; Esc oder Abbrechen verwirft alle Änderungen. Ein Doppelklick auf ein eingefügtes Bild öffnet erneut die Anpassung mit Bild löschen. Bereits abgeschnittene Bildteile werden nicht gespeichert und sind später nur durch erneute Dateiauswahl wieder verfügbar.</p><p>Bilder liegen hinter der Schrift. Sie sind offline im Dokument eingebettet und werden mit .schmier, Browsersicherung bei Zustimmung, Rückgängig/Wiederholen, PDF und Druck erhalten. Bei Kopieren/Ausschneiden muss der gesamte Bildbereich ausgewählt sein; teilweise berührte Bilder bleiben unverändert. Höhere dpi ergeben größere Dateien. Ein Ausschnitt darf bis 36 Megapixel haben; insgesamt sind etwa 50 MB eingebettete Bilddaten pro Dokument erlaubt. Alte Dateien ohne Bilder bleiben lesbar.</p><p>Im Menü Verschiedene Symbole (Z halten) findest du ∥ für parallel zu, zum Beispiel a ∥ b. Es wird wie die anderen mathematischen Zeichen eingegeben.</p><p>Beim Zoomen und Verschieben bleibt die Originalauflösung erhalten. Erst Übernehmen schneidet unsichtbare Bildteile ab und skaliert den fertigen Ausschnitt auf die gewählte DPI-Auflösung.</p><p>Der Radierer löscht berührte Bilder als Ganzes. Das gilt auch für die mit R halten gewählte Radierfläche; eine teilweise Überlappung genügt. Rückgängig stellt gelöschte Bilder wieder her.</p><p>Wird der bereits aktive Radierer erneut angeklickt, wechselt die Anwendung zum zuletzt verwendeten Stift mit seiner Farbe zurück. Eine laufende Tastatur-Radierauswahl wird dabei abgebrochen. R halten startet weiterhin eine Radierfläche; R oder Enter bestätigt sie.</p><p>Auch Stift-, Marker-, Radierer- und griechische Symbolbuttons haben im Darkmode dunkle Hintergründe; die Symbolfarben sind für gute Sichtbarkeit angepasst. Die tatsächlichen Schreibfarben bleiben gleich.</p><p>Nach dem Bestätigen einer Tastatur-Radierfläche (R oder Enter) wird automatisch der letzte Stift mit seiner Farbe aktiviert.</p>"
     },
     {
       "title": "Brüche bequem einsetzen",
       "keywords": "bruch zähler nenner V halten komfort bruchstrich",
       "html": "<p>Der Bruch-Button (zwei Kästchen mit Trennstrich) oder V halten wie Verhältnis fragt zuerst den Zähler und danach den Nenner ab. Ein kurzer V-Druck schreibt weiterhin v; Strg+V bleibt Einfügen. Die Eingaben werden nicht berechnet oder gekürzt.</p><p>Das aktive Kästchen ist die linke obere Ecke des Bruchs. Der Zähler steht in dieser Zeile, der Nenner direkt darunter. Je Zeichen wird ein Kästchen verwendet; Komma und Punkt gehören wie beim normalen Schreiben zum vorigen Kästchen. Der längere Teil bestimmt die Breite; der kürzere wird im Kästchenraster mittig eingesetzt, bei ungeradem Abstand leicht links. Der Strich liegt exakt auf der gemeinsamen Kästchenkante und reicht über die gesamte Bruchbreite.</p><p>Es entsteht normalgroße Schrift in der aktuellen Stiftfarbe, auch bei aktivem Hoch-/Tiefstell- oder Großschriftmodus. Diese Modi bleiben für die nächste Eingabe erhalten. Vorhandene Schrift im Bruchrechteck wird ersetzt; vollständig oder teilweise überlappende Aufgabenbezeichnungen und hohe Zeichen werden als Ganzes entfernt. Andere Zeichnungen, Bilder und Markierungen bleiben erhalten. Ein vorhandener Bruchstrich wird ergänzt, nicht doppelt gezeichnet oder entfernt.</p><p>Nach dem Einfügen steht die Auswahl rechts neben dem Bruch, am rechten Blattrand im letzten oberen Kästchen. Unten muss eine zweite Zeile frei verfügbar sein; nach rechts muss die gesamte Breite auf das Blatt passen. Abbrechen oder leere Eingaben ändern nichts. Der gesamte Bruch lässt sich mit einmal Rückgängig entfernen. Zeichen und Strich bleiben einzeln bearbeitbar und funktionieren mit .schmier, Bereichskopie, PDF und Druck wie handgeschriebene Inhalte.</p>"
+    },
+    {
+      "title": "Linientyp und Konstruktionspunkte",
+      "keywords": "linienart linientyp durchgezogen gestrichelt J H hilfspunkt punkt konstruktion beschriftung",
+      "html": "<p>Der Linientyp-Button zeigt immer nur das aktive Format als Symbol: eine durchgezogene oder eine gestrichelte Linie.</p><p>Der Button mit durchgezogener und gestrichelter Linie schaltet den Typ neuer Zeichenlinien um. Alternativ J halten; ein kurzer J-Druck schreibt j. Aktiv bedeutet gestrichelt, inaktiv durchgezogen (Standard). Das funktioniert auch während der Tastaturbedienung von Geodreieck und Zirkel. Bestehende Linien ändern sich nicht. Stiftlinien, Geodreieckstriche, Zirkelbögen und die Hauptlinie von Zahlenstrahlen übernehmen den Typ. Skalenstriche und Pfeilspitzen, mathematische Zeichen, Bruchstriche und Freihandschrift bleiben durchgezogen.</p><p>Der Typ gehört zu den Einstellungen: mit Zustimmung im Browser gespeichert und in .schmier-Dateien enthalten. Jede gezeichnete Linie behält ihren Typ unabhängig von der späteren Auswahl. Verlängern ergänzt nur fehlende Bereiche; das genaue Nachziehen entfernt die vorhandene Strecke weiterhin unabhängig vom gewählten Typ. Kopieren, Ausschneiden, Radieren, Rückgängig, PDF und Druck erhalten den Linientyp. Zirkelbögen bleiben zusammenhängende Striche mit fortlaufender Strichelung.</p><p>Der Kreuz-mit-A-Button oder H halten (Hilfspunkt) aktiviert Konstruktionspunkte. Ein kurzer H-Druck schreibt h. Der rote Vorschaupunkt beginnt an der linken oberen Ecke des aktiven Kästchens. Pfeile verschieben ihn auf Karopapier in 5-mm-Schritten, auf Millimeterpapier in 1-mm-Schritten. H oder Enter öffnet die Beschriftung; mit der Maus auf die gewünschte Kreuzung klicken. Es wird immer an den Papier-Rasterkreuzungen eingerastet.</p><p>Gib eine Beschriftung wie A oder P1 ein. Eine leere Eingabe setzt ein unbeschriftetes Kreuz; Abbrechen verändert nichts. Maximal 40 Zeichen in einer Zeile. Die Beschriftung steht neben der Markierung und passt sich am Rand an. Der Punkt erhält die aktuelle Stiftfarbe und bleibt auch bei gestricheltem Linientyp ein normales Kreuz. Er ersetzt keine Kästchenzeichen. An derselben Position erneut setzen bearbeitet die vorhandene Beschriftung, ohne einen doppelten Punkt zu erzeugen. Nach dem Setzen oder Bearbeiten wird das Werkzeug automatisch deaktiviert. Für einen weiteren Punkt erneut aktivieren; Esc oder erneutes Anklicken bricht die Platzierung ab. Andere Werkzeuge beenden die Punktplatzierung ebenfalls.</p><p>Punkte und Beschriftung bilden eine Einheit. Über die Markierung radieren oder sie mit einer Tastatur-Radierfläche berühren entfernt beides. Bereichskopien nehmen Punkte innerhalb oder auf dem Rand des Rechtecks mit. Rückgängig stellt die vorherige Fassung wieder her. Punkte werden in .schmier und nach Zustimmung im Browser gespeichert sowie auf beiden Seiten, in PDF und Druck angezeigt. Vorschaukreuze werden nicht exportiert. Alte Dateien öffnen mit durchgezogenen Linien und ohne Punkte; ältere App-Versionen können neue gestrichelte Linien oder Konstruktionspunkte nicht zuverlässig übernehmen. Die Funktionen führen keine Berechnungen aus.</p>"
+    },
+    {
+      "title": "Bestätigen und Eingaben",
+      "keywords": "Enter Return R X C S Q I P H B G K 8 9 5 6 7 input dialog repeat confirmation",
+      "html": "<p>Nach der Aktivierung bestätigt <kbd>Enter</kbd> den aktuellen Schritt. Wo die Taste kein Eingabetext ist, funktioniert auch die Aktivierungstaste: Q/I/8/9 bei Wurzeln, Integralen und Klammern; P bei griechischen Zeichen; L/M/Z bei Symbolen; A bei Aufgabenbezeichnungen; Insert bei der Papierauswahl. Nach freier Höhenwahl bestätigen Q, I, 8 oder 9 ebenfalls.</p><p>Bei Bereichen bestätigen R, X, C, S oder die Markerziffer 5/6/7 sowie Enter die Auswahl; beim Kopieren/Ausschneiden bestätigen C/X oder Enter anschließend das Ziel. Die Taste vorher loslassen, dann einmal drücken – erneutes Halten ist nicht nötig. Stiftlinien lassen sich weiterhin mit derselben Pfeiltastenkombination oder jetzt mit Enter abschließen. Beim Zahlenstrahl zuerst die Richtung wählen, dann N oder Enter. Konstruktionspunkte: H oder Enter. Bilder: B oder Enter für Bereich und Übernehmen. Zirkel und Geodreieck: K beziehungsweise G oder Enter für jeden Schritt.</p><p>Textabfragen für Brüche, Wurzelexponenten, Integralgrenzen, Aufgaben- und Punktbeschriftungen verwenden ein gemeinsames Dialogfenster. Vor jeder Eingabe müssen die zuvor gehaltenen Tasten losgelassen werden. So gelangen weder Buchstabenwiederholungen in das Feld noch überspringt ein gehaltenes Enter den nächsten Schritt. Danach sind diese Buchstaben normaler Text. Enter oder Bestätigen übernimmt, Esc oder Abbrechen verwirft; ungültige Parameter bleiben mit einer Erklärung im Fenster. In Textfeldern bestätigt nur Enter, damit die Werkzeugtaste als Text verfügbar bleibt. Auch Dokumentname, Suche, Einstellungen und Achsenbeschriftungen sind beim Fokuswechsel vor noch gehaltenen Tasten geschützt.</p><p>Neue Datei, Dokument ersetzen und Seite löschen nutzen ebenfalls ein Dialogfenster; Enter bestätigt, Esc bricht ab. Beim Löschen geht auch Delete/Entf nach dem Loslassen. Die Dateiauswahl bleibt das gewohnte Systemfenster. Direkte Aktionen wie Speichern, PDF, Seitenwechsel oder Umschalten von Schreibmodi brauchen keine zusätzliche Bestätigung. Mausbedienung und Bildschirm-Nummernblock bleiben möglich.</p><p>G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.</p><p>Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.</p>"
     }
   ],
   "consent": [
@@ -4213,7 +4298,7 @@ const LOCALE_EN = {
     "DIN A4 · 5 mm kariert · 1 Zeichen pro Kästchen": "A4 · 5 mm grid · 1 character per cell",
     "DIN A4 · Millimeterpapier · Zeichnen: 1 mm · Schrift: 5 mm": "A4 · Millimetre paper · Drawing: 1 mm · Writing: 5 mm",
     "Schmierpapier · Hilfe": "Schmierpapier · Help",
-    "Alle Werkzeuge und Tastenkürzel · v 0.6": "All tools and keyboard shortcuts · v 0.6",
+    "Alle Werkzeuge und Tastenkürzel · v 0.6.5": "All tools and keyboard shortcuts · v 0.6.5",
     "Hilfe schließen (Esc)": "Close help (Esc)",
     "Hilfe schließen": "Close help",
     "Hilfe durchsuchen": "Search help",
@@ -4791,7 +4876,34 @@ const LOCALE_EN = {
     "Für den Bruch fehlt unten eine zweite Kästchenzeile.": "There is no second cell row below for this fraction.",
     "Bitte Zähler und Nenner jeweils in einer Zeile eingeben.": "Enter numerator and denominator on one line each.",
     "Der Bruch passt hier nicht auf das Blatt. Wähle ein Kästchen weiter links oder kürzere Eingaben.": "The fraction does not fit here. Choose a cell further left or shorter entries.",
-    "Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).": "Insert fractions from numerator and denominator as normal cell text with a fraction bar (hold V)."
+    "Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).": "Insert fractions from numerator and denominator as normal cell text with a fraction bar (hold V).",
+    "Durchgezogen oder gestrichelt zeichnen (J halten)": "Draw solid or dashed lines (hold J)",
+    "Linientyp: durchgezogen": "Line style: solid",
+    "Linientyp: gestrichelt": "Line style: dashed",
+    "Neue Linien werden gestrichelt gezeichnet": "New lines will be dashed",
+    "Neue Linien werden durchgezogen gezeichnet": "New lines will be solid",
+    "Konstruktionspunkte setzen und beschriften (H halten)": "Place and label construction points (hold H)",
+    "Konstruktionspunkte": "Construction points",
+    "Konstruktionspunkt: klicken oder Pfeile zum Positionieren · Enter beschriftet · Esc beendet": "Construction point: click or use arrows to position · Enter labels · Esc ends",
+    "Punkt beschriften (zum Beispiel A, leer lassen für einen unbeschrifteten Punkt):": "Label point (for example A, leave empty for an unlabelled point):",
+    "Die Punktbeschriftung darf höchstens 40 Zeichen in einer Zeile enthalten.": "Point labels may contain up to 40 characters on one line.",
+    "Maximal 10000 Konstruktionspunkte pro Seite.": "Maximum 10000 construction points per page.",
+    "Ungültige Konstruktionspunkte.": "Invalid construction points.",
+    "Linien durchgezogen oder gestrichelt zeichnen (J halten) und beschriftete Konstruktionspunkte setzen (H halten).": "Draw solid or dashed lines (hold J) and place labelled construction points (hold H).",
+    "Eingabe": "Text entry",
+    "Bestätigung": "Confirmation",
+    "Bestätigen": "Confirm",
+    "Aktivierungstaste loslassen, dann eingeben.": "Release the activation key, then type.",
+    "Enter bestätigt · Esc bricht ab": "Enter confirms · Esc cancels",
+    "Einheitliche Bestätigung per Enter oder Werkzeugtaste; Eingabedialoge warten auf das Loslassen gehaltener Tasten.": "Consistent confirmation with Enter or the tool key; text dialogs wait for held keys to be released.",
+    "Alternativ bestätigt Enter den aktuellen Schritt. Die Aktivierungstaste nach dem Loslassen einmal drücken bestätigt ebenfalls, sofern sie nicht zur Texteingabe dient.": "Enter also confirms the current step. After releasing the activation key, pressing it once also confirms, except in text fields.",
+    "Pfeiltasten markieren den Bereich · gleiche Taste oder Enter bestätigt · Esc bricht ab": "Arrow keys select the area · same key or Enter confirms · Esc cancels",
+    "Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste fügt ein · Esc bricht ab": "Choose destination with arrows · Enter or the same key pastes · Esc cancels",
+    "Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste oder Enter bestätigt · Esc bricht ab": "Keyboard line: arrows change length and edge · same arrow chord or Enter confirms · Esc cancels",
+    "Nach dem Setzen oder Bearbeiten eines Punkts schaltet sich das Punkt-Werkzeug automatisch aus. Für einen weiteren Punkt erneut aktivieren.": "The point tool automatically switches off after placing or editing a point. Activate it again for another point.",
+    "G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.": "Holding G or K switches off the active set square or compass respectively; a short press still confirms the step.",
+    "Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.": "Number-line label fields use dark backgrounds and light text in dark mode; paper and stored label colours remain unchanged.",
+    "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.": "Root and integral menus use compact icons with separate size arrows; all symbols fit inside their buttons."
   },
   "helpInitial": [
     {
@@ -4953,7 +5065,7 @@ const LOCALE_EN = {
     },
     {
       "title": "Keyboard regions: erasing, copying and cutting",
-      "html": "<p>In an active writing cell without modifiers, hold R, C or X for about 0.6 seconds. R starts the region eraser, C Copy, X Cut. The current cell is the anchor. Use arrows to resize the red dashed rectangle in any direction. Release, then hold the same key again to confirm. Esc cancels without changes.</p><p>R removes highlights and touched normal lines, pencil strokes, arcs, freehand strokes and number lines. Writing, indices, powers and large text symbols remain. Touched strokes are removed as a whole; one compass arc remains one eraser unit. Lines exactly on the outer cell boundary are not erased merely by selecting adjacent cells.</p><p>For C/X the source stays outlined. Use arrows to choose the destination’s top-left corner, then Enter or hold C/X again to paste. You may click the destination or hold PageUp/PageDown to switch pages. Cut removes the source only when pasting. As with mouse copying, the entire destination is replaced, including by empty source cells. Esc also cancels before pasting without changes. Undo reverses the completed action.</p><p>A short press still writes r, c or x; Ctrl+C/X retain their normal functions. These actions apply in writing cells, not names, searches or axis-label fields. The tutorial explains mouse or keyboard copying and cutting; it contains no eraser exercise.</p>",
+      "html": "<p>In an active writing cell without modifiers, hold R, C or X for about 0.6 seconds. R starts the region eraser, C Copy, X Cut. The current cell is the anchor. Use arrows to resize the red dashed rectangle in any direction. Release, then press the same key or Enter to confirm. Esc cancels without changes.</p><p>R removes highlights and touched normal lines, pencil strokes, arcs, freehand strokes and number lines. Writing, indices, powers and large text symbols remain. Touched strokes are removed as a whole; one compass arc remains one eraser unit. Lines exactly on the outer cell boundary are not erased merely by selecting adjacent cells.</p><p>For C/X the source stays outlined. Use arrows to choose the destination’s top-left corner, then Enter or press C/X or Enter to paste. You may click the destination or hold PageUp/PageDown to switch pages. Cut removes the source only when pasting. As with mouse copying, the entire destination is replaced, including by empty source cells. Esc also cancels before pasting without changes. Undo reverses the completed action.</p><p>A short press still writes r, c or x; Ctrl+C/X retain their normal functions. These actions apply in writing cells, not names, searches or axis-label fields. The tutorial explains mouse or keyboard copying and cutting; it contains no eraser exercise.</p>",
       "keywords": "halten hold maintenir r c x radieren kopieren ausschneiden copy cut erase gomme copier couper pageup pagedown insert delete einfügen entf klammer F8 F9"
     },
     {
@@ -4978,7 +5090,7 @@ const LOCALE_EN = {
     },
     {
       "title": "Number lines with the keyboard",
-      "html": "<p>Hold N (Number line) in a writing cell for about 0.6 seconds. A red starting point appears first. The first arrow key selects orientation and direction: Left/Right for horizontal, Up/Down for vertical. The red dashed arrow preview then appears; horizontal axes start along the bottom edge. Left/Right change its length and arrow direction; Up/Down choose the top or bottom edge. Press Up+Down together to switch to vertical, or Left+Right for horizontal. Vertically, Up/Down change length and Left/Right choose the edge. Repeat the pair matching the current direction to confirm, or release and hold N again. The current cell is always included. Esc discards the preview and exits the tool. Enter labels yourself as with the mouse: Enter advances, Esc leaves labels blank. Then navigate to another starting cell and hold N again. After two axes the previous tool returns. Crossing axes share an unlabelled origin and both are relabelled manually. A short N still writes n. In the tutorial keypad step, N remains the skip key.</p>",
+      "html": "<p>Hold N (Number line) in a writing cell for about 0.6 seconds. A red starting point appears first. The first arrow key selects orientation and direction: Left/Right for horizontal, Up/Down for vertical. The red dashed arrow preview then appears; horizontal axes start along the bottom edge. Left/Right change its length and arrow direction; Up/Down choose the top or bottom edge. Press Up+Down together to switch to vertical, or Left+Right for horizontal. Vertically, Up/Down change length and Left/Right choose the edge. Repeat the pair matching the current direction to confirm, or release and press N again or Enter. The current cell is always included. Esc discards the preview and exits the tool. Enter labels yourself as with the mouse: Enter advances, Esc leaves labels blank. Then navigate to another starting cell and hold N again. After two axes the previous tool returns. Crossing axes share an unlabelled origin and both are relabelled manually. A short N still writes n. In the tutorial keypad step, N remains the skip key.</p>",
       "keywords": "zahlenstrahl number line axe gradué N halten keyboard tastatur clavier"
     },
     {
@@ -5023,7 +5135,7 @@ const LOCALE_EN = {
     },
     {
       "title": "Highlighters, strike-through and file keys",
-      "html": "<p>Hold 5 for pink, 6 for neon yellow or 7 for neon green for about 0.6 seconds, on either number row. A red dashed rectangle starts at the current cell. Arrows resize it; release and hold the same digit again to apply highlighting. Hold S similarly starts strike-through; arrows select the region, holding S again draws a diagonal from bottom left to top right in the chosen pen colour. Esc discards the selection without changes. Text is preserved. Short 5/6/7 and s remain normal input. Ctrl+S still saves; Ctrl+Z undoes. The eraser removes highlights and strike-through as before. Ctrl+N creates a file and Ctrl+O opens the file picker if the browser delivers those events. Because browsers may reserve Ctrl+N, holding O in a writing cell offers an alternative for opening; New file remains available via its button. The existing replacement confirmation remains. F11 toggles fullscreen if delivered; otherwise native browser fullscreen applies. Holds do not affect names or searches. Key hints show the new shortcuts.</p>",
+      "html": "<p>Hold 5 for pink, 6 for neon yellow or 7 for neon green for about 0.6 seconds, on either number row. A red dashed rectangle starts at the current cell. Arrows resize it; release and press the same digit or Enter to apply highlighting. Hold S similarly starts strike-through; arrows select the region, S or Enter draws a diagonal from bottom left to top right in the chosen pen colour. Esc discards the selection without changes. Text is preserved. Short 5/6/7 and s remain normal input. Ctrl+S still saves; Ctrl+Z undoes. The eraser removes highlights and strike-through as before. Ctrl+N creates a file and Ctrl+O opens the file picker if the browser delivers those events. Because browsers may reserve Ctrl+N, holding O in a writing cell offers an alternative for opening; New file remains available via its button. The existing replacement confirmation remains. F11 toggles fullscreen if delivered; otherwise native browser fullscreen applies. Holds do not affect names or searches. Key hints show the new shortcuts.</p>",
       "keywords": "5 6 7 S B O F11 textmarker highlighter surligneur durchstreichen strike barrer neu öffnen fullscreen vollbild"
     },
     {
@@ -5099,12 +5211,22 @@ const LOCALE_EN = {
     {
       "title": "Colour theme and inserting images",
       "keywords": "dark light system image photo dpi resolution parallel hold B",
-      "html": "<p>In settings choose System (default), Light or Dark under Colour theme. System also follows later changes in your browser or operating system. Paper and ink keep their light-page colours; PDF and print remain unchanged. Like other settings, this choice is saved in the browser with consent and in .schmier files.</p><p>The image button or holding B starts a red dashed selection at the current cell. Drag a rectangle with the left mouse button; releasing opens the file chooser. Alternatively, extend the rectangle with arrows and press Enter to choose a file. Choose image reopens the chooser after cancellation. A short B press still types b. New file remains available via its button or Ctrl+N if the browser passes it to the app.</p><p>PNG, JPEG, WebP, GIF (a still frame) and BMP are supported, up to 20 MB and 64 megapixels. Settings offer 100, 200, 300 (default), 400, 500 or 600 dpi. The image initially fills the entire area without distortion; excess edges are cropped when aspect ratios differ. Resolution refers to the physical area on A4 paper and cannot create extra image detail.</p><p>Before applying, zoom with the wheel or +/− and move with left-button dragging or arrows (1 mm per arrow step). Empty space is allowed after adjusting. Red borders show the saved crop. Enter or Apply inserts it; Esc or Cancel discards changes. Double-click an inserted image to adjust it again or Delete image. Cropped-away parts are not saved; choose the original file again to recover them.</p><p>Images sit behind writing. They are embedded for offline use and preserved in .schmier, browser backups with consent, undo/redo, PDF and print. Copy/cut must include the whole image rectangle; partially touched images are unchanged. Higher dpi means larger files. Each crop may have up to 36 megapixels, with about 50 MB of embedded image data per document. Older files without images still open.</p><p>The Miscellaneous symbols menu (hold Z) now includes ∥ for parallel to, for example a ∥ b. Insert it like other maths symbols.</p><p>Zooming and panning preserve the original resolution. Only Apply removes invisible parts and resamples the finished crop to the chosen DPI resolution.</p><p>The eraser removes touched images as a whole. This also applies to the erase area selected by holding R; partial overlap is enough. Undo restores erased images.</p><p>Clicking the active eraser again returns to the last pen and its colour. Any pending keyboard erase selection is cancelled. Holding R still starts an erase area; holding R again confirms it.</p><p>Pen, highlighter, eraser and Greek-symbol buttons also use dark backgrounds in dark mode, with readable icon colours. Actual ink colours are unchanged.</p><p>After confirming a keyboard erase area (hold R again), the last pen and its colour are restored automatically.</p>"
+      "html": "<p>In settings choose System (default), Light or Dark under Colour theme. System also follows later changes in your browser or operating system. Paper and ink keep their light-page colours; PDF and print remain unchanged. Like other settings, this choice is saved in the browser with consent and in .schmier files.</p><p>The image button or holding B starts a red dashed selection at the current cell. Drag a rectangle with the left mouse button; releasing opens the file chooser. Alternatively, extend the rectangle with arrows and press Enter to choose a file. Choose image reopens the chooser after cancellation. A short B press still types b. New file remains available via its button or Ctrl+N if the browser passes it to the app.</p><p>PNG, JPEG, WebP, GIF (a still frame) and BMP are supported, up to 20 MB and 64 megapixels. Settings offer 100, 200, 300 (default), 400, 500 or 600 dpi. The image initially fills the entire area without distortion; excess edges are cropped when aspect ratios differ. Resolution refers to the physical area on A4 paper and cannot create extra image detail.</p><p>Before applying, zoom with the wheel or +/− and move with left-button dragging or arrows (1 mm per arrow step). Empty space is allowed after adjusting. Red borders show the saved crop. Enter or Apply inserts it; Esc or Cancel discards changes. Double-click an inserted image to adjust it again or Delete image. Cropped-away parts are not saved; choose the original file again to recover them.</p><p>Images sit behind writing. They are embedded for offline use and preserved in .schmier, browser backups with consent, undo/redo, PDF and print. Copy/cut must include the whole image rectangle; partially touched images are unchanged. Higher dpi means larger files. Each crop may have up to 36 megapixels, with about 50 MB of embedded image data per document. Older files without images still open.</p><p>The Miscellaneous symbols menu (hold Z) now includes ∥ for parallel to, for example a ∥ b. Insert it like other maths symbols.</p><p>Zooming and panning preserve the original resolution. Only Apply removes invisible parts and resamples the finished crop to the chosen DPI resolution.</p><p>The eraser removes touched images as a whole. This also applies to the erase area selected by holding R; partial overlap is enough. Undo restores erased images.</p><p>Clicking the active eraser again returns to the last pen and its colour. Any pending keyboard erase selection is cancelled. Holding R still starts an erase area; R or Enter confirms it.</p><p>Pen, highlighter, eraser and Greek-symbol buttons also use dark backgrounds in dark mode, with readable icon colours. Actual ink colours are unchanged.</p><p>After confirming a keyboard erase area (R or Enter), the last pen and its colour are restored automatically.</p>"
     },
     {
       "title": "Insert fractions conveniently",
       "keywords": "fraction numerator denominator hold V bar",
       "html": "<p>The fraction button (two cells with a dividing line) or holding V (Verhältnis, German for ratio) asks for the numerator, then the denominator. A short V still types v; Ctrl+V remains Paste. Entries are neither calculated nor simplified.</p><p>The active cell is the top-left of the fraction. The numerator occupies that row and the denominator the row directly below. Each character occupies one cell; decimal commas and points attach to the previous cell as in normal writing. The longer entry determines the width. The shorter is centred on the cell grid, slightly left when spacing is odd. The bar lies on the shared cell edge across the full width.</p><p>Normal-size characters use the current pen colour even when superscript, subscript or double-height mode is active; those modes remain set for subsequent input. Existing writing in the rectangle is replaced. Overlapping exercise labels and tall characters are removed as whole objects. Other drawings, images and highlights remain. An existing bar is extended without duplication or removal.</p><p>The cursor moves to the right of the fraction, or the last upper cell at the page edge. A second row and enough horizontal room are required. Cancel or an empty entry changes nothing. One Undo removes the entire insertion. Characters and line remain individually editable and work with .schmier, region copies, PDF and print like manually written content.</p>"
+    },
+    {
+      "title": "Line style and construction points",
+      "keywords": "line style solid dashed J H point construction label",
+      "html": "<p>The line-style button always shows only the active format: a solid or a dashed line.</p><p>The solid/dashed-line button switches the style for new drawing strokes. Alternatively hold J; a short J types j. Active means dashed, inactive means solid (default). This also works during keyboard operation of the set square and compass. Existing strokes do not change. Pen lines, ruler strokes, compass arcs and the main number-line stem use the style. Ticks, arrowheads, maths symbols, fraction bars and handwriting remain solid.</p><p>The preference is saved with settings in .schmier and in the browser with consent. Each stroke keeps its own style. Extending fills only gaps; exactly retracing still removes existing coverage regardless of the selected style. Copy, cut, erase, undo, PDF and print preserve it. Compass arcs remain single strokes with continuous dash spacing.</p><p>The cross-with-A button or holding H (Hilfspunkt, German for auxiliary point) activates construction points. A short H types h. The red preview starts at the active cell’s upper-left corner. Arrows move it in 5-mm steps on squared paper and 1-mm steps on millimetre paper. H or Enter opens the label prompt; with the mouse, click the desired intersection. Placement always snaps to the paper grid.</p><p>Enter a label such as A or P1. An empty entry inserts an unlabelled cross; Cancel changes nothing. Up to 40 characters on one line. Labels sit beside the mark and adapt at page edges. Points use the current pen colour and a solid cross even in dashed mode. They do not replace cell characters. Placing at an existing position edits its label without duplication. The tool switches off after placing or editing a point. Activate it again for another point; Esc, clicking its button again or selecting another tool cancels placement.</p><p>Point and label form one object. Erase over the mark or touch it with a keyboard erase area to remove both. Region copies include points inside or on the rectangle boundary. Undo restores previous content. Points are preserved in .schmier, browser storage with consent, both page views, PDF and print; previews are excluded. Old documents still open with solid lines and no points. Older app versions cannot reliably retain new dashed strokes or construction points. No calculations are performed.</p><p>The point tool automatically switches off after placing or editing a point. Activate it again for another point.</p>"
+    },
+    {
+      "title": "Confirmation and text entry",
+      "keywords": "Enter Return R X C S Q I P H B G K 8 9 5 6 7 input dialog repeat confirmation",
+      "html": "<p>After activation, <kbd>Enter</kbd> confirms the current step. Where the key is not input text, the activation key also works: Q/I/8/9 for roots, integrals and brackets; P for Greek letters; L/M/Z for symbols; A for task labels; Insert for paper selection. Q, I, 8 or 9 also confirm a freely chosen height.</p><p>For areas, R, X, C, S or highlighter digit 5/6/7 and Enter confirm the selection; C/X or Enter then confirm the copy/cut destination. Release the key first, then press once – another hold is unnecessary. Pen lines still accept the same arrow-key chord, or now Enter. For number lines, choose a direction first, then N or Enter. Construction points: H or Enter. Images: B or Enter for the area and applying edits. Compass and set square: K or G respectively, or Enter at each step.</p><p>Fractions, root indices, integral limits, task labels and point labels share a text dialog. Release previously held keys before each input. Repeating letters cannot leak into the field, and a held Enter cannot skip the next step. Afterwards these letters are normal text. Enter or Confirm accepts; Esc or Cancel discards. Invalid parameters remain in the dialog with an explanation. Text fields use Enter only so that the tool key remains available as text. Document name, search, settings and axis labels are also protected from keys still held when focus moves.</p><p>New file, replace document and delete page also use a dialog: Enter confirms, Esc cancels. Delete also confirms deletion after release. File selection remains the normal system window. Immediate actions such as saving, PDF, changing pages or toggling writing modes need no extra confirmation. Mouse controls and the on-screen keypad remain available.</p><p>Holding G or K switches off the active set square or compass respectively; a short press still confirms the step.</p><p>Number-line label fields use dark backgrounds and light text in dark mode; paper and stored label colours remain unchanged.</p>"
     }
   ],
   "consent": [
@@ -5279,7 +5401,7 @@ const LOCALE_FR = {
     "DIN A4 · 5 mm kariert · 1 Zeichen pro Kästchen": "A4 · Quadrillage 5 mm · 1 caractère par case",
     "DIN A4 · Millimeterpapier · Zeichnen: 1 mm · Schrift: 5 mm": "A4 · Papier millimétré · Dessin : 1 mm · Écriture : 5 mm",
     "Schmierpapier · Hilfe": "Schmierpapier · Aide",
-    "Alle Werkzeuge und Tastenkürzel · v 0.6": "Tous les outils et raccourcis · v 0.6",
+    "Alle Werkzeuge und Tastenkürzel · v 0.6.5": "Tous les outils et raccourcis · v 0.6.5",
     "Hilfe schließen (Esc)": "Fermer l’aide (Échap)",
     "Hilfe schließen": "Fermer l’aide",
     "Hilfe durchsuchen": "Rechercher dans l’aide",
@@ -5857,7 +5979,34 @@ const LOCALE_FR = {
     "Für den Bruch fehlt unten eine zweite Kästchenzeile.": "Il manque une deuxième ligne de cases en dessous pour cette fraction.",
     "Bitte Zähler und Nenner jeweils in einer Zeile eingeben.": "Saisir le numérateur et le dénominateur chacun sur une seule ligne.",
     "Der Bruch passt hier nicht auf das Blatt. Wähle ein Kästchen weiter links oder kürzere Eingaben.": "La fraction ne tient pas ici. Choisir une case plus à gauche ou des saisies plus courtes.",
-    "Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).": "Insérer des fractions à partir du numérateur et du dénominateur en écriture normale avec une barre (maintenir V)."
+    "Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).": "Insérer des fractions à partir du numérateur et du dénominateur en écriture normale avec une barre (maintenir V).",
+    "Durchgezogen oder gestrichelt zeichnen (J halten)": "Tracer des lignes continues ou pointillées (maintenir J)",
+    "Linientyp: durchgezogen": "Type de ligne : continu",
+    "Linientyp: gestrichelt": "Type de ligne : pointillé",
+    "Neue Linien werden gestrichelt gezeichnet": "Les nouvelles lignes seront pointillées",
+    "Neue Linien werden durchgezogen gezeichnet": "Les nouvelles lignes seront continues",
+    "Konstruktionspunkte setzen und beschriften (H halten)": "Placer et nommer des points de construction (maintenir H)",
+    "Konstruktionspunkte": "Points de construction",
+    "Konstruktionspunkt: klicken oder Pfeile zum Positionieren · Enter beschriftet · Esc beendet": "Point de construction : clic ou flèches pour placer · Entrée pour nommer · Échap pour terminer",
+    "Punkt beschriften (zum Beispiel A, leer lassen für einen unbeschrifteten Punkt):": "Nommer le point (par exemple A, laisser vide pour un point sans nom) :",
+    "Die Punktbeschriftung darf höchstens 40 Zeichen in einer Zeile enthalten.": "Le nom du point peut contenir au maximum 40 caractères sur une ligne.",
+    "Maximal 10000 Konstruktionspunkte pro Seite.": "10000 points de construction maximum par page.",
+    "Ungültige Konstruktionspunkte.": "Points de construction incorrects.",
+    "Linien durchgezogen oder gestrichelt zeichnen (J halten) und beschriftete Konstruktionspunkte setzen (H halten).": "Tracer des lignes continues ou pointillées (maintenir J) et placer des points de construction nommés (maintenir H).",
+    "Eingabe": "Saisie",
+    "Bestätigung": "Confirmation",
+    "Bestätigen": "Confirmer",
+    "Aktivierungstaste loslassen, dann eingeben.": "Relâchez la touche d’activation, puis saisissez.",
+    "Enter bestätigt · Esc bricht ab": "Entrée confirme · Échap annule",
+    "Einheitliche Bestätigung per Enter oder Werkzeugtaste; Eingabedialoge warten auf das Loslassen gehaltener Tasten.": "Confirmation uniforme avec Entrée ou la touche de l’outil ; les champs attendent le relâchement des touches.",
+    "Alternativ bestätigt Enter den aktuellen Schritt. Die Aktivierungstaste nach dem Loslassen einmal drücken bestätigt ebenfalls, sofern sie nicht zur Texteingabe dient.": "Entrée confirme aussi l’étape. Après avoir relâché la touche d’activation, une pression confirme également, sauf dans les champs de texte.",
+    "Pfeiltasten markieren den Bereich · gleiche Taste oder Enter bestätigt · Esc bricht ab": "Les flèches sélectionnent la zone · même touche ou Entrée confirme · Échap annule",
+    "Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste fügt ein · Esc bricht ab": "Choisir la destination avec les flèches · Entrée ou même touche colle · Échap annule",
+    "Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste oder Enter bestätigt · Esc bricht ab": "Trait au clavier : les flèches règlent longueur et bord · même combinaison ou Entrée confirme · Échap annule",
+    "Nach dem Setzen oder Bearbeiten eines Punkts schaltet sich das Punkt-Werkzeug automatisch aus. Für einen weiteren Punkt erneut aktivieren.": "L’outil point se désactive automatiquement après placement ou modification d’un point. Le réactiver pour un autre point.",
+    "G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.": "Maintenir G ou K désactive respectivement l’équerre ou le compas actif ; un appui bref confirme toujours l’étape.",
+    "Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.": "Les champs des axes gradués ont un fond sombre et du texte clair en mode sombre ; le papier et les couleurs enregistrées restent inchangés.",
+    "Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.": "Les menus des racines et intégrales utilisent des icônes compactes avec des flèches de taille séparées ; tous les signes restent dans leurs boutons."
   },
   "helpInitial": [
     {
@@ -6019,7 +6168,7 @@ const LOCALE_FR = {
     },
     {
       "title": "Zones au clavier : gommer, copier et couper",
-      "html": "<p>Dans une case active sans touche de modification, maintiens R, C ou X environ 0,6 seconde. R démarre la gomme de zone, C Copier, X Couper. La case actuelle est le point de départ. Les flèches redimensionnent le rectangle rouge en pointillés dans toutes les directions. Relâche puis maintiens la même touche pour confirmer. Échap annule sans modification.</p><p>R efface les surlignages et les traits touchés : stylo, crayon, arcs, tracés libres et axes gradués. Écriture, indices, exposants et grands caractères restent. Les traits touchés sont effacés en entier ; un arc continu reste une unité. Un trait exactement sur le bord extérieur n’est pas effacé par la seule sélection des cases voisines.</p><p>Pour C/X, la source reste encadrée. Choisis le coin supérieur gauche de la destination avec les flèches, puis Entrée ou un nouvel appui prolongé sur C/X pour coller. Tu peux aussi cliquer la destination ou maintenir Page précédente/suivante pour changer de page. Couper n’efface la source qu’au collage. La destination est entièrement remplacée, même par les cases vides de la source. Échap annule avant collage sans changement. Annuler inverse l’action terminée.</p><p>Un appui court écrit toujours r, c ou x ; Ctrl+C/X gardent leurs fonctions. Ces actions concernent les cases, pas les noms, recherches ou graduations. Le tutoriel explique souris ou clavier pour copier et couper ; il ne contient pas d’exercice de gomme.</p>",
+      "html": "<p>Dans une case active sans touche de modification, maintiens R, C ou X environ 0,6 seconde. R démarre la gomme de zone, C Copier, X Couper. La case actuelle est le point de départ. Les flèches redimensionnent le rectangle rouge en pointillés dans toutes les directions. Relâche puis appuie sur la même touche ou Entrée pour confirmer. Échap annule sans modification.</p><p>R efface les surlignages et les traits touchés : stylo, crayon, arcs, tracés libres et axes gradués. Écriture, indices, exposants et grands caractères restent. Les traits touchés sont effacés en entier ; un arc continu reste une unité. Un trait exactement sur le bord extérieur n’est pas effacé par la seule sélection des cases voisines.</p><p>Pour C/X, la source reste encadrée. Choisis le coin supérieur gauche de la destination avec les flèches, puis Entrée ou C/X ou Entrée pour coller. Tu peux aussi cliquer la destination ou maintenir Page précédente/suivante pour changer de page. Couper n’efface la source qu’au collage. La destination est entièrement remplacée, même par les cases vides de la source. Échap annule avant collage sans changement. Annuler inverse l’action terminée.</p><p>Un appui court écrit toujours r, c ou x ; Ctrl+C/X gardent leurs fonctions. Ces actions concernent les cases, pas les noms, recherches ou graduations. Le tutoriel explique souris ou clavier pour copier et couper ; il ne contient pas d’exercice de gomme.</p>",
       "keywords": "halten hold maintenir r c x radieren kopieren ausschneiden copy cut erase gomme copier couper pageup pagedown insert delete einfügen entf klammer F8 F9"
     },
     {
@@ -6089,7 +6238,7 @@ const LOCALE_FR = {
     },
     {
       "title": "Surligneurs, texte barré et fichiers",
-      "html": "<p>Maintiens 5 pour rose, 6 pour jaune fluo ou 7 pour vert fluo environ 0,6 seconde, sur les chiffres du haut ou du pavé. Un rectangle rouge pointillé commence à la case active. Les flèches règlent la zone ; relâche puis maintiens le même chiffre pour surligner. S prolongé démarre de même le texte barré ; les flèches choisissent la zone, un nouveau S prolongé trace une diagonale du bas gauche au haut droit dans la couleur du stylo. Échap annule sans modification. Le texte reste. Les chiffres courts 5/6/7 et s restent normaux. Ctrl+S enregistre, Ctrl+Z annule. La gomme efface comme avant surlignages et traits. Ctrl+N crée un fichier et Ctrl+O ouvre le sélecteur si le navigateur transmet les touches. Ctrl+N pouvant être réservé, O prolongé dans une case offre une autre façon d’ouvrir ; Nouveau fichier reste accessible par son bouton. La confirmation de remplacement reste. F11 bascule le plein écran si transmis ; sinon le navigateur gère son plein écran. Les appuis prolongés ne concernent pas noms ou recherches. L’aide des touches affiche les raccourcis.</p>",
+      "html": "<p>Maintiens 5 pour rose, 6 pour jaune fluo ou 7 pour vert fluo environ 0,6 seconde, sur les chiffres du haut ou du pavé. Un rectangle rouge pointillé commence à la case active. Les flèches règlent la zone ; relâche puis appuie sur le même chiffre ou Entrée pour surligner. S prolongé démarre de même le texte barré ; les flèches choisissent la zone, S ou Entrée trace une diagonale du bas gauche au haut droit dans la couleur du stylo. Échap annule sans modification. Le texte reste. Les chiffres courts 5/6/7 et s restent normaux. Ctrl+S enregistre, Ctrl+Z annule. La gomme efface comme avant surlignages et traits. Ctrl+N crée un fichier et Ctrl+O ouvre le sélecteur si le navigateur transmet les touches. Ctrl+N pouvant être réservé, O prolongé dans une case offre une autre façon d’ouvrir ; Nouveau fichier reste accessible par son bouton. La confirmation de remplacement reste. F11 bascule le plein écran si transmis ; sinon le navigateur gère son plein écran. Les appuis prolongés ne concernent pas noms ou recherches. L’aide des touches affiche les raccourcis.</p>",
       "keywords": "5 6 7 S B O F11 textmarker highlighter surligneur durchstreichen strike barrer neu öffnen fullscreen vollbild"
     },
     {
@@ -6165,12 +6314,22 @@ const LOCALE_FR = {
     {
       "title": "Thème de couleurs et insertion d’images",
       "keywords": "sombre clair système image photo dpi résolution parallèle maintenir B",
-      "html": "<p>Dans les réglages, choisir Système (par défaut), Clair ou Sombre sous Thème de couleurs. Système suit aussi les changements ultérieurs du navigateur ou du système d’exploitation. Le papier et les encres gardent leurs couleurs sur fond clair ; PDF et impression restent identiques. Ce choix est enregistré avec les autres réglages dans le navigateur avec accord et dans les fichiers .schmier.</p><p>Le bouton image ou B maintenu lance une sélection rouge en pointillés depuis la case active. Tracer un rectangle avec le bouton gauche ; relâcher ouvre le choix du fichier. Au clavier, agrandir avec les flèches puis Entrée pour choisir un fichier. Choisir une image rouvre le sélecteur après annulation. Un appui bref sur B écrit toujours b. Nouveau fichier reste accessible par son bouton ou Ctrl+N si le navigateur transmet la combinaison.</p><p>PNG, JPEG, WebP, GIF (image fixe) et BMP sont acceptés, jusqu’à 20 Mo et 64 mégapixels. Les réglages proposent 100, 200, 300 (par défaut), 400, 500 ou 600 dpi. L’image remplit d’abord la zone sans déformation ; les bords excédentaires sont coupés si les proportions diffèrent. La résolution concerne la taille physique sur le papier A4 et ne crée pas de nouveaux détails.</p><p>Avant de valider, zoomer avec la molette ou +/− et déplacer par glissement du bouton gauche ou avec les flèches (1 mm par pas). Des espaces vides sont permis après ajustement. Les limites rouges indiquent le cadrage enregistré. Entrée ou Valider insère l’image ; Échap ou Annuler abandonne les changements. Double-cliquer sur une image permet de l’ajuster ou de la supprimer. Les parties coupées ne sont pas conservées ; rechoisir le fichier original pour les retrouver.</p><p>Les images sont derrière l’écriture. Intégrées au document pour fonctionner hors ligne, elles sont conservées dans .schmier, la sauvegarde navigateur avec accord, annuler/rétablir, PDF et impression. Copier/couper doit englober toute l’image ; une image partiellement touchée reste inchangée. Plus de dpi produit des fichiers plus grands. Chaque cadrage est limité à 36 mégapixels, avec environ 50 Mo de données d’images par document. Les anciens fichiers sans images restent lisibles.</p><p>Le menu Symboles divers (maintenir Z) contient ∥ pour parallèle à, par exemple a ∥ b. Il s’insère comme les autres symboles mathématiques.</p><p>Le zoom et le déplacement conservent la résolution originale. Seule la validation supprime les parties invisibles et redimensionne le cadrage final à la résolution DPI choisie.</p><p>La gomme supprime entièrement les images touchées. Cela vaut aussi pour la zone choisie en maintenant R ; un chevauchement partiel suffit. Annuler restaure les images effacées.</p><p>Cliquer à nouveau sur la gomme active revient au dernier stylo avec sa couleur. Une sélection d’effacement au clavier en cours est annulée. Maintenir R lance toujours une zone ; maintenir R à nouveau la confirme.</p><p>Les boutons des stylos, surligneurs, gomme et symboles grecs ont aussi un fond sombre, avec des couleurs d’icônes lisibles. Les couleurs d’écriture restent identiques.</p><p>Après validation d’une zone d’effacement au clavier (maintenir R à nouveau), le dernier stylo et sa couleur sont réactivés automatiquement.</p>"
+      "html": "<p>Dans les réglages, choisir Système (par défaut), Clair ou Sombre sous Thème de couleurs. Système suit aussi les changements ultérieurs du navigateur ou du système d’exploitation. Le papier et les encres gardent leurs couleurs sur fond clair ; PDF et impression restent identiques. Ce choix est enregistré avec les autres réglages dans le navigateur avec accord et dans les fichiers .schmier.</p><p>Le bouton image ou B maintenu lance une sélection rouge en pointillés depuis la case active. Tracer un rectangle avec le bouton gauche ; relâcher ouvre le choix du fichier. Au clavier, agrandir avec les flèches puis Entrée pour choisir un fichier. Choisir une image rouvre le sélecteur après annulation. Un appui bref sur B écrit toujours b. Nouveau fichier reste accessible par son bouton ou Ctrl+N si le navigateur transmet la combinaison.</p><p>PNG, JPEG, WebP, GIF (image fixe) et BMP sont acceptés, jusqu’à 20 Mo et 64 mégapixels. Les réglages proposent 100, 200, 300 (par défaut), 400, 500 ou 600 dpi. L’image remplit d’abord la zone sans déformation ; les bords excédentaires sont coupés si les proportions diffèrent. La résolution concerne la taille physique sur le papier A4 et ne crée pas de nouveaux détails.</p><p>Avant de valider, zoomer avec la molette ou +/− et déplacer par glissement du bouton gauche ou avec les flèches (1 mm par pas). Des espaces vides sont permis après ajustement. Les limites rouges indiquent le cadrage enregistré. Entrée ou Valider insère l’image ; Échap ou Annuler abandonne les changements. Double-cliquer sur une image permet de l’ajuster ou de la supprimer. Les parties coupées ne sont pas conservées ; rechoisir le fichier original pour les retrouver.</p><p>Les images sont derrière l’écriture. Intégrées au document pour fonctionner hors ligne, elles sont conservées dans .schmier, la sauvegarde navigateur avec accord, annuler/rétablir, PDF et impression. Copier/couper doit englober toute l’image ; une image partiellement touchée reste inchangée. Plus de dpi produit des fichiers plus grands. Chaque cadrage est limité à 36 mégapixels, avec environ 50 Mo de données d’images par document. Les anciens fichiers sans images restent lisibles.</p><p>Le menu Symboles divers (maintenir Z) contient ∥ pour parallèle à, par exemple a ∥ b. Il s’insère comme les autres symboles mathématiques.</p><p>Le zoom et le déplacement conservent la résolution originale. Seule la validation supprime les parties invisibles et redimensionne le cadrage final à la résolution DPI choisie.</p><p>La gomme supprime entièrement les images touchées. Cela vaut aussi pour la zone choisie en maintenant R ; un chevauchement partiel suffit. Annuler restaure les images effacées.</p><p>Cliquer à nouveau sur la gomme active revient au dernier stylo avec sa couleur. Une sélection d’effacement au clavier en cours est annulée. Maintenir R lance toujours une zone ; R ou Entrée la confirme.</p><p>Les boutons des stylos, surligneurs, gomme et symboles grecs ont aussi un fond sombre, avec des couleurs d’icônes lisibles. Les couleurs d’écriture restent identiques.</p><p>Après validation d’une zone d’effacement au clavier (R ou Entrée), le dernier stylo et sa couleur sont réactivés automatiquement.</p>"
     },
     {
       "title": "Insérer facilement des fractions",
       "keywords": "fraction numérateur dénominateur maintenir V barre",
       "html": "<p>Le bouton fraction (deux cases séparées par un trait) ou V maintenu (Verhältnis signifie rapport en allemand) demande le numérateur puis le dénominateur. Un appui bref sur V écrit toujours v ; Ctrl+V reste Coller. Les saisies ne sont ni calculées ni simplifiées.</p><p>La case active est le coin supérieur gauche de la fraction. Le numérateur occupe cette ligne et le dénominateur celle juste en dessous. Chaque caractère occupe une case ; virgule et point décimaux se rattachent à la case précédente comme lors de l’écriture normale. La saisie la plus longue détermine la largeur. La plus courte est centrée sur la grille, légèrement à gauche si l’écart est impair. Le trait suit exactement le bord commun sur toute la largeur.</p><p>Les caractères sont de taille normale et de la couleur du stylo actuel, même en mode exposant, indice ou double hauteur ; ces modes restent actifs pour la saisie suivante. L’écriture existante dans le rectangle est remplacée. Les étiquettes d’exercice et grands caractères qui le chevauchent sont supprimés entièrement. Autres dessins, images et surlignages restent. Un trait existant est complété sans doublon ni suppression.</p><p>La sélection passe à droite de la fraction, ou à la dernière case supérieure au bord de la page. Il faut une deuxième ligne et assez de place à droite. Annuler ou laisser une saisie vide ne change rien. Une seule annulation rétablit l’état précédent. Caractères et trait restent modifiables séparément et fonctionnent avec .schmier, copie de zone, PDF et impression comme un contenu saisi à la main.</p>"
+    },
+    {
+      "title": "Type de ligne et points de construction",
+      "keywords": "type ligne continu pointillé J H point construction nom",
+      "html": "<p>Le bouton du type de ligne affiche uniquement le format actif : une ligne continue ou pointillée.</p><p>Le bouton ligne continue/pointillée change le type des nouveaux traits. On peut aussi maintenir J ; un appui bref écrit j. Actif signifie pointillé, inactif continu (par défaut). Cela fonctionne aussi pendant l’utilisation au clavier de l’équerre et du compas. Les traits existants ne changent pas. Traits au stylo, à l’équerre, arcs de compas et ligne principale des axes utilisent ce type. Graduations, pointes de flèches, symboles mathématiques, barres de fraction et écriture libre restent continus.</p><p>Le choix est enregistré avec les réglages dans .schmier et dans le navigateur avec accord. Chaque trait garde son type. Prolonger complète seulement les parties manquantes ; repasser exactement supprime toujours la couverture existante quel que soit le type choisi. Copier, couper, gommer, annuler, PDF et impression le conservent. Les arcs restent des traits uniques avec des pointillés continus.</p><p>Le bouton croix avec A ou H maintenu (Hilfspunkt, point auxiliaire en allemand) active les points de construction. Un H bref écrit h. L’aperçu rouge commence au coin supérieur gauche de la case active. Les flèches avancent de 5 mm sur papier quadrillé et de 1 mm sur papier millimétré. H ou Entrée ouvre la saisie du nom ; à la souris, cliquer sur l’intersection voulue. Les points s’alignent sur les intersections de la grille.</p><p>Saisir un nom comme A ou P1. Une saisie vide crée une croix sans nom ; Annuler ne change rien. Maximum 40 caractères sur une ligne. Le nom se place à côté du point et s’adapte aux bords. Le point prend la couleur actuelle du stylo et reste une croix continue même en mode pointillé. Il ne remplace pas les caractères des cases. Replacer au même endroit modifie le nom sans doublon. L’outil se désactive après placement ou modification d’un point. Le réactiver pour un autre point ; Échap ou un nouveau clic annule le placement.</p><p>Point et nom forment un seul objet. Passer la gomme sur la marque ou la toucher avec une zone au clavier supprime les deux. Les copies de zones incluent les points dans le rectangle ou sur son bord. Annuler restaure l’état précédent. Les points sont conservés dans .schmier, dans le navigateur avec accord, sur les deux pages, en PDF et à l’impression ; les aperçus sont exclus. Les anciens documents restent lisibles avec traits continus et sans points. Les anciennes versions ne conservent pas forcément les nouveaux traits pointillés et points. Aucun calcul n’est effectué.</p>"
+    },
+    {
+      "title": "Confirmation et saisie",
+      "keywords": "Enter Return R X C S Q I P H B G K 8 9 5 6 7 input dialog repeat confirmation",
+      "html": "<p>Après activation, <kbd>Entrée</kbd> confirme l’étape. Lorsque la touche ne sert pas à saisir du texte, la touche d’activation fonctionne aussi : Q/I/8/9 pour les racines, intégrales et parenthèses ; P pour les lettres grecques ; L/M/Z pour les symboles ; A pour les étiquettes ; Inser pour le papier. Q, I, 8 ou 9 confirment aussi une hauteur libre.</p><p>Pour les zones, R, X, C, S ou le chiffre du surligneur 5/6/7 ainsi qu’Entrée confirment la sélection ; C/X ou Entrée confirment ensuite la destination de copie/découpe. Relâchez la touche puis appuyez une fois : inutile de la maintenir à nouveau. Les traits au stylo acceptent toujours la même combinaison de flèches, ou maintenant Entrée. Pour une droite graduée, choisissez d’abord la direction puis N ou Entrée. Points de construction : H ou Entrée. Images : B ou Entrée pour la zone et la validation. Compas et équerre : K ou G respectivement, ou Entrée à chaque étape.</p><p>Fractions, indices de racines, bornes d’intégrales et étiquettes de tâches ou de points utilisent une boîte de saisie commune. Relâchez les touches maintenues avant chaque saisie. Les lettres répétées ne remplissent plus le champ et Entrée maintenue ne saute plus l’étape suivante. Ensuite ces lettres redeviennent du texte normal. Entrée ou Confirmer valide ; Échap ou Annuler abandonne. Les paramètres incorrects restent dans la fenêtre avec une explication. Les champs de texte utilisent seulement Entrée pour laisser la touche de l’outil disponible comme texte. Nom du document, recherche, réglages et étiquettes d’axes sont aussi protégés lors du changement de champ.</p><p>Nouveau fichier, remplacement du document et suppression de page utilisent aussi une boîte de dialogue : Entrée confirme, Échap annule. Suppr confirme également la suppression après relâchement. Le choix de fichier conserve la fenêtre du système. Enregistrer, exporter en PDF, changer de page ou activer un mode d’écriture restent des actions immédiates. Souris et pavé numérique à l’écran restent disponibles.</p><p>Maintenir G ou K désactive respectivement l’équerre ou le compas actif ; un appui bref confirme toujours l’étape.</p><p>Les champs des axes gradués ont un fond sombre et du texte clair en mode sombre ; le papier et les couleurs enregistrées restent inchangés.</p>"
     }
   ],
   "consent": [
@@ -6391,6 +6550,159 @@ const LOCALES = { de: LOCALE_DE, en: LOCALE_EN, fr: LOCALE_FR };
 // Source: src/js/basics.js [part-01]
 'use strict';
 
+// Source: src/js/input-dialog.js [part-01]
+const physicalInputKeys = new Map();
+const swallowedInputKeys = new Set();
+let inputRequest = null, focusedInputGate = null;
+function inputKeyCode(event) { return event.code || 'key:' + event.key; }
+function editableDialogField(node) {
+  return node instanceof HTMLElement && node.id !== 'editor' &&
+    node.matches('input:not([type=file]):not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]),textarea,select');
+}
+function clearShortcutForInput(code) {
+  finishActionHold(code);
+  finishPenNumberHold(code);
+  if (code === 'KeyP' && greekHold) {clearTimeout(greekHold.timer);greekHold=null;}
+  if (['Enter','NumpadEnter'].includes(code) && enterHold) {clearTimeout(enterHold.timer);enterHold=null;}
+  if (drawingShortcutHold?.code===code) finishDrawingShortcut();
+  if (shortcutHintHold?.code===code) finishShortcutHintHold();
+}
+function clearPendingInputShortcuts() {
+  for (const code of [...actionHolds.keys()]) finishActionHold(code);
+  for (const code of [...penNumberHolds.keys()]) finishPenNumberHold(code);
+  if (greekHold) {clearTimeout(greekHold.timer);greekHold=null;}
+  if (enterHold) {clearTimeout(enterHold.timer);enterHold=null;}
+  finishDrawingShortcut();finishShortcutHintHold();cancelModifierModeHolds();
+  clearTimeout(arrowPending?.timer);arrowPending=null;
+  lineKeys.clear();chordLatched=false;
+}
+function gatePending(keys) { return [...keys].some(code=>physicalInputKeys.has(code)); }
+function refreshInputDialogGate() {
+  if (!inputRequest) return;
+  const locked=gatePending(inputRequest.blockedKeys);
+  $('inputDialogValue').readOnly=locked;
+  $('inputDialogAccept').disabled=locked;
+  if(!locked&&inputRequest.options.confirm&&document.activeElement===$('inputDialog'))$('inputDialogAccept').focus();
+  $('inputDialogHint').textContent=tr(locked ? 'Aktivierungstaste loslassen, dann eingeben.' : 'Enter bestätigt · Esc bricht ab');
+}
+function requestInput(label, options={}) {
+  if(inputRequest) return Promise.resolve(null);
+  clearPendingInputShortcuts();
+  return new Promise(resolve=>{
+    inputRequest={label,options,resolve,blockedKeys:new Set(physicalInputKeys.keys())};
+    $('inputDialogTitle').textContent=options.confirm ? 'Bestätigung' : 'Eingabe';
+    $('inputDialogLabel').textContent=label;
+    $('inputDialogValue').hidden=!!options.confirm;
+    $('inputDialogValue').value=String(options.value??'');
+    $('inputDialogValue').maxLength=options.maxLength??10000;
+    $('inputDialogValue').removeAttribute('aria-invalid');
+    $('inputDialogError').textContent='';
+    refreshInputDialogGate();localiseInterface();
+    $('inputDialog').showModal();
+    if(options.confirm)(gatePending(inputRequest.blockedKeys)?$('inputDialog'):$('inputDialogAccept')).focus();
+    else {$('inputDialogValue').focus();$('inputDialogValue').select();}
+  });
+}
+function requestConfirmation(label,options={}) {return requestInput(label,{...options,confirm:true}).then(value=>value===true);}
+function finishInputDialog(value) {
+  const request=inputRequest;if(!request)return;
+  for(const code of physicalInputKeys.keys())swallowedInputKeys.add(code);
+  clearPendingInputShortcuts();inputRequest=null;focusedInputGate=null;
+  $('inputDialog').close();request.resolve(value);
+}
+function acceptInputDialog() {
+  if(!inputRequest || gatePending(inputRequest.blockedKeys))return;
+  if(inputRequest.options.confirm){finishInputDialog(true);return;}
+  const value=$('inputDialogValue').value;
+  const error=inputRequest.options.validate?.(value);
+  if(error){$('inputDialogError').textContent=tr(error);$('inputDialogValue').setAttribute('aria-invalid','true');return;}
+  finishInputDialog(value);
+}
+function initialiseInputDialog() {
+  $('inputDialogForm').addEventListener('submit',event=>{event.preventDefault();acceptInputDialog();});
+  $('inputDialogCancel').onclick=()=>finishInputDialog(null);
+  $('inputDialog').addEventListener('cancel',event=>{event.preventDefault();finishInputDialog(null);});
+}
+function activeMenuActivation(id) {
+  return {rootChoiceMenu:'q',integralChoiceMenu:'i',bracketOpenMenu:'8',bracketCloseMenu:'9',
+    logicMenu:'l',setsMenu:'m',miscMenu:'z',taskLabelMenu:'a',paperChoiceMenu:'Insert'}[id];
+}
+// Text fields use Enter only: their activation letters must remain available as text.
+function confirmActiveKeyboardTool(event,fresh) {
+  if(event.isComposing || event.altKey || event.ctrlKey || event.metaKey || document.querySelector('dialog[open]'))return false;
+  if(editableDialogField(event.target)||event.target.closest?.('#imageControls button'))return false;
+  const key=event.key.length===1?event.key.toLowerCase():event.key;
+  let action=null;
+  if(extraMenu && (key==='Enter'||key===activeMenuActivation(extraMenu))) {
+    action=()=>{const buttons=[...$(extraMenu).querySelectorAll('button')];chooseExtra(buttons.find(b=>b.classList.contains('menu-current'))||buttons[0],event);};
+  } else if(greekMenuOpen && (key==='Enter'||key==='p')) {
+    action=()=>chooseGreek($('greekMenu').querySelector('.menu-current')||$('greekMenu').querySelector('button'),event);
+  } else if(relationMenuOpen && key==='Enter') {
+    action=()=>chooseRelation($('relationMenu').querySelector('.menu-current')||$('relationMenu').querySelector('button'),event);
+  } else if(stretchBracket) {
+    const side=stretchBracket.side;
+    const activation=side==='√'?'q':side==='∫'?'i':'([{<'.includes(side)?'8':'9';
+    if(key==='Enter'||key===activation)action=()=>{if(!stretchBracket.pendingInput)commitStretchBracket();};
+  } else if(keyboardArea) {
+    const mode=keyboardArea.mode;
+    const activation={erase:'r',cut:'x',copy:'c',strike:'s'}[mode] || (mode.startsWith('marker')?mode.slice(-1):'');
+    if(key==='Enter'||key===activation)action=confirmKeyboardArea;
+  } else if(keyboardLine && (key==='Enter'||keyboardLine.numberAxis && key==='n')) {
+    action=()=>{if(!keyboardLine.awaitingDirection)keyboardChord(keyboardLine.horizontal);};
+  } else if(constructionPointTool && (key==='Enter'||key==='h')) {
+    action=placeConstructionPoint;
+  } else if(imageSession && (key==='Enter'||key==='b')) {
+    action=()=>{if(!imageSession.busy){if(imageSession.phase==='edit')applyImageSession();else chooseImageFile();}};
+  }
+  if(!action)return false;
+  if(tutorial){tutorialGate(event);if(event.defaultPrevented)return true;}
+  event.preventDefault();event.stopImmediatePropagation();
+  if(fresh){if(event.isTrusted)swallowedInputKeys.add(inputKeyCode(event));action();scheduleTutorialCheck();}
+  return true;
+}
+window.addEventListener('keydown',event=>{
+  const code=inputKeyCode(event),fresh=!event.repeat&&(!event.isTrusted||!physicalInputKeys.has(code));
+  if(event.isTrusted)physicalInputKeys.set(code,event.key);
+  if(swallowedInputKeys.has(code)){event.preventDefault();event.stopImmediatePropagation();return;}
+  if(inputRequest){
+    event.stopImmediatePropagation();
+    if(event.key==='Escape'){event.preventDefault();if(fresh)finishInputDialog(null);return;}
+    if(gatePending(inputRequest.blockedKeys)){event.preventDefault();return;}
+    if(event.key==='Enter'&&!event.isComposing){event.preventDefault();if(fresh){if(event.target===$('inputDialogCancel'))finishInputDialog(null);else acceptInputDialog();}return;}
+    if(inputRequest.options.confirm){
+      if(inputRequest.options.activationKeys?.includes(event.key)){event.preventDefault();if(fresh)acceptInputDialog();}
+      return;
+    }
+    if((event.ctrlKey||event.metaKey)&&['s','o','n','p'].includes(event.key.toLowerCase()))event.preventDefault();
+    return;
+  }
+  if(focusedInputGate?.target===event.target && gatePending(focusedInputGate.keys)){
+    event.preventDefault();event.stopImmediatePropagation();return;
+  }
+  confirmActiveKeyboardTool(event,fresh);
+},true);
+window.addEventListener('keyup',event=>{
+  const code=inputKeyCode(event);physicalInputKeys.delete(code);
+  inputRequest?.blockedKeys.delete(code);focusedInputGate?.keys.delete(code);
+  const blocked=inputRequest||swallowedInputKeys.has(code)||focusedInputGate?.target===event.target&&gatePending(focusedInputGate.keys);
+  swallowedInputKeys.delete(code);refreshInputDialogGate();
+  if(blocked){clearShortcutForInput(code);event.stopImmediatePropagation();}
+},true);
+window.addEventListener('focusin',event=>{
+  focusedInputGate=editableDialogField(event.target)?{target:event.target,keys:new Set(physicalInputKeys.keys())}:null;
+},true);
+window.addEventListener('beforeinput',event=>{
+  if(inputRequest&&gatePending(inputRequest.blockedKeys)||focusedInputGate?.target===event.target&&gatePending(focusedInputGate.keys)){
+    event.preventDefault();event.stopImmediatePropagation();
+  }
+},true);
+window.addEventListener('blur',()=>{physicalInputKeys.clear();swallowedInputKeys.clear();refreshInputDialogGate();});
+window.addEventListener('close',event=>{
+  if(event.target instanceof HTMLDialogElement&&!event.target.open){
+    for(const code of physicalInputKeys.keys())swallowedInputKeys.add(code);
+  }
+},true);
+
 // Source: src/js/comparisons.js [part-01]
 const relationSymbols = ['=', '≠', '<', '>', '≤', '≥', '≈', '≡', '∝'];
 let relationModifiers = {}, enterHold = null, relationMenuOpen = false;
@@ -6435,7 +6747,7 @@ function actionHoldButton(code, held) {
     return document.querySelectorAll('.swatch[data-tool="marker"]')[Number(code.slice(-1)) - 5];
   if (/^(?:Digit|Numpad)[89]$/.test(code)) return $(code.endsWith('8') ? 'parenOpen' : 'parenClose');
   const ids = {
-    KeyV: 'fractionInsert', KeyF: 'settingsOpen', KeyA: 'taskLabel', KeyB: 'insertImage', KeyO: 'open', KeyS: 'strikeToggle', KeyG: 'geoToggle', KeyK: 'compassToggle',
+    KeyJ: 'lineStyleToggle', KeyH: 'constructionPoint', KeyV: 'fractionInsert', KeyF: 'settingsOpen', KeyA: 'taskLabel', KeyB: 'insertImage', KeyO: 'open', KeyS: 'strikeToggle', KeyG: 'geoToggle', KeyK: 'compassToggle',
     KeyI: 'integral', KeyL: 'logic', KeyM: 'sets', KeyU: 'largeMode', KeyZ: 'percent',
     KeyQ: 'root', KeyW: 'root', KeyN: 'numberLineToggle', KeyR: null, KeyX: 'cutRegion',
     KeyC: 'copyRegion', KeyE: 'pdf', KeyD: 'pageView', PageUp: 'prev', PageDown: 'next',
@@ -6572,13 +6884,14 @@ function chooseStorage(allow) {
 
 // Source: src/js/settings.js [part-01]
 const SETTINGS_KEY = 'schmierpapier.settings';
-const DEFAULT_SETTINGS = Object.freeze({ holdDelay: 600, font: 'handwriting', toolbarPosition: 'top', theme: 'system', imageDpi: 300 });
+const DEFAULT_SETTINGS = Object.freeze({ holdDelay: 600, font: 'handwriting', toolbarPosition: 'top', theme: 'system', imageDpi: 300, lineStyle: 'solid' });
 let settings = { ...DEFAULT_SETTINGS };
 function normaliseSettings(value) {
   return {
     holdDelay: Number.isInteger(value?.holdDelay) && value.holdDelay >= 200 && value.holdDelay <= 3000
       ? value.holdDelay : DEFAULT_SETTINGS.holdDelay,
     font: value?.font === 'console' ? 'console' : 'handwriting',
+    lineStyle: value?.lineStyle === 'dashed' ? 'dashed' : 'solid',
     theme: ['system', 'light', 'dark'].includes(value?.theme) ? value.theme : 'system',
     imageDpi: [100, 200, 300, 400, 500, 600].includes(value?.imageDpi) ? value.imageDpi : 300,
     toolbarPosition: ['top', 'bottom', 'left', 'right'].includes(value?.toolbarPosition) ? value.toolbarPosition : 'top'
@@ -6599,6 +6912,7 @@ function applySettings(value, save = false) {
   document.documentElement.style.setProperty('--writing-font', writingFont());
   applyToolbarPosition(settings.toolbarPosition);
   applyTheme();
+  updateLineStyleButton();
   if (save) saveSettings();
 }
 function initialiseSettings() {
@@ -6617,7 +6931,7 @@ function initialiseSettings() {
   };
   $('settingsForm').addEventListener('submit', event => {
     event.preventDefault();
-    applySettings({ holdDelay: Number($('holdDelay').value), font: $('writingFont').value, toolbarPosition: $('toolbarPosition').value, theme: $('themeChoice').value, imageDpi: Number($('imageDpi').value) }, true);
+    applySettings({ ...settings, holdDelay: Number($('holdDelay').value), font: $('writingFont').value, toolbarPosition: $('toolbarPosition').value, theme: $('themeChoice').value, imageDpi: Number($('imageDpi').value) }, true);
     $('settingsDialog').close();
     render(); select(pos); persist();
     localiseInterface();
@@ -6949,6 +7263,226 @@ function pngWithDpi(canvas, dpi) {
   return 'data:image/png;base64,'+btoa(result);
 }
 
+// Source: src/js/line-style.js [part-01]
+function dashedLines() { return settings.lineStyle === 'dashed'; }
+function updateLineStyleButton() {
+  $('lineStyleIcon').setAttribute('stroke-dasharray', dashedLines() ? '4 3' : 'none');
+  $('lineStyleToggle').setAttribute('aria-pressed', String(dashedLines()));
+  $('lineStyleToggle').setAttribute('aria-label', dashedLines() ? 'Linientyp: gestrichelt' : 'Linientyp: durchgezogen');
+}
+function toggleLineStyle() {
+  settings.lineStyle = dashedLines() ? 'solid' : 'dashed';
+  updateLineStyleButton(); saveSettings(); persist(); renderLines();
+  status(tr(dashedLines() ? 'Neue Linien werden gestrichelt gezeichnet' : 'Neue Linien werden durchgezogen gezeichnet'));
+}
+function initialiseLineStyle() { $('lineStyleToggle').onclick = toggleLineStyle; }
+
+// Keep each compass arc as a single path so dash spacing continues across its segments.
+function paintPencilStrokes(context, scale, lines) {
+  const groups = new Map();
+  lines.forEach((line,index) => {
+    const key = line[4] || 'single-' + index;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(line);
+  });
+  context.save(); context.scale(scale, scale);
+  context.strokeStyle = '#555b60'; context.lineWidth = .2; context.lineCap = 'round'; context.lineJoin = 'round';
+  for (const group of groups.values()) {
+    context.setLineDash(group[0][5] === true ? [1.5,1] : []);
+    context.beginPath(); let previous = null;
+    for (const [x1,y1,x2,y2] of group) {
+      if (!previous || Math.hypot(x1-previous[0],y1-previous[1])>.003) context.moveTo(x1,y1);
+      context.lineTo(x2,y2); previous=[x2,y2];
+    }
+    context.stroke();
+  }
+  context.restore();
+}
+
+// Registered before geometry capture: these shortcuts also work beside the ruler/compass.
+let drawingShortcutHold = null;
+function finishDrawingShortcut(short = false) {
+  const held = drawingShortcutHold;
+  if (!held) return;
+  clearTimeout(held.timer); drawingShortcutHold = null;
+  if (['g','k'].includes(held.key.toLowerCase())) {
+    if (short && !held.fired && document.activeElement === held.target &&
+        (held.key.toLowerCase() === 'g' ? geo.keyboard : compass.keyboard)) {
+      held.target.dispatchEvent(new KeyboardEvent('keydown', {key:'Enter',code:'Enter',bubbles:true,cancelable:true}));
+    }
+    return;
+  }
+  if (short && !held.fired && held.target === $('editor') && document.activeElement === held.target &&
+      !constructionPointTool && !compass.active && !geo.keyboard) write(held.key);
+}
+window.addEventListener('keydown', event => {
+  if (drawingShortcutHold && event.code !== drawingShortcutHold.code) finishDrawingShortcut(true);
+  const key = event.key.toLowerCase();
+  const activeInstrument = key === 'g' && (geo.visible || compass.active && compass.phase === 'radius') || key === 'k' && compass.active;
+  if ((!['j','h'].includes(key) && !activeInstrument) || !event.isTrusted || event.ctrlKey || event.shiftKey || event.altKey || event.metaKey ||
+      tutorial || imageSession || document.querySelector('dialog[open]')) return;
+  if (event.target !== $('editor') && (event.target.matches?.('input,textarea,select') ||
+      !(geo.visible || compass.active || constructionPointTool))) return;
+  event.preventDefault(); event.stopImmediatePropagation();
+  if (!drawingShortcutHold && !event.repeat) {
+    const held = {code:event.code,key:event.key,target:event.target,fired:false};
+    held.timer = setTimeout(() => {
+      if (document.activeElement !== held.target) return;
+      held.fired = true;
+      if (['g','k'].includes(key)) swallowedInputKeys.add(held.code);
+      if (key === 'g') holdSetSquare(held.code);
+      else if (key === 'k') holdCompass(held.code);
+      else if (key === 'j') toggleLineStyle();
+      else toggleConstructionPoint();
+    }, settings.holdDelay);
+    drawingShortcutHold = held;
+    showButtonHoldProgress(held, $({j:'lineStyleToggle',h:'constructionPoint',g:'geoToggle',k:'compassToggle'}[key]), () => drawingShortcutHold === held);
+  }
+},true);
+window.addEventListener('keyup',event => {
+  if (drawingShortcutHold?.code !== event.code) return;
+  event.preventDefault();event.stopImmediatePropagation();finishDrawingShortcut(true);
+},true);
+window.addEventListener('blur',() => finishDrawingShortcut());
+window.addEventListener('pointerdown',() => finishDrawingShortcut(),true);
+document.addEventListener('focusout',event => {if(event.target===drawingShortcutHold?.target)finishDrawingShortcut();});
+
+// Source: src/js/construction-points.js [part-01]
+let constructionPointTool = null;
+function validateConstructionPoints(data) {
+  return data.pages.map((_,index) => {
+    const points = data.constructionPoints?.[index] ?? [];
+    if (!Array.isArray(points) || points.length > 10000) throw Error('Ungültige Konstruktionspunkte.');
+    const occupied = new Set();
+    return points.map(point => {
+      if (!point || !Number.isFinite(point.x) || !Number.isFinite(point.y) || point.x < 0 || point.x > 210 ||
+          point.y < 0 || point.y > 297 || typeof point.label !== 'string' || Array.from(point.label).length > 40 ||
+          /[\u0000-\u001f\u007f]/.test(point.label) || !INKS.includes(point.color)) throw Error('Ungültige Konstruktionspunkte.');
+      const key = point.x + ',' + point.y;
+      if (occupied.has(key)) throw Error('Ungültige Konstruktionspunkte.');
+      occupied.add(key);
+      return {x:point.x,y:point.y,label:point.label,color:point.color};
+    });
+  });
+}
+function constructionPointInRegion(point, r) {
+  return point.x >= (r.x+1)*5-1e-7 && point.x <= (r.x+r.w+1)*5+1e-7 &&
+    point.y >= (r.y+1)*5-1e-7 && point.y <= (r.y+r.h+1)*5+1e-7;
+}
+function constructionLabelPosition(point) {
+  const left = point.x > 105;
+  return {x:point.x + (left ? -1.7 : 1.7),y:point.y < 5 ? point.y+3.8 : point.y-1.7,anchor:left?'end':'start',maxWidth:left?point.x-2.7:207.3-point.x};
+}
+function cancelConstructionPoint(focus = true) {
+  if (!constructionPointTool) return;
+  constructionPointTool = null;
+  $('constructionPoint').setAttribute('aria-pressed','false');
+  $('paper').classList.remove('construction-point-mode');
+  $('paper').querySelectorAll('.construction-point-preview').forEach(node => node.remove());
+  if (focus) select(pos);
+}
+function toggleConstructionPoint() {
+  if (tutorial || document.querySelector('dialog[open]')) return;
+  finishActionHold('KeyH');
+  if (constructionPointTool) { cancelConstructionPoint(); return; }
+  cancelImageSession(false); cancelKeyboardArea(); cancelKeyboardLine(); cancelRegion(); cancelStrike();
+  finishMark(); hideCompass(); cancelNumberLine(false); resetCorner();
+  geo.visible = false; geo.placing = false; geo.gesture = null;
+  // Select the last writing pen before entering the point-placement mode.
+  document.querySelector('.swatch[data-tool="pen"][data-color="'+ink+'"]').click();
+  constructionPointTool = {page,document:doc,point:[5+(pos%COLS)*5,5+Math.floor(pos/COLS)*5]};
+  $('constructionPoint').setAttribute('aria-pressed','true');
+  $('paper').classList.add('construction-point-mode');
+  status(tr('Konstruktionspunkt: klicken oder Pfeile zum Positionieren · Enter beschriftet · Esc beendet'));
+  renderLines(); select(pos);
+}
+async function placeConstructionPoint() {
+  const session = constructionPointTool;
+  if (!session || session.page !== page || session.document !== doc) return;
+  const [x,y] = session.point;
+  const points = doc.constructionPoints?.[page] || [];
+  const existing = points.find(point => Math.hypot(point.x-x,point.y-y)<1e-7);
+  const value = await requestInput(tr('Punkt beschriften (zum Beispiel A, leer lassen für einen unbeschrifteten Punkt):'),{value:existing?.label || '',maxLength:40});
+  if (value === null) { select(pos); return; }
+  if (Array.from(value).length>40 || /[\u0000-\u001f\u007f]/.test(value)) {
+    alert(tr('Die Punktbeschriftung darf höchstens 40 Zeichen in einer Zeile enthalten.')); select(pos); return;
+  }
+  if (!existing && points.length>=10000) { alert(tr('Maximal 10000 Konstruktionspunkte pro Seite.')); return; }
+  checkpoint();
+  doc.constructionPoints ??= doc.pages.map(() => []);
+  if (existing) Object.assign(existing,{label:value,color:ink});
+  else doc.constructionPoints[page].push({x,y,label:value,color:ink});
+  cancelConstructionPoint(false);
+  changed(); select(pos);
+}
+function drawConstructionPoints(layer) {
+  function draw(point, preview=false) {
+    const group = geoSvg('g',{class:preview?'construction-point-preview':'construction-point'},layer);
+    geoSvg('path',{d:`M ${point.x-1} ${point.y} H ${point.x+1} M ${point.x} ${point.y-1} V ${point.y+1}`,
+      fill:'none',stroke:preview?'#d52d35':point.color,'stroke-width':.3,
+      'stroke-dasharray':preview?'.5 .35':'none'},group);
+    if (point.label) {
+      const label=constructionLabelPosition(point);
+      const text = geoSvg('text',{x:label.x,y:label.y,'text-anchor':label.anchor,'font-family':writingFont(),
+        'font-size':3.4,fill:point.color},group);
+      text.textContent=point.label;
+      tallTextMeasure.font='3.4px '+writingFont();
+      if(tallTextMeasure.measureText(point.label).width>label.maxWidth){text.setAttribute('textLength',label.maxWidth);text.setAttribute('lengthAdjust','spacingAndGlyphs');}
+    }
+  }
+  for (const point of doc.constructionPoints?.[page] || []) draw(point);
+  if (constructionPointTool?.page===page && constructionPointTool.document===doc) {
+    draw({x:constructionPointTool.point[0],y:constructionPointTool.point[1],label:''},true);
+  }
+}
+function paintConstructionPoints(context, scale, p) {
+  context.save(); context.scale(scale,scale); context.setLineDash([]); context.lineWidth=.3;
+  context.font='3.4px '+writingFont(); context.textBaseline='alphabetic';
+  for (const point of doc.constructionPoints?.[p] || []) {
+    context.strokeStyle=context.fillStyle=point.color;
+    context.beginPath();context.moveTo(point.x-1,point.y);context.lineTo(point.x+1,point.y);
+    context.moveTo(point.x,point.y-1);context.lineTo(point.x,point.y+1);context.stroke();
+    const label=constructionLabelPosition(point);context.textAlign=label.anchor==='end'?'right':'left';
+    context.fillText(point.label,label.x,label.y,label.maxWidth);
+  }
+  context.restore();
+}
+function initialiseConstructionPoints() {
+  $('constructionPoint').onclick=toggleConstructionPoint;
+}
+// Capture before geometry and editor listeners so placement cannot also write or draw.
+window.addEventListener('keydown',event => {
+  if (!constructionPointTool || document.querySelector('dialog[open]')) return;
+  if (event.ctrlKey || event.metaKey || event.altKey || event.key==='Tab' || event.key==='F1') return;
+  if (event.key.toLowerCase()==='j') return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if (event.key==='Escape') {cancelConstructionPoint();return;}
+  if (event.key==='Enter') {if(!event.repeat)placeConstructionPoint();return;}
+  if (event.key.startsWith('Arrow')) {
+    const step=drawingGridStep();const p=constructionPointTool.point;
+    if(event.key==='ArrowLeft')p[0]-=step;if(event.key==='ArrowRight')p[0]+=step;
+    if(event.key==='ArrowUp')p[1]-=step;if(event.key==='ArrowDown')p[1]+=step;
+    constructionPointTool.point=snapPaperPoint(p);renderLines();
+  }
+},true);
+window.addEventListener('pointermove',event => {
+  if (!constructionPointTool || !event.target.closest?.('#paper')) return;
+  event.stopImmediatePropagation();
+  constructionPointTool.point=snapPaperPoint(paperPoint(event));renderLines();
+},true);
+window.addEventListener('pointerdown',event => {
+  if (!constructionPointTool) return;
+  if (event.target.closest?.('#toolbar') && !event.target.closest('#constructionPoint,#lineStyleToggle')) {
+    cancelConstructionPoint(false);return;
+  }
+  if (!event.target.closest?.('#paper')) return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(event.button===0){constructionPointTool.point=snapPaperPoint(paperPoint(event));placeConstructionPoint();}
+},true);
+window.addEventListener('click',event => {
+  if(constructionPointTool && event.target.closest?.('#paper')){event.preventDefault();event.stopImmediatePropagation();}
+},true);
+
 // Source: src/js/language.js [part-02]
 const LANGUAGE_KEY = 'schmierpapier.language';
 
@@ -7126,6 +7660,7 @@ let doc = {
     pages: [{}],
     freehand: [[]],
     images: [[]],
+    constructionPoints: [[]],
     lines: [
       []
     ],
@@ -7239,6 +7774,7 @@ function renderLines() {
     ['x1', 'y1', 'x2', 'y2'].forEach((key, i) => el.setAttribute(key, coords[i] * 5));
     el.setAttribute('class', 'drawn-line' + (preview ? ' line-preview' : ''));
     el.style.stroke = preview ? ink : (coords[4] || '#172e65');
+    if (preview ? dashedLines() : coords[5] === true) el.setAttribute('stroke-dasharray', '1.5 1');
     layer.append(el)
   }
   for (const coords of doc.lines[page]) line(coords);
@@ -7299,6 +7835,7 @@ function renderLines() {
     layer.append(path);
   }
   if (drag) line([...drag.start, ...drag.end], true);
+  drawConstructionPoints(layer);
   drawKeyboardLine();
   drawStretchBracketPreview();
   if (armed && corner) {
@@ -7467,7 +8004,7 @@ function paperPoint(e) {
  * Kollineare Strecken werden auf die gewünschte Zeichenrichtung projiziert.
  * Ist die ganze angeforderte Strecke bedeckt, wird sie entfernt; sonst werden nur Lücken ergänzt.
  */
-function toggleLineCoverage(lines, start, end, color) {
+function toggleLineCoverage(lines, start, end, color, dashed = dashedLines()) {
   const a = start,
     b = end,
     dx = b[0] - a[0],
@@ -7505,18 +8042,18 @@ function toggleLineCoverage(lines, start, end, color) {
         others.push([...m.line]);
         continue
       }
-      if (m.lo < -eps) others.push([...point(m.lo), ...point(0), m.line[4] || color]);
-      if (m.hi > length + eps) others.push([...point(length), ...point(m.hi), m.line[4] || color])
+      if (m.lo < -eps) others.push([...point(m.lo), ...point(0), m.line[4] || color, ...m.line.slice(5)]);
+      if (m.hi > length + eps) others.push([...point(length), ...point(m.hi), m.line[4] || color, ...m.line.slice(5)])
     }
     return others
   }
   const result = lines.map(line => [...line]);
   let cursor = 0;
   for (const [lo, hi] of intervals) {
-    if (lo > cursor + eps) result.push([...point(cursor), ...point(lo), color]);
+    if (lo > cursor + eps) result.push([...point(cursor), ...point(lo), color, ...(dashed ? [true] : [])]);
     cursor = Math.max(cursor, hi)
   }
-  if (cursor < length - eps) result.push([...point(cursor), ...point(length), color]);
+  if (cursor < length - eps) result.push([...point(cursor), ...point(length), color, ...(dashed ? [true] : [])]);
   return result;
 }
 
@@ -7619,6 +8156,7 @@ document.querySelectorAll('.swatch').forEach(button => button.addEventListener('
     document.querySelector('.swatch[data-tool="pen"][data-color="' + ink + '"]').click();
     return;
   }
+  cancelConstructionPoint(false);
   hideCompass();
   finishMark();
   cancelNumberLine(false);
@@ -7729,12 +8267,16 @@ function eraseLineSweep(point) {
         1) % shape.arrow.length]]);
     return segments.every(line => keep(line, 1, .3))
   });
+  const points = doc.constructionPoints?.[page] || [];
+  if (doc.constructionPoints) doc.constructionPoints[page] = points.filter(p =>
+    pointSegmentDistanceSquared([p.x,p.y],previous,point) > (radius+1) ** 2);
+  const erasedPoints = points.length !== (doc.constructionPoints?.[page]?.length || 0);
   const images = doc.images?.[page] || [];
   if (doc.images) doc.images[page] = images.filter(image => !imageTouchedByEraser(image, previous, point, radius));
   const erasedImages = images.length !== (doc.images?.[page]?.length || 0);
   const erasedNotes = eraseFreehand(page, previous, point, radius);
   markDrag.lastPaper = point;
-  if (erasedImages || erasedNotes || axes.length !== doc.numberLines[page].length || normal.length !== doc.lines[page].length || pencil
+  if (erasedPoints || erasedImages || erasedNotes || axes.length !== doc.numberLines[page].length || normal.length !== doc.lines[page].length || pencil
     .length !== doc.pencilLines[page].length) renderLines();
 }
 
@@ -7784,8 +8326,9 @@ function status(s) {
 }
 
 // Source: src/js/release-notes.js [part-01]
-const APP_VERSION = '0.6';
+const APP_VERSION = '0.6.5';
 const RELEASE_NOTES = [
+  { version: '0.6.5', items: ["Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.", "Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.", "G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.", "Nach dem Setzen oder Bearbeiten eines Punkts schaltet sich das Punkt-Werkzeug automatisch aus. Für einen weiteren Punkt erneut aktivieren.", "Einheitliche Bestätigung per Enter oder Werkzeugtaste; Eingabedialoge warten auf das Loslassen gehaltener Tasten.", "Linien durchgezogen oder gestrichelt zeichnen (J halten) und beschriftete Konstruktionspunkte setzen (H halten)."] },
   { version: '0.6', items: ["Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).", "Dunkles Farbschema nach Systemeinstellung oder eigener Wahl; Bilder in Kästchen einfügen und anpassen; Parallelzeichen."] },
   { version: '0.5.5', items: ['Werkzeugleiste oben, unten, links oder rechts anordnen; seitlich passen sich Breite und Spalten an das Fenster an.'] },
   { version: '0.5', items: [
@@ -7870,6 +8413,7 @@ function render() {
   if (stretchBracket && (stretchBracket.page !== page || stretchBracket.document !== doc)) cancelStretchBracket(false);
   if (keyboardArea?.phase === 'select' && keyboardArea.page !== page) cancelKeyboardArea();
   if (keyboardLine && keyboardLine.page !== page) keyboardLine = null;
+  if (constructionPointTool && (constructionPointTool.page !== page || constructionPointTool.document !== doc)) cancelConstructionPoint(false);
   applyPaperType();
   if (compass.active && compass.page !== page) hideCompass(false, false);
   if (numberLabelSession) finishNumberLabels(false);
@@ -8106,12 +8650,12 @@ function taskLabelFontSize(label) {
   tallTextMeasure.font = base + 'px ' + writingFont();
   return base * Math.min(1, 9.2 / Math.max(.01, tallTextMeasure.measureText(label.text).width));
 }
-function insertTaskLabel(height = 1) {
+async function insertTaskLabel(height = 1) {
   const index = pos;
   if (index % COLS >= COLS - 1 || index + (height - 1) * COLS >= COUNT) {
     status(tr('Für diese Aufgabenbezeichnung fehlen Kästchen am Seitenrand.')); select(pos); return;
   }
-  const value = prompt(tr('Aufgabenbezeichnung eingeben (zum Beispiel 1a):'), doc.taskLabels[page][index]?.text || '');
+  const value = await requestInput(tr('Aufgabenbezeichnung eingeben (zum Beispiel 1a):'), {value:doc.taskLabels[page][index]?.text || ''});
   if (value === null || !value.trim()) { select(pos); return; }
   const text = value.replace(/[\u0000-\u001f\u007f]/g, ' ').trim();
   if (text.length > 10000) { alert(tr('Die Aufgabenbezeichnung ist zu lang (maximal 10000 Zeichen).')); select(pos); return; }
@@ -8162,16 +8706,16 @@ function fractionCells(value) {
   }
   return cells;
 }
-function insertFraction() {
+async function insertFraction() {
   if (tutorial || imageSession || document.querySelector('dialog[open]')) return;
   finishActionHold('KeyV');
   const start = pos, col = start % COLS, row = Math.floor(start / COLS);
   if (row >= ROWS - 1) {
     alert(tr('Für den Bruch fehlt unten eine zweite Kästchenzeile.')); select(start); return;
   }
-  const numerator = prompt(tr('Zähler eingeben (zum Beispiel 12):'), '');
+  const numerator = await requestInput(tr('Zähler eingeben (zum Beispiel 12):'), {value:''});
   if (numerator === null || !numerator.trim()) { select(start); return; }
-  const denominator = prompt(tr('Nenner eingeben (zum Beispiel 25):'), '');
+  const denominator = await requestInput(tr('Nenner eingeben (zum Beispiel 25):'), {value:''});
   if (denominator === null || !denominator.trim()) { select(start); return; }
   if (/[\u0000-\u001f\u007f]/.test(numerator + denominator)) {
     alert(tr('Bitte Zähler und Nenner jeweils in einer Zeile eingeben.')); select(start); return;
@@ -8215,7 +8759,7 @@ function insertFraction() {
     if (left > covered + 1e-7) break;
     covered = Math.max(covered, right);
   }
-  if (covered < x2 - 1e-7) doc.lines[page] = toggleLineCoverage(doc.lines[page], [x1,y], [x2,y], ink);
+  if (covered < x2 - 1e-7) doc.lines[page] = toggleLineCoverage(doc.lines[page], [x1,y], [x2,y], ink, false);
   decimalInput = null;
   changed(); select(row * COLS + Math.min(COLS - 1, col + width), true, true);
 }
@@ -8311,29 +8855,27 @@ function normaliseIntegralLimit(text) {
 }
 
 // Limits use the existing per-cell annotations, just like an indexed root.
-// Both prompts finish before the undo checkpoint, so cancelling changes nothing.
-function askIntegralLimits() {
-  const ask = key => {
-    for (;;) {
-      const value = prompt(tr(key), '');
-      if (value === null) return null;
-      const text = normaliseIntegralLimit(value.trim());
-      if (Array.from(text).length >= 1 && Array.from(text).length <= 16 && !/[\s\u0000-\u001f\u007f]/.test(text)) return text;
-      alert(tr('Bitte 1 bis 16 Zeichen ohne Leerzeichen eingeben.'));
-    }
+// Both input dialogs finish before the undo checkpoint, so cancelling changes nothing.
+async function askIntegralLimits() {
+  const ask = async key => {
+    const value=await requestInput(tr(key), {value:'',maxLength:200,validate:value=>{
+      const text=normaliseIntegralLimit(value.trim());
+      return Array.from(text).length>=1&&Array.from(text).length<=16&&!/[\s\u0000-\u001f\u007f]/.test(text)?null:'Bitte 1 bis 16 Zeichen ohne Leerzeichen eingeben.';
+    }});
+    return value===null?null:normaliseIntegralLimit(value.trim());
   };
-  const lowerLimit = ask('Untere Integrationsgrenze eingeben, zum Beispiel 0 oder a:');
+  const lowerLimit = await ask('Untere Integrationsgrenze eingeben, zum Beispiel 0 oder a:');
   if (lowerLimit === null) return null;
-  const upperLimit = ask('Obere Integrationsgrenze eingeben, zum Beispiel 1 oder b:');
+  const upperLimit = await ask('Obere Integrationsgrenze eingeben, zum Beispiel 1 oder b:');
   if (upperLimit === null) return null;
   return { lower: lowerLimit, upper: upperLimit };
 }
 
-function insertDefiniteIntegral(modifiers = {}) {
+async function insertDefiniteIntegral(modifiers = {}) {
   const upper = modifiers.ctrlKey ? pos : modifiers.shiftKey ? pos - COLS : pos;
   const tall = !!(modifiers.ctrlKey || modifiers.shiftKey);
   if (upper < 0 || tall && upper + COLS >= COUNT) return;
-  const limits = askIntegralLimits();
+  const limits = await askIntegralLimits();
   if (limits === null) { select(pos); return; }
   const previous = smallMode;
   smallMode = null;
@@ -8499,23 +9041,8 @@ function beginStretchBracket(side, direction, parameters = {}) {
   cancelNumberLine(false); cancelKeyboardLine(); cancelKeyboardArea(); cancelRegion(); cancelStrike(); finishMark(); resetCorner();
   const row = Math.floor(pos / COLS), targetRow = Math.max(0, Math.min(ROWS - 1, row + direction));
   stretchBracket = { anchor: pos, end: targetRow * COLS + pos % COLS, page, document: doc, side, direction, color: ink, parameters,
-    pendingInput: !!(parameters.degree || parameters.limits), inputAfter: performance.now() };
-  if (stretchBracket.pendingInput) {
-    const state = stretchBracket;
-    // Native prompts may deliver their final key/focus events after returning.
-    // Keep the preview alive through that handoff; accept only a fresh input afterwards.
-    const activate = () => {
-      if (stretchBracket !== state) return;
-      if (!document.hasFocus()) { requestAnimationFrame(activate); return; }
-      requestAnimationFrame(() => {
-        if (stretchBracket !== state) return;
-        if (!document.hasFocus()) { requestAnimationFrame(activate); return; }
-        state.inputAfter = performance.now();
-        state.pendingInput = false;
-      });
-    };
-    requestAnimationFrame(activate);
-  }
+    pendingInput: false, inputAfter: 0 };
+  // The shared dialog guard consumes its final held key through keyup.
   status(tr('Höhe wählen: Hoch/Runter oder Zielkästchen anklicken · Enter bestätigt · Esc bricht ab'));
   select(stretchBracket.end);
   renderLines();
@@ -8601,14 +9128,14 @@ function initialiseStretchBrackets() {
 }
 
 // Parameter entry finishes before placement starts; cancelling never changes the document.
-function beginStretchChoice(button) {
+async function beginStretchChoice(button) {
   const parameters = {};
   if (button.dataset.rootDegree) {
-    parameters.degree = askRootDegree();
+    parameters.degree = await askRootDegree();
     if (parameters.degree === null) { select(pos); return; }
   }
   if (button.dataset.definite) {
-    parameters.limits = askIntegralLimits();
+    parameters.limits = await askIntegralLimits();
     if (parameters.limits === null) { select(pos); return; }
   }
   beginStretchBracket(button.dataset.symbol, button.dataset.stretch === 'up' ? -1 : 1, parameters);
@@ -8780,6 +9307,7 @@ function addSheet(type = 'squared') {
   doc.paperTypes.splice(page + 1, 0, type);
   doc.pages.splice(page + 1, 0, {});
   (doc.images ??= doc.pages.slice(0, -1).map(() => [])).splice(page + 1, 0, []);
+  (doc.constructionPoints ??= doc.pages.slice(0, -1).map(() => [])).splice(page + 1, 0, []);
   doc.freehand.splice(page + 1, 0, []);
   doc.lines.splice(page + 1, 0, []);
   doc.pencilLines.splice(page + 1, 0, []);
@@ -8819,13 +9347,14 @@ function holdPaperChoice(code) {
 }
 
 // Source: src/js/delete-page.js [part-01]
-$('remove').onclick = () => {
-  if (doc.pages.length > 1 && confirm('Dieses Blatt wirklich löschen?')) {
+$('remove').onclick = async () => {
+  if (doc.pages.length > 1 && await requestConfirmation(tr('Dieses Blatt wirklich löschen?'),{activationKeys:['Delete']})) {
     cancelRegion();
     checkpoint();
     doc.paperTypes?.splice(page, 1);
     doc.pages.splice(page, 1);
     doc.images?.splice(page, 1);
+    doc.constructionPoints?.splice(page, 1);
     doc.freehand.splice(page, 1);
     doc.lines.splice(page, 1);
     doc.pencilLines.splice(page, 1);
@@ -8942,12 +9471,12 @@ function saveFile() {
 }
 
 // Source: src/js/new-document.js [part-01]
-$('newFile').onclick = () => {
+$('newFile').onclick = async () => {
   const hasContent = doc.pages.some(p => Object.keys(p).length) || ['lines', 'pencilLines', 'numberLines', 'freehand',
-      'tallBrackets', 'images'
+      'tallBrackets', 'images', 'constructionPoints'
     ].some(field => doc[field].some(p => p.length)) || ['highlights', 'carries', 'powers', 'fractionEquals', 'decimalMarks', 'taskLabels']
     .some(field => doc[field].some(p => Object.keys(p).length));
-  if (hasContent && !confirm(
+  if (hasContent && !await requestConfirmation(
       'Neue Datei erstellen? Das aktuelle Dokument wird ersetzt. Speichere es vorher bei Bedarf als .schmier-Datei.'
       )) return;
   cancelKeyboardArea(); cancelKeyboardLine(); cancelStrike();
@@ -9015,8 +9544,8 @@ function validateDocument(data) {
     const list = data.lines?.[i] ?? [];
     if (!Array.isArray(list) || list.length > 10000) throw Error('Ungültige Linien.');
     return list.map(line => {
-      if (!Array.isArray(line) || ![4, 5].includes(line.length) || !line.slice(0, 4).every(Number
-          .isFinite) || (line.length === 5 && !INKS.includes(line[4]))) throw Error(
+      if (!Array.isArray(line) || ![4, 5, 6].includes(line.length) || !line.slice(0, 4).every(Number
+          .isFinite) || (line.length >= 5 && !INKS.includes(line[4])) || (line.length === 6 && line[5] !== true)) throw Error(
         'Ungültige Linie.');
       const [x1, y1, x2, y2] = line;
       if (x1 < 0 || x1 > 42 || x2 < 0 || x2 > 42 || y1 < 0 || y1 > 59.4 || y2 < 0 || y2 > 59.4)
@@ -9102,9 +9631,9 @@ function validateDocument(data) {
     const list = data.pencilLines?.[i] ?? [];
     if (!Array.isArray(list) || list.length > 100000) throw Error('Ungültige Bleistiftlinien.');
     return list.map(line => {
-      if (!Array.isArray(line) || ![4, 5].includes(line.length) || !line.slice(0, 4).every(Number
-          .isFinite) || (line.length === 5 && (typeof line[4] !== 'string' || !/^[a-zA-Z0-9_-]{1,80}$/
-          .test(line[4]))) || line[0] < 0 || line[0] > 210 || line[2] < 0 || line[2] > 210 || line[
+      if (!Array.isArray(line) || ![4, 5, 6].includes(line.length) || !line.slice(0, 4).every(Number
+          .isFinite) || (line.length >= 5 && (typeof line[4] !== 'string' || !(line.length === 6 && line[4] === '') && !/^[a-zA-Z0-9_-]{1,80}$/
+          .test(line[4]))) || (line.length === 6 && line[5] !== true) || line[0] < 0 || line[0] > 210 || line[2] < 0 || line[2] > 210 || line[
         1] < 0 || line[1] > 297 || line[3] < 0 || line[3] > 297) throw Error(
         'Ungültige Bleistiftlinie.');
       return [...line]
@@ -9134,8 +9663,8 @@ function validateDocument(data) {
     const list = data.numberLines?.[i] ?? [];
     if (!Array.isArray(list) || list.length > 10000) throw Error('Ungültige Zahlenstrahlen.');
     return list.map(axis => {
-      if (!Array.isArray(axis) || ![5, 6].includes(axis.length) || !axis.slice(0, 4).every(
-          isMillimeterCoordinate) || !INKS.includes(axis[4])) throw Error('Ungültiger Zahlenstrahl.');
+      if (!Array.isArray(axis) || ![5, 6, 7].includes(axis.length) || !axis.slice(0, 4).every(
+          isMillimeterCoordinate) || !INKS.includes(axis[4]) || (axis.length === 7 && axis[6] !== true)) throw Error('Ungültiger Zahlenstrahl.');
       const [x1, y1, x2, y2] = axis;
       if (x1 < 0 || x1 > 42 || x2 < 0 || x2 > 42 || y1 < 0 || y1 > 59.4 || y2 < 0 || y2 > 59.4 || (
           x1 !== x2 && y1 !== y2) || (x1 === x2 && y1 === y2)) throw Error(
@@ -9151,13 +9680,14 @@ function validateDocument(data) {
           'Ungültige Zahlenstrahlmarke.');
         if (text) labels[key] = text
       }
-      return [...axis.slice(0, 5), labels]
+      return [...axis.slice(0, 5), labels, ...(axis[6] === true ? [true] : [])]
     })
   });
   if (data.paperType !== undefined && !['squared', 'millimeter'].includes(data.paperType)) throw Error(
     'Unbekannte Papierart.');
   return {
     images: validateImages(data),
+    constructionPoints: validateConstructionPoints(data),
     version: 1,
     grid: 'inset-a4',
     paperTypes: data.pages.map((_, i) => {
@@ -9208,11 +9738,11 @@ $('openFile').onchange = async e => {
   try {
     if (file.size > 64000000) throw Error('Die Datei ist zu groß.');
     const loaded = validate(JSON.parse(await file.text()));
-    if ((doc.images?.some(list => list.length) || doc.pages.some(p => Object.keys(p).length) || doc.lines.some(lines => lines.length) || doc
+    if ((doc.constructionPoints?.some(list => list.length) || doc.images?.some(list => list.length) || doc.pages.some(p => Object.keys(p).length) || doc.lines.some(lines => lines.length) || doc
         .pencilLines.some(lines => lines.length) || doc.freehand.some(strokes => strokes.length) || doc.numberLines.some(lines => lines.length) || doc
         .decimalMarks.some(h => Object.keys(h).length) || doc.taskLabels.some(h => Object.keys(h).length) || doc.highlights.some(h => Object.keys(h).length) || doc.carries.some(c => Object.keys(c).length) ||
         doc.powers.some(c => Object.keys(c).length) || doc.fractionEquals.some(c => Object.keys(c)
-        .length) || doc.tallBrackets.some(b => b.length)) && !confirm(
+        .length) || doc.tallBrackets.some(b => b.length)) && !await requestConfirmation(
         'Aktuelles Dokument ersetzen? Vorher bei Bedarf als .schmier speichern.')) return;
     checkpoint();
     doc = loaded;
@@ -9285,32 +9815,29 @@ async function pdfExport() {
       c.strokeStyle = '#172e65';
       c.lineWidth = .45 * scale;
       c.lineCap = 'round';
-      for (const [x1, y1, x2, y2, color] of doc.lines[p]) {
+      for (const [x1, y1, x2, y2, color, dashed] of doc.lines[p]) {
         c.strokeStyle = color || '#172e65';
+        c.setLineDash(dashed === true ? [1.5 * scale, scale] : []);
         c.beginPath();
         c.moveTo(x1 * 5 * scale, y1 * 5 * scale);
         c.lineTo(x2 * 5 * scale, y2 * 5 * scale);
         c.stroke()
       }
-      c.strokeStyle = '#555b60';
-      c.lineWidth = .2 * scale;
-      for (const [x1, y1, x2, y2] of doc.pencilLines[p]) {
-        c.beginPath();
-        c.moveTo(x1 * scale, y1 * scale);
-        c.lineTo(x2 * scale, y2 * scale);
-        c.stroke()
-      }
+      c.setLineDash([]);
+      paintPencilStrokes(c, scale, doc.pencilLines[p]);
       for (const axis of doc.numberLines[p]) {
         const shape = numberLineShape(axis, doc.numberLines[p], doc.lines[p], doc.pencilLines[p]);
         c.strokeStyle = axis[4];
         c.fillStyle = axis[4];
         c.lineWidth = .3 * scale;
         c.beginPath();
-        for (const [x1, y1, x2, y2] of shape.segments) {
+        shape.segments.forEach(([x1, y1, x2, y2], index) => {
+          c.setLineDash(index === 0 && axis[6] === true ? [1.5 * scale, scale] : []);
+          c.beginPath();
           c.moveTo(x1 * scale, y1 * scale);
-          c.lineTo(x2 * scale, y2 * scale)
-        }
-        c.stroke();
+          c.lineTo(x2 * scale, y2 * scale); c.stroke();
+        });
+        c.setLineDash([]);
         if (shape.arrow.length) {
           c.beginPath();
           shape.arrow.forEach(([x, y], i) => i ? c.lineTo(x * scale, y * scale) : c.moveTo(x * scale, y *
@@ -9424,6 +9951,7 @@ async function pdfExport() {
       }
       c.restore();
       paintFreehand(c, scale, doc.freehand[p]);
+      paintConstructionPoints(c, scale, p);
       const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', .95));
       if (!blob) throw Error('Bild konnte nicht erzeugt werden.');
       const bytes = new Uint8Array(await blob.arrayBuffer()),
@@ -9480,7 +10008,7 @@ function preparePrint() {
     sheet.querySelector('.geo-overlay')?.remove();
     sheet.querySelector('.compass-overlay')?.remove();
     sheet.querySelector('.axis-label-editor')?.remove();
-    sheet.querySelectorAll('.region-box,.paper-badge,.keyboard-line-preview,.keyboard-area,.stretch-bracket-preview').forEach(el => el.remove());
+    sheet.querySelectorAll('.region-box,.paper-badge,.keyboard-line-preview,.keyboard-area,.stretch-bracket-preview,.construction-point-preview').forEach(el => el.remove());
     sheet.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
     sheet.querySelectorAll('.cell').forEach((el, index) => {
       el.classList.remove('selected');
@@ -9669,7 +10197,7 @@ function renderSpread() {
   companion.querySelector('.geo-overlay')?.remove();
   companion.querySelector('.compass-overlay')?.remove();
   companion.querySelector('.axis-label-editor')?.remove();
-  companion.querySelectorAll('.region-box,.paper-badge,.keyboard-line-preview,.keyboard-area,.stretch-bracket-preview').forEach(el => el.remove());
+  companion.querySelectorAll('.region-box,.paper-badge,.keyboard-line-preview,.keyboard-area,.stretch-bracket-preview,.construction-point-preview').forEach(el => el.remove());
   companion.removeAttribute('id');
   companion.className = 'paper companion' + (paperTypeAt(other) === 'millimeter' ? ' millimeter' : '');
   setPaperGrid(companion, paperTypeAt(other));
@@ -9817,8 +10345,7 @@ $('cutRegion').onclick = () => startRegion('cut');
 $('copyRegion').onclick = () => startRegion('copy');
 
 function splitRegionLines(lines, r) {
-  const split = splitPencilRegion(lines.map(line => [...line.slice(0, 4).map(n => n * 5), line[4] ||
-      '#172e65']), r),
+  const split = splitPencilRegion(lines.map(line => [...line.slice(0, 4).map(n => n * 5), line[4] || '#172e65', ...line.slice(5)]), r),
     convert = line => [...line.slice(0, 4).map(n => n / 5), ...line.slice(4)];
   return {
     inside: split.inside.map(convert),
@@ -9833,6 +10360,7 @@ function snapshotRegion(sourcePage, r) {
     for (const [k, v] of Object.entries(doc[field][sourcePage]))
       if (inRegion(+k, r)) data[field][k] = JSON.parse(JSON.stringify(v))
   }
+  data.constructionPoints = (doc.constructionPoints?.[sourcePage] || []).filter(point => constructionPointInRegion(point, r)).map(point => ({ ...point }));
   data.images = (doc.images?.[sourcePage] || []).filter(image => imageWithinRect(image, r)).map(image => ({ ...image }));
   data.taskLabels = Object.fromEntries(Object.entries(doc.taskLabels[sourcePage]).filter(([key, label]) =>
     inRegion(+key, r) && inRegion(+key + 1 + (label.height - 1) * COLS, r)).map(([key, label]) => [key, { ...label }]));
@@ -9847,12 +10375,13 @@ function snapshotRegion(sourcePage, r) {
   data.numberLines = doc.numberLines[sourcePage].filter(axis => numberLineInRegion(axis, r)).map(axis => [...
     axis.slice(0, 5), {
       ...axis[5]
-    }
+    }, ...axis.slice(6)
   ]);
   return data;
 }
 
 function eraseRegion(targetPage, r) {
+  if (doc.constructionPoints) doc.constructionPoints[targetPage] = doc.constructionPoints[targetPage].filter(point => !constructionPointInRegion(point, r));
   if (doc.images) doc.images[targetPage] = doc.images[targetPage].filter(image => !imageWithinRect(image, r));
   for (const field of REGION_FIELDS)
     for (const key of Object.keys(doc[field][targetPage]))
@@ -9890,6 +10419,8 @@ function pasteRegion(point) {
   for (const field of REGION_FIELDS)
     for (const [k, v] of Object.entries(data[field])) doc[field][page][+k + offset] = JSON.parse(JSON
       .stringify(v));
+  doc.constructionPoints ??= doc.pages.map(() => []);
+  doc.constructionPoints[page].push(...(data.constructionPoints || []).map(point => ({ ...point, x: point.x + dx * 5, y: point.y + dy * 5 })));
   doc.images ??= doc.pages.map(() => []);
   doc.images[page].push(...(data.images || []).map(image => ({ ...image, x: image.x + dx, y: image.y + dy })));
   for (const [k, v] of Object.entries(data.taskLabels)) doc.taskLabels[page][+k + offset] = { ...v };
@@ -9898,26 +10429,27 @@ function pasteRegion(point) {
     ...b,
     upper: b.upper + offset
   })));
-  doc.lines[page].push(...data.lines.map(([x1, y1, x2, y2, color]) => [x1 + dx, y1 + dy, x2 + dx, y2 + dy,
-    color
+  doc.lines[page].push(...data.lines.map(([x1, y1, x2, y2, color, ...style]) => [x1 + dx, y1 + dy, x2 + dx, y2 + dy,
+    color, ...style
   ]));
   doc.lines[page] = toggleLineCoverage(doc.lines[page], [0, 0], [0, 0], ink);
   doc.freehand[page].push(...data.freehand.map(stroke => ({
     ...stroke, points: stroke.points.map(([x, y]) => [x + dx * 5, y + dy * 5])
   })));
   const copiedStrokes = new Map();
-  doc.pencilLines[page].push(...data.pencilLines.map(([x1, y1, x2, y2, stroke]) => {
+  doc.pencilLines[page].push(...data.pencilLines.map(([x1, y1, x2, y2, stroke, dashed]) => {
     const line = [x1 + dx * 5, y1 + dy * 5, x2 + dx * 5, y2 + dy * 5];
     if (stroke) {
       if (!copiedStrokes.has(stroke)) copiedStrokes.set(stroke, newPencilStrokeId());
       line.push(copiedStrokes.get(stroke))
     }
+    if (dashed === true) { if (!stroke) line.push(''); line.push(true); }
     return line
   }));
-  doc.numberLines[page].push(...data.numberLines.map(([x1, y1, x2, y2, color, labels]) => [x1 + dx, y1 + dy,
+  doc.numberLines[page].push(...data.numberLines.map(([x1, y1, x2, y2, color, labels, ...style]) => [x1 + dx, y1 + dy,
     x2 + dx, y2 + dy, color, {
       ...labels
-    }
+    }, ...style
   ]));
   const moved = region.mode === 'cut';
   pos = target.y * COLS + target.x;
@@ -10116,7 +10648,8 @@ function drawNumberLineSvg(layer, axis, preview = false) {
     y2,
     stroke: axis[4],
     'stroke-width': '.3',
-    'stroke-linecap': 'round'
+    'stroke-linecap': 'round',
+    'stroke-dasharray': axis[6] === true && x1 === shape.segments[0][0] && y1 === shape.segments[0][1] && x2 === shape.segments[0][2] && y2 === shape.segments[0][3] ? '1.5 1' : 'none'
   }, group);
   if (shape.arrow.length) geoSvg('polygon', {
     points: shape.arrow.map(point => point.join(',')).join(' '),
@@ -10303,7 +10836,7 @@ function numberLineCapture(e) {
 // Mouse and keyboard use the same insertion, crossing and label workflow.
 function commitNumberLine(start, end) {
   checkpoint();
-  doc.numberLines[page].push([...start, ...end, ink, {}]);
+  doc.numberLines[page].push([...start, ...end, ink, {}, ...(dashedLines() ? [true] : [])]);
   const index = doc.numberLines[page].length - 1,
     axis = doc.numberLines[page][index],
     affected = [];
@@ -10510,7 +11043,7 @@ function updateShortcutHints() {
     ['#prev', 'Bild↑…'], ['#next', 'Bild↓…'], ['#pageView', 'D…'],
     ['#add', 'Einfg…'], ['#remove', 'Entf…'], ['#zoomIn', '+…'], ['#zoomOut', '−…'],
     ['#undo', 'Strg+Z'], ['#redo', 'Strg+Y'], ['#save', 'Strg+S'], ['#pdf', 'E…'], ['#print', 'Strg+P'],
-    ['#fractionInsert', 'V…'], ['#taskLabel', 'A…'], ['#cutRegion', 'X…'], ['#copyRegion', 'C…'], ['#largeMode', 'U…'], ['#carryMode', 'Strg…'], ['#powerMode', 'Shift…'],
+    ['#lineStyleToggle', 'J…'], ['#constructionPoint', 'H…'], ['#fractionInsert', 'V…'], ['#taskLabel', 'A…'], ['#cutRegion', 'X…'], ['#copyRegion', 'C…'], ['#largeMode', 'U…'], ['#carryMode', 'Strg…'], ['#powerMode', 'Shift…'],
     ['.swatch[data-tool="eraser"]', 'R…'], ['#compassToggle', 'K…'], ['#geoToggle', 'G…'],
     ['#numberLineToggle', 'N…'], ['#integral', 'I…'],
     ['#greek', 'P…'], ['#parenOpen', '8…'],
@@ -10607,7 +11140,7 @@ function groupLegacyCompassArcs(lines) {
   const key = p => p.join(',');
   lines.forEach((line, i) => {
     const length = Math.hypot(line[2] - line[0], line[3] - line[1]);
-    if (line[4] || length < .002 || length > .75) return;
+    if (line.length !== 4 || line[4] || length < .002 || length > .75) return;
     eligible.push(i);
     for (const point of [line.slice(0, 2), line.slice(2, 4)]) {
       const k = key(point);
@@ -10680,7 +11213,8 @@ function drawPencilStrokes(layer, lines) {
         y1: line[1],
         x2: line[2],
         y2: line[3],
-        class: 'pencil-line'
+        class: 'pencil-line',
+        'stroke-dasharray': line[5] === true ? '1.5 1' : 'none'
       }, layer)
     }
   }
@@ -10696,6 +11230,7 @@ function drawPencilStrokes(layer, lines) {
       d: path,
       class: 'pencil-line',
       'data-pencil-stroke': id,
+      'stroke-dasharray': segments[0][5] === true ? '1.5 1' : 'none',
       'stroke-linejoin': 'round'
     }, layer)
   }
@@ -10910,7 +11445,7 @@ function finishCompassStroke(commit = true, redraw = true) {
         key = a < b ? a + '|' + b : b + '|' + a;
       if (!keys.has(key)) {
         keys.add(key);
-        added.push([...line, stroke.id])
+        added.push([...line, stroke.id, ...(stroke.dashed ? [true] : [])])
       }
     }
     if (added.length) {
@@ -11029,7 +11564,7 @@ window.addEventListener('keydown', event => {
       state.stage = 'end'; state.start = compass.angle; state.sweep = 0; state.preview = [];
     } else {
       if (!state.preview.length) return;
-      compass.stroke = { page, id: newPencilStrokeId(), points: state.preview };
+      compass.stroke = { page, id: newPencilStrokeId(), dashed: dashedLines(), points: state.preview };
       state.preview = [];
       finishCompassStroke();
       state.stage = 'start'; state.start = compass.angle; state.sweep = 0;
@@ -11111,6 +11646,7 @@ function compassCapture(e) {
       compass.stroke = {
         page,
         id: newPencilStrokeId(),
+        dashed: dashedLines(),
         points: [compassPoint()]
       };
       $('paper').setPointerCapture(e.pointerId);
@@ -11190,6 +11726,7 @@ window.addEventListener('keydown', e => {
 
 // Feature action called by the shared keyboard dispatcher.
 function holdCompass(code) {
+  if (compass.active) { hideCompass(false); select(pos); return; }
   beginKeyboardCompass();
 }
 
@@ -11691,7 +12228,7 @@ function splitPencilRegion(lines, r) {
   };
 }
 
-function togglePencilCoverage(lines, a, b) {
+function togglePencilCoverage(lines, a, b, dashed = dashedLines()) {
   const length = Math.hypot(b[0] - a[0], b[1] - a[1]);
   if (length < .3) return lines;
   const ux = (b[0] - a[0]) / length,
@@ -11734,10 +12271,10 @@ function togglePencilCoverage(lines, a, b) {
   const result = lines.map(line => [...line]);
   let cursor = 0;
   for (const [lo, hi] of intervals) {
-    if (lo > cursor + tolerance) result.push([...point(cursor), ...point(lo)]);
+    if (lo > cursor + tolerance) result.push([...point(cursor), ...point(lo), ...(dashed ? ['', true] : [])]);
     cursor = Math.max(cursor, hi)
   }
-  if (cursor < length - tolerance) result.push([...point(cursor), ...point(length)]);
+  if (cursor < length - tolerance) result.push([...point(cursor), ...point(length), ...(dashed ? ['', true] : [])]);
   return result;
 }
 
@@ -11915,7 +12452,11 @@ window.addEventListener('keydown', e => {
 // Feature action called by the shared keyboard dispatcher.
 function holdSetSquare(code) {
   if (compass.active && compass.phase === 'radius') toggleGeo();
-  else beginKeyboardGeo();
+  else if (geo.visible) {
+    geo.keyboard = null; geo.edgeHover = null; geo.gesture = null;
+    geo.visible = false; geo.placing = false;
+    renderGeo(); select(pos);
+  } else beginKeyboardGeo();
 }
 
 $('paper').addEventListener('pointerleave', () => {
@@ -12294,7 +12835,7 @@ function showTutorialStep() {
   tutorial.exported = false;
   $('tutorialProgress').textContent = `Übung ${tutorial.index+1} von ${tutorial.steps.length}`;
   $('tutorialTitle').textContent = step.title;
-  $('tutorialText').textContent = step.text;
+  $('tutorialText').textContent = tr(step.text) + (['line','regionSelect','regionPlace'].includes(step.kind) || ['#parenOpen','#parenClose'].includes(step.target) ? '\n\n' + tr('Alternativ bestätigt Enter den aktuellen Schritt. Die Aktivierungstaste nach dem Loslassen einmal drücken bestätigt ebenfalls, sofern sie nicht zur Texteingabe dient.') : '');
   $('tutorialError').textContent = '';
   $('tutorialFill').style.width = (tutorial.index / tutorial.steps.length * 100) + '%';
   const target = tourElement(step);
@@ -12519,7 +13060,7 @@ function tutorialGate(e) {
   if (e.type === 'keydown' && e.repeat && (penNumberHolds.get(e.code)?.selected || actionHolds.get(e.code)?.fired)) {
     e.preventDefault(); e.stopImmediatePropagation(); return;
   }
-  if (e.target.closest?.('#tutorialCoach,.language-picker,#storageConsentOpen,#storageConsentDialog,#virtualKeypad,#keypadToggle')) {
+  if (e.target.closest?.('#tutorialCoach,.language-picker,#storageConsentOpen,#storageConsentDialog,#inputDialog,#virtualKeypad,#keypadToggle')) {
     // Check after button handlers; generated input events still pass the exercise gate.
     if (e.type === 'click') scheduleTutorialCheck();
     return;
@@ -12557,7 +13098,7 @@ function tutorialGate(e) {
       if (choice) allowed = plain && !choice.dataset.size && (choice.dataset.paper || choice.dataset.symbol) === wanted;
       if (keyEvent && onEditor) {
         const current = $(extraMenu).querySelector('.menu-current');
-        allowed = plain && (e.key.startsWith('Arrow') || e.key === 'Enter' && !current?.dataset.size && (current?.dataset.paper || current?.dataset.symbol) === wanted);
+        allowed = plain && (e.key.startsWith('Arrow') || (e.key === 'Enter' || e.key === activeMenuActivation(extraMenu)) && !current?.dataset.size && (current?.dataset.paper || current?.dataset.symbol) === wanted);
       }
     } else if (step.kind === 'button') {
       if (['#parenOpen', '#parenClose'].includes(step.target) &&
@@ -12592,7 +13133,7 @@ function tutorialGate(e) {
           const current = document.querySelector(menu + ' .menu-current');
           allowed = !(greek ? greekMenuOpen : relationMenuOpen) ? !greek : current?.dataset.symbol === step.symbol;
         }
-        if (greek && e.code === 'KeyP') allowed = true;
+        if (greek && e.code === 'KeyP') allowed = !greekMenuOpen || document.querySelector(menu + ' .menu-current')?.dataset.symbol === step.symbol;
       }
     } else if (step.kind === 'typing') {
       if (keyEvent && onEditor && !e.ctrlKey && !e.altKey && !e.metaKey) {
@@ -12640,7 +13181,7 @@ function tutorialGate(e) {
       else allowed = !!e.target.closest?.('.companion') && ['pointerdown', 'pointerup', 'pointermove', 'click']
         .includes(e.type)
     } else if (step.kind === 'line') {
-      if (keyEvent && onEditor && !e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey && e.key.startsWith('Arrow')) allowed = true;
+      if (keyEvent && onEditor && !e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey && (e.key.startsWith('Arrow') || e.key === 'Enter' && keyboardLine)) allowed = true;
       if (onPaper && e.type === 'pointermove') allowed = true;
       if (onPaper && ['pointerdown', 'pointerup', 'click'].includes(e.type)) {
         const p = paperPoint(e),
@@ -13151,7 +13692,7 @@ function keyboardChord(horizontal) {
   keyboardLine = { horizontal, page, anchor: horizontal ? x : y, cursor: horizontal ? x : y,
     start: [x, horizontal ? y + 1 : y], end: horizontal ? [x + 1, y + 1] : [x, y + 1] };
   renderLines();
-  status('Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste bestätigt · Esc bricht ab');
+  status('Tastaturstrich: Pfeiltasten ändern Länge und Kante · gleiche Doppeltaste oder Enter bestätigt · Esc bricht ab');
 }
 
 function flushArrow() {
@@ -13425,39 +13966,35 @@ function openExtraMenu(id, anchor, modifiers = {}) {
   if (id === 'bracketCloseMenu') $('parenCloseMore').setAttribute('aria-expanded', 'true');
 }
 
-function chooseExtra(button, event = {}) {
+async function chooseExtra(button, event = {}) {
   const id = extraMenu;
   const modifiers = { ctrlKey: extraModifiers.ctrlKey || event.ctrlKey, shiftKey: extraModifiers.shiftKey || event.shiftKey };
   if (button.dataset.size === 'down') { modifiers.ctrlKey = true; modifiers.shiftKey = false; }
   if (button.dataset.size === 'up') { modifiers.ctrlKey = false; modifiers.shiftKey = true; }
   closeExtraMenu();
-  if (id === 'taskLabelMenu') insertTaskLabel(Number(button.dataset.taskHeight));
+  if (id === 'taskLabelMenu') await insertTaskLabel(Number(button.dataset.taskHeight));
   else if (id === 'paperChoiceMenu') addSheet(button.dataset.paper);
-  else if (button.dataset.stretch) beginStretchChoice(button);
+  else if (button.dataset.stretch) await beginStretchChoice(button);
   else if (button.dataset.textSymbol) insertMathSymbol(button.dataset.symbol);
-  else if (button.dataset.definite) insertDefiniteIntegral(modifiers);
-  else if (button.dataset.rootDegree) insertIndexedRoot(modifiers);
+  else if (button.dataset.definite) await insertDefiniteIntegral(modifiers);
+  else if (button.dataset.rootDegree) await insertIndexedRoot(modifiers);
   else insertBracket(button.dataset.symbol, modifiers);
   scheduleTutorialCheck();
 }
 
 // Source: src/js/roots.js [part-02]
-function askRootDegree() {
-  let degree;
-  for (;;) {
-    degree = prompt(tr('Wurzelexponent eingeben (2–9999), zum Beispiel 3 für die dritte Wurzel:'), '');
-    if (degree === null) return null;
-    degree = degree.trim();
-    if (/^[1-9][0-9]{0,3}$/.test(degree) && Number(degree) >= 2) break;
-    alert(tr('Bitte eine ganze Zahl von 2 bis 9999 eingeben.'));
-  }
-  return degree;
+async function askRootDegree() {
+  const value=await requestInput(tr('Wurzelexponent eingeben (2–9999), zum Beispiel 3 für die dritte Wurzel:'), {
+    value:'',maxLength:4,
+    validate:value=>/^[1-9][0-9]{0,3}$/.test(value.trim())&&Number(value.trim())>=2?null:'Bitte eine ganze Zahl von 2 bis 9999 eingeben.'
+  });
+  return value===null?null:value.trim();
 }
 
-function insertIndexedRoot(modifiers) {
+async function insertIndexedRoot(modifiers) {
   const index = modifiers.ctrlKey ? pos : modifiers.shiftKey ? pos - COLS : pos;
   if (index < 0 || (modifiers.ctrlKey || modifiers.shiftKey) && index + COLS >= COUNT) return;
-  const degree = askRootDegree();
+  const degree = await askRootDegree();
   if (degree === null) { select(pos); return; }
   const previous = smallMode;
   smallMode = null;
@@ -13525,7 +14062,7 @@ function beginKeyboardArea(mode) {
   if (region) { region.keyboard = true; region.start = point; region.rect = regionRect(point, point); }
   select(pos);
   renderLines(); renderKeyboardArea();
-  status('Pfeiltasten markieren den Bereich · gleiche Taste länger halten bestätigt · Esc bricht ab');
+  status('Pfeiltasten markieren den Bereich · gleiche Taste oder Enter bestätigt · Esc bricht ab');
   scheduleTutorialCheck();
 }
 
@@ -13539,6 +14076,8 @@ function eraseKeyboardRectangle(r) {
   const touches = (a, b) => inside(a) || inside(b) || corners.some((p, i) =>
     segmentDistanceSquared(a, b, p, corners[(i + 1) % 4]) < 1e-8);
   checkpoint();
+  if (doc.constructionPoints) doc.constructionPoints[page] = doc.constructionPoints[page].filter(point =>
+    point.x+1<left || point.x-1>right || point.y+1<top || point.y-1>bottom);
   if (doc.images) doc.images[page] = doc.images[page].filter(image =>
     image.x >= r.x + r.w || image.x + image.w <= r.x || image.y >= r.y + r.h || image.y + image.h <= r.y);
   for (const key of Object.keys(doc.highlights[page])) if (inRegion(+key, r)) delete doc.highlights[page][key];
@@ -13597,7 +14136,7 @@ function confirmKeyboardArea() {
   select(r.y * COLS + r.x, true, true);
   region.target = { x: r.x, y: r.y };
   document.querySelector('.keyboard-area')?.remove(); renderRegion();
-  status('Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste länger halten fügt ein · Esc bricht ab');
+  status('Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste fügt ein · Esc bricht ab');
   scheduleTutorialCheck();
 }
 
@@ -13672,6 +14211,8 @@ function runHeldAction(code) {
   else if (code === 'PageUp' || code === 'PageDown') holdPageTravel(code);
   else if (code === 'KeyG') holdSetSquare(code);
   else if (code === 'KeyK') holdCompass(code);
+  else if (code === 'KeyJ') toggleLineStyle();
+  else if (code === 'KeyH') toggleConstructionPoint();
   else if (code === 'KeyV') insertFraction();
   else if (code === 'KeyF') $('settingsOpen').click();
   else if (code === 'KeyA') openExtraMenu('taskLabelMenu', $('taskLabel'));
@@ -14464,7 +15005,10 @@ try {
 } catch {
   status('Browserspeicher nicht verfügbar – bitte als .schmier speichern')
 }
+initialiseInputDialog();
 initialiseImages();
+initialiseLineStyle();
+initialiseConstructionPoints();
 initialiseToolbarLayout();
 applySettings(settings);
 render();

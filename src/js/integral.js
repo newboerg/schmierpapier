@@ -24,29 +24,27 @@ function normaliseIntegralLimit(text) {
 }
 
 // Limits use the existing per-cell annotations, just like an indexed root.
-// Both prompts finish before the undo checkpoint, so cancelling changes nothing.
-function askIntegralLimits() {
-  const ask = key => {
-    for (;;) {
-      const value = prompt(tr(key), '');
-      if (value === null) return null;
-      const text = normaliseIntegralLimit(value.trim());
-      if (Array.from(text).length >= 1 && Array.from(text).length <= 16 && !/[\s\u0000-\u001f\u007f]/.test(text)) return text;
-      alert(tr('Bitte 1 bis 16 Zeichen ohne Leerzeichen eingeben.'));
-    }
+// Both input dialogs finish before the undo checkpoint, so cancelling changes nothing.
+async function askIntegralLimits() {
+  const ask = async key => {
+    const value=await requestInput(tr(key), {value:'',maxLength:200,validate:value=>{
+      const text=normaliseIntegralLimit(value.trim());
+      return Array.from(text).length>=1&&Array.from(text).length<=16&&!/[\s\u0000-\u001f\u007f]/.test(text)?null:'Bitte 1 bis 16 Zeichen ohne Leerzeichen eingeben.';
+    }});
+    return value===null?null:normaliseIntegralLimit(value.trim());
   };
-  const lowerLimit = ask('Untere Integrationsgrenze eingeben, zum Beispiel 0 oder a:');
+  const lowerLimit = await ask('Untere Integrationsgrenze eingeben, zum Beispiel 0 oder a:');
   if (lowerLimit === null) return null;
-  const upperLimit = ask('Obere Integrationsgrenze eingeben, zum Beispiel 1 oder b:');
+  const upperLimit = await ask('Obere Integrationsgrenze eingeben, zum Beispiel 1 oder b:');
   if (upperLimit === null) return null;
   return { lower: lowerLimit, upper: upperLimit };
 }
 
-function insertDefiniteIntegral(modifiers = {}) {
+async function insertDefiniteIntegral(modifiers = {}) {
   const upper = modifiers.ctrlKey ? pos : modifiers.shiftKey ? pos - COLS : pos;
   const tall = !!(modifiers.ctrlKey || modifiers.shiftKey);
   if (upper < 0 || tall && upper + COLS >= COUNT) return;
-  const limits = askIntegralLimits();
+  const limits = await askIntegralLimits();
   if (limits === null) { select(pos); return; }
   const previous = smallMode;
   smallMode = null;

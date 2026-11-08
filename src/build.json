@@ -39,6 +39,10 @@
       "part": "part-01"
     },
     {
+      "file": "js/input-dialog.js",
+      "part": "part-01"
+    },
+    {
       "file": "js/comparisons.js",
       "part": "part-01"
     },
@@ -80,6 +84,14 @@
     },
     {
       "file": "js/images.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/line-style.js",
+      "part": "part-01"
+    },
+    {
+      "file": "js/construction-points.js",
       "part": "part-01"
     },
     {

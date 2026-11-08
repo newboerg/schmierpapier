@@ -84,8 +84,7 @@ $('cutRegion').onclick = () => startRegion('cut');
 $('copyRegion').onclick = () => startRegion('copy');
 
 function splitRegionLines(lines, r) {
-  const split = splitPencilRegion(lines.map(line => [...line.slice(0, 4).map(n => n * 5), line[4] ||
-      '#172e65']), r),
+  const split = splitPencilRegion(lines.map(line => [...line.slice(0, 4).map(n => n * 5), line[4] || '#172e65', ...line.slice(5)]), r),
     convert = line => [...line.slice(0, 4).map(n => n / 5), ...line.slice(4)];
   return {
     inside: split.inside.map(convert),
@@ -100,6 +99,7 @@ function snapshotRegion(sourcePage, r) {
     for (const [k, v] of Object.entries(doc[field][sourcePage]))
       if (inRegion(+k, r)) data[field][k] = JSON.parse(JSON.stringify(v))
   }
+  data.constructionPoints = (doc.constructionPoints?.[sourcePage] || []).filter(point => constructionPointInRegion(point, r)).map(point => ({ ...point }));
   data.images = (doc.images?.[sourcePage] || []).filter(image => imageWithinRect(image, r)).map(image => ({ ...image }));
   data.taskLabels = Object.fromEntries(Object.entries(doc.taskLabels[sourcePage]).filter(([key, label]) =>
     inRegion(+key, r) && inRegion(+key + 1 + (label.height - 1) * COLS, r)).map(([key, label]) => [key, { ...label }]));
@@ -114,12 +114,13 @@ function snapshotRegion(sourcePage, r) {
   data.numberLines = doc.numberLines[sourcePage].filter(axis => numberLineInRegion(axis, r)).map(axis => [...
     axis.slice(0, 5), {
       ...axis[5]
-    }
+    }, ...axis.slice(6)
   ]);
   return data;
 }
 
 function eraseRegion(targetPage, r) {
+  if (doc.constructionPoints) doc.constructionPoints[targetPage] = doc.constructionPoints[targetPage].filter(point => !constructionPointInRegion(point, r));
   if (doc.images) doc.images[targetPage] = doc.images[targetPage].filter(image => !imageWithinRect(image, r));
   for (const field of REGION_FIELDS)
     for (const key of Object.keys(doc[field][targetPage]))
@@ -157,6 +158,8 @@ function pasteRegion(point) {
   for (const field of REGION_FIELDS)
     for (const [k, v] of Object.entries(data[field])) doc[field][page][+k + offset] = JSON.parse(JSON
       .stringify(v));
+  doc.constructionPoints ??= doc.pages.map(() => []);
+  doc.constructionPoints[page].push(...(data.constructionPoints || []).map(point => ({ ...point, x: point.x + dx * 5, y: point.y + dy * 5 })));
   doc.images ??= doc.pages.map(() => []);
   doc.images[page].push(...(data.images || []).map(image => ({ ...image, x: image.x + dx, y: image.y + dy })));
   for (const [k, v] of Object.entries(data.taskLabels)) doc.taskLabels[page][+k + offset] = { ...v };
@@ -165,26 +168,27 @@ function pasteRegion(point) {
     ...b,
     upper: b.upper + offset
   })));
-  doc.lines[page].push(...data.lines.map(([x1, y1, x2, y2, color]) => [x1 + dx, y1 + dy, x2 + dx, y2 + dy,
-    color
+  doc.lines[page].push(...data.lines.map(([x1, y1, x2, y2, color, ...style]) => [x1 + dx, y1 + dy, x2 + dx, y2 + dy,
+    color, ...style
   ]));
   doc.lines[page] = toggleLineCoverage(doc.lines[page], [0, 0], [0, 0], ink);
   doc.freehand[page].push(...data.freehand.map(stroke => ({
     ...stroke, points: stroke.points.map(([x, y]) => [x + dx * 5, y + dy * 5])
   })));
   const copiedStrokes = new Map();
-  doc.pencilLines[page].push(...data.pencilLines.map(([x1, y1, x2, y2, stroke]) => {
+  doc.pencilLines[page].push(...data.pencilLines.map(([x1, y1, x2, y2, stroke, dashed]) => {
     const line = [x1 + dx * 5, y1 + dy * 5, x2 + dx * 5, y2 + dy * 5];
     if (stroke) {
       if (!copiedStrokes.has(stroke)) copiedStrokes.set(stroke, newPencilStrokeId());
       line.push(copiedStrokes.get(stroke))
     }
+    if (dashed === true) { if (!stroke) line.push(''); line.push(true); }
     return line
   }));
-  doc.numberLines[page].push(...data.numberLines.map(([x1, y1, x2, y2, color, labels]) => [x1 + dx, y1 + dy,
+  doc.numberLines[page].push(...data.numberLines.map(([x1, y1, x2, y2, color, labels, ...style]) => [x1 + dx, y1 + dy,
     x2 + dx, y2 + dy, color, {
       ...labels
-    }
+    }, ...style
   ]));
   const moved = region.mode === 'cut';
   pos = target.y * COLS + target.x;
@@ -306,7 +310,7 @@ function beginKeyboardArea(mode) {
   if (region) { region.keyboard = true; region.start = point; region.rect = regionRect(point, point); }
   select(pos);
   renderLines(); renderKeyboardArea();
-  status('Pfeiltasten markieren den Bereich · gleiche Taste länger halten bestätigt · Esc bricht ab');
+  status('Pfeiltasten markieren den Bereich · gleiche Taste oder Enter bestätigt · Esc bricht ab');
   scheduleTutorialCheck();
 }
 
@@ -349,7 +353,7 @@ function confirmKeyboardArea() {
   select(r.y * COLS + r.x, true, true);
   region.target = { x: r.x, y: r.y };
   document.querySelector('.keyboard-area')?.remove(); renderRegion();
-  status('Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste länger halten fügt ein · Esc bricht ab');
+  status('Ziel mit Pfeiltasten wählen · Enter oder gleiche Taste fügt ein · Esc bricht ab');
   scheduleTutorialCheck();
 }
 

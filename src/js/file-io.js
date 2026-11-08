@@ -87,8 +87,8 @@ function validateDocument(data) {
     const list = data.lines?.[i] ?? [];
     if (!Array.isArray(list) || list.length > 10000) throw Error('Ungültige Linien.');
     return list.map(line => {
-      if (!Array.isArray(line) || ![4, 5].includes(line.length) || !line.slice(0, 4).every(Number
-          .isFinite) || (line.length === 5 && !INKS.includes(line[4]))) throw Error(
+      if (!Array.isArray(line) || ![4, 5, 6].includes(line.length) || !line.slice(0, 4).every(Number
+          .isFinite) || (line.length >= 5 && !INKS.includes(line[4])) || (line.length === 6 && line[5] !== true)) throw Error(
         'Ungültige Linie.');
       const [x1, y1, x2, y2] = line;
       if (x1 < 0 || x1 > 42 || x2 < 0 || x2 > 42 || y1 < 0 || y1 > 59.4 || y2 < 0 || y2 > 59.4)
@@ -174,9 +174,9 @@ function validateDocument(data) {
     const list = data.pencilLines?.[i] ?? [];
     if (!Array.isArray(list) || list.length > 100000) throw Error('Ungültige Bleistiftlinien.');
     return list.map(line => {
-      if (!Array.isArray(line) || ![4, 5].includes(line.length) || !line.slice(0, 4).every(Number
-          .isFinite) || (line.length === 5 && (typeof line[4] !== 'string' || !/^[a-zA-Z0-9_-]{1,80}$/
-          .test(line[4]))) || line[0] < 0 || line[0] > 210 || line[2] < 0 || line[2] > 210 || line[
+      if (!Array.isArray(line) || ![4, 5, 6].includes(line.length) || !line.slice(0, 4).every(Number
+          .isFinite) || (line.length >= 5 && (typeof line[4] !== 'string' || !(line.length === 6 && line[4] === '') && !/^[a-zA-Z0-9_-]{1,80}$/
+          .test(line[4]))) || (line.length === 6 && line[5] !== true) || line[0] < 0 || line[0] > 210 || line[2] < 0 || line[2] > 210 || line[
         1] < 0 || line[1] > 297 || line[3] < 0 || line[3] > 297) throw Error(
         'Ungültige Bleistiftlinie.');
       return [...line]
@@ -206,8 +206,8 @@ function validateDocument(data) {
     const list = data.numberLines?.[i] ?? [];
     if (!Array.isArray(list) || list.length > 10000) throw Error('Ungültige Zahlenstrahlen.');
     return list.map(axis => {
-      if (!Array.isArray(axis) || ![5, 6].includes(axis.length) || !axis.slice(0, 4).every(
-          isMillimeterCoordinate) || !INKS.includes(axis[4])) throw Error('Ungültiger Zahlenstrahl.');
+      if (!Array.isArray(axis) || ![5, 6, 7].includes(axis.length) || !axis.slice(0, 4).every(
+          isMillimeterCoordinate) || !INKS.includes(axis[4]) || (axis.length === 7 && axis[6] !== true)) throw Error('Ungültiger Zahlenstrahl.');
       const [x1, y1, x2, y2] = axis;
       if (x1 < 0 || x1 > 42 || x2 < 0 || x2 > 42 || y1 < 0 || y1 > 59.4 || y2 < 0 || y2 > 59.4 || (
           x1 !== x2 && y1 !== y2) || (x1 === x2 && y1 === y2)) throw Error(
@@ -223,13 +223,14 @@ function validateDocument(data) {
           'Ungültige Zahlenstrahlmarke.');
         if (text) labels[key] = text
       }
-      return [...axis.slice(0, 5), labels]
+      return [...axis.slice(0, 5), labels, ...(axis[6] === true ? [true] : [])]
     })
   });
   if (data.paperType !== undefined && !['squared', 'millimeter'].includes(data.paperType)) throw Error(
     'Unbekannte Papierart.');
   return {
     images: validateImages(data),
+    constructionPoints: validateConstructionPoints(data),
     version: 1,
     grid: 'inset-a4',
     paperTypes: data.pages.map((_, i) => {
@@ -280,11 +281,11 @@ $('openFile').onchange = async e => {
   try {
     if (file.size > 64000000) throw Error('Die Datei ist zu groß.');
     const loaded = validate(JSON.parse(await file.text()));
-    if ((doc.images?.some(list => list.length) || doc.pages.some(p => Object.keys(p).length) || doc.lines.some(lines => lines.length) || doc
+    if ((doc.constructionPoints?.some(list => list.length) || doc.images?.some(list => list.length) || doc.pages.some(p => Object.keys(p).length) || doc.lines.some(lines => lines.length) || doc
         .pencilLines.some(lines => lines.length) || doc.freehand.some(strokes => strokes.length) || doc.numberLines.some(lines => lines.length) || doc
         .decimalMarks.some(h => Object.keys(h).length) || doc.taskLabels.some(h => Object.keys(h).length) || doc.highlights.some(h => Object.keys(h).length) || doc.carries.some(c => Object.keys(c).length) ||
         doc.powers.some(c => Object.keys(c).length) || doc.fractionEquals.some(c => Object.keys(c)
-        .length) || doc.tallBrackets.some(b => b.length)) && !confirm(
+        .length) || doc.tallBrackets.some(b => b.length)) && !await requestConfirmation(
         'Aktuelles Dokument ersetzen? Vorher bei Bedarf als .schmier speichern.')) return;
     checkpoint();
     doc = loaded;

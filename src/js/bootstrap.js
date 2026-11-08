@@ -14,7 +14,10 @@ try {
 } catch {
   status('Browserspeicher nicht verfügbar – bitte als .schmier speichern')
 }
+initialiseInputDialog();
 initialiseImages();
+initialiseLineStyle();
+initialiseConstructionPoints();
 initialiseToolbarLayout();
 applySettings(settings);
 render();

@@ -16,11 +16,24 @@ Schmierpapier offre un espace pour calculer, essayer et dessiner directement dan
 
 L’application vise à favoriser le travail autonome en cours de mathématiques : le clavier et la souris permettent d’écrire les calculs dans des cases, de disposer clairement les fractions et de réaliser des constructions géométriques avec des outils numériques. De nombreuses fonctions sont accessibles par des boutons, sans devoir utiliser une combinaison de touches pour chaque action.
 
-Version **0.6 (développement)**
+Version **0.6.5 (développement)**
 
 Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l’en-tête de l’application l’ouvre dans un nouvel onglet.
 
-## Nouveautés de v0.6 (développement)
+## Nouveautés de v0.6.5 (développement)
+
+- Maintenir G ou K désactive respectivement l’équerre ou le compas actif ; un appui bref confirme toujours l’étape.
+
+- L’outil point se désactive automatiquement après placement ou modification d’un point. Le réactiver pour un autre point.
+
+- Confirmation uniforme avec Entrée ou la touche de l’outil ; les champs attendent le relâchement des touches.
+
+- Un bouton et J maintenu alternent les nouveaux traits au stylo, à l’équerre, au compas et les lignes principales des axes entre continu et pointillé. Les traits enregistrés gardent leur type ; barres de fraction et symboles restent continus.
+- Placer des points de construction nommés par bouton ou H maintenu. Souris et clavier s’alignent sur 5 mm, ou 1 mm sur papier millimétré ; Entrée demande le nom. Replacer modifie le point existant.
+- Types et points fonctionnent avec .schmier, sauvegarde navigateur avec accord, copie de zones, gomme, annuler, PDF et impression. Aide et indications des touches actualisées en allemand, anglais et français. Les anciens documents restent lisibles.
+- v0.6.5 reste locale pour le moment ; la version publiée est v0.6.
+
+## Nouveautés de v0.6
 
 - Bouton fraction et V maintenu : saisir numérateur et dénominateur en caractères ordinaires avec une barre adaptée. Centrage sur la grille, une seule annulation et aucun calcul automatique.
 - La gomme supprime entièrement les images touchées. Cela vaut aussi pour la zone choisie en maintenant R ; un chevauchement partiel suffit. Annuler restaure les images effacées.
@@ -29,7 +42,7 @@ Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l�
 - Symbole parallèle ∥ ajouté aux Symboles divers.
 - B maintenu insère désormais une image au lieu de Nouveau fichier, toujours accessible par son bouton et Ctrl+N. Sélectionner les cases à la souris ou avec les flèches, choisir une image puis ajuster avec molette/+− et glissement/flèches. Entrée valide, Échap annule. Double-clic pour réajuster ou supprimer.
 - Résolution réglable de 100 à 600 dpi, 300 par défaut. Remplissage initial proportionnel ; les ajustements ultérieurs peuvent laisser des espaces. Cadrages intégrés conservés dans .schmier, sauvegarde navigateur, historique, copies de zones entières, PDF et impression.
-- La version 0.6 reste locale pour le moment ; aucune publication dans cette mise à jour.
+- Publication de v0.6. Les six variantes du site sont à jour ; l’application en ligne et le téléchargement utilisent la même version actuelle.
 
 ## Nouveautés de v0.5.5
 

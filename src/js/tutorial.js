@@ -379,7 +379,7 @@ function showTutorialStep() {
   tutorial.exported = false;
   $('tutorialProgress').textContent = `Übung ${tutorial.index+1} von ${tutorial.steps.length}`;
   $('tutorialTitle').textContent = step.title;
-  $('tutorialText').textContent = step.text;
+  $('tutorialText').textContent = tr(step.text) + (['line','regionSelect','regionPlace'].includes(step.kind) || ['#parenOpen','#parenClose'].includes(step.target) ? '\n\n' + tr('Alternativ bestätigt Enter den aktuellen Schritt. Die Aktivierungstaste nach dem Loslassen einmal drücken bestätigt ebenfalls, sofern sie nicht zur Texteingabe dient.') : '');
   $('tutorialError').textContent = '';
   $('tutorialFill').style.width = (tutorial.index / tutorial.steps.length * 100) + '%';
   const target = tourElement(step);
@@ -604,7 +604,7 @@ function tutorialGate(e) {
   if (e.type === 'keydown' && e.repeat && (penNumberHolds.get(e.code)?.selected || actionHolds.get(e.code)?.fired)) {
     e.preventDefault(); e.stopImmediatePropagation(); return;
   }
-  if (e.target.closest?.('#tutorialCoach,.language-picker,#storageConsentOpen,#storageConsentDialog,#virtualKeypad,#keypadToggle')) {
+  if (e.target.closest?.('#tutorialCoach,.language-picker,#storageConsentOpen,#storageConsentDialog,#inputDialog,#virtualKeypad,#keypadToggle')) {
     // Check after button handlers; generated input events still pass the exercise gate.
     if (e.type === 'click') scheduleTutorialCheck();
     return;
@@ -642,7 +642,7 @@ function tutorialGate(e) {
       if (choice) allowed = plain && !choice.dataset.size && (choice.dataset.paper || choice.dataset.symbol) === wanted;
       if (keyEvent && onEditor) {
         const current = $(extraMenu).querySelector('.menu-current');
-        allowed = plain && (e.key.startsWith('Arrow') || e.key === 'Enter' && !current?.dataset.size && (current?.dataset.paper || current?.dataset.symbol) === wanted);
+        allowed = plain && (e.key.startsWith('Arrow') || (e.key === 'Enter' || e.key === activeMenuActivation(extraMenu)) && !current?.dataset.size && (current?.dataset.paper || current?.dataset.symbol) === wanted);
       }
     } else if (step.kind === 'button') {
       if (['#parenOpen', '#parenClose'].includes(step.target) &&
@@ -677,7 +677,7 @@ function tutorialGate(e) {
           const current = document.querySelector(menu + ' .menu-current');
           allowed = !(greek ? greekMenuOpen : relationMenuOpen) ? !greek : current?.dataset.symbol === step.symbol;
         }
-        if (greek && e.code === 'KeyP') allowed = true;
+        if (greek && e.code === 'KeyP') allowed = !greekMenuOpen || document.querySelector(menu + ' .menu-current')?.dataset.symbol === step.symbol;
       }
     } else if (step.kind === 'typing') {
       if (keyEvent && onEditor && !e.ctrlKey && !e.altKey && !e.metaKey) {
@@ -725,7 +725,7 @@ function tutorialGate(e) {
       else allowed = !!e.target.closest?.('.companion') && ['pointerdown', 'pointerup', 'pointermove', 'click']
         .includes(e.type)
     } else if (step.kind === 'line') {
-      if (keyEvent && onEditor && !e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey && e.key.startsWith('Arrow')) allowed = true;
+      if (keyEvent && onEditor && !e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey && (e.key.startsWith('Arrow') || e.key === 'Enter' && keyboardLine)) allowed = true;
       if (onPaper && e.type === 'pointermove') allowed = true;
       if (onPaper && ['pointerdown', 'pointerup', 'click'].includes(e.type)) {
         const p = paperPoint(e),

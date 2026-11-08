@@ -338,6 +338,8 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
           </button>
         </div>
         <div class="toolbar-group paging" data-toolbar-group="geometry" role="group" aria-label="Zeichenwerkzeuge">
+          <button id="lineStyleToggle" title="Durchgezogen oder gestrichelt zeichnen (J halten)" aria-label="Linientyp: durchgezogen" aria-pressed="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path id="lineStyleIcon" d="M2 12h20"/></svg></button>
+          <button id="constructionPoint" title="Konstruktionspunkte setzen und beschriften (H halten)" aria-label="Konstruktionspunkte" aria-pressed="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 16h12M9 10v12"/><text x="15" y="10" font-size="10" stroke="none" fill="currentColor">A</text></svg></button>
           <button id="numberLineToggle" title="Zahlenstrahl: Start und Ziel anklicken oder N halten und mit Pfeiltasten zeichnen. Nach zwei Strahlen zurück zum vorherigen Werkzeug; Esc beendet früher." aria-label="Zahlenstrahl zeichnen" aria-pressed="false">
             <svg width="29" height="20" viewBox="0 0 32 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
               <path d="M2 12h27M25 8l4 4-4 4M4 7v10M10 9v6M16 7v10M22 9v6">
@@ -561,28 +563,28 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       <button data-stretch="down" data-size="stretch-down" data-symbol="&gt;" title="Beliebig hoch nach unten">&gt;<small aria-hidden="true">↡</small></button>
     </div>
     <div id="integralChoiceMenu" class="extra-menu" role="group" aria-label="Integrale auswählen" hidden>
-      <button data-symbol="∫" data-stretch="up" data-size="stretch-up" title="Beliebig hoch nach oben">∫↟</button>
-      <button data-symbol="∫" data-definite="true" data-stretch="up" data-size="stretch-up" title="Bestimmtes Integral: Beliebig hoch nach oben">∫ₐᵇ↟</button>
-      <button data-symbol="∫" data-size="up" title="Doppelhoch nach oben">∫↑</button>
-      <button data-symbol="∫" data-definite="true" data-size="up" title="Bestimmtes Integral nach oben">∫ₐᵇ↑</button>
-      <button data-symbol="∫" title="Normal · auch Index/Potenz">∫</button>
-      <button data-symbol="∫" data-definite="true" title="Bestimmtes Integral normal">∫ₐᵇ</button>
-      <button data-symbol="∫" data-size="down" title="Doppelhoch nach unten">∫↓</button>
-      <button data-symbol="∫" data-definite="true" data-size="down" title="Bestimmtes Integral nach unten">∫ₐᵇ↓</button>
-      <button data-symbol="∫" data-stretch="down" data-size="stretch-down" title="Beliebig hoch nach unten">∫↡</button>
-      <button data-symbol="∫" data-definite="true" data-stretch="down" data-size="stretch-down" title="Bestimmtes Integral: Beliebig hoch nach unten">∫ₐᵇ↡</button>
+      <button data-symbol="∫" data-stretch="up" data-size="stretch-up" title="Beliebig hoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/></svg><small aria-hidden="true">↟</small></button>
+      <button data-symbol="∫" data-definite="true" data-stretch="up" data-size="stretch-up" title="Bestimmtes Integral: Beliebig hoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/><g class="symbol-parameters" fill="currentColor" stroke="none"><text x="23" y="10">b</text><text x="18" y="33">a</text></g></svg><small aria-hidden="true">↟</small></button>
+      <button data-symbol="∫" data-size="up" title="Doppelhoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/></svg><small aria-hidden="true">↑</small></button>
+      <button data-symbol="∫" data-definite="true" data-size="up" title="Bestimmtes Integral nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/><g class="symbol-parameters" fill="currentColor" stroke="none"><text x="23" y="10">b</text><text x="18" y="33">a</text></g></svg><small aria-hidden="true">↑</small></button>
+      <button data-symbol="∫" title="Normal · auch Index/Potenz"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/></svg></button>
+      <button data-symbol="∫" data-definite="true" title="Bestimmtes Integral normal"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/><g class="symbol-parameters" fill="currentColor" stroke="none"><text x="23" y="10">b</text><text x="18" y="33">a</text></g></svg></button>
+      <button data-symbol="∫" data-size="down" title="Doppelhoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/></svg><small aria-hidden="true">↓</small></button>
+      <button data-symbol="∫" data-definite="true" data-size="down" title="Bestimmtes Integral nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/><g class="symbol-parameters" fill="currentColor" stroke="none"><text x="23" y="10">b</text><text x="18" y="33">a</text></g></svg><small aria-hidden="true">↓</small></button>
+      <button data-symbol="∫" data-stretch="down" data-size="stretch-down" title="Beliebig hoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/></svg><small aria-hidden="true">↡</small></button>
+      <button data-symbol="∫" data-definite="true" data-stretch="down" data-size="stretch-down" title="Bestimmtes Integral: Beliebig hoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 5C11-1 18 37 8 31"/><g class="symbol-parameters" fill="currentColor" stroke="none"><text x="23" y="10">b</text><text x="18" y="33">a</text></g></svg><small aria-hidden="true">↡</small></button>
     </div>
     <div id="rootChoiceMenu" class="extra-menu" role="group" aria-label="Wurzelgröße auswählen" hidden>
-      <button data-symbol="√" data-stretch="up" data-size="stretch-up" title="Beliebig hoch nach oben">√↟</button>
-      <button data-symbol="√" data-root-degree="true" data-stretch="up" data-size="stretch-up" title="Beliebige Wurzel: Beliebig hoch nach oben">ⁿ√↟</button>
-      <button data-symbol="√" data-size="up" title="Doppelhoch nach oben">√↑</button>
-      <button data-symbol="√" data-root-degree="true" data-size="up" title="Andere Wurzel nach oben">ⁿ√↑</button>
-      <button data-symbol="√" title="Normal · auch Index/Potenz">√</button>
-      <button data-symbol="√" data-root-degree="true" title="Andere Wurzel normal">ⁿ√</button>
-      <button data-symbol="√" data-size="down" title="Doppelhoch nach unten">√↓</button>
-      <button data-symbol="√" data-root-degree="true" data-size="down" title="Andere Wurzel nach unten">ⁿ√↓</button>
-      <button data-symbol="√" data-stretch="down" data-size="stretch-down" title="Beliebig hoch nach unten">√↡</button>
-      <button data-symbol="√" data-root-degree="true" data-stretch="down" data-size="stretch-down" title="Beliebige Wurzel: Beliebig hoch nach unten">ⁿ√↡</button>
+      <button data-symbol="√" data-stretch="up" data-size="stretch-up" title="Beliebig hoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/></svg><small aria-hidden="true">↟</small></button>
+      <button data-symbol="√" data-root-degree="true" data-stretch="up" data-size="stretch-up" title="Beliebige Wurzel: Beliebig hoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/><text class="symbol-parameters" x="9" y="11" fill="currentColor" stroke="none">n</text></svg><small aria-hidden="true">↟</small></button>
+      <button data-symbol="√" data-size="up" title="Doppelhoch nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/></svg><small aria-hidden="true">↑</small></button>
+      <button data-symbol="√" data-root-degree="true" data-size="up" title="Andere Wurzel nach oben"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/><text class="symbol-parameters" x="9" y="11" fill="currentColor" stroke="none">n</text></svg><small aria-hidden="true">↑</small></button>
+      <button data-symbol="√" title="Normal · auch Index/Potenz"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/></svg></button>
+      <button data-symbol="√" data-root-degree="true" title="Andere Wurzel normal"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/><text class="symbol-parameters" x="9" y="11" fill="currentColor" stroke="none">n</text></svg></button>
+      <button data-symbol="√" data-size="down" title="Doppelhoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/></svg><small aria-hidden="true">↓</small></button>
+      <button data-symbol="√" data-root-degree="true" data-size="down" title="Andere Wurzel nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/><text class="symbol-parameters" x="9" y="11" fill="currentColor" stroke="none">n</text></svg><small aria-hidden="true">↓</small></button>
+      <button data-symbol="√" data-stretch="down" data-size="stretch-down" title="Beliebig hoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/></svg><small aria-hidden="true">↡</small></button>
+      <button data-symbol="√" data-root-degree="true" data-stretch="down" data-size="stretch-down" title="Beliebige Wurzel: Beliebig hoch nach unten"><svg class="size-choice-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 20l5-3 5 13L22 7h10"/><text class="symbol-parameters" x="9" y="11" fill="currentColor" stroke="none">n</text></svg><small aria-hidden="true">↡</small></button>
     </div>
     <div id="logicMenu" class="extra-menu" role="group" aria-label="Logikzeichen auswählen" hidden></div>
     <div id="setsMenu" class="extra-menu" role="group" aria-label="Mengenzeichen auswählen" hidden></div>
@@ -604,6 +606,15 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
       <button data-task-height="1" title="Aufgabenbezeichnung: normale Höhe">1a) · 1 × 2</button>
       <button data-task-height="2" title="Aufgabenbezeichnung: doppelte Höhe">1a) · 2 × 2</button>
     </div>
+    <dialog id="inputDialog" tabindex="-1" aria-labelledby="inputDialogTitle" aria-describedby="inputDialogLabel inputDialogHint">
+      <form id="inputDialogForm">
+        <h2 id="inputDialogTitle">Eingabe</h2>
+        <label id="inputDialogLabel" for="inputDialogValue"></label>
+        <input id="inputDialogValue" type="text" autocomplete="off" spellcheck="false" aria-describedby="inputDialogHint inputDialogError">
+        <p id="inputDialogHint" role="status"></p><p id="inputDialogError" role="alert"></p>
+        <div class="dialog-actions"><button id="inputDialogCancel" type="button">Abbrechen</button><button id="inputDialogAccept" type="submit">Bestätigen</button></div>
+      </form>
+    </dialog>
     <dialog id="settingsDialog" aria-labelledby="settingsTitle">
       <form id="settingsForm">
         <h2 id="settingsTitle">Einstellungen</h2>

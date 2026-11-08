@@ -1,13 +1,14 @@
 // delete-page — assembled in src/build.json order; shared classic-script scope.
 
 // @part part-01
-$('remove').onclick = () => {
-  if (doc.pages.length > 1 && confirm('Dieses Blatt wirklich löschen?')) {
+$('remove').onclick = async () => {
+  if (doc.pages.length > 1 && await requestConfirmation(tr('Dieses Blatt wirklich löschen?'),{activationKeys:['Delete']})) {
     cancelRegion();
     checkpoint();
     doc.paperTypes?.splice(page, 1);
     doc.pages.splice(page, 1);
     doc.images?.splice(page, 1);
+    doc.constructionPoints?.splice(page, 1);
     doc.freehand.splice(page, 1);
     doc.lines.splice(page, 1);
     doc.pencilLines.splice(page, 1);

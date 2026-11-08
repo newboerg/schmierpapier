@@ -3,6 +3,7 @@
 // @part part-01
 const APP_VERSION = '{{version}}';
 const RELEASE_NOTES = [
+  { version: '0.6.5', items: ["Wurzel- und Integralmenüs zeigen kompakte Symbole mit getrennten Größenpfeilen; alle Zeichen bleiben innerhalb ihrer Buttons.", "Beschriftungsfelder am Zahlenstrahl sind im Darkmode dunkel mit heller Schrift; Papier und gespeicherte Beschriftungsfarben bleiben unverändert.", "G oder K lange halten schaltet das aktive Geodreieck beziehungsweise den Zirkel aus; kurzes Drücken bestätigt weiterhin den Schritt.", "Nach dem Setzen oder Bearbeiten eines Punkts schaltet sich das Punkt-Werkzeug automatisch aus. Für einen weiteren Punkt erneut aktivieren.", "Einheitliche Bestätigung per Enter oder Werkzeugtaste; Eingabedialoge warten auf das Loslassen gehaltener Tasten.", "Linien durchgezogen oder gestrichelt zeichnen (J halten) und beschriftete Konstruktionspunkte setzen (H halten)."] },
   { version: '0.6', items: ["Brüche bequem aus Zähler und Nenner als normale Kästchenschrift mit Bruchstrich einsetzen (V halten).", "Dunkles Farbschema nach Systemeinstellung oder eigener Wahl; Bilder in Kästchen einfügen und anpassen; Parallelzeichen."] },
   { version: '0.5.5', items: ['Werkzeugleiste oben, unten, links oder rechts anordnen; seitlich passen sich Breite und Spalten an das Fenster an.'] },
   { version: '0.5', items: [

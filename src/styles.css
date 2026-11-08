@@ -2373,3 +2373,40 @@
     :root[data-theme="dark"] button.swatch[aria-pressed="true"] { outline-color: #a6d6b5; }
     :root[data-theme="dark"] .brand img { filter: brightness(2.5); }
     :root[data-theme="dark"] #tutorialError { color: #ffb5a6 !important; }
+
+    #paper.construction-point-mode, #paper.construction-point-mode * { cursor: crosshair !important; }
+    @media print { .construction-point-preview { display: none !important; } }
+    #inputDialog { width: min(560px,94vw); max-height: 85dvh; overflow: auto; padding: 24px; border: 1px solid #b6c9ba; border-radius: 14px; background: #fffefa; color: #25342f; }
+    #inputDialog::backdrop { background: #152b2480; }
+    #inputDialogLabel { display: block; margin-bottom: 12px; line-height: 1.5; }
+    #inputDialogValue { width: 100%; padding: 10px; font: inherit; border: 1px solid #708579; border-radius: 8px; }
+    #inputDialogHint { font-size: 13px; min-height: 1.5em; }
+    #inputDialogError { min-height: 1.5em; color: #a32e2e; }
+    :root[data-theme="dark"] #inputDialog { background: #222e28; color: #e1e9e4; border-color: #647a6c; }
+    :root[data-theme="dark"] #inputDialogError { color: #ffb5a6; }
+    @media print { #inputDialog { display:none!important; } }
+
+    :root[data-theme="dark"] .axis-label-input {
+      color: #edf3ef !important; /* Override the inline writing colour only in the editor. */
+      background: #2d3b33;
+      border-color: #708579;
+      caret-color: #edf3ef;
+    }
+    :root[data-theme="dark"] .axis-label-input.current {
+      background: #35463b;
+      border-color: #e3bf63;
+      box-shadow: 0 0 0 2px #e3bf6330;
+    }
+    :root[data-theme="dark"] .axis-label-input::placeholder { color: #b4c6bb; }
+
+    /* Keep parameters and direction markers inside each symbol-menu button. */
+    #rootChoiceMenu button, #integralChoiceMenu button {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .size-choice-icon { display: block; width: 32px; height: 34px; }
+    button[data-size] > .size-choice-icon { margin-right: 8px; width: 30px; }
+    .size-choice-icon .symbol-parameters { font: italic 10px 'OfflineSymbols', sans-serif; }

@@ -22,6 +22,7 @@ let doc = {
     pages: [{}],
     freehand: [[]],
     images: [[]],
+    constructionPoints: [[]],
     lines: [
       []
     ],
@@ -181,6 +182,7 @@ function render() {
   if (stretchBracket && (stretchBracket.page !== page || stretchBracket.document !== doc)) cancelStretchBracket(false);
   if (keyboardArea?.phase === 'select' && keyboardArea.page !== page) cancelKeyboardArea();
   if (keyboardLine && keyboardLine.page !== page) keyboardLine = null;
+  if (constructionPointTool && (constructionPointTool.page !== page || constructionPointTool.document !== doc)) cancelConstructionPoint(false);
   applyPaperType();
   if (compass.active && compass.page !== page) hideCompass(false, false);
   if (numberLabelSession) finishNumberLabels(false);

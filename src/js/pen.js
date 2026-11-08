@@ -22,7 +22,7 @@ function resetCorner() {
  * Kollineare Strecken werden auf die gewünschte Zeichenrichtung projiziert.
  * Ist die ganze angeforderte Strecke bedeckt, wird sie entfernt; sonst werden nur Lücken ergänzt.
  */
-function toggleLineCoverage(lines, start, end, color) {
+function toggleLineCoverage(lines, start, end, color, dashed = dashedLines()) {
   const a = start,
     b = end,
     dx = b[0] - a[0],
@@ -60,18 +60,18 @@ function toggleLineCoverage(lines, start, end, color) {
         others.push([...m.line]);
         continue
       }
-      if (m.lo < -eps) others.push([...point(m.lo), ...point(0), m.line[4] || color]);
-      if (m.hi > length + eps) others.push([...point(length), ...point(m.hi), m.line[4] || color])
+      if (m.lo < -eps) others.push([...point(m.lo), ...point(0), m.line[4] || color, ...m.line.slice(5)]);
+      if (m.hi > length + eps) others.push([...point(length), ...point(m.hi), m.line[4] || color, ...m.line.slice(5)])
     }
     return others
   }
   const result = lines.map(line => [...line]);
   let cursor = 0;
   for (const [lo, hi] of intervals) {
-    if (lo > cursor + eps) result.push([...point(cursor), ...point(lo), color]);
+    if (lo > cursor + eps) result.push([...point(cursor), ...point(lo), color, ...(dashed ? [true] : [])]);
     cursor = Math.max(cursor, hi)
   }
-  if (cursor < length - eps) result.push([...point(cursor), ...point(length), color]);
+  if (cursor < length - eps) result.push([...point(cursor), ...point(length), color, ...(dashed ? [true] : [])]);
   return result;
 }
 
