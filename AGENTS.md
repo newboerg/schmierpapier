@@ -18,4 +18,4 @@
 
 - Keep offline release summaries in `src/js/release-notes.js` and their DE/EN/FR UI translations aligned with new changelog entries. `savedWith` stores the app release, while `version: 1` remains the document schema.
 
-- The keyboard startup notice and expanded symbol menus are local, unreleased changes. Do not upload them until the user explicitly authorises publication.
+- The user authorised publishing the keyboard startup notice, expanded symbol menus and double-height symbol fix as part of v0.6.5.

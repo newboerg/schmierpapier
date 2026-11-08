@@ -2,13 +2,11 @@
 
 [Deutsch](CHANGELOG.md) · **English** · [Français](CHANGELOG.fr.md)
 
-## Not yet released
+## v0.6.5
 
 - Double-height writing applies to all symbols, including logic, sets, currencies, punctuation and ↯. Attached commas and dots remain small.
 
 - Startup note about Shift with an optional “do not remind me” choice; more punctuation and currency signs, plus the contradiction symbol in the symbol menus.
-
-## v0.6.5
 
 - Optional dark paper in dark mode: enable it in settings; off by default. PDF and print stay light.
 
