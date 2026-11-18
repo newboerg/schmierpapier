@@ -1,7 +1,7 @@
 // Preferences remain session-only unless local storage has been explicitly allowed.
 // @part part-01
 const SETTINGS_KEY = 'schmierpapier.settings';
-const DEFAULT_SETTINGS = Object.freeze({ holdDelay: 600, font: 'handwriting', toolbarPosition: 'top', theme: 'system', darkPaper: false, imageDpi: 300, lineStyle: 'solid' });
+const DEFAULT_SETTINGS = Object.freeze({ holdDelay: 600, font: 'handwriting', toolbarPosition: 'top', theme: 'system', darkPaper: false, imageDpi: 300, lineStyle: 'solid', shortcuts: {}, combineEnter: false });
 let settings = { ...DEFAULT_SETTINGS };
 function normaliseSettings(value) {
   return {
@@ -11,6 +11,8 @@ function normaliseSettings(value) {
     lineStyle: value?.lineStyle === 'dashed' ? 'dashed' : 'solid',
     theme: ['system', 'light', 'dark'].includes(value?.theme) ? value.theme : 'system',
     darkPaper: value?.darkPaper === true,
+    shortcuts: normaliseShortcuts(value?.shortcuts),
+    combineEnter: value?.combineEnter === true,
     imageDpi: [100, 200, 300, 400, 500, 600].includes(value?.imageDpi) ? value.imageDpi : 300,
     toolbarPosition: ['top', 'bottom', 'left', 'right'].includes(value?.toolbarPosition) ? value.toolbarPosition : 'top'
   };
@@ -31,9 +33,11 @@ function applySettings(value, save = false) {
   applyToolbarPosition(settings.toolbarPosition);
   applyTheme();
   updateLineStyleButton();
+  scheduleShortcutHints();
   if (save) saveSettings();
 }
 function initialiseSettings() {
+  initialiseShortcutEditor();
   applySettings(settings);
   $('settingsOpen').onclick = () => {
     if (tutorial) return;

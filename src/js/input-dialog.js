@@ -3,7 +3,7 @@
 const physicalInputKeys = new Map();
 const swallowedInputKeys = new Set();
 let inputRequest = null, focusedInputGate = null;
-function inputKeyCode(event) { return event.code || 'key:' + event.key; }
+function inputKeyCode(event) { return originalShortcutEvents.get(event)?.rawCode || event.code || 'key:' + event.key; }
 function editableDialogField(node) {
   return node instanceof HTMLElement && node.id !== 'editor' &&
     node.matches('input:not([type=file]):not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]),textarea,select');
@@ -128,6 +128,16 @@ window.addEventListener('keydown',event=>{
   if(focusedInputGate?.target===event.target && gatePending(focusedInputGate.keys)){
     event.preventDefault();event.stopImmediatePropagation();return;
   }
+  // A real second key uses held modifiers as part of a chord, even if an early tool handles it.
+  for (const [heldCode, held] of modifierModeHolds) {
+    if (heldCode !== (activeShortcutKeys.get(code)?.code || code)) held.used = true;
+  }
+  for (const [heldCode, logical] of activeShortcutKeys) {
+    if (heldCode !== code && logical.definition?.hold && /^(Shift|Control|Alt|Meta)(Left|Right)$/.test(heldCode)) {
+      clearShortcutForInput(logical.code);
+    }
+  }
+  translateShortcutEvent(event, code);
   confirmActiveKeyboardTool(event,fresh);
 },true);
 window.addEventListener('keyup',event=>{
@@ -135,7 +145,11 @@ window.addEventListener('keyup',event=>{
   inputRequest?.blockedKeys.delete(code);focusedInputGate?.keys.delete(code);
   const blocked=inputRequest||swallowedInputKeys.has(code)||focusedInputGate?.target===event.target&&gatePending(focusedInputGate.keys);
   swallowedInputKeys.delete(code);refreshInputDialogGate();
-  if(blocked){clearShortcutForInput(code);event.stopImmediatePropagation();}
+  if(blocked){
+    clearShortcutForInput(activeShortcutKeys.get(code)?.code || code);
+    activeShortcutKeys.delete(code);
+    event.stopImmediatePropagation();
+  } else translateShortcutEvent(event, code, true);
 },true);
 window.addEventListener('focusin',event=>{
   focusedInputGate=editableDialogField(event.target)?{target:event.target,keys:new Set(physicalInputKeys.keys())}:null;
@@ -145,7 +159,7 @@ window.addEventListener('beforeinput',event=>{
     event.preventDefault();event.stopImmediatePropagation();
   }
 },true);
-window.addEventListener('blur',()=>{physicalInputKeys.clear();swallowedInputKeys.clear();refreshInputDialogGate();});
+window.addEventListener('blur',()=>{physicalInputKeys.clear();swallowedInputKeys.clear();activeShortcutKeys.clear();refreshInputDialogGate();});
 window.addEventListener('close',event=>{
   if(event.target instanceof HTMLDialogElement&&!event.target.open){
     for(const code of physicalInputKeys.keys())swallowedInputKeys.add(code);

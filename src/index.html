@@ -615,12 +615,13 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         <div class="dialog-actions"><button id="inputDialogCancel" type="button">Abbrechen</button><button id="inputDialogAccept" type="submit">Bestätigen</button></div>
       </form>
     </dialog>
-    <dialog id="keyboardNoticeDialog" aria-labelledby="keyboardNoticeTitle" aria-describedby="keyboardNoticeText">
+    <dialog id="keyboardNoticeDialog" aria-labelledby="keyboardNoticeTitle" aria-describedby="keyboardNoticeText keyboardNoticeShortcuts">
       <form id="keyboardNoticeForm">
         <h2 id="keyboardNoticeTitle" tabindex="-1">Ein kurzer Hinweis zur Tastatur</h2>
-        <p id="keyboardNoticeText">Schmierpapier reserviert die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.</p>
+        <p id="keyboardNoticeText">In der Standardbelegung nutzt Schmierpapier die Umschalttaste (Shift) für Potenzen: Shift zusammen mit einer Zahl schreibt die Zahl hochgestellt. Die Sonderzeichen über den Zahlentasten lassen sich deshalb im Schreibkästchen nicht wie gewohnt mit Shift eingeben.</p>
         <p>Du brauchst trotzdem nicht auf diese Zeichen zu verzichten: Öffne „Verschiedene Symbole“ über den Pfeil neben % oder halte Z. Dort findest du Satzzeichen, Währungszeichen und weitere Symbole. Klammern haben eigene Menüs; den Widerspruchsblitz findest du bei den Logikzeichen (L halten).</p>
         <p>In den Menüs wählst du mit den Pfeiltasten und bestätigst mit Enter. Dieser Hinweis gilt für die Schreibkästchen; in Eingabefeldern und Dialogen kannst du Sonderzeichen wie gewohnt tippen.</p>
+        <p id="keyboardNoticeShortcuts">Unter „Einstellungen → Tasten neu belegen“ kannst du die Tastenkürzel anpassen.</p>
         <label class="keyboard-notice-choice"><input id="keyboardNoticeForget" type="checkbox" title="Nicht mehr erinnern"><span>Nicht mehr erinnern</span></label>
         <p id="keyboardNoticeStorageNote">Ohne Speicherzustimmung erscheint der Hinweis beim nächsten Start erneut.</p>
         <p class="keyboard-notice-keys">Tastatur: Tab wechselt die Auswahl, Leertaste setzt das Häkchen, Enter oder Esc schließt den Hinweis.</p>
@@ -642,9 +643,32 @@ Copyright und vollständige Lizenzhinweise stehen in den eingebetteten Schrift-M
         <p>Standardmäßig aus. Nur die Bildschirmansicht wird angepasst; Bilder, PDF und Druck behalten ihre Farben.</p>
         <label>Bildauflösung<select id="imageDpi"><option value="100">100 dpi</option><option value="200">200 dpi</option><option value="300">300 dpi</option><option value="400">400 dpi</option><option value="500">500 dpi</option><option value="600">600 dpi</option></select></label>
         <label>Schrift auf dem Papier<select id="writingFont"><option value="handwriting">Handschrift</option><option value="console">Konsole (Monospace)</option></select></label>
+        <button id="shortcutsOpen" type="button">Tasten neu belegen</button>
         <p id="settingsStorageNote"></p>
         <div class="dialog-actions"><button id="settingsCancel" type="button">Abbrechen</button><button type="submit">Übernehmen</button></div>
       </form>
+    </dialog>
+    <dialog id="shortcutDialog" aria-labelledby="shortcutTitle">
+      <div class="shortcut-header">
+        <h2 id="shortcutTitle" tabindex="-1">Tasten neu belegen</h2>
+        <p>Wähle eine Belegung und drücke die neue Taste oder Tastenkombination. … bedeutet halten.</p>
+        <p>Return und Nummernblock-Enter bestätigen in Werkzeugen und Formularen weiterhin die Auswahl.</p>
+      </div>
+      <div id="shortcutList" class="shortcut-list"></div>
+      <label id="combineEnterRow" class="shortcut-switch">
+        <input id="combineEnter" type="checkbox" role="switch">
+        <span>Return und Enter kombinieren · beide schreiben =</span>
+      </label>
+      <div class="shortcut-footer">
+        <p id="shortcutConflict" role="alert"></p>
+        <p id="shortcutRecording" role="status"></p>
+        <button id="shortcutRecordCancel" type="button" hidden>Aufnahme abbrechen</button>
+        <div class="dialog-actions">
+          <button id="shortcutReset" type="button">Standard</button>
+          <button id="shortcutCancel" type="button">Abbrechen</button>
+          <button id="shortcutSave" type="button">Speichern</button>
+        </div>
+      </div>
     </dialog>
     <dialog id="releaseDialog" aria-labelledby="releaseTitle"><h2 id="releaseTitle">Neuerungen seit deinem gespeicherten Stand</h2><p id="releaseOrigin"></p><div id="releaseContent"></div><div class="dialog-actions"><button id="releaseClose">Weiterarbeiten</button></div></dialog>
     <dialog id="storageConsentDialog" aria-labelledby="storageConsentTitle"><h2 id="storageConsentTitle">Im Browser speichern?</h2><p>Nur mit deiner Zustimmung speichern wir Dokumente und Einstellungen (Sprache, Seitenansicht, Zoom, Schrift und Haltezeit) lokal in diesem Browser. Auch deine Zustimmung wird dort gemerkt. Es werden keine Cookies gesetzt und keine Daten von der Anwendung an einen Server gesendet.</p><p>Ohne Zustimmung bleibt alles nur bis zum Schließen der Seite im Arbeitsspeicher. Vorhandene Browserdaten dieser Anwendung werden gelöscht. Eine Ablehnung wird nicht gespeichert; beim nächsten Start fragen wir erneut.</p><p>Du kannst weiterhin selbst .schmier- oder PDF-Dateien herunterladen. Über den Speicher-Button im Kopf lässt sich die Entscheidung jederzeit ändern.</p><div class="storage-consent-actions"><button id="storageDecline">Nicht speichern</button><button id="storageAccept" class="primary">Zustimmen</button></div></dialog>

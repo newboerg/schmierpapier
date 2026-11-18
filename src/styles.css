@@ -1722,6 +1722,8 @@
       line-height: 1.1
     }
 
+    #settingsOpen { font-size: 25px; line-height: 1; }
+
     header button svg {
       flex-shrink: 0
     }
@@ -2437,3 +2439,52 @@
     .keyboard-notice-keys, #keyboardNoticeStorageNote { font-size: 13px; }
     :root[data-theme="dark"] #keyboardNoticeDialog { background: #222e28; color: #e1e9e4; border-color: #647a6c; }
     @media print { #keyboardNoticeDialog { display: none !important; } }
+
+    #shortcutDialog {
+      width: min(680px, 94vw);
+      max-height: min(85vh, 820px);
+      max-height: min(85dvh, 820px);
+      padding: 0;
+      border: 1px solid #b6c8bf;
+      border-radius: 14px;
+      color: inherit;
+      background: #fffefa;
+      overflow: hidden;
+    }
+    #shortcutDialog[open] { display: flex; flex-direction: column; }
+    #shortcutDialog::backdrop { background: #152b2470; }
+    .shortcut-header, .shortcut-footer { padding: 14px 20px; flex: none; }
+    .shortcut-header h2 { margin: 0 0 6px; }
+    .shortcut-header p, .shortcut-footer p { margin: 4px 0; font-size: .88rem; }
+    .shortcut-footer p:empty { display: none; }
+    .shortcut-footer { border-top: 1px solid #9baa9d80; }
+    .shortcut-footer .dialog-actions { margin-top: 6px; flex-wrap: wrap; }
+    .shortcut-list { padding: 0 20px; overflow-y: auto; min-height: 0; }
+    .shortcut-row, .shortcut-switch {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(7rem, max-content); align-items: center;
+      gap: 9px; padding: 6px 8px; min-height: 39px; border: 1px solid transparent;
+    }
+    .shortcut-row + .shortcut-row { border-top-color: #9baa9d40; }
+    .shortcut-row button { min-height: 32px; white-space: normal; text-align: center; }
+    .shortcut-switch {
+      display: flex; gap: 10px; margin: 4px 0 9px;
+      background: #5cae8419; border-radius: 7px; padding: 8px;
+    }
+    #combineEnter { appearance: none; position: relative; flex: 0 0 34px; height: 19px; margin: 0;
+      border: 1px solid #6b7e72; border-radius: 12px; background: #b8c5bc; cursor: pointer; }
+    #combineEnter::after { content: ''; position: absolute; top: 2px; left: 2px; width: 13px; height: 13px;
+      border-radius: 50%; background: white; }
+    #combineEnter:checked { background: #24644e; }
+    #combineEnter:checked::after { transform: translateX(15px); }
+    .shortcut-row.shortcut-conflict {
+      border: 1px solid #b22232; background: #db243044; border-radius: 7px;
+      animation: shortcut-conflict-pulse 1.25s ease-in-out infinite alternate;
+    }
+    @keyframes shortcut-conflict-pulse {
+      from { box-shadow: inset 0 0 0 1px #c62b3c50; }
+      to { box-shadow: inset 0 0 0 2px #c62b3c; background: #db24306b; }
+    }
+    :root[data-theme="dark"] #shortcutDialog { background: #222e28; color: #e1e9e4; border-color: #647a6c; }
+    :root[data-theme="dark"] #combineEnter:checked { background: #367e62; }
+    @media (prefers-reduced-motion: reduce) { .shortcut-row.shortcut-conflict { animation: none; } }
+    @media print { #shortcutDialog { display: none !important; } }

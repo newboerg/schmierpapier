@@ -16,11 +16,20 @@ Schmierpapier bietet einen Platz zum Rechnen, Ausprobieren und Zeichnen direkt i
 
 Die Anwendung soll das eigenständige Arbeiten im Mathematikunterricht unterstützen: Rechnungen lassen sich mit Tastatur und Maus in Kästchen schreiben, Brüche übersichtlich anordnen und geometrische Konstruktionen mit digitalen Werkzeugen zeichnen. Viele Funktionen sind über Buttons erreichbar, sodass nicht für jede Eingabe eine Tastenkombination nötig ist.
 
-Version **0.6.5**
+Version **0.7.0**
 
 Projektwebseite: [schmierpapier.org](https://schmierpapier.org). Das Logo im App-Header öffnet sie in einem neuen Tab.
 
+## Neu in v0.7.0
+
+- Tastenbelegungen frei ändern, Return und Nummernblock-Enter für Gleichzeichen kombinieren und Konflikte vor dem Speichern erkennen.
+- Unter Einstellungen → Tasten neu belegen. Eigene Belegungen werden in .schmier-Dateien und mit Zustimmung im Browser gespeichert.
+
 ## Neu in v0.6.5
+
+- Vorschau und Piktogramme der Homepage liegen als separate SVG-Dateien vor; auch die handschriftliche Beispielrechnung ist vektorisiert.
+
+- Homepage in HTML, CSS, JavaScript, Sprach- und Bilddateien aufgeteilt; erkennbare Bots und Vorabrufe erhöhen den Downloadzähler nicht.
 
 - Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.
 
@@ -41,7 +50,7 @@ Projektwebseite: [schmierpapier.org](https://schmierpapier.org). Das Logo im App
 
 ## Neu in v0.6
 
-- Bruch-Button und V halten: Zähler und Nenner abfragen und als normale Kästchenschrift mit passendem Bruchstrich einsetzen. Zentrierung im Raster, ein Rückgängig-Schritt und keine automatische Berechnung.
+- Bruch-Button und V halten: Zähler und Nenner abfragen und als normale Kästchenschrift mit passendem Bruchstrich einsetzen. Rechtsbündige Ausrichtung im Raster, ein Rückgängig-Schritt und keine automatische Berechnung.
 - Der Radierer löscht berührte Bilder als Ganzes. Das gilt auch für die mit R halten gewählte Radierfläche; eine teilweise Überlappung genügt. Rückgängig stellt gelöschte Bilder wieder her.
 - Beim Zoomen und Verschieben bleibt die Originalauflösung erhalten. Erst Übernehmen schneidet unsichtbare Bildteile ab und skaliert den fertigen Ausschnitt auf die gewählte DPI-Auflösung.
 - Darkmode folgt auf Wunsch System/Browser; Hell, Dunkel und System in den Einstellungen wählbar. Papier, PDF und Druck behalten ihre hellen Farben.
@@ -296,3 +305,9 @@ Die eingebetteten Schriften behalten ihre eigenen Lizenzen: die angepasste [Cave
 Im separaten Ordner [linux-mint-theme](linux-mint-theme/README.md) liegt **Schmierpapier-Dark** für Linux Mint Cinnamon mit derselben dunklen Farbpalette. Die Anleitung erklärt Installation und Auswahl; das Installationsskript verändert das aktive Theme nicht.
 
 Für GNOME Terminal liegt außerdem ein Skript zum dauerhaften Übernehmen der Palette mit Sicherung und Wiederherstellung bei.
+
+## Homepage pflegen
+
+Die Homepage verwendet `homepage/index.html`, `css/site.css`, `js/site.js`, sechs Sprachdateien unter `js/i18n/` sowie `img/` und `files/`. Die CSP erlaubt nur eigene Dateien. Nach CSS-/JS-Änderungen aktualisiert `python3 homepage/tools/refresh-assets.py` die Cache-Schlüssel; die Homepage braucht keinen Build. Weitere Hinweise stehen in `homepage/README.md`.
+
+`python3 -m unittest discover -s homepage/tests -v` prüft den Download isoliert mit einem lokalen PHP-Server. Erkennbare Bots, automatische Vorabrufe und HEAD-Anfragen zählen nicht. Die Erkennung verwendet Anfrage-Header und kann getarnte Bots nicht sicher erkennen; der bestehende Zähler wird bei Veröffentlichungen nicht überschrieben.

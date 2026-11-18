@@ -2,7 +2,17 @@
 
 **Deutsch** · [English](CHANGELOG.en.md) · [Français](CHANGELOG.fr.md)
 
+## v0.7.0
+
+- Beim Einfügen eines Bruchs stehen Zähler und Nenner rechtsbündig untereinander.
+- Tastenbelegungen frei ändern, Return und Nummernblock-Enter für Gleichzeichen kombinieren und Konflikte vor dem Speichern erkennen.
+- Belegungen werden in .schmier-Dateien und mit Zustimmung im Browser gespeichert.
+
 ## v0.6.5
+
+- Vorschau und Piktogramme der Homepage liegen als separate SVG-Dateien vor; auch die handschriftliche Beispielrechnung ist vektorisiert.
+
+- Homepage in HTML, CSS, JavaScript, Sprach- und Bilddateien aufgeteilt; erkennbare Bots und Vorabrufe erhöhen den Downloadzähler nicht.
 
 - Doppelhohe Schrift gilt für alle Symbole, einschließlich Logik, Mengenlehre, Währungs- und Satzzeichen sowie ↯. Angeheftetes Komma und Punkt bleiben klein.
 

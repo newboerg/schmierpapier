@@ -2,7 +2,17 @@
 
 [Deutsch](CHANGELOG.md) · **English** · [Français](CHANGELOG.fr.md)
 
+## v0.7.0
+
+- When inserting a fraction, the numerator and denominator are aligned on the right.
+- Reassign keyboard shortcuts, combine Return and keypad Enter for equals signs, and catch conflicts before saving.
+- Shortcuts are stored in .schmier files and in the browser with consent.
+
 ## v0.6.5
+
+- Homepage preview and pictograms are separate SVG files; the handwritten example calculation is vectorised too.
+
+- Homepage split into HTML, CSS, JavaScript, language and image files; recognised bots and prefetch requests do not increase the download counter.
 
 - Double-height writing applies to all symbols, including logic, sets, currencies, punctuation and ↯. Attached commas and dots remain small.
 

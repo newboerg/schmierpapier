@@ -16,11 +16,20 @@ Schmierpapier offre un espace pour calculer, essayer et dessiner directement dan
 
 L’application vise à favoriser le travail autonome en cours de mathématiques : le clavier et la souris permettent d’écrire les calculs dans des cases, de disposer clairement les fractions et de réaliser des constructions géométriques avec des outils numériques. De nombreuses fonctions sont accessibles par des boutons, sans devoir utiliser une combinaison de touches pour chaque action.
 
-Version **0.6.5**
+Version **0.7.0**
 
 Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l’en-tête de l’application l’ouvre dans un nouvel onglet.
 
+## Nouveautés de v0.7.0
+
+- Réattribuer les raccourcis, combiner Retour et Entrée du pavé numérique pour le signe égal et repérer les conflits avant d’enregistrer.
+- Ouvre Réglages → Réattribuer les touches. Les raccourcis personnels sont enregistrés dans les fichiers .schmier et dans le navigateur avec accord.
+
 ## Nouveautés de v0.6.5
+
+- L’aperçu et les pictogrammes du site sont des fichiers SVG séparés ; le calcul manuscrit d’exemple est aussi vectorisé.
+
+- Site séparé en fichiers HTML, CSS, JavaScript, langues et images ; les robots reconnus et préchargements n’augmentent pas le compteur de téléchargements.
 
 - L’écriture double hauteur s’applique à tous les symboles : logique, ensembles, monnaies, ponctuation et ↯. Les virgules et points attachés restent petits.
 
@@ -41,7 +50,7 @@ Site du projet : [schmierpapier.org](https://schmierpapier.org). Le logo dans l�
 
 ## Nouveautés de v0.6
 
-- Bouton fraction et V maintenu : saisir numérateur et dénominateur en caractères ordinaires avec une barre adaptée. Centrage sur la grille, une seule annulation et aucun calcul automatique.
+- Bouton fraction et V maintenu : saisir numérateur et dénominateur en caractères ordinaires avec une barre adaptée. Alignement à droite sur la grille, une seule annulation et aucun calcul automatique.
 - La gomme supprime entièrement les images touchées. Cela vaut aussi pour la zone choisie en maintenant R ; un chevauchement partiel suffit. Annuler restaure les images effacées.
 - Le zoom et le déplacement conservent la résolution originale. Seule la validation supprime les parties invisibles et redimensionne le cadrage final à la résolution DPI choisie.
 - Le thème sombre peut suivre le système/navigateur ; choisir Clair, Sombre ou Système dans les réglages. Papier, PDF et impression gardent des couleurs claires.
@@ -296,3 +305,9 @@ Les polices intégrées conservent leurs propres licences : la version modifiée
 Le dossier séparé [linux-mint-theme](linux-mint-theme/README.md) contient **Schmierpapier-Dark** pour Linux Mint Cinnamon avec la même palette sombre. Le guide en allemand explique l’installation et le choix du thème ; le script ne change pas le thème actif.
 
 Un script pour GNOME Terminal applique aussi la palette de façon persistante, avec sauvegarde et restauration.
+
+## Maintenir le site
+
+Le site utilise `homepage/index.html`, `css/site.css`, `js/site.js`, six fichiers de langue dans `js/i18n/`, ainsi que `img/` et `files/`. Sa CSP autorise seulement les ressources de sa propre origine. Après modification du CSS/JS, `python3 homepage/tools/refresh-assets.py` actualise les clés de cache ; le site ne nécessite aucun assemblage. Voir `homepage/README.md` pour les détails de maintenance.
+
+`python3 -m unittest discover -s homepage/tests -v` teste les téléchargements de façon isolée avec un serveur PHP local. Les robots reconnus, préchargements et requêtes HEAD ne sont pas comptés. La détection utilise les en-têtes et ne peut pas reconnaître sûrement les robots déguisés ; la publication n’écrase jamais le compteur existant.

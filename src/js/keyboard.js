@@ -13,6 +13,11 @@ let arrowPending = null, chordLatched = false;
 
 // @part part-03
 document.addEventListener('keydown', e => {
+  if (originalShortcutEvents.get(e)?.definition?.id === 'print') {
+    e.preventDefault();
+    if (!e.repeat) $('print').click();
+    return;
+  }
   if ((e.ctrlKey || e.metaKey) && !e.altKey && e.key.toLowerCase() === 'y') {
     e.preventDefault();
     restore(future, history);
@@ -137,7 +142,7 @@ function finishPenNumberHold(code, insertDigit = false) {
   penNumberHolds.delete(code);
   if (insertDigit && !held.selected && document.activeElement === held.target && page === held.page) {
     if (tutorial) tourFeedback('Halte die angegebene Zahl etwas länger gedrückt, bis der Stift gewählt ist, oder klicke auf den markierten Stift.');
-    else write(held.digit);
+    else writeShortcutTap(held.digit, held.shortcut);
   }
 }
 
@@ -194,7 +199,7 @@ function initialiseMathTools() {
         !event.ctrlKey && !event.shiftKey && !event.altKey && !event.metaKey) {
       event.preventDefault(); event.stopImmediatePropagation();
       if (!penNumberHolds.has(event.code)) {
-        const held = { digit: penDigit[1], target: event.target, page, selected: false };
+        const held = { digit: penDigit[1], target: event.target, page, selected: false, shortcut: originalShortcutEvents.get(event) };
         held.timer = setTimeout(() => {
           if (document.activeElement !== held.target || page !== held.page || (tutorial && tutorialPenDigit() !== held.digit)) return;
           held.selected = true;
@@ -229,7 +234,7 @@ function initialiseMathTools() {
     if (editor && (!tutorial || tutorial.steps[tutorial.index]?.symbol === 'π') && event.isTrusted && event.code === 'KeyP' && !event.ctrlKey && !event.altKey && !event.metaKey) {
       event.preventDefault(); event.stopImmediatePropagation();
       if (!greekHold) {
-        const held = { key: event.key, target: event.target, shiftKey: event.shiftKey, opened: false };
+        const held = { key: event.key, target: event.target, shiftKey: event.shiftKey, opened: false, shortcut: originalShortcutEvents.get(event) };
         held.timer = setTimeout(() => { held.opened = true; openGreekMenu(held); }, settings.holdDelay);
         greekHold = held;
         showButtonHoldProgress(held, $('greek'), () => greekHold === held);
@@ -240,7 +245,7 @@ function initialiseMathTools() {
     if (editor && (!tutorial || tutorial.steps[tutorial.index]?.symbol === '≠') && event.isTrusted && event.key === 'Enter' && !event.altKey && !event.metaKey) {
       event.preventDefault(); event.stopImmediatePropagation();
       if (!enterHold) {
-        const held = { code: event.code, ctrlKey: event.ctrlKey, shiftKey: event.shiftKey, target: event.target, opened: false };
+        const held = { code: event.code, rawCode: inputKeyCode(event), ctrlKey: event.ctrlKey, shiftKey: event.shiftKey, target: event.target, opened: false };
         held.timer = setTimeout(() => { held.opened = true; openRelationMenu(held); }, settings.holdDelay);
         enterHold = held;
         showButtonHoldProgress(held, $('relationEqual'), () => enterHold === held);
@@ -306,10 +311,10 @@ function initialiseMathTools() {
       event.preventDefault(); event.stopImmediatePropagation();
       if (!held.opened && document.activeElement === held.target) {
         if (tutorial) tourFeedback('Halte P etwas länger gedrückt, bis das griechische Zeichenmenü erscheint.');
-        else write(held.key);
+        else writeShortcutTap(held.key, held.shortcut);
       }
     }
-    if (event.key === 'Enter' && enterHold) {
+    if (event.key === 'Enter' && enterHold?.rawCode === inputKeyCode(event)) {
       const held = enterHold; enterHold = null; clearTimeout(held.timer);
       event.preventDefault(); event.stopImmediatePropagation();
       if (!held.opened && document.activeElement === held.target) held.target.dispatchEvent(new KeyboardEvent('keydown', {
@@ -398,14 +403,14 @@ function finishActionHold(code, short = false) {
   if (!short || held.fired || document.activeElement !== held.target) return;
   if (/^(?:Digit|Numpad)[5-9]$/.test(code)) {
     if (tutorial) tourFeedback('Halte die angegebene Taste länger gedrückt, bis die Aktion startet.');
-    else write(code.slice(-1));
+    else writeShortcutTap(code.slice(-1), held.shortcut);
     return;
   }
   if (tutorial || keyboardArea) {
     tourFeedback('Halte die angegebene Taste länger gedrückt, bis die Aktion startet.'); return;
   }
   if (['+', '-'].includes(held.key)) write(held.key);
-  else if (['KeyV', 'KeyF', 'KeyA', 'KeyL', 'KeyM', 'KeyB', 'KeyO', 'KeyS', 'KeyG', 'KeyK', 'KeyI', 'KeyU', 'KeyZ', 'KeyQ', 'KeyW', 'KeyN', 'KeyR', 'KeyX', 'KeyC', 'KeyE', 'KeyD'].includes(code)) write(held.key);
+  else if (['KeyV', 'KeyF', 'KeyA', 'KeyL', 'KeyM', 'KeyB', 'KeyO', 'KeyS', 'KeyG', 'KeyK', 'KeyI', 'KeyU', 'KeyZ', 'KeyQ', 'KeyW', 'KeyN', 'KeyR', 'KeyX', 'KeyC', 'KeyE', 'KeyD'].includes(code)) writeShortcutTap(held.key, held.shortcut);
   else if (code === 'Delete') held.target.dispatchEvent(new KeyboardEvent('keydown', {key: 'Delete', code, bubbles: true, cancelable: true}));
   else if (['PageUp', 'PageDown'].includes(code)) window.scrollBy(0, (code === 'PageUp' ? -1 : 1) * innerHeight * .85);
 }
@@ -603,7 +608,7 @@ function initialiseExtendedControls() {
     if (!editor || !(plain || actionHoldCode(event) === 'KeyW' && !event.ctrlKey && !event.altKey && !event.metaKey || zoomKey && !event.ctrlKey && !event.altKey && !event.metaKey) || !event.isTrusted || !supported || !tutorialHoldAllowed(actionHoldCode(event)) || extraMenu || greekMenuOpen || relationMenuOpen) return;
     event.preventDefault(); event.stopImmediatePropagation();
     if (!actionHolds.has(actionHoldCode(event))) {
-      const held = { key: event.key, target: event.target, ctrlKey: event.ctrlKey, shiftKey: event.shiftKey, fired: false };
+      const held = { key: event.key, target: event.target, ctrlKey: event.ctrlKey, shiftKey: event.shiftKey, fired: false, shortcut: originalShortcutEvents.get(event) };
       held.timer = setTimeout(() => {
         if (document.activeElement !== held.target || !tutorialHoldAllowed(actionHoldCode(event))) return;
         held.fired = true; runHeldAction(actionHoldCode(event));

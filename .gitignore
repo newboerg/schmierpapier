@@ -5,3 +5,6 @@ verlauf.txt
 # Python build/test cache
 __pycache__/
 *.py[cod]
+
+# Lokale VS-Code-Workspaces
+*.code-workspace

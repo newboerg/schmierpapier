@@ -17,35 +17,25 @@ function updateShortcutHints() {
   const layer = $('shortcutHintsLayer');
   if (!layer) return;
   layer.replaceChildren();
-  const bindings = [
-    ['#settingsOpen', 'F…'], ['#shortcutHintsToggle', 'T…'], ['#helpOpen', 'F1'],
-    ['#newFile', 'Strg+N'], ['#insertImage', 'B…'], ['#open', 'O…'], ['#fullscreen', 'F11'], ['#strikeToggle', 'S…'],
-    ['#prev', 'Bild↑…'], ['#next', 'Bild↓…'], ['#pageView', 'D…'],
-    ['#add', 'Einfg…'], ['#remove', 'Entf…'], ['#zoomIn', '+…'], ['#zoomOut', '−…'],
-    ['#undo', 'Strg+Z'], ['#redo', 'Strg+Y'], ['#save', 'Strg+S'], ['#pdf', 'E…'], ['#print', 'Strg+P'],
-    ['#lineStyleToggle', 'J…'], ['#constructionPoint', 'H…'], ['#fractionInsert', 'V…'], ['#taskLabel', 'A…'], ['#cutRegion', 'X…'], ['#copyRegion', 'C…'], ['#largeMode', 'U…'], ['#carryMode', 'Strg…'], ['#powerMode', 'Shift…'],
-    ['.swatch[data-tool="eraser"]', 'R…'], ['#compassToggle', 'K…'], ['#geoToggle', 'G…'],
-    ['#numberLineToggle', 'N…'], ['#integral', 'I…'],
-    ['#greek', 'P…'], ['#parenOpen', '8…'],
-    ['#parenClose', '9…'], ['#root', 'Q…'],
-    ['#relationEqual', '↵…'], ['#logic', 'L…'], ['#sets', 'M…'], ['#percent', 'Z…']
-  ];
-  document.querySelectorAll('.swatch[data-tool="pen"]').forEach((button, i) => {
-    bindings.push(['.swatch[data-tool="pen"][data-color="' + button.dataset.color + '"]', (i + 1) + '…']);
-  });
-  document.querySelectorAll('.swatch[data-tool="marker"]').forEach((button, i) => {
-    bindings.push(['.swatch[data-tool="marker"][data-color="' + button.dataset.color + '"]', (i + 5) + '…']);
-  });
-  for (const [selector, key] of bindings) {
-    if (!shortcutHintsVisible && selector !== '#shortcutHintsToggle') continue;
-    const target = document.querySelector(selector);
+  const bindings = shortcutDefinitions.filter(definition => definition.target && definition.id !== 'load')
+    .map(definition => {
+      const matches = document.querySelectorAll(definition.target);
+      const digit = Number(definition.id.slice(5));
+      const target = matches[matches.length > 1 ? digit - (digit <= 4 ? 1 : 5) : 0];
+      const key = definition.id === 'equal' && !tutorial && settings.combineEnter
+        ? shortcutDisplay(shortcutById.get('newline')) + ' / ' + shortcutDisplay(definition)
+        : shortcutDisplay(definition);
+      return [target, key];
+    });
+  for (const [target, key] of bindings) {
+    if (!shortcutHintsVisible && target?.id !== 'shortcutHintsToggle') continue;
     if (!target || !target.getClientRects().length) continue;
     const group = target.closest('.relation-buttons,.add-sheet-split');
     const rect = (group || target).getBoundingClientRect();
     if (rect.bottom < 0 || rect.top > innerHeight || rect.right < 0 || rect.left > innerWidth) continue;
     const badge = document.createElement('span');
     badge.className = 'shortcut-key-hint';
-    badge.dataset.for = target.id || selector;
+    badge.dataset.for = target.id || target.dataset.color || target.dataset.tool;
     badge.textContent = tr(key);
     badge.style.left = Math.max(15, Math.min(innerWidth - 15, rect.left + rect.width / 2)) + 'px';
     badge.style.top = Math.max(1, rect.top - 9) + 'px';
@@ -69,7 +59,7 @@ function finishShortcutHintHold(short = false) {
   if (!held) return;
   clearTimeout(held.timer); shortcutHintHold = null;
   if (short && !held.fired && document.activeElement === held.target && held.target === $('editor') &&
-      !tutorial && !compass.active && !geo.keyboard && !keyboardArea) write(held.key);
+      !tutorial && !compass.active && !geo.keyboard && !keyboardArea) writeShortcutTap(held.key, held.shortcut);
 }
 
 // This capture listener precedes the geometry modes so T also works while drawing.
@@ -80,7 +70,7 @@ window.addEventListener('keydown', event => {
       !tutorial && (event.target === document.body || event.target.closest?.('header button,.paper')))) return;
   event.preventDefault(); event.stopImmediatePropagation();
   if (!shortcutHintHold) {
-    const held = { code: event.code, key: event.key, target: event.target, fired: false };
+    const held = { code: event.code, key: event.key, target: event.target, fired: false, shortcut: originalShortcutEvents.get(event) };
     held.timer = setTimeout(() => {
       if (document.activeElement !== held.target) return;
       held.fired = true; toggleShortcutHints();

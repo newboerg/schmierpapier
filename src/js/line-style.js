@@ -49,7 +49,7 @@ function finishDrawingShortcut(short = false) {
     return;
   }
   if (short && !held.fired && held.target === $('editor') && document.activeElement === held.target &&
-      !constructionPointTool && !compass.active && !geo.keyboard) write(held.key);
+      !constructionPointTool && !compass.active && !geo.keyboard) writeShortcutTap(held.key, held.shortcut);
 }
 window.addEventListener('keydown', event => {
   if (drawingShortcutHold && event.code !== drawingShortcutHold.code) finishDrawingShortcut(true);
@@ -61,11 +61,11 @@ window.addEventListener('keydown', event => {
       !(geo.visible || compass.active || constructionPointTool))) return;
   event.preventDefault(); event.stopImmediatePropagation();
   if (!drawingShortcutHold && !event.repeat) {
-    const held = {code:event.code,key:event.key,target:event.target,fired:false};
+    const held = {code:event.code,rawCode:inputKeyCode(event),key:event.key,target:event.target,fired:false,shortcut:originalShortcutEvents.get(event)};
     held.timer = setTimeout(() => {
       if (document.activeElement !== held.target) return;
       held.fired = true;
-      if (['g','k'].includes(key)) swallowedInputKeys.add(held.code);
+      if (['g','k'].includes(key)) swallowedInputKeys.add(held.rawCode);
       if (key === 'g') holdSetSquare(held.code);
       else if (key === 'k') holdCompass(held.code);
       else if (key === 'j') toggleLineStyle();

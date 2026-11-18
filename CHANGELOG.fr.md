@@ -2,7 +2,17 @@
 
 [Deutsch](CHANGELOG.md) · [English](CHANGELOG.en.md) · **Français**
 
+## v0.7.0
+
+- Lors de l’insertion d’une fraction, le numérateur et le dénominateur sont alignés à droite.
+- Réattribuer les raccourcis, combiner Retour et Entrée du pavé numérique pour le signe égal et repérer les conflits avant d’enregistrer.
+- Les raccourcis sont enregistrés dans les fichiers .schmier et dans le navigateur avec accord.
+
 ## v0.6.5
+
+- L’aperçu et les pictogrammes du site sont des fichiers SVG séparés ; le calcul manuscrit d’exemple est aussi vectorisé.
+
+- Site séparé en fichiers HTML, CSS, JavaScript, langues et images ; les robots reconnus et préchargements n’augmentent pas le compteur de téléchargements.
 
 - L’écriture double hauteur s’applique à tous les symboles : logique, ensembles, monnaies, ponctuation et ↯. Les virgules et points attachés restent petits.
 

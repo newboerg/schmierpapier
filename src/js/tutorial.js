@@ -379,7 +379,7 @@ function showTutorialStep() {
   tutorial.exported = false;
   $('tutorialProgress').textContent = `Übung ${tutorial.index+1} von ${tutorial.steps.length}`;
   $('tutorialTitle').textContent = step.title;
-  $('tutorialText').textContent = tr(step.text) + (['line','regionSelect','regionPlace'].includes(step.kind) || ['#parenOpen','#parenClose'].includes(step.target) ? '\n\n' + tr('Alternativ bestätigt Enter den aktuellen Schritt. Die Aktivierungstaste nach dem Loslassen einmal drücken bestätigt ebenfalls, sofern sie nicht zur Texteingabe dient.') : '');
+  $('tutorialText').textContent = tr(step.text) + (tutorial.index === 0 ? '\n\n' + tr('Das Tutorial verwendet die Standardbelegung. Deine eigenen Tasten gelten danach wieder.') : '') + (['line','regionSelect','regionPlace'].includes(step.kind) || ['#parenOpen','#parenClose'].includes(step.target) ? '\n\n' + tr('Alternativ bestätigt Enter den aktuellen Schritt. Die Aktivierungstaste nach dem Loslassen einmal drücken bestätigt ebenfalls, sofern sie nicht zur Texteingabe dient.') : '');
   $('tutorialError').textContent = '';
   $('tutorialFill').style.width = (tutorial.index / tutorial.steps.length * 100) + '%';
   const target = tourElement(step);

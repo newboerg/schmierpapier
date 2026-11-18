@@ -246,7 +246,7 @@ function validateDocument(data) {
     decimalMarks,
     taskLabels,
     savedWith: typeof data.savedWith === 'string' && /^\d+\.\d+(?:\.\d+)?$/.test(data.savedWith) ? data.savedWith : null,
-    settings: normaliseSettings(data.settings ?? settings),
+    settings: normaliseSettings(data.settings ?? { ...settings, shortcuts: {}, combineEnter: false }),
     carries: smallDigits('carries'),
     powers: smallDigits('powers'),
     fractionEquals: colors('fractionEquals', INKS).map(values => {

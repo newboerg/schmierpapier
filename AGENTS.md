@@ -14,8 +14,10 @@
 - Preserve `src/build.json` section order and the shared classic-script scope. New JS files/parts must be listed there. Keep locale keys/help coverage aligned in `src/i18n/de.js`, `en.js`, and `fr.js`. Read `src/README.md` for the source map and assembly rules. Font/logo assets under `src/assets/` must remain embedded in the generated output.
 - The user authorised publishing v0.6.5. Homepage updates follow the deployment workflow above; build/watch/check remain local-only.
 
-- The homepage uses a SHA-256 hash in its Content-Security-Policy for the inline `site-i18n` script. Whenever its script content or translations change, recompute the hash from the exact UTF-8 text between the script tags before browser testing and deployment; keep the CSP in place.
+- Homepage assets are separate: `homepage/css/site.css`, `homepage/js/site.js`, six `homepage/js/i18n/*.js` files, `homepage/img/` and `homepage/files/`. Keep the same-origin-only CSP; no inline script hash is needed. After CSS/JS edits run `python3 homepage/tools/refresh-assets.py` before browser testing and upload assets before replacing index.html. Never overwrite the private server download counter; bot filtering is a header-based statistics heuristic, not access control. See `homepage/README.md`.
 
 - Keep offline release summaries in `src/js/release-notes.js` and their DE/EN/FR UI translations aligned with new changelog entries. `savedWith` stores the app release, while `version: 1` remains the document schema.
 
 - The user authorised publishing the keyboard startup notice, expanded symbol menus and double-height symbol fix as part of v0.6.5.
+
+- Homepage illustrations and pictograms must be external SVG assets, including all six preview variants and badges. Do not reintroduce inline SVG/canvas illustrations or embedded raster pictures; keep `previewSrc` and localized SVG captions aligned.

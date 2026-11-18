@@ -16,11 +16,20 @@ Schmierpapier provides a place to calculate, experiment and draw directly in the
 
 The application supports independent work in maths lessons: use the keyboard and mouse to write calculations in cells, arrange fractions clearly and draw geometric constructions with digital tools. Many features are available through buttons, so a keyboard shortcut is not required for every action.
 
-Version **0.6.5**
+Version **0.7.0**
 
 Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the app header opens it in a new tab.
 
+## New in v0.7.0
+
+- Reassign keyboard shortcuts, combine Return and keypad Enter for equals signs, and catch conflicts before saving.
+- Find it under Settings → Reassign keys. Custom shortcuts are saved in .schmier files and in the browser with consent.
+
 ## New in v0.6.5
+
+- Homepage preview and pictograms are separate SVG files; the handwritten example calculation is vectorised too.
+
+- Homepage split into HTML, CSS, JavaScript, language and image files; recognised bots and prefetch requests do not increase the download counter.
 
 - Double-height writing applies to all symbols, including logic, sets, currencies, punctuation and ↯. Attached commas and dots remain small.
 
@@ -41,7 +50,7 @@ Project website: [schmierpapier.org](https://schmierpapier.org). The logo in the
 
 ## New in v0.6
 
-- Fraction button and hold V: enter numerator and denominator as ordinary cell characters with a matching fraction bar. Grid-based centring, one undo step and no automatic calculation.
+- Fraction button and hold V: enter numerator and denominator as ordinary cell characters with a matching fraction bar. Right alignment on the grid, one undo step and no automatic calculation.
 - The eraser removes touched images as a whole. This also applies to the erase area selected by holding R; partial overlap is enough. Undo restores erased images.
 - Zooming and panning preserve the original resolution. Only Apply removes invisible parts and resamples the finished crop to the chosen DPI resolution.
 - Dark mode can follow the system/browser; choose Light, Dark or System in settings. Paper, PDF and print keep light colours.
@@ -296,3 +305,9 @@ The embedded fonts retain their own licences: the modified [Caveat](https://gith
 The separate [linux-mint-theme](linux-mint-theme/README.md) folder contains **Schmierpapier-Dark** for Linux Mint Cinnamon using the same dark palette. The German guide explains installation and selection; the installer does not change the active theme.
 
 A GNOME Terminal script also applies the palette persistently, with backup and restore.
+
+## Maintaining the homepage
+
+The homepage uses `homepage/index.html`, `css/site.css`, `js/site.js`, six language files under `js/i18n/`, plus `img/` and `files/`. Its CSP allows same-origin assets only. After CSS/JS edits, `python3 homepage/tools/refresh-assets.py` updates cache keys; the homepage needs no build. See `homepage/README.md` for further maintenance notes.
+
+`python3 -m unittest discover -s homepage/tests -v` tests downloads in isolation using a local PHP server. Recognised bots, prefetch requests and HEAD requests do not count. Detection uses request headers and cannot reliably identify disguised bots; publishing never overwrites the existing counter.

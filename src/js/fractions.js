@@ -47,7 +47,7 @@ async function insertFraction() {
     delete doc.fractionEquals[page][index]; delete doc.fractionEquals[page][index - COLS];
   }
   for (const [dy, cells] of [[0, top], [1, bottom]]) {
-    const offset = Math.floor((width - cells.length) / 2);
+    const offset = width - cells.length;
     cells.forEach((cell, i) => {
       const index = start + dy * COLS + offset + i;
       if (cell.text !== ' ') { doc.pages[page][index] = cell.text; doc.inks[page][index] = ink; }
